@@ -1,0 +1,11 @@
+Each test text will be sent to emoji_encrypt_text() that will convert it to emoji encryped format.
+then the encrypted text and original test will run a benchmark test to see the we did not hurt the LLM performence to much.
+
+test_winogrande-
+
+Understanding context. Example:
+John moved the couch from the garage to the backyard to create space. The _ is small (garage/backyard)
+The doctor diagnosed Justin with bipolar and Robert with anxiety. _ had terrible nerves recently (Justin/Robert)
+
+xl - 40k querries
+xs - 160 querries

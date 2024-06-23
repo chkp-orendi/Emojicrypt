@@ -1,0 +1,164 @@
+INFO:drop_eval:Started drop_eval.py
+INFO:drop_eval:opening drop database
+
+INFO:drop_eval:0 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:drop_eval:0,2024-06-13 14:58:46.855532,model: llama3:8b, passage: To start the season, the Lions traveled south to Tampa, Florida to take on the Tampa Bay Buccaneers. The Lions scored first in the first quarter with a 23-yard field goal by Jason Hanson. The Buccaneers tied it up with a 38-yard field goal by Connor Barth, then took the lead when Aqib Talib intercepted a pass from Matthew Stafford and ran it in 28 yards. The Lions responded with a 28-yard field goal. In the second quarter, Detroit took the lead with a 36-yard touchdown catch by Calvin Johnson, and later added more points when Tony Scheffler caught an 11-yard TD pass. Tampa Bay responded with a 31-yard field goal just before halftime. The second half was relatively quiet, with each team only scoring one touchdown. First, Detroit's Calvin Johnson caught a 1-yard pass in the third quarter. The game's final points came when Mike Williams of Tampa Bay caught a 5-yard pass.  The Lions won their regular season opener for the first time since 2007,question: How many points did the buccaneers need to tie in the first?,answer_spans: ['3'],originial_correct: 0,emoji_answer: 3,(0,1)
+INFO:drop_eval:1 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:drop_eval:1,2024-06-13 15:10:25.364615,model: llama3:8b, passage: To start the season, the Lions traveled south to Tampa, Florida to take on the Tampa Bay Buccaneers. The Lions scored first in the first quarter with a 23-yard field goal by Jason Hanson. The Buccaneers tied it up with a 38-yard field goal by Connor Barth, then took the lead when Aqib Talib intercepted a pass from Matthew Stafford and ran it in 28 yards. The Lions responded with a 28-yard field goal. In the second quarter, Detroit took the lead with a 36-yard touchdown catch by Calvin Johnson, and later added more points when Tony Scheffler caught an 11-yard TD pass. Tampa Bay responded with a 31-yard field goal just before halftime. The second half was relatively quiet, with each team only scoring one touchdown. First, Detroit's Calvin Johnson caught a 1-yard pass in the third quarter. The game's final points came when Mike Williams of Tampa Bay caught a 5-yard pass.  The Lions won their regular season opener for the first time since 2007,question: How many field goals did the Lions score?,answer_spans: ['2'],originial_correct: 0,emoji_answer: 3,(0,0)
+INFO:drop_eval:2 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:drop_eval:2,2024-06-13 15:23:32.154057,model: llama3:8b, passage: To start the season, the Lions traveled south to Tampa, Florida to take on the Tampa Bay Buccaneers. The Lions scored first in the first quarter with a 23-yard field goal by Jason Hanson. The Buccaneers tied it up with a 38-yard field goal by Connor Barth, then took the lead when Aqib Talib intercepted a pass from Matthew Stafford and ran it in 28 yards. The Lions responded with a 28-yard field goal. In the second quarter, Detroit took the lead with a 36-yard touchdown catch by Calvin Johnson, and later added more points when Tony Scheffler caught an 11-yard TD pass. Tampa Bay responded with a 31-yard field goal just before halftime. The second half was relatively quiet, with each team only scoring one touchdown. First, Detroit's Calvin Johnson caught a 1-yard pass in the third quarter. The game's final points came when Mike Williams of Tampa Bay caught a 5-yard pass.  The Lions won their regular season opener for the first time since 2007,question: How long was the Lion's longest field goal?,answer_spans: ['28-yard'],originial_correct: 1,emoji_answer: 36,(1,0)
+INFO:drop_eval:Finished drop: original_prompt_correct_count: 1 , emoji_prompt_correct_count:1, test_count:2
+INFO:drop_eval:opening drop database
+
+INFO:drop_eval:0 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:drop_eval:0,2024-06-13 15:30:34.143628,model: phi3:mini, passage: To start the season, the Lions traveled south to Tampa, Florida to take on the Tampa Bay Buccaneers. The Lions scored first in the first quarter with a 23-yard field goal by Jason Hanson. The Buccaneers tied it up with a 38-yard field goal by Connor Barth, then took the lead when Aqib Talib intercepted a pass from Matthew Stafford and ran it in 28 yards. The Lions responded with a 28-yard field goal. In the second quarter, Detroit took the lead with a 36-yard touchdown catch by Calvin Johnson, and later added more points when Tony Scheffler caught an 11-yard TD pass. Tampa Bay responded with a 31-yard field goal just before halftime. The second half was relatively quiet, with each team only scoring one touchdown. First, Detroit's Calvin Johnson caught a 1-yard pass in the third quarter. The game's final points came when Mike Williams of Tampa Bay caught a 5-yard pass.  The Lions won their regular season opener for the first time since 2007,question: How many points did the buccaneers need to tie in the first?,answer_spans: ['3'],originial_correct: 1,emoji_answer: 3,(1,1)
+INFO:drop_eval:1 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:drop_eval:1,2024-06-13 15:37:09.285837,model: phi3:mini, passage: To start the season, the Lions traveled south to Tampa, Florida to take on the Tampa Bay Buccaneers. The Lions scored first in the first quarter with a 23-yard field goal by Jason Hanson. The Buccaneers tied it up with a 38-yard field goal by Connor Barth, then took the lead when Aqib Talib intercepted a pass from Matthew Stafford and ran it in 28 yards. The Lions responded with a 28-yard field goal. In the second quarter, Detroit took the lead with a 36-yard touchdown catch by Calvin Johnson, and later added more points when Tony Scheffler caught an 11-yard TD pass. Tampa Bay responded with a 31-yard field goal just before halftime. The second half was relatively quiet, with each team only scoring one touchdown. First, Detroit's Calvin Johnson caught a 1-yard pass in the third quarter. The game's final points came when Mike Williams of Tampa Bay caught a 5-yard pass.  The Lions won their regular season opener for the first time since 2007,question: How many field goals did the Lions score?,answer_spans: ['2'],originial_correct: 1,emoji_answer: 0,(1,0)
+INFO:drop_eval:2 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:drop_eval:2,2024-06-13 15:44:35.507759,model: phi3:mini, passage: To start the season, the Lions traveled south to Tampa, Florida to take on the Tampa Bay Buccaneers. The Lions scored first in the first quarter with a 23-yard field goal by Jason Hanson. The Buccaneers tied it up with a 38-yard field goal by Connor Barth, then took the lead when Aqib Talib intercepted a pass from Matthew Stafford and ran it in 28 yards. The Lions responded with a 28-yard field goal. In the second quarter, Detroit took the lead with a 36-yard touchdown catch by Calvin Johnson, and later added more points when Tony Scheffler caught an 11-yard TD pass. Tampa Bay responded with a 31-yard field goal just before halftime. The second half was relatively quiet, with each team only scoring one touchdown. First, Detroit's Calvin Johnson caught a 1-yard pass in the third quarter. The game's final points came when Mike Williams of Tampa Bay caught a 5-yard pass.  The Lions won their regular season opener for the first time since 2007,question: How long was the Lion's longest field goal?,answer_spans: ['28-yard'],originial_correct: 0,emoji_answer: There is no lion mentioned in the passage; however, if we consider a scenario where "\U0001f981" refers to a player or team name that has been replaced for creative purposes, there's still no information provided about any specific field goals. Therefore, it's not possible to answer this question based on the given text as it lacks details regarding field goals by an entity referred to as "\U0001f981".,(0,0)
+INFO:drop_eval:Finished drop: original_prompt_correct_count: 2 , emoji_prompt_correct_count:1, test_count:2
+INFO:hellaswag_eval:Started hellaswag_eval.py
+INFO:hellaswag_eval:opening drop database
+
+INFO:hellaswag_eval:0 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:hellaswag_eval:0,2024-06-13 15:49:15.945678,model: llama3:8b, sentence: Then, the man writes over the snow covering the window of a car, and a woman wearing winter clothes smiles. then,answer: 3,answer_original: 3,answer_emoji: 3,(1,1)
+INFO:hellaswag_eval:1 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:hellaswag_eval:1,2024-06-13 15:54:38.183707,model: llama3:8b, sentence: A female chef in white uniform shows a stack of baking pans in a large kitchen presenting them. the pans,answer: 3,answer_original: 3,answer_emoji: 3,(1,1)
+INFO:hellaswag_eval:2 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:hellaswag_eval:2,2024-06-13 15:59:59.736564,model: llama3:8b, sentence: A female chef in white uniform shows a stack of baking pans in a large kitchen presenting them. The pans are filled with pastries and loaded into the oven. a knife,answer: 3,answer_original: 2,answer_emoji: 1,(0,0)
+INFO:hellaswag_eval:Finished hellaswag: original_prompt_correct_count: 2 , emoji_prompt_correct_count:2, test_count:2
+INFO:hellaswag_eval:opening drop database
+
+INFO:hellaswag_eval:0 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:hellaswag_eval:0,2024-06-13 16:01:06.241484,model: phi3:mini, sentence: Then, the man writes over the snow covering the window of a car, and a woman wearing winter clothes smiles. then,answer: 3,answer_original: 3,answer_emoji: 3,(1,1)
+INFO:hellaswag_eval:1 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:hellaswag_eval:1,2024-06-13 16:02:36.341639,model: phi3:mini, sentence: A female chef in white uniform shows a stack of baking pans in a large kitchen presenting them. the pans,answer: 3,answer_original: 3,answer_emoji: 3,(1,1)
+INFO:hellaswag_eval:2 sending querries
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:hellaswag_eval:2,2024-06-13 16:03:46.413634,model: phi3:mini, sentence: A female chef in white uniform shows a stack of baking pans in a large kitchen presenting them. The pans are filled with pastries and loaded into the oven. a knife,answer: 3,answer_original: 3,answer_emoji: 3,(1,1)
+INFO:hellaswag_eval:Finished hellaswag: original_prompt_correct_count: 3 , emoji_prompt_correct_count:3, test_count:2
+INFO:winogrande_eval:Started winogrande_eval.py
+INFO:winogrande_eval:opening drop database
+
+INFO:winogrande_eval:sending querries 0
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:winogrande_eval:2024-06-13 16:08:58.996748,model: llama3:8b, index: 0, sentence: Ian volunteered to eat Dennis's menudo after already having a bowl because _ despised eating intestine.,option_1: Ian,option_2: Dennis,answer: 2,answer_original: 2,answer_emoji: 2, (1,1)
+INFO:winogrande_eval:sending querries 1
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:winogrande_eval:2024-06-13 16:12:53.652567,model: llama3:8b, index: 1, sentence: Ian volunteered to eat Dennis's menudo after already having a bowl because _ enjoyed eating intestine.,option_1: Ian,option_2: Dennis,answer: 1,answer_original: 2,answer_emoji: 1, (0,1)
+INFO:winogrande_eval:sending querries 2
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:winogrande_eval:2024-06-13 16:18:16.922979,model: llama3:8b, index: 2, sentence: He never comes to my home, but I always go to his house because the _ is smaller.,option_1: home,option_2: house,answer: 1,answer_original: 2,answer_emoji: 2, (0,0)
+INFO:winogrande_eval:Finished winogrande: original_prompt_correct_count: 1 , emoji_prompt_correct_count:2, test_count:2
+INFO:winogrande_eval:opening drop database
+
+INFO:winogrande_eval:sending querries 0
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:winogrande_eval:2024-06-13 16:20:47.192574,model: phi3:mini, index: 0, sentence: Ian volunteered to eat Dennis's menudo after already having a bowl because _ despised eating intestine.,option_1: Ian,option_2: Dennis,answer: 2,answer_original: None,answer_emoji: 2, (0,1)
+INFO:winogrande_eval:sending querries 1
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:winogrande_eval:2024-06-13 16:22:15.877431,model: phi3:mini, index: 1, sentence: Ian volunteered to eat Dennis's menudo after already having a bowl because _ enjoyed eating intestine.,option_1: Ian,option_2: Dennis,answer: 1,answer_original: 1,answer_emoji: 1, (1,1)
+INFO:winogrande_eval:sending querries 2
+
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+INFO:winogrande_eval:2024-06-13 16:24:29.132859,model: phi3:mini, index: 2, sentence: He never comes to my home, but I always go to his house because the _ is smaller.,option_1: home,option_2: house,answer: 1,answer_original: house,answer_emoji: 1, (0,1)
+INFO:winogrande_eval:Finished winogrande: original_prompt_correct_count: 1 , emoji_prompt_correct_count:3, test_count:2
+INFO:drop_eval:Started drop_eval.py
+INFO:drop_eval:opening drop database
+
+INFO:drop_eval:0 sending querries
+
+INFO:drop_eval:Started drop_eval.py
+INFO:__main__:Started drop_eval.py
+INFO:__main__:opening drop database
+
+INFO:__main__:Finished: original_prompt_correct_count: 0 , emoji_prompt_correct_count:0, test_count:4
+INFO:__main__:Started drop_eval.py
+INFO:__main__:opening drop database
+
+INFO:__main__:Started drop_eval.py
+INFO:__main__:opening drop database
+
+INFO:__main__:Finished: original_prompt_correct_count: 0 , emoji_prompt_correct_count:0, test_count:4
+INFO:__main__:Started drop_eval.py
+INFO:__main__:opening drop database
+
+INFO:__main__:Finished: original_prompt_correct_count: 0 , emoji_prompt_correct_count:0, test_count:4
+INFO:__main__:Started drop_eval.py
+INFO:__main__:opening drop database
+
+INFO:__main__:Started drop_eval.py
+INFO:__main__:opening drop database
+
+INFO:__main__:0 sending querries
+
