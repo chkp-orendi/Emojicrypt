@@ -7,14 +7,21 @@ import datetime
 
 import os
 
-# class _OllamaCommon(BaseLanguageModel):
-#    base_url: str = os.getenv('OLLAMA_SERVER_URL', "http://172.23.81.3:11434")
+log_path = '~/Emoji/EmojiCrypt/log/hellaswag_eval.log'
+data_path = '~/Emoji/Emojicrypt/data/hellaswag-master/data/hellaswag_train.jsonl'
 
 logger = logging.getLogger(__name__)
 def init_logs():
+    # Expand the tilde to the full home directory path
+    log_file_path = os.path.expanduser(log_path)
+
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
+
     logger = logging.getLogger(__name__)
-    logging.basicConfig(filename='C:/Users/orendi/Documents/EmojiCrypt/log/hellaswag_eval.log', level=logging.INFO)
+    logging.basicConfig(filename=log_file_path, level=logging.INFO)
     logger.info('Started hellaswag_eval.py')
+
 
 def hellaswag_complete_text(text, endings, model = 'llama3:8b'):
     promt_guidance = f"""I will give you 4 options to choose an ending to the following text, pick the most likely one. Think step by step, then write a line of the form "Answer: $ANSWER_NUMBER" at the end of your response. the text:\n"""
@@ -23,7 +30,7 @@ def hellaswag_complete_text(text, endings, model = 'llama3:8b'):
 
 def test_hellaswag(number_of_tests_to_run, model = 'phi3:mini'):
     logger.info(f"opening drop database\n")
-    df = pd.read_json(r"C:\Users\orendi\Documents\EmojiCrypt\data\hellaswag-master\data\hellaswag_train.jsonl",lines=True ,engine='pyarrow')
+    df = pd.read_json(data_path ,lines=True ,engine='pyarrow')
     original_prompt_correct_count = 0
     emoji_prompt_correct_count = 0
     for index, row in df.iterrows():

@@ -6,9 +6,16 @@ import common
 
 
 logger = logging.getLogger(__name__)
+
 def init_logs():
+    # Expand the tilde to the full home directory path
+    log_file_path = os.path.expanduser('~/Emoji/EmojiCrypt/log/winogrande_eval.log')
+
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
+
     logger = logging.getLogger(__name__)
-    logging.basicConfig(filename='C:/Users/orendi/Documents/EmojiCrypt/log/winogrande_eval.log', level=logging.INFO)
+    logging.basicConfig(filename=log_file_path, level=logging.INFO)
     logger.info('Started winogrande_eval.py')
 
 
@@ -22,7 +29,7 @@ def test_winogrande(number_of_tests_to_run, model = 'phi3:mini'):
     original_prompt_correct_count = 0
     emoji_prompt_correct_count = 0
     logger.info(f"opening drop database\n")
-    df = pd.read_json(r"C:\Users\orendi\Documents\EmojiCrypt\data\winogrande_1.1\train_xs.jsonl", lines=True)
+    df = pd.read_json(r"~\Emoji\Emojicrypt\data\winogrande_1.1\train_xs.jsonl", lines=True)
     for index, row in df.iterrows():
         sentence = row['sentence']
         option_1 = row['option1']
