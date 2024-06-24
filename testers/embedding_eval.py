@@ -8,23 +8,17 @@ import common
 import os
 
 os.environ["REQUESTS_CA_BUNDLE"]= r'C:\Users\orendi\Documents\EmojiCrypt\ca-certificates.crt'
-
+log_path = '~/Emoji/Emojicrypt/log/embedding_eval.log'
+data_path = '~/Emoji/Emojicrypt/data/embedding/embedding_test.xlsx'
 
 API_KEY = "95787a606b6b4d41800ec9ff2b6ddcb8"
 ENDPOINT = "https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev/"
 embed_model = "text-embedding-3-large"
-client = AzureOpenAI(azure_endpoint=ENDPOINT, api_key=API_KEY, api_version="2023-07-01-preview")
-
-logger = logging.getLogger(__name__)
-def init_logs():
-    logger = logging.getLogger(__name__)
-    logging.basicConfig(filename='C:/Users/orendi/Documents/EmojiCrypt/log/embedding_eval.log', level=logging.INFO)
-    logger.info('Started')
-
+azure_client = AzureOpenAI(azure_endpoint=ENDPOINT, api_key=API_KEY, api_version="2023-07-01-preview")
 
 def get_embedding(text, model="text-embedding-3-small"):
    text = text.replace("\n", " ")
-   return client.embeddings.create(input = [text], model=model).data[0].embedding
+   return azure_client.embeddings.create(input = [text], model=model).data[0].embedding
 
 def cosine_similarity(vec1, vec2):
     return np.dot(vec1, vec2) / (norm(vec1) * norm(vec2))
@@ -40,9 +34,10 @@ def dict_encrytion_test(original_encryption, guessed_encryption):
     return True
 
 
-def main(models):
+def main(local_client, models):
     #find a dataset to test the embedding on
-    df = pd.read_excel(r"C:\Users\orendi\Documents\EmojiCrypt\data\embedding\embedding_test.xlsx")
+    logger = common.init_logs(log_path, 'e')
+    df = pd.read_excel(data_path)
     model_results = {}
     logger.info('Loaded dataset')
     for model in models:
@@ -51,7 +46,7 @@ def main(models):
         for index, row in df.iterrows():
             text_1= row["text_1"]
             logger.info(f"sending prompt to be encrypt {text_1}")
-            text_2= common.emoji_encrypt_text(text_1, model)
+            text_2= common.emoji_encrypt_text(text_1,local_client, model)
             similarity = cosine_similarity(np.array(get_embedding(text_1)), np.array(get_embedding(text_2)))
             logger.info(f"Time: {datetime.datetime.now()}, Model: {model}, index: {index}, text: {text_1}, text_encrypt: {text_2}, Similarity: {similarity}")
             sim_avrg += similarity
@@ -62,7 +57,7 @@ def main(models):
     #add log for finished with details
 
 if __name__ == '__main__':
-    init_logs()
+    logger = common.init_logs(log_path, 'e')
     #need to test similarities of:
     text1 = "The sun was setting, casting a golden hue over the horizon. Birds chirped softly as the day turned into night. It was a peaceful end to a beautiful day."
     text2 = "As the sun dipped below the horizon, the sky glowed with a warm, golden light. The gentle chirping of birds marked the transition from day to night. The day concluded serenely and beautifully."

@@ -2,16 +2,14 @@ import ollama
 import string
 import re
 import os
+import logging
 
-# class _OllamaCommon(BaseLanguageModel):
-#    base_url: str = os.getenv('OLLAMA_SERVER_URL', "http://172.23.81.3:11434")
-
-def emoji_encrypt_text(text, model='llama3:8b'):
+def emoji_encrypt_text(text, client ,model='llama3:8b'):
     # try a prompt claiming after : its user and not privlage
     encypt_pompt = "in the following text try to change sensetive data with symbols, emojis, special chareters. return ONLY the converted text and NOTHING more. text: "
-    answer = ollama.generate(model = model, prompt = encypt_pompt + text)
-    return answer["response"]
-
+    answer = client.generate(model = model, prompt = encypt_pompt + text)
+#    return answer["response"]
+    return text
 #normalize and check_match are used in drop_eval, might be useful for other testers
 
 def normalize(s: str) -> str:
@@ -46,4 +44,24 @@ def extract_answer(LLM_answer):
     return None
 
 
+def init_logs(log_path,test_case):
+    # Expand the tilde to the full home directory path
+    log_file_path = os.path.expanduser(log_path)
 
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
+
+    logger = logging.getLogger(test_case)
+    logging.basicConfig(filename=log_file_path, level=logging.INFO)
+    if test_case == 'w':
+        logger.info('Started winogrande_eval.py')
+    elif test_case == 'd':
+        logger.info('Started drop_eval.py')
+    elif test_case == 'h':
+        logger.info('Started hellaswag_eval.py')
+    elif test_case == 'e':
+        logger.info('Started embedding_eval.py')
+    elif test_case == 'm':
+        logger.info('Starting init')
+
+    return logger

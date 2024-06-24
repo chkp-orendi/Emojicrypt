@@ -4,15 +4,15 @@ import common
 import ollama
 import logging
 import datetime
+import os
 
-# This test is not eligible since the answers are open and contain names. So without the encryption part there is no possible way to test if the answer is correct. 
+# This test is not eligible since the answers are open and contain names. So without the encryption part there is no possible way to test if the answer is correct.
 
 
-logger = logging.getLogger(__name__)
-def init_logs():
-    logger = logging.getLogger(__name__)
-    logging.basicConfig(filename='C:/Users/orendi/Documents/EmojiCrypt/log/drop_eval.log', level=logging.INFO)
-    logger.info('Started drop_eval.py')
+
+log_path = '~/Emoji/Emojicrypt/log/drop_eval.log'
+data_path = '~/Emoji/Emojicrypt/data/drop/train-00000-of-00001.parquet'
+
 
 
 def get_prompt_format(passage,question):
@@ -27,52 +27,56 @@ def get_prompt_format(passage,question):
 
 
 
-def get_answer(prompt, model="phi3:mini"):
-    answer = ollama.generate(model =model, prompt = prompt)
+def get_answer(prompt, client, model="phi3:mini"):
+    answer = client.generate(model =model, prompt = prompt)
     return common.extract_answer(answer["response"])
 
 
 
-def eval_drop(numberof_tests_to_run, model = "phi3:mini"):
+def eval_drop(numberof_tests_to_run, client, model = "phi3:mini"):
+    logger = common.init_logs(log_path,'d')
     logger.info(f"opening drop database\n")
-    df = pd.read_parquet(r"C:\Users\orendi\Documents\EmojiCrypt\data\drop\data\train-00000-of-00001.parquet")
+    df = pd.read_parquet(data_path)
     original_prompt_correct_count = 0
     emoji_prompt_correct_count = 0
-    #answer_similarity = 0
+    answer_similarity = 0
     for index, row in df.iterrows():
-        print(row)
         passage = row["passage"]
         question = row["question"]
         answers_spans = row["answers_spans"]["spans"]
         prompt = get_prompt_format(passage,question)
         logger.info(f"{index} sending querries\n")
         # encrypting the passage and question and then send to passage and question format.
-        emoji_prompt = get_prompt_format(common.emoji_encrypt_text(passage, model ="phi3:mini"),common.emoji_encrypt_text(question, model ="phi3:mini"))
-        original_answer = get_answer(prompt, model)
-        emoji_answer = get_answer(emoji_prompt, model)
+        emoji_prompt = get_prompt_format(common.emoji_encrypt_text(passage, client,model),common.emoji_encrypt_text(question,client,model))
+        original_answer = get_answer(prompt, client, model)
+        emoji_answer = get_answer(emoji_prompt, client, model)
         originial_correct = 1 if common.check_match(str(original_answer),str(answers_spans)) else 0
         emoji_correct = 1 if common.check_match(str(emoji_answer),str(answers_spans)) else 0
-        answer_similarity += 1 if common.check_match(str(originial_correct),str(emoji_correct)) else 0
+        same_answer = 1 if common.check_match(str(originial_correct),str(emoji_correct)) else 0
+        answer_similarity += same_answer
         original_prompt_correct_count += originial_correct
         emoji_prompt_correct_count += emoji_correct
         logger.info(
-            f"{index},{datetime.datetime.now()},model: {model}, passage: {passage},question: {question},answer_spans: {answers_spans},originial_correct: {originial_correct},emoji_answer: {emoji_answer},({originial_correct},{emoji_correct})"  
+            f"{index},{datetime.datetime.now()},model: {model}, passage: {passage},question: {question},answer_spans: {answers_spans},original_answer: {original_answer},emoji_answer: {emoji_answer},same_answer: {same_answer}, ({originial_correct},{emoji_correct})"  
         )
         if index > numberof_tests_to_run:
             break
     return original_prompt_correct_count , emoji_prompt_correct_count, index
 
 if __name__ == '__main__':
-    init_logs()
-    original_prompt_correct_count , emoji_prompt_correct_count, test_count = eval_drop(3)
+    client = ollama.Client(host='http://172.23.81.3:11434')
+    client.pull('phi3:mini')
+    logger = common.init_logs(log_path, 'd')
+    original_prompt_correct_count , emoji_prompt_correct_count, test_count = eval_drop(3,client)
     logger.info(f"Finished: original_prompt_correct_count: {original_prompt_correct_count} , emoji_prompt_correct_count:{emoji_prompt_correct_count}, test_count:{test_count}")
 
-def main(number_of_test_to_run,models):
-    init_logs()
+def main(number_of_test_to_run, client, models):
+    logger = common.init_logs(log_path, 'd')
     model_results = {}
     for model in models:
-        original_prompt_correct_count , emoji_prompt_correct_count, test_count = eval_drop(number_of_test_to_run, model)
+        original_prompt_correct_count , emoji_prompt_correct_count, test_count = eval_drop(number_of_test_to_run,client ,model)
         model_results[model + "_original"] = original_prompt_correct_count/test_count
         model_results[model + "_emoji"] = emoji_prompt_correct_count/test_count
         logger.info(f"Finished drop: original_prompt_correct_count: {original_prompt_correct_count} , emoji_prompt_correct_count:{emoji_prompt_correct_count}, test_count:{test_count}")
     print(model_results)
+    return model_results
