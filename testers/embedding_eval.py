@@ -66,7 +66,7 @@ if __name__ == '__main__':
 
 
 
-    text_1 = "my 👦🏻 went to school on sunday"
+    text_1 = "my 👦 went to school on sunday"
     text_2 = "my boy went to school on sunday"
     #print(get_embedding(text_1))
     #print(len(get_embedding(text_1)))
