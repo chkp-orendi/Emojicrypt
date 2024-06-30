@@ -35,8 +35,9 @@ def dict_encrytion_test(original_encryption, guessed_encryption):
 
 
 def main(local_client, models):
+    logger = logging.getLogger("embedding")
     #find a dataset to test the embedding on
-    logger = common.init_logs(log_path, 'e')
+    logger.info(f"Starting embedding_eval.py\n")
     df = pd.read_excel(data_path)
     model_results = {}
     logger.info('Loaded dataset')
@@ -57,26 +58,26 @@ def main(local_client, models):
     #add log for finished with details
 
 if __name__ == '__main__':
-    logger = common.init_logs(log_path, 'e')
+    # logger = common.init_logs(log_path, 'e')
     #need to test similarities of:
-    text1 = "The sun was setting, casting a golden hue over the horizon. Birds chirped softly as the day turned into night. It was a peaceful end to a beautiful day."
-    text2 = "As the sun dipped below the horizon, the sky glowed with a warm, golden light. The gentle chirping of birds marked the transition from day to night. The day concluded serenely and beautifully."
+    # text1 = "The sun was setting, casting a golden hue over the horizon. Birds chirped softly as the day turned into night. It was a peaceful end to a beautiful day."
+    # text2 = "As the sun dipped below the horizon, the sky glowed with a warm, golden light. The gentle chirping of birds marked the transition from day to night. The day concluded serenely and beautifully."
     # play with the order of the sentences and check if they are still the same
-
+    # print(get_embedding(text1))
 
 
 
     text_1 = "my 👦 went to school on sunday"
     text_2 = "my boy went to school on sunday"
-    #print(get_embedding(text_1))
-    #print(len(get_embedding(text_1)))
-    #get_embedding(text_2)
+    # #print(get_embedding(text_1))
+    # #print(len(get_embedding(text_1)))
+    # #get_embedding(text_2)
     print(cosine_similarity(np.array(get_embedding(text_1)), np.array(get_embedding(text_2))))
-    try:
-        main()
-    except Exception as e:
-        logger.error(f"{datetime.datetime.now()}, Error: {e}")
-    logger.info("Finished")
+    # try:
+    #     main()
+    # except Exception as e:
+    #     logger.error(f"{datetime.datetime.now()}, Error: {e}")
+    # logger.info("Finished")
 
 
 preparation_prompt = """Serve as an encrypter to convert the sensetive data to symbols, emojis, special charecters. Return a list of {key:value}

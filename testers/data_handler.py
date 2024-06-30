@@ -2,6 +2,10 @@ import ollama
 import string
 import re
 
+#THIS IS NOT IN USE
+# might use it in the future to use presidio and Ollama togheter.
+
+
 preparation_prompt = """Serve as an encrypter to convert the sensetive data to symbols, emojis, special charecters. Return a list of {key:value}
 Example:
 Jhon was going to the store. He bought 2 apples and 3 oranges. He paid 5 dollars.
