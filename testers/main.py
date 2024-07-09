@@ -108,13 +108,4 @@ if __name__ == '__main__':
 
     main_logger.info("All evaluations completed.\n")
 
-    # time = datetime.datetime.now()
-    # drop_eval.main(1, client, models)
-    # main_logger.info(f"Finished drop_eval.py, time: {datetime.datetime.now()-time}\n")
-    # time = datetime.datetime.now()
-    # hellaswag_eval.main(1, client, models)
-    # main_logger.info(f"Finished hellaswag_eval.py, time: {datetime.datetime.now()-time}\n")
-    # time = datetime.datetime.now()
-    # winogrande_eval.main(1, client, models)
-    # main_logger.info(f"Finished hellaswag_eval.py, time: {datetime.datetime.now()-time}\n")
-    # #embedding_eval.main(client,models)
+   

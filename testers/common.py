@@ -9,76 +9,58 @@ log_path = '~/Emoji/Emojicrypt/log/wrong_format_encryption.log'
 
 ## try prompt where we ask for a list with details
 #{ 
-# key:value - explaination
-# }
+#key:value - explaination
+#}
 
 def get_encryption_dict(text, client ,model='llama3:8b'):
-    enc_logger = logging.getLogger('wrong format encryption')
-    encryption_dict = {}
-    encrypt_prompt = """
-Convert the following text to a list of the format {key1;value1,key2;value2...}  based on these rules:
-1. Replace names with random, unrelated names that do not appear anywhere else in the text. Maintain GENDER and ethnic of the name.
-2. Replace numbers with random numbers of a similar magnitude to maintain plausibility but do not appear anywhere else in the text. If the context involves a sequence of numbers, ensure that the new, random numbers preserve the original ordering in terms of relative size. For instance, if a sequence of numbers increases or decreases, the transformed sequence should reflect the same pattern.
-Examples:
-Original: "His salary increased from 50,000 to 70,000 last year." --> Transformed: "His salary increased from 48,000 to 68,000 last year."
-Original: "She ran 5 kilometers in 25 minutes." --> Transformed: "She ran 4 kilometers in 20 minutes."
-3. Replace dates and times into emojis that reflect the general period or characteristic of the original text. Use a combination of emojis to represent more abstract concepts like months or years. (e.g 8:00;🕗,last year;🔙🔙📅,July;🔥📅).
-4. Replace names of places with emojis that represent the primary attribute or the essence of the location. Select emojis that closely relate to the activities, climate, or notable features of these places. For example, {Central Park;🌳🌳,"beach;🏖️  ,library;📚}
-5. Convert sensitive information such as email addresses, phone numbers, and social security numbers into realistic-looking but completely unrelated sequences. Use formats typical for the data type being transformed to ensure the result seems plausible. For email addresses, maintain a structure resembling [name]@[domain].com; for phone numbers, use a believable area code followed by random digits; and for social security numbers, format them as three digits, followed by two, then four digits, mimicking the standard format.
-For example:
-Original: "My email is john.doe@example.com." --> Transformed: "My email is alan.smith@website.com."
-Original: "Her phone number is 123-456-7890." --> Transformed: "Her phone number is 987-654-3210."
-Original: "His Social Security Number is 987-65-4320." --> Transformed: "His Social Security Number is 123-45-6789."
-6. If the text does not contain any sensitive information, do not alter it.
+    # enc_logger = logging.getLogger('wrong format encryption')
+    prompt_to_get_list = f"""In the following text:
+    "{text}"
+    Create a list of technical terms and acronyms that are not directly addressed in the question. Explain your tought process and at the end write a line of the foramt $LIST: [word1, word2, word3, ...]
+    """
+    answer = client.generate(model = model, prompt = prompt_to_get_list)
+    print("question I:" + answer["response"])
 
-
-Here are examples how to use all the rules to make a list to the text with the format {key1;value1,key2;value2...}. Make sure you use ; and not ; to split between key;value.
-
-EXAMPLES:
-TEXT: Jhon and Mark went to central park at 8:00 to skateboard
-Output list:
-{Jhon;Bob,Mark;Olive,central park;8:00;🕗,skateboard:🛹}
-TEXT: My email is john.doe@example.com and my phone number is 123-456-7890. Yesterday I went to the beach and it was extremely hot
-Output list:
-{john.doe@example.com;markjoe@example.com,123-456-7890;952-831-9582,Yesterday;🔙,extremely hot;🔥🔥}
-TEXT: Jhon got 100 at the test and Mark got 95, their avrage is 97.5
-Output list:
-{Jhon;Bob,Mark;Olive,100;98,95;97,97.5;}
-
-Now convert the following text:"""
-    answer = client.generate(model = model, prompt = encrypt_prompt + text)
-    model_encryption = re.findall(r'\{[^{}]*\}',answer["response"])
-    if len(model_encryption)>1:
-         model_encryption=model_encryption[1]
+    answer_list = re.findall(r'\$LIST: \[([^\]]+)\]',answer["response"])
+    if len(answer_list)>=1:
+         answer_list=answer_list[-1] #return last occurrence of pattern.
     else:
-        model_encryption =model_encryption[0]
-    if (len(model_encryption)<3):
-        return "NO VALID ANSWER"
-    
-    problematic_items = []
-    for item in model_encryption[1:-1].split(","):
+        return {}
+   
+    print(answer_list)
+    words_to_encrypt_list =[]
+    for item in answer_list.split(","):
+        words_to_encrypt_list.append(item)
+    print("words_to_encrypt_list:")
+    print(words_to_encrypt_list)
+    print("__________________________")
+    promt_to_get_encryption = f"""
+In the following text:
+"{text}"
+and list:  "{words_to_encrypt_list}"
+Create emoji sequences for the words in the list. The emoji sequences should allow an LLM to correctly process the prompt but should not be easily interpreted by humans.
+Explain your reason and at the end print format: $SEQUENCE:{{word1:sequences ,word2:sequences ,...}}
+"""
+    answer = client.generate(model = model, prompt = promt_to_get_encryption)
+    print("question II:" + answer["response"])
+
+    encrypted_list = re.findall(r'\$SEQUENCE:\s*\{([^}]*)\}',answer["response"])
+    if len(encrypted_list)>=1:
+         encrypted_list=encrypted_list[-1] #return last occurrence of pattern.
+    else:
+        return {}
+
+    encryption_dict ={}
+    i = 0
+    for item in encrypted_list.split(","):
         try:
-            key, value = item.split(";")
+            encryption_dict[item.split(":")[0].strip("'").strip('"')]=item.split(":")[1].strip("'").strip('"')
         except:
-            try:
-                key, value = item.split(":")
-            except:
-                problematic_items.append(item)
-                continue
-        encryption_dict[key]=value
-    
-    if (len(problematic_items)>0):
-        enc_logger.info(
-f"""MODEL: {model}
-TEXT: {text}
-MODEL ENCRYPTION: {model_encryption}
-"""
-        )
-        for item in problematic_items:
-            enc_logger.info(
-f"""ITEM: {item}
-"""
-        )
+            print(f"error in {item}")
+        i += 1
+    print("encryption_dict III:")
+    print(encryption_dict)
+
     return encryption_dict
 
 def encrypt_text(text, encryption_dict):
@@ -153,3 +135,6 @@ def init_logs(log_path,test_case):
     logging.basicConfig(filename=log_file_path, level=logging.INFO)
     logger = logging.getLogger(test_case)
     return logger
+
+
+
