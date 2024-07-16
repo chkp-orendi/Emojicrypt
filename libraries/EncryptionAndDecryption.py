@@ -9,9 +9,14 @@ import logging
 log_path = '~/Emoji/Emojicrypt/log/wrong_format_encryption.log'
 
 def get_prompt_to_get_list(text):
+    return f"""the following text contains a context (following 'context:') and a question about the context (following 'question'):
+    {text}
+    can you identify all of the words in the context that can be defined as: technical terms, acronyms, corporate lingo. please list these words in the following format: [word1, word2, ..., wordN]. in addition, can you specify which of the words in the list are required to effectively answer the question?"""
+
+def get_prompt_to_get_list2(text):
     return f"""In the following text:
     "{text}"
-    Create a list of technical terms and acronyms that are not directly addressed in the question. Explain your tought process and at the end write a line of the foramt $LIST: [word1, word2, word3, ...]
+    Create a list of technical terms, acronyms that are not directly addressed in the question. Explain your tought process and at the end write a line of the foramt $LIST: [word1, word2, word3, ...]
     """
 def get_prompt_to_get_dict(text, words_to_encrypt_list):
     return f"""
@@ -29,6 +34,7 @@ def init_Ollama_client():
 
 def get_encryption_dict(text, client ,model='llama3:8b'):
     # enc_logger = logging.getLogger('wrong format encryption')
+    print("get_prompt_to_get_list(text): " + get_prompt_to_get_list(text))
     answer = client.generate(model = model, prompt = get_prompt_to_get_list(text))
     print("question I:" + answer["response"])
 

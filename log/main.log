@@ -13039,3 +13039,18 @@ Finished hellaswag_eval.py, time: 2:56:20.199232
 
 All evaluations completed.
 
+Client pulling llama3:8b
+
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/pull "HTTP/1.1 200 OK"
+Client pulling phi3:mini
+
+Client pulling llama3:8b
+
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/pull "HTTP/1.1 200 OK"
+Client pulling phi3:mini
+
+Client pulling llama3:8b
+
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/pull "HTTP/1.1 200 OK"
+Client pulling phi3:mini
+

@@ -4,7 +4,7 @@ from numpy.linalg import norm
 import logging
 import pandas as pd
 import datetime
-import common
+import EncryptionAndDecryption
 import os
 
 os.environ["REQUESTS_CA_BUNDLE"]= r'C:\Users\orendi\Documents\EmojiCrypt\ca-certificates.crt'
