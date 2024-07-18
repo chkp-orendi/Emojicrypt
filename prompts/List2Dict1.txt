@@ -1,0 +1,16 @@
+can you identify all of the words in the context that can be defined as: technical terms, acronyms, corporate lingo. List these words in the following format: $LIST [word1, word2, ..., wordN].
+Here is an exampl:
+Context: The board of directors at Acme Corp has recently expanded from 8 to 12 members to increase diversity.
+How many new members were added to the board of Acme Corp?
+Answer: $LIST [diversity, board of directors, Corp]
+    
+Now give me a list for this Context: {text}
+________________________________________________________________
+in addition, can you specify which of the words in the list are required to effectively answer the question?
+List these words in the following format: $LIST [word1, word2, ..., wordN]
+
+For the last example you will return: $LIST [board of directors, Corp]
+________________________________________________________________
+For the words in the list: {words_list} find replacement emoji sequence while keeping the original intent. At the end return: $Dict""" + "{word1:emoji1,word2:emoji2,...,wordN:emojiN}
+For the last example you would return: $Dict{diversity:👩🏼‍🤝‍👨🏿🌍🌈⚧️}
+

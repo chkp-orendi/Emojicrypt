@@ -4,74 +4,96 @@ import re
 import os
 import logging
 
+import AnswerExtraction
+import my_logging
+
+class OllamaClient:
+    def __init__ (self, name, log_path):
+        self.name = name
+        self.log_path = log_path
+        self.client = ollama.Client(host='http://172.23.81.3:11434')
+        self.log = my_logging.init_logs(log_path,name)
+    
+    def load_encryption_prompt(self, file_path):
+        self.prompts = []
+
 
 
 log_path = '~/Emoji/Emojicrypt/log/wrong_format_encryption.log'
-
-def get_prompt_to_get_list(text):
-    return f"""the following text contains a context (following 'context:') and a question about the context (following 'question'):
-    {text}
-    can you identify all of the words in the context that can be defined as: technical terms, acronyms, corporate lingo. please list these words in the following format: [word1, word2, ..., wordN]. in addition, can you specify which of the words in the list are required to effectively answer the question?"""
-
-def get_prompt_to_get_list2(text):
-    return f"""In the following text:
-    "{text}"
-    Create a list of technical terms, acronyms that are not directly addressed in the question. Explain your tought process and at the end write a line of the foramt $LIST: [word1, word2, word3, ...]
-    """
-def get_prompt_to_get_dict(text, words_to_encrypt_list):
-    return f"""
-In the following text:
-"{text}"
-and list:  "{words_to_encrypt_list}"
-Create emoji sequences for the words in the list. The emoji sequences should allow an LLM to correctly process the prompt but should not be easily interpreted by humans.
-Explain your reason and at the end print format: $SEQUENCE:{{word1:sequences ,word2:sequences ,...}}
-"""
-
-
 def init_Ollama_client():
     client = ollama.Client(host='http://172.23.81.3:11434')
     return client
 
+chat_history = []
+
+def get_list_of_intresting_words(text, client ,model='llama3:8b'):
+    text_prompt =f"""can you identify all of the words in the context that can be defined as: technical terms, acronyms, corporate lingo. List these words in the following format: $LIST [word1, word2, ..., wordN].
+Here is an exampl:
+Context: The board of directors at Acme Corp has recently expanded from 8 to 12 members to increase diversity.
+How many new members were added to the board of Acme Corp?
+Answer: $LIST [diversity, board of directors, Corp]
+    
+Now give me a list for this Context: {text}"""
+    chat_history.append({
+        'role': 'user',
+        'content': text_prompt,
+    })
+    answer = client.generate(model = model, prompt = text_prompt)
+    chat_history.append({
+        'role': 'assistant',
+        'content': answer["response"],
+    })
+    print("$get_list_of_intresting_words")
+    print(answer["response"])
+    return AnswerExtraction.extract_list(answer["response"])
+    
+def get_list_of_key_words(text, client ,model='llama3:8b'):
+    text_prompt =f"""in addition, can you specify which of the words in the list are required to effectively answer the question?
+List these words in the following format: $LIST [word1, word2, ..., wordN]
+
+For the last example you will return: $LIST [board of directors, Corp]
+"""
+    chat_history.append({
+        'role': 'user',
+        'content': text_prompt,
+    })
+    answer = client.chat(model = model, messages = chat_history) 
+    chat_history.append({
+        'role': 'assistant',
+        'content': answer["message"],
+    })
+    print("$get_list_of_key_words")
+    print(answer["message"]["content"])
+    return AnswerExtraction.extract_list(answer["message"]["content"])
+
+def get_encryption_dict(text,words_list, client ,model='llama3:8b'):
+    text_prompt =f"""For the words in the list: {words_list} find replacement emoji sequence while keeping the original intent. At the end return: $Dict""" + "{word1:emoji1,word2:emoji2,...,wordN:emojiN}"
+    text_prompt += """For the last example you would return: $Dict{diversity:👩🏼‍🤝‍👨🏿🌍🌈⚧️}"""
+    chat_history.append({
+        'role': 'user',
+        'content': text_prompt,
+    })
+    answer = client.chat(model = model,messages=chat_history)
+    chat_history.append({
+        'role': 'assistant',
+        'content': answer["message"],
+    })
+    print("$get_encryption_dict")
+    print(answer["message"]["content"])
+    print("$chat_history")
+    print(chat_history)
+    return AnswerExtraction.extract_dict(answer["message"]["content"])
+
 def get_encryption_dict(text, client ,model='llama3:8b'):
     # enc_logger = logging.getLogger('wrong format encryption')
-    print("get_prompt_to_get_list(text): " + get_prompt_to_get_list(text))
-    answer = client.generate(model = model, prompt = get_prompt_to_get_list(text))
-    print("question I:" + answer["response"])
 
-    answer_list = re.findall(r'\$LIST: \[([^\]]+)\]',answer["response"])
-    if len(answer_list)>=1:
-         answer_list=answer_list[-1] #return last occurrence of pattern.
-    else:
-        return {}
-   
-    print(answer_list)
-    words_to_encrypt_list =[]
-    for item in answer_list.split(","):
-        words_to_encrypt_list.append(item)
-    print("words_to_encrypt_list:")
-    print(words_to_encrypt_list)
-    print("__________________________")
+    chat_history = []
+    list_of_words = get_list_of_intresting_words(text, client ,model='llama3:8b')
+    list_of_key_words = get_list_of_key_words(text, client ,model='llama3:8b')
     
-    answer = client.generate(model = model, prompt = get_prompt_to_get_dict(text,words_to_encrypt_list))
-    print("question II:" + answer["response"])
-
-    encrypted_list = re.findall(r'\$SEQUENCE:\s*\{([^}]*)\}',answer["response"])
-    if len(encrypted_list)>=1:
-         encrypted_list=encrypted_list[-1] #return last occurrence of pattern.
-    else:
-        return {}
-
-    encryption_dict ={}
-    i = 0
-    for item in encrypted_list.split(","):
-        try:
-            encryption_dict[item.split(":")[0].strip("'").strip('"')]=item.split(":")[1].strip("'").strip('"')
-        except:
-            print(f"error in {item}")
-        i += 1
-    print("encryption_dict III:")
-    print(encryption_dict)
-
+    words_to_change = list(set(list_of_words)-set(list_of_key_words))
+    encryption_dict = get_encryption_dict(text,words_to_change, client ,model='llama3:8b')
+    
     return encryption_dict
 
 def get_encryption_text(text, encryption_dict):

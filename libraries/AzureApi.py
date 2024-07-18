@@ -35,9 +35,9 @@ def cosine_similarity(vec1, vec2):
     return np.dot(vec1, vec2) / (norm(vec1) * norm(vec2))
 
 
-def get_answer(text,model):
+def get_answer(text,model, temp = 0.0):
     answer = azure_client.chat.completions.create(
-    model=model, messages=[{"role": "user", "content": text}]
+    model=model, messages=[{"role": "user", "content": text}], temperature=temp, max_tokens=100
 )
     return answer.choices[0].message.content
 

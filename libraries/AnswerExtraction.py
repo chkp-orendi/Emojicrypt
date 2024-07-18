@@ -27,15 +27,43 @@ def check_match(s1,s2, endings=None) -> bool:
     
     return s1 in s2 or s2 in s1
 
-ANSWER_PATTERN = r"(?i)Answer\s*:\s*([^\n]+)"
+
 
 # extract_answer if in the prompt it was requested for format $Answer: answer
 def extract_answer(LLM_answer):
+    ANSWER_PATTERN = r"(?i)Answer\s*:\s*([^\n]+)"
     match = re.search(ANSWER_PATTERN, LLM_answer)
     if match:
         return match.group(1)
     return None
 
+# List is in the foramt for: [word1,words2,...]
+def extract_list(LLM_answer):
+    ANSWER_PATTERN = r'\[([^\]]+)\]'
+    answer_list = re.findall(ANSWER_PATTERN,LLM_answer)
+    if len(answer_list)>=1:
+         answer_list=answer_list[-1] #return last occurrence of pattern.
+    else:
+        return []
+    #print(answer_list)
+    words_to_encrypt_list =[]
+    for item in answer_list.split(","):
+        words_to_encrypt_list.append(item)
+    return []
+
+# dict is in the foramt for: {word1:key1,words2:key2,...}
+def extract_dict(LLM_answer):
+    ANSWER_PATTERN = r'\[([^\]]+)\]'
+    answer_list = re.findall(ANSWER_PATTERN,LLM_answer)
+    if len(answer_list)>=1:
+         answer_list=answer_list[-1] #return last occurrence of pattern.
+    else:
+        return []
+    #print(answer_list)
+    words_to_encrypt_list =[]
+    for item in answer_list.split(","):
+        words_to_encrypt_list.append(item)
+    return []
 
 def init_logs(log_path,test_case):
     # Expand the tilde to the full home directory path
