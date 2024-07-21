@@ -18,8 +18,8 @@ def update_chat_history(chat_history, role, content):
     'role': role,
     'content': content,
 })
-def delete_First_entry_chat_history(chat_history):
-    chat_history.pop(0)
+def delete_entry_chat_history(chat_history, i):
+    chat_history.pop(i)
 
 # chat_history =[]
 #     update_chat_history(chat_history, "user", "Are you famliar with real world examples where people included private buisness information in their llm questions?")
@@ -47,14 +47,21 @@ def process_file():
 
     for i in range(50):
         print(i)
+        delete_entry_chat_history(chat_history, -1)
+        delete_entry_chat_history(chat_history, -1)
+        delete_entry_chat_history(chat_history, -1)
+        delete_entry_chat_history(chat_history, -1)
         user_input = "Can you give me another scenario with mock data and fake names?"
-        update_chat_history(data, "user", user_input)
-        azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.0)
+        #update_chat_history(data, "user", user_input)
+        update_chat_history(chat_history, "user", user_input)
+        azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.3)
+        update_chat_history(chat_history, "assistant", azure_answer)
         update_chat_history(data, "assistant", azure_answer)
         print(azure_answer)
         user_input = "Can you provide a list of words that are technical terms or sensetive information in the format $LIST: [word1, word2,...]"
-        update_chat_history(data, "user", user_input)
-        azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.0)
+        update_chat_history(chat_history, "user", user_input)
+        azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.3)
+        update_chat_history(chat_history, "assistant", azure_answer)
         update_chat_history(data, "assistant", azure_answer)
         print(azure_answer)
 
@@ -72,9 +79,12 @@ def process_file():
     #         })
 
     # Save the data to a JSON file
-    with open('/root/Emoji/Emojicrypt/log/json/generated_data3.json', 'w') as outfile:
-        json.dump({"data": chat_history}, outfile, indent=4)
+    with open('/root/Emoji/Emojicrypt/log/json/generated_data_temp0.3.json', 'w') as outfile:
+        json.dump({"data": data}, outfile, indent=4)
 
 if __name__ == "__main__":
-
-    process_file()
+    print("trying")
+    client = EncryptionAndDecryption.init_Ollama_client()
+    print(EncryptionAndDecryption.get_list_of_intresting_words("I went to sleep while the town went to sleep", client))
+    print("done")
+    #process_file()

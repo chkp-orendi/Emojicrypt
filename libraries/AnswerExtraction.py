@@ -37,9 +37,10 @@ def extract_answer(LLM_answer):
         return match.group(1)
     return None
 
-# List is in the foramt for: [word1,words2,...]
+# List is in the foramt for: $LIST [word1,words2,...]
 def extract_list(LLM_answer):
-    ANSWER_PATTERN = r'\[([^\]]+)\]'
+    LLM_answer = LLM_answer.replace('"', '')
+    ANSWER_PATTERN = r'\$LIST\s*\[([^\]]+)\]'
     answer_list = re.findall(ANSWER_PATTERN,LLM_answer)
     if len(answer_list)>=1:
          answer_list=answer_list[-1] #return last occurrence of pattern.
@@ -49,7 +50,7 @@ def extract_list(LLM_answer):
     words_to_encrypt_list =[]
     for item in answer_list.split(","):
         words_to_encrypt_list.append(item)
-    return []
+    return words_to_encrypt_list
 
 # dict is in the foramt for: {word1:key1,words2:key2,...}
 def extract_dict(LLM_answer):
