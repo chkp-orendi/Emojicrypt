@@ -1,2 +1,2 @@
 For the words in the list: {words_list} find replacement emoji sequence while keeping the original intent. At the end return: $Dict: [word1:emoji1,word2:emoji2,...,wordN:emojiN]
-For the last example you would return: $Dict{diversity:👩🏼‍🤝‍👨🏿🌍🌈⚧️
+For the last example you would return: $Dict: [diversity:👩🏼‍🤝‍👨🏿🌍🌈⚧️]
