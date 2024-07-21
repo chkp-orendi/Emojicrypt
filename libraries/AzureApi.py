@@ -37,7 +37,13 @@ def cosine_similarity(vec1, vec2):
 
 def get_answer(text,model, temp = 0.0):
     answer = azure_client.chat.completions.create(
-    model=model, messages=[{"role": "user", "content": text}], temperature=temp, max_tokens=100
+    model=model, messages=[{"role": "user", "content": text}], temperature=temp
+)
+    return answer.choices[0].message.content
+
+def get_answer_with_histroy(messages, model, temp = 0.0):
+    answer = azure_client.chat.completions.create(
+    model=model, messages=messages, temperature=temp
 )
     return answer.choices[0].message.content
 

@@ -13,45 +13,68 @@ import AnswerExtraction
 import AzureApi
 import ListThenDictApproach
 
+def update_chat_history(chat_history, role, content):
+    chat_history.append({
+    'role': role,
+    'content': content,
+})
+def delete_First_entry_chat_history(chat_history):
+    chat_history.pop(0)
 
-data_path = "/root/Emoji/Emojicrypt/data/generated_data/chatgpt_generated_questions.txt"
-def process_file(input_file):
+# chat_history =[]
+#     update_chat_history(chat_history, "user", "Are you famliar with real world examples where people included private buisness information in their llm questions?")
+#     azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.0)
+#     print(azure_answer)
+#     update_chat_history(chat_history,"assistant",azure_answer)
+#     update_chat_history(chat_history, "user", "Can you generate the actual based on the hypothetical cases you have listed?")
+#     azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.0)
+#     print(azure_answer)
+#     update_chat_history(chat_history,"assistant",azure_answer)
+#     update_chat_history(chat_history, "user", """Can you focus on Product Development?
+# and give me a list of terms containing SENSETIVE DATA that appear in the prompt""")
+#     azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.0)
+#     print(azure_answer)
+#     update_chat_history(chat_history,"assistant",azure_answer)
+
+def load_chat_history(filename):
+    with open(filename, 'r') as file:
+        return json.load(file)['data']
+
+
+def process_file():
     data = []
-    with open(input_file, 'r') as file:
-        content = file.read()
-        prompts = content.split('\n\n')  # Assuming each prompt is separated by an empty line
+    chat_history =load_chat_history('/root/Emoji/Emojicrypt/log/json/generated_data2.json')
 
-        prompt_number = 0
-        for prompt in prompts:
-            prompt_number += 1
-            if prompt.strip():  # Ensure the prompt is not just empty space
-                # Extract the context and question (assuming the format is always "context" then "question" on the next line)
-                lines = prompt.split('\n')
-                if len(lines) >= 2:
-                    context = lines[0].strip('"')
-                    question = lines[1].strip()
+    for i in range(50):
+        print(i)
+        user_input = "Can you give me another scenario with mock data and fake names?"
+        update_chat_history(data, "user", user_input)
+        azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.0)
+        update_chat_history(data, "assistant", azure_answer)
+        print(azure_answer)
+        user_input = "Can you provide a list of words that are technical terms or sensetive information in the format $LIST: [word1, word2,...]"
+        update_chat_history(data, "user", user_input)
+        azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.0)
+        update_chat_history(data, "assistant", azure_answer)
+        print(azure_answer)
 
-                    # Create a single prompt string
-                    original_prompt = f"{context} {question}"
-
-                    # Get embeddings and answers
-                    original_embeddings = AzureApi.get_embedding(original_prompt)
-                    original_answer = AzureApi.get_answer(original_prompt, "gpt-4")
-
-                    # Append to data list
-                    data.append({
-                        "original_prompt": original_prompt,
-                        "original_embeddings": original_embeddings,
-                        "original_answer": original_answer,
-                        "original_answer_embeddings": AzureApi.get_embedding(original_answer)
-                    })
-            if prompt_number >9:
-                break
+    # for element in chat_history:
+    #     print(element)
+    #     if element['role'] == 'user':
+    #         data.append({
+    #             "role": 'user',
+    #             "content": element["content"],
+    #         })
+    #     if element['role'] == 'assistant':
+    #         data.append({
+    #             "role": 'assistant',
+    #             "content": element["content"],
+    #         })
 
     # Save the data to a JSON file
-    with open('/root/Emoji/Emojicrypt/log/json/tmp.json', 'w') as outfile:
-        json.dump({"data": data}, outfile, indent=4)
+    with open('/root/Emoji/Emojicrypt/log/json/generated_data3.json', 'w') as outfile:
+        json.dump({"data": chat_history}, outfile, indent=4)
 
 if __name__ == "__main__":
 
-    process_file(data_path)
+    process_file()
