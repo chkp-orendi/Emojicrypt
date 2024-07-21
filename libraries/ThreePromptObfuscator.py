@@ -61,7 +61,10 @@ class ThreePromptsObfuscator:
         self._extracted_crucial = self._find_crucial(user_prompt)
         self._extracted_terms = [item for item in self._extracted_terms if item not in self._extracted_crucial]
         self._dictionary_used = self._find_replacements(text=user_prompt, from_list=self._extracted_terms)
-        self._logger.info("dictionary_used:", self._dictionary_used)
+        if len(self._dictionary_used) == 0:
+            self._logger.info("Empty dictionary_used")
+        else:
+            self._logger.info("dictionary_used:" + str(self._dictionary_used))
 
         response_text = user_prompt
         for key, value in self._dictionary_used.items():

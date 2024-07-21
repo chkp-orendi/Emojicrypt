@@ -28,6 +28,6 @@ class OllamaHelper:
 
     def send_query(self, text):
         self.update_chat_history('user', text)
-        llm_response = self.client.chat(model=self.model, messages=self.chat_history)
+        llm_response = self.client.chat(model=self.model, messages=self.chat_history,options={"temperature": 0})
         self.update_chat_history('assistant', llm_response["message"]["content"])
         return llm_response["message"]["content"]

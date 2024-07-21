@@ -13,7 +13,7 @@ class SingleCaseEvaluator:
 
     def _evaluate_answer(self, obfuscated_answer, case_data):
         obfuscated_answer_embeddings = AzureApi.get_embedding(obfuscated_answer)
-        return AzureApi.cosine_similarity(obfuscated_answer_embeddings, case_data["original_embeddings"])
+        return AzureApi.cosine_similarity(obfuscated_answer_embeddings, case_data["original_answer_embeddings"])
 
     def evaluate(self, case_data):
         obfuscated_prompt = self._obf.obfuscate(case_data["original_prompt"])
