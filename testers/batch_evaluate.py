@@ -21,7 +21,13 @@ class SingleCaseEvaluator:
         deobfuscated_answer = self._obf.deobfuscate(obfuscated_answer)
         prompt_metric = self._evaluate_prompt(obfuscated_prompt, case_data)
         answer_metric = self._evaluate_answer(deobfuscated_answer, case_data)
-
+        self.logger.info(f"""
+obfuscated prompt: {obfuscated_prompt}
+obfuscated answer: {obfuscated_answer}
+deobfuscated_answer: {deobfuscated_answer}
+prompt_metric: {prompt_metric}
+answer_metric: {answer_metric}""")
+        
         return prompt_metric, answer_metric, obfuscated_answer
 
 def evaluate_batch(data_set, obfuscator,logger):

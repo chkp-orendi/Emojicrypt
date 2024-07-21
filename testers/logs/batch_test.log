@@ -1,0 +1,274 @@
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:Empty dictionary_used
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:Empty dictionary_used
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:Empty dictionary_used
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'remote work': ' \U0001f4cd\U0001f4bb', ' policy': ' \U0001f4dd\U0001f465'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'diversity': ' \U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'sustainability': ' \U0001f30e\U0001f49a', ' initiative': ' \u26a1\ufe0f\U0001f51c', ' carbon emissions': ' \u2744\ufe0f\U0001f525'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'comprehensive': ' \U0001f4ca\U0001f4af', ' mental health': ' \U0001f486\u200d\u2640\ufe0f\U0001f440'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'annual general meeting': ' \U0001f4c5\U0001f465'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'digital skills': ' \U0001f4bb\U0001f4a1'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'headquarters': ' \U0001f3e2'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'percentage': ' %'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'robotics': ' \U0001f916'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'NGO': ' \U0001f31f'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'remote work': ' \U0001f4cd\U0001f4bb', ' policy': ' \U0001f4dd\U0001f465'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'diversity': ' \U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{"'remote work'": '\U0001f3e0\U0001f4bb', "'policy'": '\U0001f4dc'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: 1.0
+obfuscated answer: 1.0000000000000002
+deobfuscated_answer: The frequency of remote work allowed under Company XYZ's new policy is three days a week.
+prompt_metric: 1.0
+answer_metric: 1.0000000000000002
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{"'Corp'": '\U0001f3e2', "'diversity'": '\U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: 1.0000000000000002
+obfuscated answer: 1.0
+deobfuscated_answer: 4 new members were added to the board of Acme Corp.
+prompt_metric: 1.0000000000000002
+answer_metric: 1.0
+INFO:__main__:Starting batch test
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'remote work': '\U0001f4cd\U0001f4bb', 'policy': '\U0001f4dc\U0001f465'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: 0.8701013035408466
+obfuscated answer: 0.9425233029335752
+deobfuscated_answer: The frequency of remote work (remote work) allowed under Company XYZ's new policy (policy) is three days a week.
+prompt_metric: 0.8701013035408466
+answer_metric: 0.9425233029335752
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'diversity': '\U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: 0.922582439968259
+obfuscated answer: 1.0
+deobfuscated_answer: 4 new members were added to the board of Acme Corp.
+prompt_metric: 0.922582439968259
+answer_metric: 1.0

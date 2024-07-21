@@ -1,0 +1,27 @@
+INFO:__main__:Starting batch test
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'remote work': '\U0001f3e0\U0001f4bb', 'policy': '\U0001f4dc'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: 0.8665862761528605
+obfuscated answer: 0.944018663346446
+deobfuscated_answer: The frequency of remote work (work from home) allowed under Company XYZ's new policy (policy) is three days a week.
+prompt_metric: 0.8665862761528605
+answer_metric: 0.944018663346446
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'Corp': '\U0001f3e2', 'diversity': '\U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: 0.8769276204683412
+obfuscated answer: 0.9627522863971356
+deobfuscated_answer: 4 new members were added to the board of Acme.
+prompt_metric: 0.8769276204683412
+answer_metric: 0.9627522863971356

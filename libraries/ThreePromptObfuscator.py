@@ -21,7 +21,7 @@ class ThreePromptsObfuscator:
         else:
             return []
 
-        return [token for token in answer_list.split(',')]
+        return [token.strip("' \t") for token in answer_list.split(',')]
 
     @staticmethod
     def extract_dict(LLM_answer):
@@ -40,7 +40,7 @@ class ThreePromptsObfuscator:
                 print(item)
                 print(LLM_answer)
                 continue
-            words_replacements[item.split(":")[0]] = item.split(":")[1]
+            words_replacements[item.split(":")[0].strip("' \t")] = item.split(":")[1].strip("' \t")
         return words_replacements
         #return {item.split(":")[0]: item.split(":")[1] for item in answer_list}
 
@@ -61,6 +61,8 @@ class ThreePromptsObfuscator:
         self._extracted_crucial = self._find_crucial(user_prompt)
         self._extracted_terms = [item for item in self._extracted_terms if item not in self._extracted_crucial]
         self._dictionary_used = self._find_replacements(text=user_prompt, from_list=self._extracted_terms)
+        print("DICT")
+        print(self._dictionary_used)
         if len(self._dictionary_used) == 0:
             self._logger.info("Empty dictionary_used")
         else:
