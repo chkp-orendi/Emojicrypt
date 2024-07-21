@@ -28,7 +28,7 @@ chat_history = []
 
 def get_list_of_intresting_words(text, client ,model='llama3:8b'):
     text_prompt =f"""can you identify all of the words in the context that can be defined as: technical terms, acronyms, corporate lingo. List these words in the following format: $LIST [word1, word2, ..., wordN].
-Here is an exampl:
+Here is an example:
 Context: The board of directors at Acme Corp has recently expanded from 8 to 12 members to increase diversity.
 How many new members were added to the board of Acme Corp?
 Answer: $LIST [diversity, board of directors, Corp]

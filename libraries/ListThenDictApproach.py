@@ -41,7 +41,7 @@ class OllamaClient:
         f"{self.name} Updated self.prompt_list:\n{self.prompt_list}\n"
         )
 
-    def send_querry(self,model,text,prompt_number):
+    def send_query(self,model,text,prompt_number):
         self.update_chat_history(self,'user',self.prompt_list[prompt_number].format(text=text))
         answer_for_list_of_words = self.client.chat(model = model, messages = self.prompt_list[0].format(text=text))
         self.update_chat_history(self,'assistant',answer_for_list_of_words["message"])
