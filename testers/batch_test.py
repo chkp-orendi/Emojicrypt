@@ -9,9 +9,9 @@ from fake_obfuscator import FakeObfuscator
 from wrong_obfuscator import WrongObfuscator
 from ollama_helper import OllamaHelper
 
-sensitive_file_path = "prompts/sensitive_prompt.txt"
-crucial_file_path = "prompts/crucial_prompt.txt"
-replace_file_path = "prompts/replace_prompt.txt"
+sensitive_file_path = "prompts/naive/extract_terms_prompt.txt"
+crucial_file_path = "prompts/naive/crucial_prompt.txt"
+dictionary_file_path = "prompts/naive/dictionary_prompt.txt"
 
 def evaluate_with_obfuscators(data, obfuscators):
     metrics = []
@@ -20,19 +20,19 @@ def evaluate_with_obfuscators(data, obfuscators):
     return metrics
 
 def main():
-    '''
+
     llm_wrapper = OllamaHelper("llama3:8b", "../", "llama3:8b")
 
     with open(sensitive_file_path, 'r') as file:
         find_sensitive_prompt = file.read()
     with open(crucial_file_path, 'r') as file:
         find_crucial_prompt = file.read()
-    with open(replace_file_path, 'r') as file:
-        replace_prompt = file.read()
+    with open(dictionary_file_path, 'r') as file:
+        dictiobary_prompt = file.read()
 
-    obfuscator = ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, replace_prompt, llm_wrapper)
-'''
-    obfuscator = WrongObfuscator()
+    obfuscator = ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictiobary_prompt, llm_wrapper)
+
+    #obfuscator = WrongObfuscator()
     with open("../log/json/tmp.json", 'r') as file:
         data = json.load(file)
 

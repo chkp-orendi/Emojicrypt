@@ -6,14 +6,20 @@ class SingleCaseEvaluator:
     def __init__(self, obfuscator):
         self._obf = obfuscator
 
+    def _evaluate_prompt(self, obfuscated_prompt, case_data):
+        obfuscated_prompt_embeddings = AzureApi.get_embedding(obfuscated_prompt)
+        return AzureApi.cosine_similarity(obfuscated_prompt_embeddings, case_data["original_embeddings"])
+
+    def _evaluate_answer(self, obfuscated_answer, case_data):
+        obfuscated_answer_embeddings = AzureApi.get_embedding(obfuscated_answer)
+        return AzureApi.cosine_similarity(obfuscated_answer_embeddings, case_data["original_embeddings"])
+
     def evaluate(self, case_data):
         obfuscated_prompt = self._obf.obfuscate(case_data["original_prompt"])
-        obfuscated_prompt_embeddings = AzureApi.get_embedding(obfuscated_prompt)
         obfuscated_answer = AzureApi.get_answer(obfuscated_prompt, "gpt-4")
-        obfuscated_answer_embeddings = AzureApi.get_embedding(obfuscated_answer)
 
-        prompt_metric = AzureApi.cosine_similarity(obfuscated_prompt_embeddings, case_data["original_embeddings"])
-        answer_metric = AzureApi.cosine_similarity(obfuscated_answer_embeddings, case_data["original_answer_embeddings"])
+        prompt_metric = self._evaluate_prompt(obfuscated_prompt, case_data)
+        answer_metric = self._evaluate_answer(obfuscated_answer, case_data)
 
         return prompt_metric, answer_metric, obfuscated_answer
 

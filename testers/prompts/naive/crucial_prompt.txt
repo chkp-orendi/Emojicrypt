@@ -1,0 +1,4 @@
+In addition, can you specify which of the words in the list are required to effectively answer the question?
+List these words in the following format: $LIST [word1, word2, ..., wordN]
+
+For the last example you will return: $LIST [board of directors, Corp]

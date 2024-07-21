@@ -1,26 +1,66 @@
-from ollama_helper import OllamaHelper
+import re
 
 class ThreePromptsObfuscator:
-    def __init__(self, find_sensitive_prompt, find_crucial_prompt, replace_prompt, llm_wrapper):
-        self.find_sensitive_prompt = find_sensitive_prompt
-        self.find_crucial_prompt = find_crucial_prompt
-        self.replace_prompt = replace_prompt
-        self.llm_wrapper = llm_wrapper
+    def __init__(self, extract_terms_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper):
+        self._extract_terms_prompt = extract_terms_prompt
+        self._find_crucial_prompt = find_crucial_prompt
+        self._dictionary_prompt = dictionary_prompt
+        self._llm_wrapper = llm_wrapper
+        self._extracted_terms = []
+        self._extracted_crucial = {}
+        self._dictionary_used = {}
 
-    def _extract_sensitive(self, user_prompt):
-        response_text = self.llm_wrapper.send_query(self.find_sensitive_prompt.format(text=user_prompt))
-        return self.llm_tokenize(response_text)
+    @staticmethod
+    def extract_list(LLM_answer):
+        ANSWER_PATTERN = r'\[([^\]]+)\]'
+        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
+        if len(answer_list) >= 1:
+            answer_list = answer_list[-1]  # return last occurrence of pattern.
+        else:
+            return []
+
+        return [token for token in answer_list.split(',')]
+
+    @staticmethod
+    def extract_dict(LLM_answer):
+        ANSWER_PATTERN = r'\[([^\]]+)\]'
+        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
+        if len(answer_list) >= 1:
+            answer_list = answer_list[-1]  # return last occurrence of pattern.
+        else:
+            return {}
+        # print(answer_list)
+        '''  words_replacements = {}
+        for item in answer_list.split(","):
+            words_replacements[item.split(":")[0]] = item.split(":")[1]'''
+        return {item.split(":")[0]: item.split(":")[1] for item in answer_list}
+
+    def _extract_terms(self, user_prompt):
+        response_text = self._llm_wrapper.send_query(self._extract_terms_prompt.format(text=user_prompt))
+        return ThreePromptsObfuscator.extract_list(response_text)
 
     def _find_crucial(self, user_prompt):
-        response_text = self.llm_wrapper.send_query(self.find_sensitive_prompt.format(text=user_prompt))
-        return self.llm_tokenize(response_text)
+        response_text = self._llm_wrapper.send_query(self._find_crucial_prompt.format(text=user_prompt))
+        return set(ThreePromptsObfuscator.extract_list(response_text))
 
-    def _replace(self, text, sensitive, crucial):
-        response_text = self.llm_wrapper.send_query(self.replace_prompt.format(text=text, sensitive=sensitive, crucial=crucial))
-        #TODO: how should we format the sensitives?
-        return response_text
+    def _find_replacements(self, text, from_list):
+        response_text = self._llm_wrapper.send_query(self._dictionary_prompt.format(text=text, words_list=from_list))
+        return ThreePromptsObfuscator.extract_dict(response_text)
 
     def obfuscate(self, user_prompt):
-        extracted_sensitive = self._extract_sensitive(user_prompt)
-        extracted_crucial = self._find_crucial(user_prompt)
-        response_text = self._replace(text=user_prompt, sensitive=extracted_sensitive, crucial=extracted_crucial)
+        self._extracted_terms = self._extract_terms(user_prompt)
+        self._extracted_crucial = self._find_crucial(user_prompt)
+        self._extracted_terms = [item for item in self._extracted_terms if item not in self._extracted_crucial]
+        self._dictionary_used = self._find_replacements(text=user_prompt, from_list=self._extracted_terms)
+        response_text = user_prompt
+        for key, value in self._dictionary_used:
+            response_text = response_text.replace(key, value)
+            #CPTODO: replacement with \b and cpregex!
+        return response_text
+
+    def deobfuscate(self, obfuscated_answer):
+        deobfuscated_answer = obfuscated_answer
+        for key, value in self._dictionary_used:
+            deobfuscated_answer = deobfuscated_answer.replace(value, key)
+            #CPTODO: replacement with \b and cpregex!
+        return deobfuscated_answer

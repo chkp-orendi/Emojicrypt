@@ -2,7 +2,7 @@ import ollama
 import string
 import re
 import os
-import logging
+#import logging
 
 import AnswerExtraction
 import my_logging
@@ -15,12 +15,10 @@ class OllamaHelper:
         self.model = model
         self.log_path = log_path
         self.client = ollama.Client(host='http://172.23.81.3:11434')
-        self.log = my_logging.init_logs(log_path,name)
+        #self.log = my_logging.init_logs(log_path,name)
         self.prompt_list =[]
         self.chat_history =[]
-        self.log.info(
-            f"Created OllamaClient {self.name}\n"
-        )
+        #self.log.info(            f"Created OllamaClient {self.name}\n"        )
 
     def update_chat_history(self, role, content):
         self.chat_history.append({
