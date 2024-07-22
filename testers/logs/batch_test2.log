@@ -477,3 +477,22 @@ The cities included in this expansion have not been disclosed yet, but the organ
 In other news, a quick brown fox was seen jumping over a lazy dog in a local park. This unusual sight amused many bystanders and quickly became a popular topic on social media. The fox, seemingly unbothered by the attention, continued its playful antics much to the delight of the onlookers. The dog, on the other hand, remained unfazed and continued its nap under the warm sun. This light-hearted event brought smiles to many faces, serving as a reminder of the simple joys in life.
 prompt_metric: 0.6623912335975586
 answer_metric: 0.6736742301111935
+INFO:__main__:Starting batch test
+INFO:__main__:Starting batch test
+INFO:__main__:Starting batch test
+INFO:__main__:obfuscate: Company XYZ has implemented a new remote work policy that allows employees to work from home three days a week. What is the frequency of remote work allowed under Company XYZ's new policy?
+INFO:__main__:obfuscated_answer: The frequency of remote work allowed under Company XYZ's new policy is three days a week.
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new remote work policy that allows employees to work from home three days a week. What is the frequency of remote work allowed under Company XYZ's new policy?
+obfuscated answer: The frequency of remote work allowed under Company XYZ's new policy is three days a week.
+deobfuscated_answer: The frequency of remote work allowed under Company XYZ's new policy is three days a week.
+prompt_metric: 1.0
+answer_metric: 1.0000000000000002
+INFO:__main__:obfuscate: The board of directors at Acme Corp has recently expanded from 8 to 12 members to increase diversity. How many new members were added to the board of Acme Corp?
+INFO:__main__:obfuscated_answer: 4 new members were added to the board of Acme Corp.
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme Corp has recently expanded from 8 to 12 members to increase diversity. How many new members were added to the board of Acme Corp?
+obfuscated answer: 4 new members were added to the board of Acme Corp.
+deobfuscated_answer: 4 new members were added to the board of Acme Corp.
+prompt_metric: 1.0000000000000002
+answer_metric: 1.0

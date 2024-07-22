@@ -2,11 +2,11 @@ import re
 
 
 class ThreePromptsObfuscator:
-    def __init__(self, extract_terms_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper, logger):
+    def __init__(self, extract_terms_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper_factory, logger):
         self._extract_terms_prompt = extract_terms_prompt
         self._find_crucial_prompt = find_crucial_prompt
         self._dictionary_prompt = dictionary_prompt
-        self._llm_wrapper = llm_wrapper
+        self._llm_wrapper = llm_wrapper_factory()
         self._extracted_terms = []
         self._extracted_crucial = {}
         self._dictionary_used = {}
@@ -31,7 +31,6 @@ class ThreePromptsObfuscator:
             answer_list = answer_list[-1]  # return last occurrence of pattern.
         else:
             return {}
-        # print(answer_list)
         words_replacements = {}
         for item in answer_list.split(","):
             splited_item = item.split(":")
@@ -50,6 +49,8 @@ class ThreePromptsObfuscator:
 
     def _find_crucial(self, user_prompt):
         response_text = self._llm_wrapper.send_query(self._find_crucial_prompt.format(text=user_prompt))
+        self._logger.info("Crucial:" )
+        self._logger.info(response_text)
         return set(ThreePromptsObfuscator.extract_list(response_text))
 
     def _find_replacements(self, text, from_list):
@@ -61,8 +62,6 @@ class ThreePromptsObfuscator:
         self._extracted_crucial = self._find_crucial(user_prompt)
         self._extracted_terms = [item for item in self._extracted_terms if item not in self._extracted_crucial]
         self._dictionary_used = self._find_replacements(text=user_prompt, from_list=self._extracted_terms)
-        print("DICT")
-        print(self._dictionary_used)
         if len(self._dictionary_used) == 0:
             self._logger.info("Empty dictionary_used")
         else:
@@ -70,13 +69,11 @@ class ThreePromptsObfuscator:
 
         response_text = user_prompt
         for key, value in self._dictionary_used.items():
-            response_text = response_text.replace(key, value)
-            #CPTODO: replacement with \b and cpregex!
+            response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)
         return response_text
 
     def deobfuscate(self, obfuscated_answer):
         deobfuscated_answer = obfuscated_answer
         for key, value in self._dictionary_used.items():
-            deobfuscated_answer = deobfuscated_answer.replace(value, key)
-            #CPTODO: replacement with \b and cpregex!
+            deobfuscated_answer = re.sub(r'\b' + re.escape(value) + r'\b', key, deobfuscated_answer)
         return deobfuscated_answer

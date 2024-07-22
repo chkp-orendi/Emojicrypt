@@ -52,6 +52,26 @@ def talk_to_llm(model, temperature):
         update_chat_history(chat_history, "assistant", azure_answer)
     
     data = []
+    for i in range(50):
+        print(i)
+        delete_entry_chat_history(chat_history, -1)
+        delete_entry_chat_history(chat_history, -1)
+        delete_entry_chat_history(chat_history, -1)
+        delete_entry_chat_history(chat_history, -1)
+        user_input = "Can you give me another scenario with mock data and fake names?"
+        #update_chat_history(data, "user", user_input)
+        update_chat_history(chat_history, "user", user_input)
+        azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.3)
+        update_chat_history(chat_history, "assistant", azure_answer)
+        update_chat_history(data, "assistant", azure_answer)
+        print(azure_answer)
+        user_input = "Can you provide a list of words that are technical terms or sensetive information in the format $LIST: [word1, word2,...]"
+        update_chat_history(chat_history, "user", user_input)
+        azure_answer = AzureApi.get_answer_with_histroy(chat_history, "gpt-4", 0.3)
+        update_chat_history(chat_history, "assistant", azure_answer)
+        update_chat_history(data, "assistant", azure_answer)
+        print(azure_answer)
+
 def process_file():
     data = []
     chat_history =load_chat_history('/root/Emoji/Emojicrypt/log/json/generated_data2.json')

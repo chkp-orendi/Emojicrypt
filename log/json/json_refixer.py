@@ -48,6 +48,7 @@ def main():
     enriched_scenarios = enrich_scenarios_from_file(input_full_path)
     output_file = 'enriched_' + filename
     output_full_path = os.path.join(filepath, output_file)
+    print(output_full_path)
     with open(output_full_path, 'w') as file:
         json.dump(enriched_scenarios, file, indent=4)
 
