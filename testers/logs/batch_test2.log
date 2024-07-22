@@ -25,3 +25,143 @@ obfuscated answer: 0.9627522863971356
 deobfuscated_answer: 4 new members were added to the board of Acme.
 prompt_metric: 0.8769276204683412
 answer_metric: 0.9627522863971356
+INFO:__main__:Starting batch test
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'remote work': '\U0001f4cd\U0001f4bb', 'policy': '\U0001f4dc\U0001f465'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new \U0001f4cd\U0001f4bb \U0001f4dc\U0001f465 that allows employees to work from home three days a week. What is the frequency of \U0001f4cd\U0001f4bb allowed under Company XYZ's new \U0001f4dc\U0001f465?
+obfuscated answer: The frequency of \U0001f4cd\U0001f4bb (remote work) allowed under Company XYZ's new \U0001f4dc\U0001f465 (policy) is three days a week.
+deobfuscated_answer: The frequency of remote work (remote work) allowed under Company XYZ's new policy (policy) is three days a week.
+prompt_metric: 0.8701013035408466
+answer_metric: 0.9425233029335752
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'diversity': '\U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme Corp has recently expanded from 8 to 12 members to increase \U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f. How many new members were added to the board of Acme Corp?
+obfuscated answer: 4 new members were added to the board of Acme Corp.
+deobfuscated_answer: 4 new members were added to the board of Acme Corp.
+prompt_metric: 0.922582439968259
+answer_metric: 1.0
+INFO:__main__:Starting batch test
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'remote work': '\U0001f3e0\U0001f4bb', 'policy': '\U0001f4dc'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new \U0001f3e0\U0001f4bb \U0001f4dc that allows employees to work from home three days a week. What is the frequency of \U0001f3e0\U0001f4bb allowed under Company XYZ's new \U0001f4dc?
+obfuscated answer: The frequency of \U0001f3e0\U0001f4bb (work from home) allowed under Company XYZ's new \U0001f4dc (policy) is three days a week.
+deobfuscated_answer: The frequency of remote work (work from home) allowed under Company XYZ's new policy (policy) is three days a week.
+prompt_metric: 0.8665862761528605
+answer_metric: 0.944018663346446
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://172.23.81.3:11434/api/chat "HTTP/1.1 200 OK"
+INFO:__main__:dictionary_used:{'Corp': '\U0001f3e2', 'diversity': '\U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/text-embedding-3-small/embeddings?api-version=2023-07-01-preview "HTTP/1.1 200 OK"
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme \U0001f3e2 has recently expanded from 8 to 12 members to increase \U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f. How many new members were added to the board of Acme \U0001f3e2?
+obfuscated answer: 4 new members were added to the board of Acme.
+deobfuscated_answer: 4 new members were added to the board of Acme.
+prompt_metric: 0.8769276204683412
+answer_metric: 0.9627522863971356
+INFO:__main__:Starting batch test
+INFO:__main__:dictionary_used:{'remote work': '\U0001f3e0\U0001f4bb', 'policy': '\U0001f4dc'}
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new \U0001f3e0\U0001f4bb \U0001f4dc that allows employees to work from home three days a week. What is the frequency of \U0001f3e0\U0001f4bb allowed under Company XYZ's new \U0001f4dc?
+obfuscated answer: The frequency of \U0001f3e0\U0001f4bb (work from home) allowed under Company XYZ's new \U0001f4dc (policy) is three days a week.
+deobfuscated_answer: The frequency of remote work (work from home) allowed under Company XYZ's new policy (policy) is three days a week.
+prompt_metric: 0.8665862761528605
+answer_metric: 0.944018663346446
+INFO:__main__:dictionary_used:{'Corp': '\U0001f3e2', 'diversity': '\U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme \U0001f3e2 has recently expanded from 8 to 12 members to increase \U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f. How many new members were added to the board of Acme \U0001f3e2?
+obfuscated answer: 4 new members were added to the board of Acme.
+deobfuscated_answer: 4 new members were added to the board of Acme.
+prompt_metric: 0.8769276204683412
+answer_metric: 0.9627522863971356
+INFO:__main__:Starting batch test
+INFO:__main__:dictionary_used:{'remote work': '\U0001f4cd\U0001f4bb', 'policy': '\U0001f4dc\U0001f465'}
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new \U0001f4cd\U0001f4bb \U0001f4dc\U0001f465 that allows employees to work from home three days a week. What is the frequency of \U0001f4cd\U0001f4bb allowed under Company XYZ's new \U0001f4dc\U0001f465?
+obfuscated answer: The frequency of \U0001f4cd\U0001f4bb (remote work) allowed under Company XYZ's new \U0001f4dc\U0001f465 (policy) is three days a week.
+deobfuscated_answer: The frequency of remote work (remote work) allowed under Company XYZ's new policy (policy) is three days a week.
+prompt_metric: 0.8701013035408466
+answer_metric: 0.9425233029335752
+INFO:__main__:dictionary_used:{'diversity': '\U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f'}
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme Corp has recently expanded from 8 to 12 members to increase \U0001f469\U0001f3fc\u200d\U0001f91d\u200d\U0001f468\U0001f3ff\U0001f30d\U0001f308\u26a7\ufe0f. How many new members were added to the board of Acme Corp?
+obfuscated answer: 4 new members were added to the board of Acme Corp.
+deobfuscated_answer: 4 new members were added to the board of Acme Corp.
+prompt_metric: 0.922582439968259
+answer_metric: 1.0
+INFO:__main__:dictionary_used:{'sustainability': '\U0001f30e\U0001f49a', 'initiative': '\U0001f525\U0001f4a1'}
+INFO:__main__:
+obfuscated prompt: As part of its \U0001f30e\U0001f49a \U0001f525\U0001f4a1, TechnoGlobal has reduced its carbon emissions by 15% over the last year. What percentage did TechnoGlobal reduce its carbon emissions by last year?
+obfuscated answer: TechnoGlobal reduced its carbon emissions by 15% last year.
+deobfuscated_answer: TechnoGlobal reduced its carbon emissions by 15% last year.
+prompt_metric: 0.9209115073523707
+answer_metric: 1.0
+INFO:__main__:dictionary_used:{'comprehensive': '\U0001f4ca\U0001f4bc'}
+INFO:__main__:
+obfuscated prompt: DeltaTech introduced a \U0001f4ca\U0001f4bc health plan in 2021 that covers mental health, dental, and vision care. What types of health coverage does the new plan at DeltaTech include?
+obfuscated answer: The new plan at DeltaTech includes mental health, dental, and vision care coverage.
+deobfuscated_answer: The new plan at DeltaTech includes mental health, dental, and vision care coverage.
+prompt_metric: 0.9701770488559598
+answer_metric: 0.9999994235644799
+INFO:__main__:dictionary_used:{'annual general meeting': '\U0001f4c5\U0001f3e2'}
+INFO:__main__:
+obfuscated prompt: During the \U0001f4c5\U0001f3e2, shareholders voted on three major proposals, and all proposals were approved. How many proposals were approved during the \U0001f4c5\U0001f3e2?
+obfuscated answer: Three proposals were approved during the \U0001f4c5\U0001f3e2.
+deobfuscated_answer: Three proposals were approved during the annual general meeting.
+prompt_metric: 0.8581857635869983
+answer_metric: 0.9999999999999999
+INFO:__main__:dictionary_used:{'digital skills': '\U0001f4bb\U0001f4a1'}
+INFO:__main__:
+obfuscated prompt: HR department at Widget Co. has launched a new training program focusing on \U0001f4bb\U0001f4a1 for all employees. What is the focus of Widget Co.'s new training program?
+obfuscated answer: The text does not provide specific information on what the new training program at Widget Co. is focusing on. The emojis suggest something related to computers and innovation or ideas, but without further context, a precise answer cannot be determined.
+deobfuscated_answer: The text does not provide specific information on what the new training program at Widget Co. is focusing on. The emojis suggest something related to computers and innovation or ideas, but without further context, a precise answer cannot be determined.
+prompt_metric: 0.902774068779115
+answer_metric: 0.6405783379470662
+INFO:__main__:dictionary_used:{'headquarters': '\U0001f3e2\U0001f4bc'}
+INFO:__main__:
+obfuscated prompt: In 2023, Nexus Enterprises moved its \U0001f3e2\U0001f4bc from Chicago to Austin. Where did Nexus Enterprises relocate its \U0001f3e2\U0001f4bc?
+obfuscated answer: Nexus Enterprises relocated its \U0001f3e2\U0001f4bc to Austin.
+deobfuscated_answer: Nexus Enterprises relocated its headquarters to Austin.
+prompt_metric: 0.9571192470815213
+answer_metric: 0.9999999999999998
+INFO:__main__:dictionary_used:{'percentage': '%'}
+INFO:__main__:
+obfuscated prompt: The marketing team at SolarFusion will be increasing its budget by 20% to promote new photovoltaic products. By what % will SolarFusion increase its marketing budget?
+obfuscated answer: SolarFusion will increase its marketing budget by 20%.
+deobfuscated_answer: SolarFusion will increase its marketing budget by 20percentage.
+prompt_metric: 0.997973108325955
+answer_metric: 0.9807879631638138
+INFO:__main__:dictionary_used:{'robotics': '\U0001f916\U0001f4bb'}
+INFO:__main__:
+obfuscated prompt: To enhance efficiency, Vortex Inc. has automated 30% of its production line using \U0001f916\U0001f4bb. What portion of Vortex Inc.'s production line has been automated?
+obfuscated answer: 30% of Vortex Inc.'s production line has been automated.
+deobfuscated_answer: 30% of Vortex Inc.'s production line has been automated.
+prompt_metric: 0.9375277858612349
+answer_metric: 0.9307806355808523
+INFO:__main__:dictionary_used:{'NGO': '\U0001f3e2\U0001f4bc'}
+INFO:__main__:
+obfuscated prompt: Brightside \U0001f3e2\U0001f4bc has expanded its outreach program to include five additional cities this year. How many cities has Brightside \U0001f3e2\U0001f4bc added to its outreach program?
+obfuscated answer: Brightside has added five cities to its outreach program.
+deobfuscated_answer: Brightside has added five cities to its outreach program.
+prompt_metric: 0.8977333594463706
+answer_metric: 0.9246648916294045

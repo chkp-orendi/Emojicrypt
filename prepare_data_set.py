@@ -40,7 +40,18 @@ def load_chat_history(filename):
     with open(filename, 'r') as file:
         return json.load(file)['data']
 
-
+def talk_to_llm(model, temperature):
+    chat_history = []
+    for i in range(50):
+        user_input = input()
+        if (user_input == "SUPER MAGIC!"):
+            break
+        update_chat_history(chat_history, "user", user_input)
+        azure_answer = AzureApi.get_answer_with_histroy(chat_history, model, temperature)
+        print(azure_answer)
+        update_chat_history(chat_history, "assistant", azure_answer)
+    
+    data = []
 def process_file():
     data = []
     chat_history =load_chat_history('/root/Emoji/Emojicrypt/log/json/generated_data2.json')
@@ -65,26 +76,10 @@ def process_file():
         update_chat_history(data, "assistant", azure_answer)
         print(azure_answer)
 
-    # for element in chat_history:
-    #     print(element)
-    #     if element['role'] == 'user':
-    #         data.append({
-    #             "role": 'user',
-    #             "content": element["content"],
-    #         })
-    #     if element['role'] == 'assistant':
-    #         data.append({
-    #             "role": 'assistant',
-    #             "content": element["content"],
-    #         })
-
     # Save the data to a JSON file
     with open('/root/Emoji/Emojicrypt/log/json/generated_data_temp0.3.json', 'w') as outfile:
         json.dump({"data": data}, outfile, indent=4)
 
 if __name__ == "__main__":
-    print("trying")
-    client = EncryptionAndDecryption.init_Ollama_client()
-    print(EncryptionAndDecryption.get_list_of_intresting_words("I went to sleep while the town went to sleep", client))
-    print("done")
+    talk_to_llm("gpt-4", 0.3)
     #process_file()

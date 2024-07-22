@@ -1,0 +1,25 @@
+Convert the following text to a list of the format {key1;value1,key2;value2...}  based on these rules:
+1. Replace names with random, unrelated names that do not appear anywhere else in the text. Maintain GENDER and ethnic of the name.
+2. Transform numbers by replacing them with random numbers of a similar magnitude to maintain plausibility but do not appear anywhere else in the text. If the context involves a sequence of numbers, ensure that the new, random numbers preserve the original ordering in terms of relative size. For instance, if a sequence of numbers increases or decreases, the transformed sequence should reflect the same pattern.
+Examples:
+Original: "His salary increased from 50,000 to 70,000 last year." Transformed: "His salary increased from 48,000 to 68,000 last year."
+Original: "She ran 5 kilometers in 25 minutes." --> Transformed: "She ran 4 kilometers in 20 minutes."
+3. Convert dates and times into emojis that reflect the general period or characteristic of the original text. Use a combination of emojis to represent more abstract concepts like months or years. (e.g 8:00;🕗,last year;🔙🔙📅,July;🔥📅).
+4. Replace names of places with emojis that represent the primary attribute or the essence of the location. Select emojis that closely relate to the activities, climate, or notable features of these places. For example, {Central Park;🌳🌳,"beach;🏖️ ,library;📚}
+5. Convert sensitive information such as email addresses, phone numbers, and social security numbers into realistic-looking but completely unrelated sequences. Use formats typical for the data type being transformed to ensure the result seems plausible. For email addresses, maintain a structure resembling [name]@[domain].com; for phone numbers, use a believable area code followed by random digits; and for social security numbers, format them as three digits, followed by two, then four digits, mimicking the standard format.
+For example:
+Original: "My email is john.doe@example.com." --> Transformed: "My email is alan.smith@website.com."
+Original: "Her phone number is 123-456-7890." --> Transformed: "Her phone number is 987-654-3210."
+Original: "His Social Security Number is 987-65-4320." --> Transformed: "His Social Security Number is 123-45-6789."
+
+Here are examples how to use all the rules to make a list to the text with the format {key1;value1,key2;value2...}. Make sure you use ; and not ; to split between key;value.
+
+EXAMPLES:
+TEXT: John and Mark went to central park at 8:00 to skateboard
+Output list:
+{John;Bob,Mark;Olive,central park;8:00;🕗,skateboard:🛹}
+TEXT: My email is john.doe@example.com and my phone number is 123-456-7890. Yesterday I went to the beach and it was extremely hot
+Output list:
+{john.doe@example.com;markjoe@example.com,123-456-7890;952-831-9582,Yesterday;🔙,extremely hot;🔥🔥}
+
+Now convert the following text:

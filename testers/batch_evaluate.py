@@ -28,7 +28,7 @@ deobfuscated_answer: {deobfuscated_answer}
 prompt_metric: {prompt_metric}
 answer_metric: {answer_metric}""")
         
-        return prompt_metric, answer_metric, obfuscated_answer
+        return prompt_metric, answer_metric, deobfuscated_answer
 
 def evaluate_batch(data_set, obfuscator,logger):
     #use pandas frame?
