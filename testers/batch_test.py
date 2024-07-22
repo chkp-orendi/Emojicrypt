@@ -45,11 +45,12 @@ def main():
     obfuscator = ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper,logger)
 
     #obfuscator = WrongObfuscator()
-    inputfile_path = os.path.join(os.path.dirname(__file__),"..","log","json","tmp.json")
+    data_to_use = "tmp.json"
+    inputfile_path = os.path.join(os.path.dirname(__file__),"..","log","json", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
-    metrics = evaluate_with_obfuscators(data["data"][:10], [obfuscator],logger)
+    metrics = evaluate_with_obfuscators(data[:10], [obfuscator], logger)
 
     print(metrics)
 

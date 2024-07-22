@@ -165,3 +165,315 @@ obfuscated answer: Brightside has added five cities to its outreach program.
 deobfuscated_answer: Brightside has added five cities to its outreach program.
 prompt_metric: 0.8977333594463706
 answer_metric: 0.9246648916294045
+INFO:__main__:Starting batch test
+INFO:__main__:Starting batch test
+INFO:__main__:Starting batch test
+INFO:__main__:Starting batch test
+INFO:__main__:Starting batch test
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new remote work policy that allows employees to work from home t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The new policy has been well-received by the employees, as it provides them with the flexibility to balance their work and personal life. It also eliminates the need for commuting, which saves time and reduces stress. The company has provided all the necessary tools and technology to ensure that the employees can work efficiently from home.
+
+The company has also set up a robust communication system to ensure that the employees stay connected and can collaborate effectively. Regular virtual meetings are held to discuss work progress and address any issues. The company has also implemented measures to ensure data security and privacy while working remotely.
+
+In addition to the new remote work policy, the company has also introduced a new mascot, a quick brown fox. The fox symbolizes agility, quick thinking, and adaptability, which are the qualities that the company values in its employees. The fox is often seen jumping over a lazy dog, which represents the challenges and obstacles that the employees may face in their work. The message is that with agility and quick thinking, one can easily overcome any challenges.
+
+Overall, the new remote work policy and the introduction of the new mascot have brought a positive change in the company. The employees are happier and more productive, and the company is thriving.
+deobfuscated_answer: The new policy has been well-received by the employees, as it provides them with the flexibility to balance their work and personal life. It also eliminates the need for commuting, which saves time and reduces stress. The company has provided all the necessary tools and technology to ensure that the employees can work efficiently from home.
+
+The company has also set up a robust communication system to ensure that the employees stay connected and can collaborate effectively. Regular virtual meetings are held to discuss work progress and address any issues. The company has also implemented measures to ensure data security and privacy while working remotely.
+
+In addition to the new remote work policy, the company has also introduced a new mascot, a quick brown fox. The fox symbolizes agility, quick thinking, and adaptability, which are the qualities that the company values in its employees. The fox is often seen jumping over a lazy dog, which represents the challenges and obstacles that the employees may face in their work. The message is that with agility and quick thinking, one can easily overcome any challenges.
+
+Overall, the new remote work policy and the introduction of the new mascot have brought a positive change in the company. The employees are happier and more productive, and the company is thriving.
+prompt_metric: 0.6725039270212338
+answer_metric: 0.5292040785844646
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme Corp has recently expanded from 8 to 12 members t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The expansion of the board of directors at Acme Corp from 8 to 12 members is a strategic move aimed at bringing in more diverse perspectives and expertise to guide the company's growth and development. This decision is expected to enhance the company's decision-making process and improve its overall performance.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog. This unusual event has sparked interest and amusement among local residents. The fox, known for its agility and speed, effortlessly leaped over the dog, who seemed unbothered by the incident. This occurrence has been a source of entertainment and has brought a sense of joy and light-heartedness to the community.
+deobfuscated_answer: The expansion of the board of directors at Acme Corp from 8 to 12 members is a strategic move aimed at bringing in more diverse perspectives and expertise to guide the company's growth and development. This decision is expected to enhance the company's decision-making process and improve its overall performance.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog. This unusual event has sparked interest and amusement among local residents. The fox, known for its agility and speed, effortlessly leaped over the dog, who seemed unbothered by the incident. This occurrence has been a source of entertainment and has brought a sense of joy and light-heartedness to the community.
+prompt_metric: 0.7845554289466853
+answer_metric: 0.6668360046125018
+INFO:__main__:
+obfuscated prompt: As part of its sustainability initiative, TechnoGlobal has reduced its carbon emissions by 15%... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: TechnoGlobal, a leading technology company, has made significant strides in its sustainability initiative by reducing its carbon emissions by 15%. This achievement is a testament to the company's commitment to environmental responsibility and its efforts to combat climate change.
+
+In addition to this, the company has implemented various other green initiatives, such as energy-efficient operations, waste reduction, and the use of renewable energy sources. TechnoGlobal is dedicated to creating a sustainable future and is continuously seeking innovative ways to reduce its environmental impact.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog in a local park. This unusual sight amused many park-goers and quickly became a popular topic on social media. The fox, seemingly unbothered by the attention, continued its playful antics much to the delight of onlookers. The dog, on the other hand, remained unfazed and continued its nap under the warm sun. This incident serves as a reminder of the simple joys and unexpected surprises that nature can bring.
+deobfuscated_answer: TechnoGlobal, a leading technology company, has made significant strides in its sustainability initiative by reducing its carbon emissions by 15%. This achievement is a testament to the company's commitment to environmental responsibility and its efforts to combat climate change.
+
+In addition to this, the company has implemented various other green initiatives, such as energy-efficient operations, waste reduction, and the use of renewable energy sources. TechnoGlobal is dedicated to creating a sustainable future and is continuously seeking innovative ways to reduce its environmental impact.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog in a local park. This unusual sight amused many park-goers and quickly became a popular topic on social media. The fox, seemingly unbothered by the attention, continued its playful antics much to the delight of onlookers. The dog, on the other hand, remained unfazed and continued its nap under the warm sun. This incident serves as a reminder of the simple joys and unexpected surprises that nature can bring.
+prompt_metric: 0.7465228410860043
+answer_metric: 0.6551275430492035
+INFO:__main__:
+obfuscated prompt: DeltaTech introduced a comprehensive health plan in 2021 that covers mental health, denta... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: DeltaTech, a leading technology company, launched a comprehensive health plan in 2021 that includes coverage for mental health and dental care. This initiative is part of the company's commitment to promoting the overall well-being of its employees. The plan is designed to provide a wide range of benefits, ensuring that employees have access to the care they need when they need it.
+
+In addition to mental health and dental care, the plan also covers a variety of other health services. This includes preventive care, hospitalization, prescription drugs, and more. The goal is to provide a holistic approach to health care, addressing all aspects of an individual's health.
+
+The introduction of this health plan is a significant step forward for DeltaTech. It demonstrates the company's commitment to its employees and their well-being. By providing comprehensive health coverage, DeltaTech is not only helping to ensure the health of its employees but also contributing to a more productive and positive work environment.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual event was captured on video and has since gone viral on social media. The fox, showing remarkable agility and speed, effortlessly leaped over the dog, who seemed completely unfazed by the incident. This amusing spectacle has brought smiles to many faces and serves as a reminder of the unexpected joys that nature can bring.
+deobfuscated_answer: DeltaTech, a leading technology company, launched a comprehensive health plan in 2021 that includes coverage for mental health and dental care. This initiative is part of the company's commitment to promoting the overall well-being of its employees. The plan is designed to provide a wide range of benefits, ensuring that employees have access to the care they need when they need it.
+
+In addition to mental health and dental care, the plan also covers a variety of other health services. This includes preventive care, hospitalization, prescription drugs, and more. The goal is to provide a holistic approach to health care, addressing all aspects of an individual's health.
+
+The introduction of this health plan is a significant step forward for DeltaTech. It demonstrates the company's commitment to its employees and their well-being. By providing comprehensive health coverage, DeltaTech is not only helping to ensure the health of its employees but also contributing to a more productive and positive work environment.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual event was captured on video and has since gone viral on social media. The fox, showing remarkable agility and speed, effortlessly leaped over the dog, who seemed completely unfazed by the incident. This amusing spectacle has brought smiles to many faces and serves as a reminder of the unexpected joys that nature can bring.
+prompt_metric: 0.7857917111169483
+answer_metric: 0.7602777144387115
+INFO:__main__:
+obfuscated prompt: During the annual general meeting, shareholders voted on three major proposals, and all pr... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The first proposal was to increase the company's capital through the issuance of new shares. This was met with overwhelming approval, with 85% of shareholders voting in favor. The additional capital will be used to fund the company's expansion plans and invest in new technologies.
+
+The second proposal was to appoint a new board member. This was a contentious issue, with 52% of shareholders voting in favor and 48% against. The new board member, a seasoned executive with a strong track record in the industry, will bring valuable experience and insights to the company.
+
+The third proposal was to increase the dividend payout ratio. This was also approved, with 75% of shareholders voting in favor. The increased dividend payout will provide shareholders with a higher return on their investment.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual event was captured on video and has since gone viral on social media. The dog, named Charlie, seemed unfazed by the fox's antics and continued to nap in the sun. The fox, on the other hand, seemed to be enjoying the attention and continued to jump over Charlie for several minutes. This unexpected entertainment provided a light-hearted end to the annual general meeting.
+deobfuscated_answer: The first proposal was to increase the company's capital through the issuance of new shares. This was met with overwhelming approval, with 85% of shareholders voting in favor. The additional capital will be used to fund the company's expansion plans and invest in new technologies.
+
+The second proposal was to appoint a new board member. This was a contentious issue, with 52% of shareholders voting in favor and 48% against. The new board member, a seasoned executive with a strong track record in the industry, will bring valuable experience and insights to the company.
+
+The third proposal was to increase the dividend payout ratio. This was also approved, with 75% of shareholders voting in favor. The increased dividend payout will provide shareholders with a higher return on their investment.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual event was captured on video and has since gone viral on social media. The dog, named Charlie, seemed unfazed by the fox's antics and continued to nap in the sun. The fox, on the other hand, seemed to be enjoying the attention and continued to jump over Charlie for several minutes. This unexpected entertainment provided a light-hearted end to the annual general meeting.
+prompt_metric: 0.74991217001266
+answer_metric: 0.5795900184709085
+INFO:__main__:
+obfuscated prompt: HR department at Widget Co. has launched a new training program focusing on digita... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The HR department at Widget Co. has launched a new training program focusing on digital skills. This program aims to equip employees with the necessary tools and knowledge to navigate the digital landscape effectively. The training will cover a range of topics, including digital marketing, data analysis, and cybersecurity.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog in the company's premises. This unusual event has sparked amusement among the employees and has become a popular topic of conversation. The HR department has taken this opportunity to remind everyone about the importance of maintaining a lively and positive work environment. 
+
+The typo in the last sentence, "cpdog", is assumed to be "dog". If it's an acronym or specific term related to Widget Co., please provide more context.
+deobfuscated_answer: The HR department at Widget Co. has launched a new training program focusing on digital skills. This program aims to equip employees with the necessary tools and knowledge to navigate the digital landscape effectively. The training will cover a range of topics, including digital marketing, data analysis, and cybersecurity.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog in the company's premises. This unusual event has sparked amusement among the employees and has become a popular topic of conversation. The HR department has taken this opportunity to remind everyone about the importance of maintaining a lively and positive work environment. 
+
+The typo in the last sentence, "cpdog", is assumed to be "dog". If it's an acronym or specific term related to Widget Co., please provide more context.
+prompt_metric: 0.8073925437709166
+answer_metric: 0.6208267870027507
+INFO:__main__:Starting batch test
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new remote work policy that allows employees to work from home t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The new policy has been well-received by the employees, as it provides them with the flexibility to balance their work and personal life. It also eliminates the need for commuting, which can be time-consuming and stressful. The company has provided the necessary tools and technology to ensure that employees can work efficiently from home.
+
+The company has also set up regular virtual meetings to ensure that everyone is on the same page and to maintain a sense of team spirit. Employees are encouraged to communicate regularly with their colleagues and managers, and to raise any issues or concerns they may have.
+
+The company believes that this new policy will not only improve employee satisfaction and productivity, but also reduce overhead costs.
+
+On a lighter note, the quick brown fox jumping over the lazy dog is a pangram - a sentence that uses every letter of the alphabet at least once. It's often used to display different types of fonts or to test typewriters and keyboards. In this context, it could symbolize the company's comprehensive approach to implementing the new remote work policy, covering all aspects and leaving no stone unturned.
+deobfuscated_answer: The new policy has been well-received by the employees, as it provides them with the flexibility to balance their work and personal life. It also eliminates the need for commuting, which can be time-consuming and stressful. The company has provided the necessary tools and technology to ensure that employees can work efficiently from home.
+
+The company has also set up regular virtual meetings to ensure that everyone is on the same page and to maintain a sense of team spirit. Employees are encouraged to communicate regularly with their colleagues and managers, and to raise any issues or concerns they may have.
+
+The company believes that this new policy will not only improve employee satisfaction and productivity, but also reduce overhead costs.
+
+On a lighter note, the quick brown fox jumping over the lazy dog is a pangram - a sentence that uses every letter of the alphabet at least once. It's often used to display different types of fonts or to test typewriters and keyboards. In this context, it could symbolize the company's comprehensive approach to implementing the new remote work policy, covering all aspects and leaving no stone unturned.
+prompt_metric: 0.6725039270212338
+answer_metric: 0.5301629863164895
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme Corp has recently expanded from 8 to 12 members t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The expansion of the board of directors at Acme Corp from 8 to 12 members is a strategic move aimed at bringing in more diverse perspectives and expertise to guide the company's growth and development. This decision is expected to enhance the company's decision-making process and improve its overall performance.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog. This unusual sight has sparked interest and amusement among local residents. The fox, known for its agility and speed, effortlessly leaped over the dog, who seemed unbothered by the fox's antics. This incident serves as a reminder of the unexpected and entertaining moments nature can provide.
+deobfuscated_answer: The expansion of the board of directors at Acme Corp from 8 to 12 members is a strategic move aimed at bringing in more diverse perspectives and expertise to guide the company's growth and development. This decision is expected to enhance the company's decision-making process and improve its overall performance.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog. This unusual sight has sparked interest and amusement among local residents. The fox, known for its agility and speed, effortlessly leaped over the dog, who seemed unbothered by the fox's antics. This incident serves as a reminder of the unexpected and entertaining moments nature can provide.
+prompt_metric: 0.7845554289466853
+answer_metric: 0.6539621690873508
+INFO:__main__:
+obfuscated prompt: As part of its sustainability initiative, TechnoGlobal has reduced its carbon emissions by 15%... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: TechnoGlobal, a leading technology company, has made significant strides in its sustainability initiative by reducing its carbon emissions by 15%. This achievement is a testament to the company's commitment to environmental responsibility and its efforts to combat climate change.
+
+In addition to this, the company has also implemented various other green initiatives, such as energy-efficient operations, waste reduction programs, and the use of renewable energy sources. TechnoGlobal believes that businesses have a crucial role to play in creating a sustainable future and is dedicated to leading the way in this regard.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog. This unusual event has sparked interest and amusement among local residents. The fox, known for its agility and speed, effortlessly leaped over the dog, who seemed unperturbed by the incident. This occurrence, while seemingly unrelated to TechnoGlobal's sustainability efforts, serves as a reminder of the diverse and fascinating natural world that these initiatives aim to protect.
+deobfuscated_answer: TechnoGlobal, a leading technology company, has made significant strides in its sustainability initiative by reducing its carbon emissions by 15%. This achievement is a testament to the company's commitment to environmental responsibility and its efforts to combat climate change.
+
+In addition to this, the company has also implemented various other green initiatives, such as energy-efficient operations, waste reduction programs, and the use of renewable energy sources. TechnoGlobal believes that businesses have a crucial role to play in creating a sustainable future and is dedicated to leading the way in this regard.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog. This unusual event has sparked interest and amusement among local residents. The fox, known for its agility and speed, effortlessly leaped over the dog, who seemed unperturbed by the incident. This occurrence, while seemingly unrelated to TechnoGlobal's sustainability efforts, serves as a reminder of the diverse and fascinating natural world that these initiatives aim to protect.
+prompt_metric: 0.7465228410860043
+answer_metric: 0.679544359113811
+INFO:__main__:
+obfuscated prompt: DeltaTech introduced a comprehensive health plan in 2021 that covers mental health, denta... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: DeltaTech, a leading technology company, launched a comprehensive health plan in 2021 that includes coverage for mental health and dental care. This initiative is part of the company's commitment to prioritizing the well-being of its employees. The plan is designed to provide a holistic approach to health care, ensuring that employees have access to the necessary resources and support they need to maintain their physical and mental health.
+
+In addition to the health plan, DeltaTech also introduced a unique program that encourages physical activity among its employees. The program, symbolically named "The Quick Brown Fox Jumps Over a Lazy Dog", is a playful reminder of the importance of staying active and healthy. The name of the program is a pangram - a sentence that uses every letter of the alphabet at least once. This represents the company's belief in the importance of balance and comprehensive care in health and wellness. 
+
+The program includes a variety of activities and challenges designed to motivate employees to move more and sit less. From group fitness classes to walking meetings, the program aims to make physical activity a fun and integral part of the workday. 
+
+DeltaTech's comprehensive health plan and wellness program demonstrate the company's commitment to fostering a healthy and happy work environment. By prioritizing the well-being of its employees, DeltaTech is not only investing in their health but also in the overall productivity and success of the company.
+deobfuscated_answer: DeltaTech, a leading technology company, launched a comprehensive health plan in 2021 that includes coverage for mental health and dental care. This initiative is part of the company's commitment to prioritizing the well-being of its employees. The plan is designed to provide a holistic approach to health care, ensuring that employees have access to the necessary resources and support they need to maintain their physical and mental health.
+
+In addition to the health plan, DeltaTech also introduced a unique program that encourages physical activity among its employees. The program, symbolically named "The Quick Brown Fox Jumps Over a Lazy Dog", is a playful reminder of the importance of staying active and healthy. The name of the program is a pangram - a sentence that uses every letter of the alphabet at least once. This represents the company's belief in the importance of balance and comprehensive care in health and wellness. 
+
+The program includes a variety of activities and challenges designed to motivate employees to move more and sit less. From group fitness classes to walking meetings, the program aims to make physical activity a fun and integral part of the workday. 
+
+DeltaTech's comprehensive health plan and wellness program demonstrate the company's commitment to fostering a healthy and happy work environment. By prioritizing the well-being of its employees, DeltaTech is not only investing in their health but also in the overall productivity and success of the company.
+prompt_metric: 0.7857917111169483
+answer_metric: 0.727304303538717
+INFO:__main__:Starting batch test
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new remote work policy that allows employees to work from home t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The new policy has been met with mixed reactions from the employees. Some are thrilled with the flexibility and convenience it offers, while others are concerned about the potential for isolation and the blurring of boundaries between work and personal life. 
+
+The company has provided guidelines and resources to help employees navigate this new way of working. They have also invested in technology and tools to facilitate effective communication and collaboration among remote teams. 
+
+In other news, a quick brown fox was spotted jumping over a lazy dog in a local park. This unusual sight has sparked much amusement and speculation among the local community. Some are wondering if it's a sign of the times, with nature reclaiming urban spaces during the pandemic. Others are simply enjoying the whimsical spectacle, which has brought a touch of joy and wonder in these challenging times. 
+
+In conclusion, whether it's adapting to new work arrangements or finding delight in unexpected moments, it seems that both the employees of Company XYZ and the local community are navigating these changes with resilience and a sense of humor.
+deobfuscated_answer: The new policy has been met with mixed reactions from the employees. Some are thrilled with the flexibility and convenience it offers, while others are concerned about the potential for isolation and the blurring of boundaries between work and personal life. 
+
+The company has provided guidelines and resources to help employees navigate this new way of working. They have also invested in technology and tools to facilitate effective communication and collaboration among remote teams. 
+
+In other news, a quick brown fox was spotted jumping over a lazy dog in a local park. This unusual sight has sparked much amusement and speculation among the local community. Some are wondering if it's a sign of the times, with nature reclaiming urban spaces during the pandemic. Others are simply enjoying the whimsical spectacle, which has brought a touch of joy and wonder in these challenging times. 
+
+In conclusion, whether it's adapting to new work arrangements or finding delight in unexpected moments, it seems that both the employees of Company XYZ and the local community are navigating these changes with resilience and a sense of humor.
+prompt_metric: 0.6725039270212338
+answer_metric: 0.5535552062938605
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme Corp has recently expanded from 8 to 12 members t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The expansion of the board of directors at Acme Corp from 8 to 12 members is a strategic move aimed at bringing in more diverse perspectives and expertise to the company's leadership. This decision is expected to enhance the company's decision-making process and drive its growth strategy.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog. This unusual event has sparked interest and amusement among local residents. The dog, seemingly unbothered by the fox's antics, continued to lounge lazily, much to the amusement of onlookers. This incident serves as a reminder of the unexpected and often humorous moments nature can provide.
+deobfuscated_answer: The expansion of the board of directors at Acme Corp from 8 to 12 members is a strategic move aimed at bringing in more diverse perspectives and expertise to the company's leadership. This decision is expected to enhance the company's decision-making process and drive its growth strategy.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog. This unusual event has sparked interest and amusement among local residents. The dog, seemingly unbothered by the fox's antics, continued to lounge lazily, much to the amusement of onlookers. This incident serves as a reminder of the unexpected and often humorous moments nature can provide.
+prompt_metric: 0.7845554289466853
+answer_metric: 0.65163760849443
+INFO:__main__:Starting batch test
+INFO:__main__:
+obfuscated prompt: Company XYZ has implemented a new remote work policy that allows employees to work from home t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The new policy has been well-received by the employees, as it provides them with the flexibility to balance their work and personal life. It also reduces commuting time and costs, and allows employees to work in a comfortable environment. The company has provided the necessary tools and technology to ensure that employees can work efficiently from home.
+
+In addition, the company has also implemented measures to ensure that communication and collaboration among team members are not compromised. Regular virtual meetings are held, and various online collaboration tools are used to facilitate teamwork.
+
+The company believes that this new policy will not only improve employee satisfaction and productivity, but also reduce operational costs in the long run.
+
+On a lighter note, a quick brown fox jumps over a lazy dog. This sentence is often used as a typing exercise, as it contains every letter of the alphabet. It's a fun and interesting way to practice typing skills, and it's also a great reminder that even in the midst of serious work, there's always room for a bit of fun and creativity.
+deobfuscated_answer: The new policy has been well-received by the employees, as it provides them with the flexibility to balance their work and personal life. It also reduces commuting time and costs, and allows employees to work in a comfortable environment. The company has provided the necessary tools and technology to ensure that employees can work efficiently from home.
+
+In addition, the company has also implemented measures to ensure that communication and collaboration among team members are not compromised. Regular virtual meetings are held, and various online collaboration tools are used to facilitate teamwork.
+
+The company believes that this new policy will not only improve employee satisfaction and productivity, but also reduce operational costs in the long run.
+
+On a lighter note, a quick brown fox jumps over a lazy dog. This sentence is often used as a typing exercise, as it contains every letter of the alphabet. It's a fun and interesting way to practice typing skills, and it's also a great reminder that even in the midst of serious work, there's always room for a bit of fun and creativity.
+prompt_metric: 0.6725039270212338
+answer_metric: 0.5315800065740023
+INFO:__main__:
+obfuscated prompt: The board of directors at Acme Corp has recently expanded from 8 to 12 members t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The expansion of the board of directors at Acme Corp from 8 to 12 members is a strategic move to bring in more diverse perspectives and expertise to the company's leadership. This will help in making more informed decisions and driving the company's growth.
+
+The phrase "a quick brown fox jumps over a lazy dog" is a pangram, a sentence that uses every letter of the alphabet at least once. It is often used in typing practice, testing typewriters and computer keyboards, displaying examples of fonts, and other applications involving all of the letters in the English alphabet. The phrase "cpdog" seems to be a typo, and should be corrected to "dog".
+deobfuscated_answer: The expansion of the board of directors at Acme Corp from 8 to 12 members is a strategic move to bring in more diverse perspectives and expertise to the company's leadership. This will help in making more informed decisions and driving the company's growth.
+
+The phrase "a quick brown fox jumps over a lazy dog" is a pangram, a sentence that uses every letter of the alphabet at least once. It is often used in typing practice, testing typewriters and computer keyboards, displaying examples of fonts, and other applications involving all of the letters in the English alphabet. The phrase "cpdog" seems to be a typo, and should be corrected to "dog".
+prompt_metric: 0.7845554289466853
+answer_metric: 0.5436083575462817
+INFO:__main__:
+obfuscated prompt: As part of its sustainability initiative, TechnoGlobal has reduced its carbon emissions by 15%... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: TechnoGlobal, a leading technology company, has made significant strides in its sustainability initiative by reducing its carbon emissions by 15%. This is a significant achievement, considering the increasing global concern over climate change and the role of businesses in contributing to carbon emissions.
+
+The company has implemented various measures to achieve this reduction, including energy-efficient operations, use of renewable energy sources, and promoting a culture of sustainability among its employees. TechnoGlobal's commitment to sustainability is not only beneficial for the environment but also for its business, as it enhances its reputation and attracts environmentally conscious customers and investors.
+
+In other news, a quick brown fox has been spotted jumping over a lazy dog. This unusual event has caught the attention of local residents and has become a popular topic of conversation. The fox, known for its agility and speed, effortlessly jumped over the dog, who seemed unbothered by the fox's antics. This incident serves as a reminder of the diverse and fascinating wildlife that coexists with us in our communities.
+deobfuscated_answer: TechnoGlobal, a leading technology company, has made significant strides in its sustainability initiative by reducing its carbon emissions by 15%. This is a significant achievement, considering the increasing global concern over climate change and the role of businesses in contributing to carbon emissions.
+
+The company has implemented various measures to achieve this reduction, including energy-efficient operations, use of renewable energy sources, and promoting a culture of sustainability among its employees. TechnoGlobal's commitment to sustainability is not only beneficial for the environment but also for its business, as it enhances its reputation and attracts environmentally conscious customers and investors.
+
+In other news, a quick brown fox has been spotted jumping over a lazy dog. This unusual event has caught the attention of local residents and has become a popular topic of conversation. The fox, known for its agility and speed, effortlessly jumped over the dog, who seemed unbothered by the fox's antics. This incident serves as a reminder of the diverse and fascinating wildlife that coexists with us in our communities.
+prompt_metric: 0.7465228410860043
+answer_metric: 0.6633482862119919
+INFO:__main__:
+obfuscated prompt: DeltaTech introduced a comprehensive health plan in 2021 that covers mental health, denta... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: DeltaTech, a leading technology company, launched a comprehensive health plan in 2021 that includes coverage for mental health and dental care. This initiative is part of the company's commitment to promoting the overall well-being of its employees. The plan is designed to provide a wide range of benefits, ensuring that employees have access to the care they need when they need it.
+
+In addition to mental health and dental care, the plan also covers a variety of other health services. This includes preventive care, hospitalization, prescription drugs, and more. The goal is to provide a holistic approach to health care, addressing not just physical health, but also mental and emotional well-being.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual event was captured on video and has since gone viral on social media. The fox, seemingly unbothered by the presence of the dog, effortlessly leaped over it, much to the amusement of onlookers. The dog, for its part, appeared to be unfazed by the fox's antics. This incident serves as a light-hearted reminder of the unexpected moments that nature can provide.
+deobfuscated_answer: DeltaTech, a leading technology company, launched a comprehensive health plan in 2021 that includes coverage for mental health and dental care. This initiative is part of the company's commitment to promoting the overall well-being of its employees. The plan is designed to provide a wide range of benefits, ensuring that employees have access to the care they need when they need it.
+
+In addition to mental health and dental care, the plan also covers a variety of other health services. This includes preventive care, hospitalization, prescription drugs, and more. The goal is to provide a holistic approach to health care, addressing not just physical health, but also mental and emotional well-being.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual event was captured on video and has since gone viral on social media. The fox, seemingly unbothered by the presence of the dog, effortlessly leaped over it, much to the amusement of onlookers. The dog, for its part, appeared to be unfazed by the fox's antics. This incident serves as a light-hearted reminder of the unexpected moments that nature can provide.
+prompt_metric: 0.7857917111169483
+answer_metric: 0.6881378658432628
+INFO:__main__:
+obfuscated prompt: During the annual general meeting, shareholders voted on three major proposals, and all pr... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The first proposal was to increase the company's capital through the issuance of new shares. This was met with overwhelming approval, with 85% of shareholders voting in favor. The additional capital will be used to fund the company's expansion plans and invest in new technologies.
+
+The second proposal was to appoint a new board member. This was a contentious issue, with 52% of shareholders voting in favor and 48% against. The new board member is a seasoned executive with a strong track record in the industry, but some shareholders expressed concerns about potential conflicts of interest.
+
+The third proposal was to increase the dividend payout. This was also approved, with 75% of shareholders voting in favor. The increased dividend reflects the company's strong financial performance and commitment to returning capital to shareholders.
+
+In other news, a quick brown fox was seen jumping over a lazy dog in the company's premises. This unusual event was captured on video and quickly went viral on social media. The company's PR team is currently working on a humorous response to capitalize on the unexpected publicity.
+deobfuscated_answer: The first proposal was to increase the company's capital through the issuance of new shares. This was met with overwhelming approval, with 85% of shareholders voting in favor. The additional capital will be used to fund the company's expansion plans and invest in new technologies.
+
+The second proposal was to appoint a new board member. This was a contentious issue, with 52% of shareholders voting in favor and 48% against. The new board member is a seasoned executive with a strong track record in the industry, but some shareholders expressed concerns about potential conflicts of interest.
+
+The third proposal was to increase the dividend payout. This was also approved, with 75% of shareholders voting in favor. The increased dividend reflects the company's strong financial performance and commitment to returning capital to shareholders.
+
+In other news, a quick brown fox was seen jumping over a lazy dog in the company's premises. This unusual event was captured on video and quickly went viral on social media. The company's PR team is currently working on a humorous response to capitalize on the unexpected publicity.
+prompt_metric: 0.74991217001266
+answer_metric: 0.5533461669517675
+INFO:__main__:
+obfuscated prompt: HR department at Widget Co. has launched a new training program focusing on digita... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The HR department at Widget Co. has launched a new training program focusing on digital skills. This program aims to equip employees with the necessary knowledge and skills to navigate the digital landscape effectively. The training will cover a range of topics, including digital marketing, data analysis, and cybersecurity.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog in the company's premises. This unusual event has sparked amusement among the employees and has become a popular topic of conversation. The HR department has taken this opportunity to remind everyone about the importance of maintaining a lively and fun work environment while ensuring the safety and well-being of all staff members.
+deobfuscated_answer: The HR department at Widget Co. has launched a new training program focusing on digital skills. This program aims to equip employees with the necessary knowledge and skills to navigate the digital landscape effectively. The training will cover a range of topics, including digital marketing, data analysis, and cybersecurity.
+
+In other news, a quick brown fox was spotted jumping over a lazy dog in the company's premises. This unusual event has sparked amusement among the employees and has become a popular topic of conversation. The HR department has taken this opportunity to remind everyone about the importance of maintaining a lively and fun work environment while ensuring the safety and well-being of all staff members.
+prompt_metric: 0.8073925437709166
+answer_metric: 0.6480030865128443
+INFO:__main__:
+obfuscated prompt: In 2023, Nexus Enterprises moved its headquarters from Chicago t... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: It seems like you've accidentally combined two unrelated sentences. The first part is about Nexus Enterprises moving its headquarters in 2023. The second part is a variation of a pangram - a sentence that uses every letter of the alphabet at least once. The original pangram is "The quick brown fox jumps over the lazy dog." It seems like there was a typo in your version with "cpdog" instead of "dog".
+deobfuscated_answer: It seems like you've accidentally combined two unrelated sentences. The first part is about Nexus Enterprises moving its headquarters in 2023. The second part is a variation of a pangram - a sentence that uses every letter of the alphabet at least once. The original pangram is "The quick brown fox jumps over the lazy dog." It seems like there was a typo in your version with "cpdog" instead of "dog".
+prompt_metric: 0.7448599447512956
+answer_metric: 0.37003165974099655
+INFO:__main__:
+obfuscated prompt: The marketing team at SolarFusion will be increasing its budget by 20% to promote new p... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: The marketing team at SolarFusion is set to increase its budget by 20% to promote new products. This move is expected to boost the company's visibility and reach a wider audience. The team is planning to use various marketing strategies, including digital marketing, print advertising, and public relations campaigns.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual event has caught the attention of many, sparking conversations and bringing a light-hearted moment to the day. The dog, seemingly unbothered by the fox's antics, continued to lounge lazily, much to the amusement of onlookers.
+deobfuscated_answer: The marketing team at SolarFusion is set to increase its budget by 20% to promote new products. This move is expected to boost the company's visibility and reach a wider audience. The team is planning to use various marketing strategies, including digital marketing, print advertising, and public relations campaigns.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual event has caught the attention of many, sparking conversations and bringing a light-hearted moment to the day. The dog, seemingly unbothered by the fox's antics, continued to lounge lazily, much to the amusement of onlookers.
+prompt_metric: 0.7621509088775282
+answer_metric: 0.6885691990903378
+INFO:__main__:
+obfuscated prompt: To enhance efficiency, Vortex Inc. has automated 30% of its production line us... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: Vortex Inc. has made significant strides in improving its production efficiency by automating 30% of its production line. This move has not only increased the company's output but also reduced the chances of human error, leading to higher quality products. The company plans to continue this trend and automate more processes in the future.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual sight has become a talking point among locals, with many speculating about the fox's unusual agility and the dog's apparent indifference. Some have even suggested it could be a metaphor for the fast-paced changes in the business world, with the quick, agile fox representing innovative companies like Vortex Inc., and the lazy dog symbolizing businesses that fail to adapt and keep up with the times.
+deobfuscated_answer: Vortex Inc. has made significant strides in improving its production efficiency by automating 30% of its production line. This move has not only increased the company's output but also reduced the chances of human error, leading to higher quality products. The company plans to continue this trend and automate more processes in the future.
+
+In other news, a quick brown fox was seen jumping over a lazy dog. This unusual sight has become a talking point among locals, with many speculating about the fox's unusual agility and the dog's apparent indifference. Some have even suggested it could be a metaphor for the fast-paced changes in the business world, with the quick, agile fox representing innovative companies like Vortex Inc., and the lazy dog symbolizing businesses that fail to adapt and keep up with the times.
+prompt_metric: 0.7263850285650367
+answer_metric: 0.6076806309838698
+INFO:__main__:
+obfuscated prompt: Brightside NGO has expanded its outreach program to include five additional cit... also a quick brown fox jumps over a lazy cpdog
+obfuscated answer: Brightside NGO, known for its extensive work in various social sectors, has recently announced the expansion of its outreach program. The organization will now be extending its services to five additional cities, aiming to reach more people in need and make a greater impact.
+
+The cities included in this expansion have not been disclosed yet, but the organization assures that these are areas where their services are greatly needed. Brightside NGO has been working tirelessly to provide support in areas such as education, healthcare, and poverty alleviation. This expansion is a significant step towards their goal of creating a better world.
+
+In other news, a quick brown fox was seen jumping over a lazy dog in a local park. This unusual sight amused many bystanders and quickly became a popular topic on social media. The fox, seemingly unbothered by the attention, continued its playful antics much to the delight of the onlookers. The dog, on the other hand, remained unfazed and continued its nap under the warm sun. This light-hearted event brought smiles to many faces, serving as a reminder of the simple joys in life.
+deobfuscated_answer: Brightside NGO, known for its extensive work in various social sectors, has recently announced the expansion of its outreach program. The organization will now be extending its services to five additional cities, aiming to reach more people in need and make a greater impact.
+
+The cities included in this expansion have not been disclosed yet, but the organization assures that these are areas where their services are greatly needed. Brightside NGO has been working tirelessly to provide support in areas such as education, healthcare, and poverty alleviation. This expansion is a significant step towards their goal of creating a better world.
+
+In other news, a quick brown fox was seen jumping over a lazy dog in a local park. This unusual sight amused many bystanders and quickly became a popular topic on social media. The fox, seemingly unbothered by the attention, continued its playful antics much to the delight of the onlookers. The dog, on the other hand, remained unfazed and continued its nap under the warm sun. This light-hearted event brought smiles to many faces, serving as a reminder of the simple joys in life.
+prompt_metric: 0.6623912335975586
+answer_metric: 0.6736742301111935
