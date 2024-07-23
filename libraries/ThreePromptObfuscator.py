@@ -6,6 +6,7 @@ class ThreePromptsObfuscator:
         self._extract_terms_prompt = extract_terms_prompt
         self._find_crucial_prompt = find_crucial_prompt
         self._dictionary_prompt = dictionary_prompt
+        self._llm_wrapper_factory = llm_wrapper_factory
         self._llm_wrapper = llm_wrapper_factory()
         self._extracted_terms = []
         self._extracted_crucial = {}
@@ -44,6 +45,7 @@ class ThreePromptsObfuscator:
         #return {item.split(":")[0]: item.split(":")[1] for item in answer_list}
 
     def _extract_terms(self, user_prompt):
+        self._llm_wrapper = self._llm_wrapper_factory()
         response_text = self._llm_wrapper.send_query(self._extract_terms_prompt.format(text=user_prompt))
         return ThreePromptsObfuscator.extract_list(response_text)
 

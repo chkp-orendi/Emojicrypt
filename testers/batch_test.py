@@ -54,12 +54,14 @@ def main():
 
     single_prompt_factory = lambda : SinglePromptObfuscator(single_prompt, ollama_llm_wrapper_factory, logger)
     three_prompts_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, ollama_llm_wrapper_factory,logger)
+    wrong_obfuscator_fctory = lambda : WrongObfuscator()
+    fake_obfuscator_factory = lambda : FakeObfuscator()
 
     obfuscators = []
-    #obfuscators.append(("WrongObfuscator", WrongObfuscator()))
-    #obfuscators.append(("FakeObfuscator", FakeObfuscator()))
+    #obfuscators.append(("WrongObfuscator", wrong_obfuscator_fctory))
+    #obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
     obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
-    obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
+    #obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
 
 
     inputfile_path = os.path.join(os.path.dirname(__file__),"..","log","json", data_to_use)

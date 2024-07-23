@@ -8,7 +8,7 @@ import re
 class SinglePromptObfuscator:
     def __init__(self, prompt, llm_wrapper_factory, logger):
         self._prompt = prompt
-        self._llm_wrapper = llm_wrapper_factory()
+        self._llm_wrapper = llm_wrapper_factory
         self._dictionary_used = {}
         self._logger = logger
         
@@ -16,7 +16,7 @@ class SinglePromptObfuscator:
 
     def _get_encryption_dict(self, llm_query):
         encryption_dict = {}
-        answer = self._llm_wrapper.send_query(self._prompt.format(text=llm_query))
+        answer = self._llm_wrapper().send_query(self._prompt.format(text=llm_query))
         model_encryption = re.findall(r'\[([^\]]+)\]',answer)
         if len(model_encryption)>0:
             model_encryption=model_encryption[-1]
@@ -26,6 +26,8 @@ class SinglePromptObfuscator:
         for item in model_encryption[1:-1].split(","):
             try:
                 key, value = item.split(";")
+                if (len(key)==0) or (len(value)==0):
+                    continue
             except:
                 try:
                     key, value = item.split(":")
@@ -34,6 +36,7 @@ class SinglePromptObfuscator:
             encryption_dict[key]=value
         self._dictionary_used = encryption_dict
         self._logger.info(f"Encryption dictionary: {encryption_dict}")
+        print(f"Encryption dictionary: {encryption_dict}")
         return encryption_dict
     
     def obfuscate(self, user_prompt):
@@ -42,6 +45,7 @@ class SinglePromptObfuscator:
         for original, obfuscated in self._dictionary_used.items():
             encrypted_text = re.sub(r'\b' + re.escape(original) + r'\b', obfuscated, user_prompt)
         self._logger.info(f"obfuscate: {encrypted_text}")
+        print(f"obfuscate: {encrypted_text}")
         return encrypted_text 
 
     def deobfuscate(self, obfuscated_answer):
@@ -49,4 +53,5 @@ class SinglePromptObfuscator:
         for original, obfuscated in self._dictionary_used.items():
             decrypted_text = re.sub(r'\b' + re.escape(obfuscated) + r'\b', original, decrypted_text)
         self._logger.info(f"obfuscated_answer: {decrypted_text}")
+        print(f"obfuscated_answer: {decrypted_text}")
         return decrypted_text 
