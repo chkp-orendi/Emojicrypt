@@ -1,7 +1,7 @@
 import re
 
 
-class ThreePromptsObfuscator:
+class ThreePromptsObfuscator(Obfuscator):
     def __init__(self, extract_terms_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper_factory, logger):
         self._extract_terms_prompt = extract_terms_prompt
         self._find_crucial_prompt = find_crucial_prompt

@@ -37,9 +37,12 @@ def extract_answer(LLM_answer):
         return match.group(1)
     return None
 
+
+    return words_to_encrypt_list
+
 # List is in the foramt for: $LIST: [word1,words2,...]
 def extract_list(LLM_answer):
-    ANSWER_PATTERN = r'\$LIST:\s*\[([^\]]+)\]'
+    ANSWER_PATTERN = r'\$LIST:*\s*\[([^\]]+)\]'
     print(LLM_answer)
     answer_list = re.findall(ANSWER_PATTERN,LLM_answer)
     if len(answer_list)>=1:

@@ -1,5 +1,5 @@
 # Replace the second part of the prompt with a completely irrelevant text
-class WrongObfuscator:
+class WrongObfuscator(Obfuscator):
     def __init__(self):
         pass
 

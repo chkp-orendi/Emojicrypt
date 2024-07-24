@@ -5,7 +5,7 @@ import re
 ## Second reason, We can't have chat histroy to long, it will crush
 
 
-class SinglePromptObfuscator:
+class SinglePromptObfuscator(Obfuscator):
     def __init__(self, prompt, llm_wrapper_factory, logger):
         self._prompt = prompt
         self._llm_wrapper = llm_wrapper_factory

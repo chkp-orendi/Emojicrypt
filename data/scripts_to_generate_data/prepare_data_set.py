@@ -74,6 +74,7 @@ def label_data(data):
     return labeled_data
 if __name__ == "__main__":
     data = talk_to_llm("gpt-4o-2024-05-13", 0.7)
+    print(data)
     labeled_data = label_data(data)
     output_full_path = os.path.join(os.path.dirname(__file__), "testing_data.json")
     with open(output_full_path, 'w') as file:
