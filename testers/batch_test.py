@@ -4,6 +4,7 @@ import os
 import sys
 import json
 import logging
+import plotly
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'libraries')))
 from ollama_helper import OllamaHelper
@@ -60,11 +61,11 @@ def main():
     obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
     obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
 
-    inputfile_path = os.path.join(os.path.dirname(__file__),"..","data", "scripts_to_handle_data", data_to_use)
+    inputfile_path = os.path.join(os.path.dirname(__file__),"..","data", "scripts_to_generate_data", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
-    metrics = evaluate_with_obfuscators(data, obfuscators, logger)
+    metrics = evaluate_with_obfuscators(data[5:6], obfuscators, logger)
 
     metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics.json"
     json.dump(metrics, open(os.path.join(os.path.dirname(__file__), "metrics", metrics_filename), "w"), indent=4)

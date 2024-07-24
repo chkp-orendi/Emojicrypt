@@ -19,7 +19,7 @@ class ListEmbeddingEvaluator:
         obfuscated_prompt_embeddings = AzureApi.get_embedding(obfuscated_prompt)
         cosine_similarity = AzureApi.cosine_similarity(obfuscated_prompt_embeddings, case_data["original_embeddings"])
         list_leftovers = ListEmbeddingEvaluator._find_leftovers(obfuscated_prompt, case_data["list"])
-        return (cosine_similarity, list_leftovers)
+        return {"similarity": cosine_similarity, "leftovers": list_leftovers}
 
     @staticmethod
     def evaluate_answer(obfuscated_answer, case_data):
