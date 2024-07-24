@@ -4,27 +4,24 @@ import os
 import sys
 import json
 import logging
-sys.path.append(os.path.join(os.path.dirname(__file__), '../libraries'))
-#TODO: proper module structure
-from ThreePromptObfuscator import ThreePromptsObfuscator
-from SinglePromptObfuscator import SinglePromptObfuscator
-from fake_obfuscator import FakeObfuscator
-from wrong_obfuscator import WrongObfuscator
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'libraries')))
 from ollama_helper import OllamaHelper
+from Obfuscators.single_prompt_obfuscator import SinglePromptObfuscator
+from Obfuscators.three_prompt_obfuscator import ThreePromptsObfuscator
+from Obfuscators.fake_obfuscator import FakeObfuscator
+from Obfuscators.wrong_obfuscator import WrongObfuscator
 
 
-path_separator = os.path.sep
-
-
-data_to_use = os.path.join("GPT4Temp0","enriched_generated_data_1.json")
+data_to_use = "enriched_testing_data_good_take.json"
 
 sensitive_file_path =os.path.join(os.path.dirname(__file__),"prompts","naive","extract_terms_prompt.txt")
 crucial_file_path = os.path.join(os.path.dirname(__file__),"prompts","naive","crucial_prompt.txt")
 dictionary_file_path = os.path.join(os.path.dirname(__file__),"prompts","naive","dictionary_prompt.txt")
 single_prompt_path = os.path.join(os.path.dirname(__file__),"prompts","single_querry","single_querry_for_dict.txt")
 
-log_path =os.path.join(os.path.dirname(__file__),"logs","batch_test.log")
 
+log_path =os.path.join(os.path.dirname(__file__),"..","log","batch_test.log")
 def evaluate_with_obfuscators(data, obfuscators,logger):
     metrics = []
     for name, obfuscator in obfuscators:
@@ -54,21 +51,20 @@ def main():
 
     single_prompt_factory = lambda : SinglePromptObfuscator(single_prompt, ollama_llm_wrapper_factory, logger)
     three_prompts_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, ollama_llm_wrapper_factory,logger)
-    wrong_obfuscator_fctory = lambda : WrongObfuscator()
+    wrong_obfuscator_factory = lambda : WrongObfuscator()
     fake_obfuscator_factory = lambda : FakeObfuscator()
 
     obfuscators = []
-    #obfuscators.append(("WrongObfuscator", wrong_obfuscator_fctory))
-    #obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
+    obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
+    obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
     obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
-    #obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
+    obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
 
-
-    inputfile_path = os.path.join(os.path.dirname(__file__),"..","log","json", data_to_use)
+    inputfile_path = os.path.join(os.path.dirname(__file__),"..","data", "scripts_to_handle_data", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
-    metrics = evaluate_with_obfuscators(data[:2], obfuscators, logger)
+    metrics = evaluate_with_obfuscators(data, obfuscators, logger)
 
     metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics.json"
     json.dump(metrics, open(os.path.join(os.path.dirname(__file__), "metrics", metrics_filename), "w"), indent=4)

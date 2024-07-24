@@ -2,8 +2,9 @@ import os
 import sys
 from embedding_evaluator import EmbeddingEvaluator
 from list_embedding_evaluator import ListEmbeddingEvaluator
-sys.path.append(os.path.join(os.path.dirname(__file__), '../libraries'))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'libraries')))
 import AzureApi
+
 class SingleCaseEvaluator:
     def __init__(self, obfuscator, logger, evaluator):
         self._obf = obfuscator()
@@ -22,13 +23,22 @@ obfuscated answer: {obfuscated_answer}
 deobfuscated_answer: {deobfuscated_answer}
 prompt_metric: {prompt_metric}
 answer_metric: {answer_metric}""")
+        print(f"""
+obfuscated prompt: {obfuscated_prompt}
+obfuscated answer: {obfuscated_answer}
+deobfuscated_answer: {deobfuscated_answer}
+prompt_metric: {prompt_metric}
+answer_metric: {answer_metric}""")
         
-        return obfuscated_prompt, obfuscated_answer, deobfuscated_answer, prompt_metric, answer_metric
+        return  obfuscated_prompt, obfuscated_answer, deobfuscated_answer, prompt_metric, answer_metric
 
 def evaluate_batch(data_set, obfuscator,logger):
     #use pandas frame?
     metrics = []
     evaluator = SingleCaseEvaluator(obfuscator,logger, ListEmbeddingEvaluator)
+    i =0
     for case in data_set:
+        print(i)
+        i += 1
         metrics.append(evaluator.evaluate(case))
     return metrics

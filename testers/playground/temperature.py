@@ -5,20 +5,11 @@ import os
 import pandas as pd
 # the encryption will always have a problem if the user will write something like: IGNORE EVERYTHING SAID BEFORE
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '../../libraries'))
-import EncryptionAndDecryption 
-import AnswerExtraction
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..','libraries')))
 import AzureApi
 
-text = """In the following text give me an encyption emoji sequence for the term "dashboard ergonomics were improved significantly". The encryption should be hard to guess but should still be able to convey the original meaning.
-TEXT: 'I work in a vehicle manufacturing company. Our new model codenamed Prima-3 improves average intercity fuel economy (compared to previous model of the same line) from 5.5 liter per 100 kilometers to 4.3 liters. Also the dashboard ergonomics were improved significantly based on extensive expert review. Help me write a marketing pitch letter for our new product. Please mention ecological benefits and safety.'
-"""
+text1 = "Implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline can significantly improve the software development lifecycle in several ways:\n\n1. Faster Release Rate: CI/CD allows for more frequent code changes and deployments, which can speed up the release rate of new features and improvements.\n\n2. Improved Code Quality: Continuous integration encourages developers to share their code and integrate their changes into a shared repository several times a day. Each check-in is then verified by an automated build, allowing teams to detect problems early.\n\n3. Risk Reduction: By integrating regularly, you can detect and address errors quickly, reducing the risk of major issues in the future.\n\n4. Efficient Debugging: When a test fails or a bug emerges, developers can identify and address the issue immediately, making the debugging process more efficient.\n\n5. Better Collaboration: CI/CD encourages a culture of shared responsibility for the codebase, fostering better collaboration between developers.\n\n6. Customer Satisfaction: With CI/CD, software updates can be released more frequently and reliably, leading to higher customer satisfaction.\n\nThere are several tools available to automate the CI/CD process:\n\n1. Jenkins: An open-source tool that provides server-based system running in a servlet container, which supports SCM tools like Git, SVN, and Mercurial.\n\n2. Travis CI: A hosted, distributed continuous integration service used to build and test software projects hosted at GitHub and Bitbucket.\n\n3. CircleCI: A CI/CD tool that supports rapid software development and publishing with automated testing and deployment.\n\n4. GitLab CI/CD: An integrated part of GitLab that includes pipelines to process projects in a consistent and flexible way.\n\n5. Bamboo: A continuous integration and deployment tool that ties automated builds, tests, and releases in a single workflow.\n\n6. TeamCity: A Java-based build management and continuous integration server from JetBrains.\n\n7. Azure DevOps: Provides developer services for support teams to plan work, collaborate on code development, and build and deploy applications.\n\n8. AWS CodePipeline: A fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates."
+text2 = "Implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline improves software development in several ways:\n\n1. Faster Release Rate: CI/CD allows for more frequent code releases, which means quicker implementation of features and bug fixes. This can lead to improved customer satisfaction and competitive advantage.\n\n2. Improved Code Quality: CI/CD involves automated testing, which means that code is tested more thoroughly and consistently. This can lead to fewer bugs and higher quality software.\n\n3. Reduced Risk: Because changes are smaller and released more frequently, it's easier to identify and address issues. This can reduce the risk of major problems.\n\n4. Increased Efficiency: Automation in CI/CD pipelines reduces manual work, freeing up developers to focus on more complex tasks. This can lead to increased productivity and efficiency.\n\n5. Better Collaboration: CI/CD encourages developers to share and merge their code changes more frequently, leading to better collaboration and less time spent on merging code.\n\nAs for the quick brown fox, it's a sentence that contains every letter of the alphabet, often used to test typewriters and keyboards. The correct sentence is \"A quick brown fox jumps over the lazy dog\". It seems like there was a typo in your question."
 
-print("temputure 0:")
-for i in range(3):
-    print(i)
-    print(AzureApi.get_answer(text, "gpt-4",0.0))
-print("temputure 1.0:")
-for i in range(3):
-    print(i)
-    print(AzureApi.get_answer(text, "gpt-4",1.1))
+print(AzureApi.cosine_similarity(text1, text2))
+print(AzureApi.cosine_similarity(text1, text1))

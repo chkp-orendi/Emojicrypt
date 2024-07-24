@@ -1,0 +1,42 @@
+[
+    {
+        "original_prompt": "Company XYZ has implemented a new remote work policy that allows employees to work from home three days a week. What is the frequency of remote work allowed under Company XYZ's new policy?",
+        "original_answer": "The frequency of remote work allowed under Company XYZ's new policy is three days a week."
+    },
+    {
+        "original_prompt": "The board of directors at Acme Corp has recently expanded from 8 to 12 members to increase diversity. How many new members were added to the board of Acme Corp?",
+        "original_answer": "4 new members were added to the board of Acme Corp."
+    },
+    {
+        "original_prompt": "As part of its sustainability initiative, TechnoGlobal has reduced its carbon emissions by 15% over the last year. What percentage did TechnoGlobal reduce its carbon emissions by last year?",
+        "original_answer": "TechnoGlobal reduced its carbon emissions by 15% last year."
+    },
+    {
+        "original_prompt": "DeltaTech introduced a comprehensive health plan in 2021 that covers mental health, dental, and vision care. What types of health coverage does the new plan at DeltaTech include?",
+        "original_answer": "The new plan at DeltaTech includes mental health, dental, and vision care coverage."
+    },
+    {
+        "original_prompt": "During the annual general meeting, shareholders voted on three major proposals, and all proposals were approved. How many proposals were approved during the annual general meeting?",
+        "original_answer": "Three proposals were approved during the annual general meeting."
+    },
+    {
+        "original_prompt": "HR department at Widget Co. has launched a new training program focusing on digital skills for all employees. What is the focus of Widget Co.'s new training program?",
+        "original_answer": "The focus of Widget Co.'s new training program is digital skills."
+    },
+    {
+        "original_prompt": "In 2023, Nexus Enterprises moved its headquarters from Chicago to Austin. Where did Nexus Enterprises relocate its headquarters?",
+        "original_answer": "Nexus Enterprises relocated its headquarters to Austin."
+    },
+    {
+        "original_prompt": "The marketing team at SolarFusion will be increasing its budget by 20% to promote new photovoltaic products. By what percentage will SolarFusion increase its marketing budget?",
+        "original_answer": "SolarFusion will increase its marketing budget by 20%."
+    },
+    {
+        "original_prompt": "To enhance efficiency, Vortex Inc. has automated 30% of its production line using robotics. What portion of Vortex Inc.'s production line has been automated?",
+        "original_answer": "The portion of Vortex Inc.'s production line that has been automated is 30%."
+    },
+    {
+        "original_prompt": "Brightside NGO has expanded its outreach program to include five additional cities this year. How many cities has Brightside NGO added to its outreach program?",
+        "original_answer": "Brightside NGO has added five cities to its outreach program."
+    }
+]

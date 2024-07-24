@@ -1,10 +1,6 @@
 from openai import AzureOpenAI
 import numpy as np
 from numpy.linalg import norm
-import logging
-import pandas as pd
-import datetime
-import EncryptionAndDecryption
 import os
 
 os.environ["REQUESTS_CA_BUNDLE"]= r'C:\Users\orendi\Documents\EmojiCrypt\ca-certificates.crt'
@@ -41,7 +37,7 @@ def get_answer(text,model="gpt-4o-2024-05-13", temp = 0.0):
 )
     return answer.choices[0].message.content
 
-def get_answer_with_histroy(messages, model, temp = 0.0):
+def get_answer_with_histroy(messages, model="gpt-4o-2024-05-13", temp = 0.0):
     answer = azure_client.chat.completions.create(
     model=model, messages=messages, temperature=temp
 )

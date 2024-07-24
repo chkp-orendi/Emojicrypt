@@ -37,10 +37,10 @@ def extract_answer(LLM_answer):
         return match.group(1)
     return None
 
-# List is in the foramt for: $LIST [word1,words2,...]
+# List is in the foramt for: $LIST: [word1,words2,...]
 def extract_list(LLM_answer):
-    LLM_answer = LLM_answer.replace('"', '')
-    ANSWER_PATTERN = r'\$LIST\s*\[([^\]]+)\]'
+    ANSWER_PATTERN = r'\$LIST:\s*\[([^\]]+)\]'
+    print(LLM_answer)
     answer_list = re.findall(ANSWER_PATTERN,LLM_answer)
     if len(answer_list)>=1:
          answer_list=answer_list[-1] #return last occurrence of pattern.
