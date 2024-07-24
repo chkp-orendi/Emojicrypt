@@ -16,10 +16,12 @@ from Obfuscators.wrong_obfuscator import WrongObfuscator
 
 data_to_use = "enriched_testing_data_good_take.json"
 
+single_query_file = "single_query_for_dict_v2.txt"
+
 sensitive_file_path =os.path.join(os.path.dirname(__file__),"prompts","naive","extract_terms_prompt.txt")
 crucial_file_path = os.path.join(os.path.dirname(__file__),"prompts","naive","crucial_prompt.txt")
 dictionary_file_path = os.path.join(os.path.dirname(__file__),"prompts","naive","dictionary_prompt.txt")
-single_prompt_path = os.path.join(os.path.dirname(__file__),"prompts","single_querry","single_querry_for_dict.txt")
+single_prompt_path = os.path.join(os.path.dirname(__file__),"prompts","single_querry", single_query_file)
 
 
 log_path =os.path.join(os.path.dirname(__file__),"..","log","batch_test.log")
@@ -56,16 +58,16 @@ def main():
     fake_obfuscator_factory = lambda : FakeObfuscator()
 
     obfuscators = []
-    obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
-    obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
+    #obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
+    #obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
     obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
-    obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
+    #obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
 
     inputfile_path = os.path.join(os.path.dirname(__file__),"..","data", "scripts_to_generate_data", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
-    metrics = evaluate_with_obfuscators(data[5:6], obfuscators, logger)
+    metrics = evaluate_with_obfuscators(data[12:15], obfuscators, logger)
 
     metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics.json"
     json.dump(metrics, open(os.path.join(os.path.dirname(__file__), "metrics", metrics_filename), "w"), indent=4)
