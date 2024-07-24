@@ -44,26 +44,28 @@ def get_answer_with_histroy(messages, model="gpt-4o-2024-05-13", temp = 0.0):
     return answer.choices[0].message.content
 
 class AzureHelper:
-    def __init__ (self, name, log_path, model):
-        self.name = name
-        self.model = model
-        self.log_path = log_path
-        self.client = AzureOpenAI(
-    azure_endpoint=ENDPOINT,
-    api_key=API_KEY,
-    api_version="2023-07-01-preview"
-    )
-        self.prompt_list =[]
-        self.chat_history =[]
+    def __init__ (self, name, log_path, model, tempurature):
+        self._name = name
+        self._model = model
+        self._log_path = log_path
+        self._tempurature = tempurature
+        # self._client = AzureOpenAI(
+        #     azure_endpoint=ENDPOINT,
+        #     api_key=API_KEY,
+        #     api_version="2023-07-01-preview"
+        # )
+        self._prompt_list =[]
+        self._chat_history =[]
 
     def update_chat_history(self, role, content):
-        self.chat_history.append({
+        self._chat_history.append({
         'role': role,
         'content': content,
     })
 
     def send_query(self, text):
         self.update_chat_history('user', text)
-        llm_response = self.client.chat(model=self.model, messages=self.chat_history,options={"temperature": 0})
-        self.update_chat_history('assistant', llm_response["message"]["content"])
-        return llm_response["message"]["content"]
+        #llm_response = self.client.chat(model=self.model, messages=self.chat_history,options={"temperature": 0})
+        llm_response = get_answer_with_histroy(self._chat_history, self._model, self._tempurature)
+        self.update_chat_history('assistant', llm_response)
+        return llm_response

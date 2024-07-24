@@ -1,5 +1,6 @@
 import re
 
+from obfuscator_template import Obfuscator
 
 class ThreePromptsObfuscator(Obfuscator):
     def __init__(self, extract_terms_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper_factory, logger):

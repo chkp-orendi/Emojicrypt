@@ -1,8 +1,8 @@
 import re
-
-## Problem with llm_wrapper. We use it for all scnearios in a dataset but for each case it should have a fresh chat history.
-## One reason, We want to test for different scenarios.
-## Second reason, We can't have chat histroy to long, it will crush
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__))))
+from obfuscator_template import Obfuscator
 
 
 class SinglePromptObfuscator(Obfuscator):
@@ -18,7 +18,7 @@ class SinglePromptObfuscator(Obfuscator):
         encryption_dict = {}
         answer = self._llm_wrapper().send_query(self._prompt.format(text=llm_query))
         self._logger.info(f"Encryption dictionary raw answer: {answer}")
-        model_encryption = re.findall(r'\[([^\]]+)\]',answer)
+        model_encryption = re.findall(r'Replacements:*\s*\[([^\]]+)\]',answer)
         if len(model_encryption)>0:
             model_encryption=model_encryption[-1]
         else:

@@ -1,3 +1,6 @@
+from obfuscator_template import Obfuscator
+
+
 # Replace the second part of the prompt with a completely irrelevant text
 class WrongObfuscator(Obfuscator):
     def __init__(self):

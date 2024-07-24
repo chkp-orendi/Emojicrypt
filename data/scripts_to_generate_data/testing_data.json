@@ -1,0 +1,402 @@
+[
+    {
+        "scenario": "$SCENARIO Can you outline the critical aspects of designing an efficient machine learning model that can accurately predict customer behavior using large datasets?",
+        "list": "$LIST [critical, efficient, accurately, designing, predict, using, machine learning model, customer behavior, large datasets]"
+    },
+    {
+        "scenario": "$SCENARIO Could you provide a comprehensive guide on the best practices for implementing a secure and scalable microservices architecture in a cloud environment?",
+        "list": "$LIST [comprehensive, best, secure, scalable, provide, implementing, microservices architecture, cloud environment]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the essential techniques for optimizing query performance in a relational database management system to handle high transaction volumes efficiently?",
+        "list": "$LIST [essential, optimizing, handle, efficiently, discuss, techniques, query performance, relational database management system, high transaction volumes]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the advanced methodologies for implementing a highly resilient and low-latency network infrastructure to support real-time data processing applications?",
+        "list": "$LIST [advanced, highly, resilient, low-latency, explain, implementing, network infrastructure, real-time data processing, applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the fundamental principles and best practices for developing a responsive and user-friendly web application using modern front-end frameworks?",
+        "list": "$LIST [fundamental, best, responsive, user-friendly, describe, developing, web application, modern, front-end frameworks]"
+    },
+    {
+        "scenario": "$SCENARIO Can you provide a thorough explanation of the techniques used for training a deep learning model to achieve high accuracy in image recognition tasks?",
+        "list": "$LIST [thorough, high, provide, training, achieve, deep learning model, accuracy, image recognition, tasks]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the key strategies for ensuring robust data integrity and security in a distributed ledger technology system like blockchain?",
+        "list": "$LIST [key, robust, outline, ensuring, data integrity, security, distributed ledger technology, blockchain]"
+    },
+    {
+        "scenario": "$SCENARIO Could you explain the critical steps involved in setting up an automated CI/CD pipeline for a scalable microservices-based application to enhance deployment efficiency?",
+        "list": "$LIST [critical, scalable, automated, explain, setting, enhance, CI/CD pipeline, microservices-based application, deployment efficiency]"
+    },
+    {
+        "scenario": "$SCENARIO Can you break down the essential components and best practices for architecting a fault-tolerant and highly available cloud-based system to ensure minimal downtime?",
+        "list": "$LIST [essential, best, fault-tolerant, highly available, break down, architecting, cloud-based system, ensure, minimal downtime]"
+    },
+    {
+        "scenario": "$SCENARIO Can you detail the advanced algorithms and techniques used to develop an efficient natural language processing model for sentiment analysis in real-time applications?",
+        "list": "$LIST [advanced, efficient, real-time, detail, develop, algorithms, techniques, natural language processing model, sentiment analysis, applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the significant challenges and solutions in designing a low-power, high-performance embedded system for IoT applications?",
+        "list": "$LIST [significant, low-power, high-performance, explain, designing, embedded system, IoT applications, challenges, solutions]"
+    },
+    {
+        "scenario": "$SCENARIO Could you provide an in-depth analysis of the methodologies and tools used for ensuring comprehensive cybersecurity measures in enterprise-level IT infrastructures?",
+        "list": "$LIST [in-depth, comprehensive, enterprise-level, provide, ensuring, cybersecurity measures, methodologies, tools, IT infrastructures]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the innovative approaches and best practices for implementing a real-time data analytics platform that can handle large-scale data ingestion and processing?",
+        "list": "$LIST [innovative, best, real-time, large-scale, describe, implementing, data analytics platform, data ingestion, processing]"
+    },
+    {
+        "scenario": "$SCENARIO Can you elaborate on the critical factors and techniques involved in designing an energy-efficient, high-speed wireless communication system for smart devices?",
+        "list": "$LIST [critical, energy-efficient, high-speed, smart, elaborate, designing, wireless communication system, techniques, factors, devices]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the advanced strategies and tools for implementing a highly secure and scalable API gateway to manage microservices communication effectively?",
+        "list": "$LIST [advanced, highly secure, scalable, outline, implementing, API gateway, manage, microservices communication, effectively]"
+    },
+    {
+        "scenario": "$SCENARIO Could you explain the fundamental principles and cutting-edge techniques used in developing an autonomous vehicle's navigation system to ensure safety and efficiency?",
+        "list": "$LIST [fundamental, cutting-edge, autonomous, explain, developing, navigation system, safety, efficiency]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the primary challenges and innovative solutions in creating a scalable and resilient edge computing infrastructure for real-time data processing in IoT networks?",
+        "list": "$LIST [primary, innovative, scalable, resilient, discuss, creating, edge computing infrastructure, real-time data processing, IoT networks, challenges, solutions]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the critical steps and best practices for deploying a secure and efficient machine learning pipeline in a cloud environment to handle big data analytics?",
+        "list": "$LIST [critical, best, secure, efficient, describe, deploying, machine learning pipeline, cloud environment, big data analytics]"
+    },
+    {
+        "scenario": "$SCENARIO Could you elaborate on the essential techniques and modern tools for creating a highly interactive and responsive user interface for web applications that ensures a seamless user experience?",
+        "list": "$LIST [essential, modern, highly interactive, responsive, seamless, user interface, web applications, user experience, elaborate, creating]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the advanced techniques and algorithms used in developing a high-frequency trading system that ensures low-latency and high-throughput performance?",
+        "list": "$LIST [advanced, high-frequency, low-latency, high-throughput, explain, developing, techniques, algorithms, trading system, performance]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the comprehensive steps and best practices for implementing a container orchestration platform like Kubernetes to achieve efficient resource management and scalability?",
+        "list": "$LIST [comprehensive, best, efficient, outline, implementing, container orchestration platform, Kubernetes, resource management, scalability]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the fundamental components and advanced techniques involved in the design and deployment of a fault-tolerant distributed file system to ensure data redundancy and availability?",
+        "list": "$LIST [fundamental, advanced, fault-tolerant, distributed, describe, design, deployment, file system, data redundancy, availability]"
+    },
+    {
+        "scenario": "$SCENARIO Could you discuss the critical requirements and innovative technologies necessary for developing a scalable and energy-efficient data center to support high-performance computing applications?",
+        "list": "$LIST [critical, innovative, scalable, energy-efficient, discuss, developing, data center, high-performance computing, applications, requirements, technologies]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the key principles and state-of-the-art techniques for implementing a secure and robust authentication system in a multi-tenant cloud environment?",
+        "list": "$LIST [key, state-of-the-art, secure, robust, explain, implementing, authentication system, multi-tenant, cloud environment]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the critical factors and advanced methodologies for building a highly available and scalable content delivery network (CDN) to optimize web content distribution?",
+        "list": "$LIST [critical, advanced, highly available, scalable, outline, building, content delivery network, optimize, web content distribution]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the best practices and sophisticated tools for implementing a robust data governance framework to ensure data quality and compliance in large enterprises?",
+        "list": "$LIST [best, sophisticated, robust, large, describe, implementing, data governance framework, data quality, compliance, enterprises]"
+    },
+    {
+        "scenario": "$SCENARIO Can you detail the advanced techniques and critical considerations for constructing a high-performance, low-latency distributed caching system to enhance application responsiveness?\n\n",
+        "list": "$LIST [advanced, critical, high-performance, low-latency, detail, constructing, distributed caching system, application responsiveness, techniques, considerations]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the fundamental principles and modern practices for deploying a resilient and scalable serverless architecture to support dynamic workloads in cloud environments?",
+        "list": "$LIST [fundamental, modern, resilient, scalable, explain, deploying, serverless architecture, dynamic workloads, cloud environments]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the essential components and innovative approaches for designing a real-time, fault-tolerant event streaming platform to handle massive data flows efficiently?",
+        "list": "$LIST [essential, innovative, real-time, fault-tolerant, massive, outline, designing, event streaming platform, data flows, efficiently]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the core challenges and cutting-edge solutions in developing a secure and scalable blockchain platform for decentralized applications (dApps)?",
+        "list": "$LIST [core, cutting-edge, secure, scalable, discuss, developing, blockchain platform, decentralized applications, challenges, solutions]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the intricate processes and advanced algorithms involved in creating a highly accurate and efficient recommendation system for e-commerce platforms?",
+        "list": "$LIST [intricate, advanced, highly accurate, efficient, explain, creating, processes, algorithms, recommendation system, e-commerce platforms]"
+    },
+    {
+        "scenario": "$SCENARIO Could you describe the comprehensive strategies and key technologies required for implementing an effective disaster recovery plan for enterprise IT infrastructures?",
+        "list": "$LIST [comprehensive, key, effective, describe, implementing, strategies, technologies, disaster recovery plan, enterprise IT infrastructures]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the critical components and innovative techniques for developing a real-time, predictive maintenance system to improve operational efficiency in manufacturing industries?",
+        "list": "$LIST [critical, innovative, real-time, predictive, discuss, developing, maintenance system, operational efficiency, manufacturing industries, components, techniques]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the essential methodologies and modern frameworks for building a secure and scalable identity management system that integrates seamlessly with existing enterprise applications?",
+        "list": "$LIST [essential, modern, secure, scalable, seamlessly, explain, building, methodologies, frameworks, identity management system, enterprise applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you detail the advanced security measures and critical protocols necessary to protect sensitive information in a cloud-based healthcare management system?\n\n",
+        "list": "$LIST [advanced, critical, cloud-based, sensitive, detail, protect, security measures, protocols, information, healthcare management system]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the comprehensive steps and innovative approaches for designing a high-availability, low-latency content delivery network to enhance user experience globally?",
+        "list": "$LIST [comprehensive, innovative, high-availability, low-latency, outline, designing, content delivery network, enhance, user experience, globally]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the fundamental concepts and key technologies involved in developing a scalable and fault-tolerant distributed ledger for secure financial transactions?",
+        "list": "$LIST [fundamental, key, scalable, fault-tolerant, secure, explain, developing, concepts, technologies, distributed ledger, financial transactions]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the essential features and advanced techniques for implementing a multi-factor authentication system to enhance security in enterprise applications?",
+        "list": "$LIST [essential, advanced, multi-factor, describe, implementing, features, techniques, authentication system, security, enterprise applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the latest advancements and best practices for deploying a containerized microservices architecture to achieve high scalability and resilience in cloud-native applications?",
+        "list": "$LIST [latest, best, containerized, high, scalable, resilient, discuss, deploying, advancements, practices, microservices architecture, cloud-native applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the intricate mechanisms and cutting-edge technologies used in developing an AI-powered recommendation engine for personalized content delivery?",
+        "list": "$LIST [intricate, cutting-edge, AI-powered, explain, developing, mechanisms, technologies, recommendation engine, personalized content delivery]"
+    },
+    {
+        "scenario": "$SCENARIO Could you provide a detailed overview of the critical algorithms and innovative techniques employed in creating a highly accurate machine translation system for multiple languages?",
+        "list": "$LIST [detailed, critical, innovative, highly accurate, multiple, provide, creating, overview, algorithms, techniques, machine translation system, languages]"
+    },
+    {
+        "scenario": "$SCENARIO Can you elaborate on the essential protocols and cutting-edge tools for establishing a secure and efficient data pipeline in big data analytics environments?",
+        "list": "$LIST [essential, cutting-edge, secure, efficient, elaborate, establishing, protocols, tools, data pipeline, big data analytics, environments]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the advanced methods and critical considerations for designing a low-latency, high-throughput streaming analytics platform to process real-time data efficiently?",
+        "list": "$LIST [advanced, critical, low-latency, high-throughput, real-time, describe, designing, methods, considerations, streaming analytics platform, data, efficiently]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the fundamental concepts and sophisticated techniques involved in developing a robust anomaly detection system for cybersecurity applications?",
+        "list": "$LIST [fundamental, sophisticated, robust, outline, developing, concepts, techniques, anomaly detection system, cybersecurity applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the key factors and innovative algorithms essential for building an energy-efficient and high-performance neural network for deep learning applications?",
+        "list": "$LIST [key, innovative, energy-efficient, high-performance, discuss, building, algorithms, neural network, deep learning applications, factors]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the advanced encryption techniques and essential security protocols required to protect data privacy in a decentralized blockchain network?",
+        "list": "$LIST [advanced, essential, decentralized, explain, encryption techniques, security protocols, data privacy, blockchain network]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the critical steps and best practices for implementing a scalable and secure data warehouse solution to support real-time analytics and business intelligence?",
+        "list": "$LIST [critical, best, scalable, secure, describe, implementing, data warehouse solution, real-time analytics, business intelligence]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the innovative technologies and effective methodologies for developing a highly responsive and adaptive user interface in modern web applications?",
+        "list": "$LIST [innovative, effective, highly responsive, adaptive, outline, developing, technologies, methodologies, user interface, modern web applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the advanced data mining techniques and machine learning algorithms essential for extracting valuable insights from large and complex datasets?",
+        "list": "$LIST [advanced, essential, large, complex, explain, data mining techniques, machine learning algorithms, extracting, valuable insights, datasets]"
+    },
+    {
+        "scenario": "$SCENARIO Could you describe the fundamental principles and key architectural elements necessary for designing a scalable and fault-tolerant distributed database system suitable for global applications?",
+        "list": "$LIST [fundamental, key, scalable, fault-tolerant, global, describe, designing, principles, architectural elements, distributed database system, applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you detail the critical design considerations and modern encryption standards required to develop a secure communication protocol for IoT devices?",
+        "list": "$LIST [critical, modern, secure, detail, develop, design considerations, encryption standards, communication protocol, IoT devices]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the advanced techniques and best practices for architecting a high-availability, low-latency cloud storage solution to support large-scale data applications?",
+        "list": "$LIST [advanced, best, high-availability, low-latency, large-scale, explain, architecting, techniques, practices, cloud storage solution, data applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the innovative approaches and critical performance metrics for designing an energy-efficient, high-throughput network architecture for data centers?",
+        "list": "$LIST [innovative, critical, energy-efficient, high-throughput, describe, designing, approaches, performance metrics, network architecture, data centers]"
+    },
+    {
+        "scenario": "$SCENARIO Could you explain the comprehensive methodologies and key challenges involved in implementing a machine learning model for real-time fraud detection in financial transactions?",
+        "list": "$LIST [comprehensive, key, real-time, financial, explain, implementing, methodologies, challenges, machine learning model, fraud detection, transactions]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the best practices and advanced techniques for developing a scalable, cloud-native application that ensures high availability and seamless user experience?",
+        "list": "$LIST [best, advanced, scalable, cloud-native, high, seamless, outline, developing, practices, techniques, application, availability, user experience]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the fundamental principles and state-of-the-art methodologies for designing a secure and efficient quantum computing algorithm to solve complex optimization problems?",
+        "list": "$LIST [fundamental, state-of-the-art, secure, efficient, complex, discuss, designing, principles, methodologies, quantum computing algorithm, optimization problems]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the essential components and innovative strategies for building a real-time, AI-driven chatbot that provides personalized customer support efficiently?",
+        "list": "$LIST [essential, innovative, real-time, AI-driven, personalized, describe, building, components, strategies, chatbot, customer support, efficiently]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the critical factors and advanced methodologies for developing an autonomous drone navigation system that ensures high precision and safety in various environments?",
+        "list": "$LIST [critical, advanced, autonomous, high, various, explain, developing, factors, methodologies, drone navigation system, precision, safety, environments]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the core principles and modern practices for implementing a secure and scalable blockchain-based voting system to ensure transparency and integrity in elections?",
+        "list": "$LIST [core, modern, secure, scalable, discuss, implementing, principles, practices, blockchain-based voting system, transparency, integrity, elections]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the detailed steps and advanced techniques for designing a low-latency, high-throughput data pipeline to support real-time analytics in big data environments?",
+        "list": "$LIST [detailed, advanced, low-latency, high-throughput, real-time, big data, explain, designing, steps, techniques, data pipeline, analytics, environments]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the fundamental concepts and innovative approaches for developing a resilient and efficient smart grid system to optimize energy distribution and consumption?\n\n",
+        "list": "$LIST [fundamental, innovative, resilient, efficient, outline, developing, concepts, approaches, smart grid system, optimize, energy distribution, consumption]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the critical considerations and advanced technologies for implementing a real-time, AI-driven cybersecurity system to detect and mitigate threats in enterprise networks?",
+        "list": "$LIST [critical, advanced, real-time, AI-driven, describe, implementing, considerations, technologies, cybersecurity system, detect, mitigate, threats, enterprise networks]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the essential steps and innovative solutions for creating a high-availability, cloud-native data warehouse that supports scalable and efficient data analytics?",
+        "list": "$LIST [essential, innovative, high-availability, cloud-native, scalable, efficient, explain, creating, steps, solutions, data warehouse, data analytics]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the key features and advanced methodologies for developing a robust and user-friendly machine learning platform that facilitates model training and deployment?",
+        "list": "$LIST [key, advanced, robust, user-friendly, discuss, developing, features, methodologies, machine learning platform, model training, deployment]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the comprehensive strategies and cutting-edge tools necessary for constructing a secure and scalable cloud infrastructure to support enterprise-grade applications?",
+        "list": "$LIST [comprehensive, cutting-edge, secure, scalable, outline, constructing, strategies, tools, cloud infrastructure, enterprise-grade applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the essential components and modern techniques for developing a high-precision, low-latency augmented reality (AR) system for interactive applications?",
+        "list": "$LIST [essential, modern, high-precision, low-latency, describe, developing, components, techniques, augmented reality, interactive applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the advanced methodologies and critical protocols involved in designing a secure and efficient blockchain consensus mechanism for decentralized networks?",
+        "list": "$LIST [advanced, critical, secure, efficient, decentralized, explain, designing, methodologies, protocols, blockchain consensus mechanism, networks]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the key strategies and innovative approaches for creating a scalable and resilient serverless architecture to support dynamic workloads in cloud computing environments?",
+        "list": "$LIST [key, innovative, scalable, resilient, dynamic, outline, creating, strategies, approaches, serverless architecture, workloads, cloud computing environments]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the essential principles and cutting-edge technologies for implementing a high-throughput, low-latency data streaming platform to handle real-time analytics in financial markets?",
+        "list": "$LIST [essential, cutting-edge, high-throughput, low-latency, real-time, financial, describe, implementing, principles, technologies, data streaming platform, analytics, markets]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the advanced algorithms and best practices for developing a highly accurate and efficient image recognition system using deep learning techniques?",
+        "list": "$LIST [advanced, best, highly accurate, efficient, explain, developing, algorithms, image recognition system, deep learning techniques]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the critical design principles and innovative methods for creating a secure and reliable IoT ecosystem that supports seamless device interoperability and data integration?",
+        "list": "$LIST [critical, innovative, secure, reliable, seamless, describe, creating, design principles, methods, IoT ecosystem, device interoperability, data integration]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the fundamental principles and advanced techniques for developing a high-performance, low-power machine learning model suitable for edge computing applications?",
+        "list": "$LIST [fundamental, advanced, high-performance, low-power, explain, developing, principles, techniques, machine learning model, edge computing applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the comprehensive steps and innovative methods for designing a highly secure and scalable multi-cloud architecture to optimize resource management and cost efficiency?",
+        "list": "$LIST [comprehensive, innovative, highly secure, scalable, outline, designing, steps, methods, multi-cloud architecture, resource management, cost efficiency]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the essential factors and cutting-edge technologies for creating a real-time, AI-driven fraud detection system to enhance security in financial transactions?",
+        "list": "$LIST [essential, cutting-edge, real-time, AI-driven, discuss, creating, factors, technologies, fraud detection system, security, financial transactions]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the critical considerations and advanced techniques for developing a scalable and efficient natural language processing (NLP) model for multilingual text analysis?",
+        "list": "$LIST [critical, advanced, scalable, efficient, explain, developing, considerations, techniques, natural language processing, NLP, model, multilingual text analysis]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the fundamental principles and innovative strategies for building a resilient and high-performance distributed computing system to support large-scale scientific simulations?",
+        "list": "$LIST [fundamental, innovative, resilient, high-performance, large-scale, describe, building, principles, strategies, distributed computing system, scientific simulations]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the key architectural patterns and advanced practices for implementing a robust and scalable microservices architecture in a cloud-native environment?",
+        "list": "$LIST [key, advanced, robust, scalable, cloud-native, outline, implementing, architectural patterns, practices, microservices architecture, environment]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the essential principles and cutting-edge methodologies for creating a secure and efficient blockchain solution to enhance transparency and trust in supply chain management?",
+        "list": "$LIST [essential, cutting-edge, secure, efficient, explain, creating, principles, methodologies, blockchain solution, transparency, trust, supply chain management]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the key factors and advanced algorithms involved in developing a real-time, AI-powered recommendation engine to personalize user experiences on e-commerce platforms?",
+        "list": "$LIST [key, advanced, real-time, AI-powered, describe, developing, factors, algorithms, recommendation engine, personalize, user experiences, e-commerce platforms]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the critical steps and innovative approaches for designing a high-performance, low-latency data analytics platform to support decision-making in real-time business environments?",
+        "list": "$LIST [critical, innovative, high-performance, low-latency, real-time, discuss, designing, steps, approaches, data analytics platform, decision-making, business environments]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the essential components and modern techniques for developing a scalable and fault-tolerant distributed ledger system to handle secure financial transactions?",
+        "list": "$LIST [essential, modern, scalable, fault-tolerant, secure, explain, developing, components, techniques, distributed ledger system, financial transactions]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the critical considerations and advanced methodologies for implementing a high-availability, low-latency edge computing solution to support IoT deployments in industrial settings?",
+        "list": "$LIST [critical, advanced, high-availability, low-latency, edge, describe, implementing, considerations, methodologies, computing solution, IoT deployments, industrial settings]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the essential principles and innovative techniques for designing a resilient and scalable data lake architecture to handle large-scale data ingestion and processing?\n\n",
+        "list": "$LIST [essential, innovative, resilient, scalable, large-scale, explain, designing, principles, techniques, data lake architecture, data ingestion, processing]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the advanced algorithms and key strategies for developing a robust and efficient predictive maintenance system to minimize downtime in manufacturing operations?",
+        "list": "$LIST [advanced, key, robust, efficient, discuss, developing, algorithms, strategies, predictive maintenance system, downtime, manufacturing operations]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the critical factors and modern practices for developing a secure and scalable API management platform to ensure seamless integration and performance across diverse applications?",
+        "list": "$LIST [critical, modern, secure, scalable, diverse, outline, developing, factors, practices, API management platform, integration, performance, applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the essential steps and advanced techniques for designing a high-fidelity, real-time 3D rendering engine to support immersive virtual reality experiences?",
+        "list": "$LIST [essential, advanced, high-fidelity, real-time, immersive, describe, designing, steps, techniques, 3D rendering engine, virtual reality, experiences]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the key considerations and cutting-edge technologies required for building a highly secure and efficient federated learning framework to protect data privacy across multiple institutions?",
+        "list": "$LIST [key, cutting-edge, highly secure, efficient, multiple, explain, building, considerations, technologies, federated learning framework, data privacy, institutions]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the critical challenges and innovative solutions for developing a low-latency, high-bandwidth 5G network infrastructure to support next-generation IoT applications?",
+        "list": "$LIST [critical, innovative, low-latency, high-bandwidth, next-generation, discuss, developing, challenges, solutions, 5G network infrastructure, IoT applications]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the key principles and advanced methodologies for creating a high-performance, low-power neural network accelerator to enhance AI capabilities in edge devices?",
+        "list": "$LIST [key, advanced, high-performance, low-power, edge, explain, creating, principles, methodologies, neural network accelerator, AI capabilities, devices]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the essential components and innovative strategies for implementing a real-time, high-availability data replication system to ensure business continuity in distributed environments?",
+        "list": "$LIST [essential, innovative, real-time, high-availability, distributed, describe, implementing, components, strategies, data replication system, business continuity, environments]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the key challenges and best practices for developing a secure and scalable blockchain-based supply chain management system to enhance transparency and traceability?",
+        "list": "$LIST [key, best, secure, scalable, explain, developing, challenges, practices, blockchain-based, supply chain management system, transparency, traceability]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the fundamental principles and advanced algorithms required for creating a highly efficient and accurate natural language processing system for multilingual sentiment analysis?\n\n",
+        "list": "$LIST [fundamental, advanced, highly efficient, accurate, multilingual, outline, creating, principles, algorithms, natural language processing system, sentiment analysis]"
+    },
+    {
+        "scenario": "$SCENARIO Can you discuss the critical security measures and modern encryption techniques required to protect sensitive data in a cloud-based healthcare management system?",
+        "list": "$LIST [critical, modern, sensitive, cloud-based, discuss, security measures, encryption techniques, protect, data, healthcare management system]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the essential components and innovative approaches for developing a high-throughput, low-latency financial trading platform that ensures data security and compliance?\n\n",
+        "list": "$LIST [essential, innovative, high-throughput, low-latency, financial, explain, developing, components, approaches, trading platform, data security, compliance]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the critical factors and advanced methodologies for implementing a scalable and robust data integration platform to unify heterogeneous data sources for comprehensive analytics?",
+        "list": "$LIST [critical, advanced, scalable, robust, describe, implementing, factors, methodologies, data integration platform, unify, heterogeneous data sources, comprehensive analytics]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the key principles and cutting-edge techniques for designing an energy-efficient, high-performance computing cluster to support advanced scientific research?\n\n",
+        "list": "$LIST [key, cutting-edge, energy-efficient, high-performance, advanced, explain, designing, principles, techniques, computing cluster, scientific research]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the essential steps and innovative solutions for creating a real-time, AI-driven predictive analytics system to optimize manufacturing processes and reduce downtime?",
+        "list": "$LIST [essential, innovative, real-time, AI-driven, predictive, outline, creating, steps, solutions, analytics system, manufacturing processes, downtime]"
+    },
+    {
+        "scenario": "$SCENARIO Can you describe the critical considerations and advanced techniques for developing a secure and scalable data lakehouse architecture to support big data analytics and machine learning workloads?",
+        "list": "$LIST [critical, advanced, secure, scalable, describe, developing, considerations, techniques, data lakehouse architecture, big data analytics, machine learning, workloads]"
+    },
+    {
+        "scenario": "$SCENARIO Can you explain the key factors and innovative methodologies for constructing a high-availability, low-latency content delivery network to enhance user experience on a global scale?",
+        "list": "$LIST [key, innovative, high-availability, low-latency, global, explain, constructing, factors, methodologies, content delivery network, user experience, scale]"
+    },
+    {
+        "scenario": "$SCENARIO Can you outline the essential principles and cutting-edge technologies for developing a resilient and efficient smart grid infrastructure to manage renewable energy sources effectively?",
+        "list": "$LIST [essential, cutting-edge, resilient, efficient, effectively, outline, developing, principles, technologies, smart grid infrastructure, renewable energy sources, manage]"
+    }
+]

@@ -1,4 +1,6 @@
-class FakeObfuscator:
+from obfuscator_template import Obfuscator
+
+class FakeObfuscator(Obfuscator):
     def __init__(self):
         pass
 
