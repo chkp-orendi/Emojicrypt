@@ -65,25 +65,28 @@ def main():
     with open(two_prompt_2_path, 'r', encoding='utf-8') as file:
         two_prompt_2 = file.read()
 
+    cpprefix = "Do not explain the emojis in your answer.\n"
 
     single_prompt_factory = lambda : SinglePromptObfuscator(single_prompt, azure_llm_wrapper_factory, logger)
     two_obfuscator_factory = lambda : FewPromptsObfuscator([two_prompt_1,two_prompt_2], azure_llm_wrapper_factory, logger)
     three_prompts_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, azure_llm_wrapper_factory,logger)
+    three_prompts_prefix_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, azure_llm_wrapper_factory,logger, cpprefix)
     wrong_obfuscator_factory = lambda : WrongObfuscator()
     fake_obfuscator_factory = lambda : FakeObfuscator()
 
     obfuscators = []
-    obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
-    obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
-    obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
-    obfuscators.append(("TwoPromptsObfuscator", two_obfuscator_factory))
+    #obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
+    #obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
+    #obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
+    #obfuscators.append(("TwoPromptsObfuscator", two_obfuscator_factory))
     obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
+    obfuscators.append(("ThreePromptsPrefixedObfuscator", three_prompts_prefix_factory))
 
     inputfile_path = os.path.join(os.path.dirname(__file__),"..","data", "scripts_to_generate_data", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
-    metrics = evaluate_with_obfuscators(data, obfuscators, logger)
+    metrics = evaluate_with_obfuscators(data[1:5], obfuscators, logger)
 
     metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics.json"
     json.dump(metrics, open(os.path.join(os.path.dirname(__file__), "metrics", metrics_filename), "w"), indent=4)

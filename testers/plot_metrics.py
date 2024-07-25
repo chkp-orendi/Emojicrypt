@@ -1,6 +1,7 @@
 import json
 import os
 
+import numpy as np
 from plotly import express as px
 import pandas as pd
 
@@ -35,9 +36,10 @@ def plot_statistics(df):
     
     fig.show()
 
-def plot_individual_metrics(df_unfiltered, sample_count=6):
-    #TODO: randomize sample selection
-    df = df_unfiltered[df_unfiltered['question_index']< sample_count ]
+def plot_individual_metrics(df_unfiltered, sample_count, from_first_n):
+    np.random.seed(0)
+    sample = set(np.random.permutation(from_first_n)[0:sample_count])
+    df = df_unfiltered[df_unfiltered['question_index'].isin(sample)]
     df_prompt = df[['obfuscator', 'term_retention', 'prompt_similarity', 'obfuscated_question', 'question_index']].copy()
     df_answer = df[['obfuscator', 'response_similarity', 'deobfuscated_answer', 'question_index']].copy() 
 
@@ -89,19 +91,19 @@ def plot_metrics_json(metrics):
                                  prompt_metrics['leftovers'], prompt_metrics['similarity'],
                                  response_metrics,
                                  obfuscator_values['obfuscated_prompt'],
-                                 obfuscator_values['deobfuscated_answer'],
+                                 obfuscator_values['deobfuscated_answer'].replace("\n", "<br>"),
                                  qindex
                               ]
             qindex += 1
 
     # Calculate average and decile values
     plot_statistics(df)
-    plot_individual_metrics(df)
+    plot_individual_metrics(df, 4, qindex)
 
 
 
 def main():
-    data_to_use = "2024-07-25_12_27_14.558583-metrics.json"
+    data_to_use = "2024-07-25_16_42_58.801352-metrics.json"
     inputfile_path = os.path.join(os.path.dirname(__file__), "metrics", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)

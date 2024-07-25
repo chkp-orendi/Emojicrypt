@@ -3,7 +3,7 @@ import re
 from obfuscator_template import Obfuscator
 
 class ThreePromptsObfuscator(Obfuscator):
-    def __init__(self, extract_terms_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper_factory, logger):
+    def __init__(self, extract_terms_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper_factory, logger, prompt_prefix=""):
         self._extract_terms_prompt = extract_terms_prompt
         self._find_crucial_prompt = find_crucial_prompt
         self._dictionary_prompt = dictionary_prompt
@@ -11,6 +11,7 @@ class ThreePromptsObfuscator(Obfuscator):
         self._extracted_terms = []
         self._extracted_crucial = {}
         self._dictionary_used = {}
+        self._prompt_prefix = prompt_prefix
         self._logger = logger
 
     @staticmethod
@@ -72,7 +73,7 @@ class ThreePromptsObfuscator(Obfuscator):
         response_text = user_prompt
         for key, value in self._dictionary_used.items():
             response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)
-        return response_text
+        return self._prompt_prefix + response_text
 
     def deobfuscate(self, obfuscated_answer):
         deobfuscated_answer = obfuscated_answer

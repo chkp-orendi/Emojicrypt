@@ -7,7 +7,7 @@ os.environ["REQUESTS_CA_BUNDLE"]= r'C:\Users\orendi\Documents\EmojiCrypt\ca-cert
 log_path = '~/Emoji/Emojicrypt/log/embedding_eval.log'
 data_path = '~/Emoji/Emojicrypt/data/embedding/embedding_test.xlsx'
 
-API_KEY = "95787a606b6b4d41800ec9ff2b6ddcb8"
+API_KEY = "8838a1da61f047dab3916e1fd9d2023d"
 ENDPOINT = "https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev/"
 embed_model = "text-embedding-3-large"
 azure_client = AzureOpenAI(
