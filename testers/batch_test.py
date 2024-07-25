@@ -14,7 +14,7 @@ from Obfuscators.fake_obfuscator import FakeObfuscator
 from Obfuscators.wrong_obfuscator import WrongObfuscator
 
 
-data_to_use = "enriched_testing_data_good_take.json"
+data_to_use = "2024-07-24_12-00-00_dataset_good_take.json"
 
 single_query_file = "single_query_for_dict_v2.txt"
 
@@ -58,16 +58,16 @@ def main():
     fake_obfuscator_factory = lambda : FakeObfuscator()
 
     obfuscators = []
-    #obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
-    #obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
+    obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
+    obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
     obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
-    #obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
+    obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
 
     inputfile_path = os.path.join(os.path.dirname(__file__),"..","data", "scripts_to_generate_data", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
-    metrics = evaluate_with_obfuscators(data[12:15], obfuscators, logger)
+    metrics = evaluate_with_obfuscators(data, obfuscators, logger)
 
     metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics.json"
     json.dump(metrics, open(os.path.join(os.path.dirname(__file__), "metrics", metrics_filename), "w"), indent=4)
