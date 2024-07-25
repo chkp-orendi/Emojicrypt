@@ -27,7 +27,7 @@ def add_original_embeddings(data):
     return AzureApi.get_embedding(data["scenario"], model="text-embedding-3-small")
 
 def add_answer(data):
-    return AzureApi.get_answer(data["scenario"], "gpt-4")
+    return AzureApi.get_answer(data["scenario"])
 
 
 def add_answer_embeddings(data):

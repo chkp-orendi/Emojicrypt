@@ -49,11 +49,11 @@ class AzureHelper:
         self._model = model
         self._log_path = log_path
         self._tempurature = tempurature
-        # self._client = AzureOpenAI(
-        #     azure_endpoint=ENDPOINT,
-        #     api_key=API_KEY,
-        #     api_version="2023-07-01-preview"
-        # )
+        self._client = AzureOpenAI(
+            azure_endpoint=ENDPOINT,
+            api_key=API_KEY,
+            api_version="2023-07-01-preview"
+        )
         self._prompt_list =[]
         self._chat_history =[]
 
@@ -65,7 +65,11 @@ class AzureHelper:
 
     def send_query(self, text):
         self.update_chat_history('user', text)
-        #llm_response = self.client.chat(model=self.model, messages=self.chat_history,options={"temperature": 0})
+        llm_response = self._client.chat.completions.create(model=self._model, messages=self._chat_history,temperature = self._tempurature)
         llm_response = get_answer_with_histroy(self._chat_history, self._model, self._tempurature)
         self.update_chat_history('assistant', llm_response)
         return llm_response
+
+    def get_history(self):
+        return self._chat_history
+
