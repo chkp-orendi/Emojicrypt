@@ -48,6 +48,7 @@ def evaluate_batch(data_set, obfuscator,logger):
     i =0
     for case in data_set:
         print(i)
+        logger.info(f"case {i}")
         i += 1
         metrics.append(evaluator.evaluate(case))
     return metrics

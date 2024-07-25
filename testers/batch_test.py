@@ -34,7 +34,10 @@ log_path =os.path.join(os.path.dirname(__file__),"..","log","batch_test.log")
 def evaluate_with_obfuscators(data, obfuscators,logger):
     metrics = []
     for name, obfuscator in obfuscators:
+        logger.info(f"Starting evaluation of {name}")
+        metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics" + name + ".json"
         metrics.append((name, evaluate_batch(data, obfuscator, logger)))
+        json.dump(metrics, open(os.path.join(os.path.dirname(__file__), "metrics", metrics_filename), "w"), indent=4)
     return metrics
 
 def main():
