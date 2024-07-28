@@ -2,14 +2,14 @@ import ollama
 
 
 class OllamaHelper:
-    def __init__ (self, name, log_path, model, tempurature):
+    def __init__ (self, name, log_path, model, temperature):
         self._name = name
         self._model = model
         self._log_path = log_path
         self._client = ollama.Client(host='http://172.23.81.3:11434')
         self._prompt_list =[]
         self._chat_history =[]
-        self._tempurature = tempurature
+        self._temperature = temperature
 
     def update_chat_history(self, role, content):
         self._chat_history.append({

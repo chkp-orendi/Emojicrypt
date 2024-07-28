@@ -100,12 +100,12 @@ def plot_metrics_json(metrics):
 
     # Calculate average and decile values
     plot_statistics(df)
-    plot_individual_metrics(df, 4, qindex)
+    plot_individual_metrics(df, 5, qindex)
 
 
 
 def main():
-    data_to_use = "2024-07-28_10_30_23.456128-metrics-gpt.json"
+    data_to_use = "2024-07-25_17_32_35.784278-metrics.json"
     inputfile_path = os.path.join(os.path.dirname(__file__), "metrics", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
