@@ -84,9 +84,9 @@ def main():
     obfuscators.append(("SinglePromptObfuscator - GPT-4o", single_prompt_prefix_gpt4o_factory))
     obfuscators.append(("TwoPromptsObfuscator - GPT-4o", two_obfuscator_prefix_gpt4o_factory))
     obfuscators.append(("ThreePromptsPrefixedObfuscator - GPT-4o", three_prompts_prefix_gpt4o_factory))
-    obfuscators.append(("SinglePromptObfuscator - Llama3:8b", three_prompts_prefix_gpt4o_factory))
-    obfuscators.append(("TwoPromptsObfuscator - Llama3:8b", three_prompts_prefix_gpt4o_factory))
-    obfuscators.append(("ThreePromptsPrefixedObfuscator - Llama3:8b", three_prompts_prefix_gpt4o_factory))
+    obfuscators.append(("SinglePromptObfuscator - Llama3:8b", single_prompt_prefix_llama_factory))
+    obfuscators.append(("TwoPromptsObfuscator - Llama3:8b", two_obfuscator_prefix_llama_factory))
+    obfuscators.append(("ThreePromptsPrefixedObfuscator - Llama3:8b", three_prompts_prefix_llama_factory))
     #obfuscators.append(("ThreePromptsObfuscator", three_prompts_factory))
 
     inputfile_path = os.path.join(os.path.dirname(__file__),"..","data", "scripts_to_generate_data", data_to_use)
