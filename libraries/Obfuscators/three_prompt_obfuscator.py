@@ -72,11 +72,18 @@ class ThreePromptsObfuscator(Obfuscator):
 
         response_text = user_prompt
         for key, value in self._dictionary_used.items():
-            response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)
+            response_text = response_text.replace(key, value)
+            #response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)
         return self._prompt_prefix + response_text
 
     def deobfuscate(self, obfuscated_answer):
         deobfuscated_answer = obfuscated_answer
         for key, value in self._dictionary_used.items():
-            deobfuscated_answer = re.sub(r'\b' + re.escape(value) + r'\b', key, deobfuscated_answer)
+            deobfuscated_answer = deobfuscated_answer.replace(value, key)
+            #deobfuscated_answer = re.sub(re.escape(value), key, deobfuscated_answer)
         return deobfuscated_answer
+
+def replace_words(text, replacements):
+    for key in replacements.keys():
+        text = text.replace(key, value)
+    return text

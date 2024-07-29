@@ -5,11 +5,12 @@ from obfuscator_template import Obfuscator
 #Convention that last prompt would return $Dict [key1:value1,key2:value2,...]
 
 class FewPromptsObfuscator(Obfuscator):
-    def __init__(self, prompt_list, llm_wrapper_factory, logger):
+    def __init__(self, prompt_list, llm_wrapper_factory, logger, prompt_prefix=""):
         self._prompt_list = prompt_list
         self._llm_wrapper_factory = llm_wrapper_factory
         self._logger = logger
         self._dictionary_used = {}
+        self._prompt_prefix = prompt_prefix
 
     @staticmethod
     def extract_list(LLM_answer):
@@ -69,11 +70,13 @@ class FewPromptsObfuscator(Obfuscator):
 
         response_text = user_prompt
         for key, value in self._dictionary_used.items():
-            response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)
-        return response_text
+            response_text = response_text.replace(key, value)
+            #response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)
+        return self._prompt_prefix + response_text
 
     def deobfuscate(self, obfuscated_answer):
         deobfuscated_answer = obfuscated_answer
         for key, value in self._dictionary_used.items():
-            deobfuscated_answer = re.sub(r'\b' + re.escape(value) + r'\b', key, deobfuscated_answer)
+            deobfuscated_answer = deobfuscated_answer.replace(value, key)
+            #deobfuscated_answer = re.sub(re.escape(value), key, deobfuscated_answer)
         return deobfuscated_answer

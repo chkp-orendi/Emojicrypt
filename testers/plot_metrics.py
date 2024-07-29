@@ -85,6 +85,8 @@ def plot_metrics_json(metrics):
         obfuscator_name = obfuscator[0]
         obfuscator_prompts = obfuscator[1]
         for obfuscator_values in obfuscator_prompts:
+            if len(obfuscator_values) <= 1:
+                continue
             prompt_metrics = obfuscator_values['prompt_metric']
             response_metrics = obfuscator_values['answer_metric']
             df.loc[len(df)] = [obfuscator_name,
@@ -103,7 +105,7 @@ def plot_metrics_json(metrics):
 
 
 def main():
-    data_to_use = "2024-07-25_16_42_58.801352-metrics.json"
+    data_to_use = "2024-07-28_10_30_23.456128-metrics-gpt.json"
     inputfile_path = os.path.join(os.path.dirname(__file__), "metrics", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)

@@ -6,12 +6,12 @@ from obfuscator_template import Obfuscator
 
 
 class SinglePromptObfuscator(Obfuscator):
-    def __init__(self, prompt, llm_wrapper_factory, logger):
+    def __init__(self, prompt, llm_wrapper_factory, logger, prompt_prefix = ""):
         self._prompt = prompt
         self._llm_wrapper = llm_wrapper_factory
         self._dictionary_used = {}
         self._logger = logger
-        
+        self._prompt_prefix = prompt_prefix
 
 
     def _get_encryption_dict(self, llm_query):
@@ -45,14 +45,16 @@ class SinglePromptObfuscator(Obfuscator):
         self._get_encryption_dict(user_prompt)
         encrypted_text = user_prompt 
         for original, obfuscated in self._dictionary_used.items():
-            encrypted_text = re.sub(r'\b' + re.escape(original) + r'\b', obfuscated, user_prompt)
+            encrypted_text = encrypted_text.replace(original, obfuscated)
+            #encrypted_text = re.sub(r'\b' + re.escape(original) + r'\b', obfuscated, user_prompt)
         self._logger.info(f"obfuscate: {encrypted_text}")
-        return encrypted_text 
+        return self._prompt_prefix+ encrypted_text 
 
     def deobfuscate(self, obfuscated_answer):
         decrypted_text = obfuscated_answer 
         for original, obfuscated in self._dictionary_used.items():
-            decrypted_text = re.sub(r'\b' + re.escape(obfuscated) + r'\b', original, decrypted_text)
+            decrypted_text = decrypted_text.replace(obfuscated, original)
+            #decrypted_text = re.sub(re.escape(obfuscated), original, decrypted_text)
         self._logger.info(f"obfuscated_answer: {decrypted_text}")
         return decrypted_text
     

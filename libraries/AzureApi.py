@@ -37,7 +37,7 @@ def get_answer(text,model="gpt-4o-2024-05-13", temp = 0.0):
 )
     return answer.choices[0].message.content
 
-def get_answer_with_histroy(messages, model="gpt-4o-2024-05-13", temp = 0.0):
+def get_answer_with_histroy(messages, model="gpt-4o-2024-05-13", temp = 0.0, max_tokens = 400):
     answer = azure_client.chat.completions.create(
     model=model, messages=messages, temperature=temp
 )
@@ -65,7 +65,7 @@ class AzureHelper:
 
     def send_query(self, text):
         self.update_chat_history('user', text)
-        llm_response = self._client.chat.completions.create(model=self._model, messages=self._chat_history,temperature = self._tempurature)
+        llm_response = self._client.chat.completions.create(model=self._model, messages=self._chat_history,temperature = self._tempurature, max_tokens=400)
         llm_response = get_answer_with_histroy(self._chat_history, self._model, self._tempurature)
         self.update_chat_history('assistant', llm_response)
         return llm_response
