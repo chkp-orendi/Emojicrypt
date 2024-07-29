@@ -16,7 +16,7 @@ from Obfuscators.wrong_obfuscator import WrongObfuscator
 from Obfuscators.few_prompt_obfuscator import FewPromptsObfuscator
 
 
-data_to_use = "2024-07-24_12-00-00_dataset_good_take.json"
+data_to_use = "29-07-good-take.json"
 
 single_query_file = "single_query_for_dict_v2.txt"
 two_query_file_1 = "first_querry.txt"
