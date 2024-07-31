@@ -13,6 +13,7 @@ def plot_statistics(df):
         average_prompt_similarity=('prompt_similarity', 'mean'),
         top_decile_prompt_similarity=('prompt_similarity', lambda x: x.quantile(0.9)),
         average_response_similarity=('response_similarity', 'mean'),
+        bottom_decile_response_similarity=('response_similarity', lambda x: x.quantile(0.1)),
         top_decile_response_similarity=('response_similarity', lambda x: x.quantile(0.9)),
     ).reset_index()
 
@@ -20,7 +21,7 @@ def plot_statistics(df):
     melted_df = stats_df.melt(id_vars=['obfuscator'], 
                               value_vars=['average_retention', 'top_decile_retention',
                                           'average_prompt_similarity', 'top_decile_prompt_similarity',
-                                          'average_response_similarity', 'top_decile_response_similarity'],
+                                          'average_response_similarity','bottom_decile_response_similarity' ,'top_decile_response_similarity'],
                               var_name='statistic', value_name='value')
     
     # Creating the bar chart with 'pseudo' sub-groups
@@ -132,11 +133,11 @@ def save_folder_plots(data_path):
 def main():
 
     data_path = "C:\\Users\\orendi\\Documents\\EmojiCrypt-main\\Emojicrypt\\Presentation"
-    data_path = os.path.join("C:\\Users", "orendi", "Documents", "EmojiCrypt-main", "Emojicrypt", "testers", "metrics", "30-7-Test-Result", "azure_metric")
+    #data_path = os.path.join("C:\\Users", "orendi", "Documents", "EmojiCrypt-main", "Emojicrypt", "testers", "metrics", "30-7-Test-Result", "azure_metric")
     
     # data_to_use = "2024-07-30_11_54_18.347697-metrics-llama.json"
     #inputfile_path = os.path.join(os.path.dirname(__file__), "metrics", data_to_use)
-    inputfile_path = os.path.join(data_path, "gpt-metric-0.json")
+    inputfile_path = os.path.join(data_path, "2024-07-30_14_41_24.191617-metrics-gpt-prefix.json")
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
     
