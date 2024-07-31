@@ -32,10 +32,13 @@ two_prompt_2_path = os.path.join(os.path.dirname(__file__),"prompts","two_querri
 log_path =os.path.join(os.path.dirname(__file__),"..","log","batch_test.log")
 def evaluate_with_obfuscators(data, obfuscators,logger):
     metrics = []
+    logger.info(f"Starting evaluation {datetime.now()}")
     for i, (name, obfuscator) in enumerate(obfuscators):
         logger.info(f"Starting evaluation of {name}")
+        time = datetime.now()
         metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics" + name + ".json"
         metrics.append([name, evaluate_batch(data, obfuscator, logger)])
+        logger.info(f"time: {datetime.now()} finished evaluation of {name} in {datetime.now()-time}")
         print(metrics)
         json.dump(metrics[i], open(os.path.join(os.path.dirname(__file__), "metrics", metrics_filename), "w"), indent=4)
     return metrics
@@ -74,23 +77,41 @@ def main():
     three_prompts_prefix_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, azure_llm_wrapper_factory,logger, cpprefix)
     wrong_obfuscator_factory = lambda : WrongObfuscator()
     fake_obfuscator_factory = lambda : FakeObfuscator()
+    single_prompt_no_prefix_gpt4o_factory = lambda : SinglePromptObfuscator(single_prompt, azure_llm_wrapper_factory, logger)
+    two_obfuscator_no_prefix_gpt4o_factory = lambda : FewPromptsObfuscator([two_prompt_1,two_prompt_2], azure_llm_wrapper_factory, logger)
+    three_prompts_no_prefix_gpt4o_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, azure_llm_wrapper_factory,logger)
+    single_prompt_no_prefix_llama_factory = lambda : SinglePromptObfuscator(single_prompt, ollama_llm_wrapper_factory, logger)
+    two_obfuscator_no_prefix_llama_factory = lambda : FewPromptsObfuscator([two_prompt_1,two_prompt_2], ollama_llm_wrapper_factory, logger)
+    three_prompts_no_prefix_llama_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, ollama_llm_wrapper_factory,logger)
+
+
+
+
 
     obfuscators = []
-    obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
-    obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
+    # obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
+    # obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
     obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
     obfuscators.append(("TwoPromptsObfuscator", two_obfuscator_factory))
     obfuscators.append(("ThreePromptsObfuscatorLlama", three_prompts_factory))
-    obfuscators.append(("ThreePromptsObfuscator", three_prompts_gpt_factory))
-    obfuscators.append(("ThreePromptsPrefixedObfuscator", three_prompts_prefix_factory))
+    # obfuscators.append(("SinglePromptObfuscator - Llama3:8b", single_prompt_prefix_llama_factory))
+    # obfuscators.append(("TwoPromptsObfuscator - Llama3:8b", two_obfuscator_prefix_llama_factory))
+    # obfuscators.append(("ThreePromptsObfuscator - Llama3:8b", three_prompts_prefix_llama_factory))
+
+    # obfuscators.append(("SinglePrompt No Prefix Obfuscator - GPT-4o", single_prompt_no_prefix_gpt4o_factory))
+    # obfuscators.append(("TwoPrompts No Prefix Obfuscator - GPT-4o", two_obfuscator_no_prefix_gpt4o_factory))
+    # obfuscators.append(("ThreePrompts No Prefix Prefix Obfuscator - GPT-4o", three_prompts_no_prefix_gpt4o_factory))
+    # obfuscators.append(("SinglePrompt No Prefix Obfuscator - Llama3:8b", single_prompt_no_prefix_llama_factory))
+    # obfuscators.append(("TwoPrompts No Prefix Obfuscator - Llama3:8b", two_obfuscator_no_prefix_llama_factory))
+    # obfuscators.append(("ThreePrompts No Prefix Obfuscator - Llama3:8b", three_prompts_no_prefix_llama_factory))
 
     inputfile_path = os.path.join(os.path.dirname(__file__),"..","data", "scripts_to_generate_data", data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
-    metrics = evaluate_with_obfuscators(data, obfuscators, logger)
+    metrics = evaluate_with_obfuscators(data[0:50], obfuscators, logger)
 
-    metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics-gpt.json"
+    metrics_filename = str(datetime.now()).replace(' ', '_').replace(':', '_') + "-metrics-gpt-prifix.json"
     json.dump(metrics, open(os.path.join(os.path.dirname(__file__), "metrics", metrics_filename), "w"), indent=4)
     print("results saved to ", metrics_filename)
 

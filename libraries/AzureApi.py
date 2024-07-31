@@ -7,7 +7,8 @@ os.environ["REQUESTS_CA_BUNDLE"]= r'C:\Users\orendi\Documents\EmojiCrypt\ca-cert
 log_path = '~/Emoji/Emojicrypt/log/embedding_eval.log'
 data_path = '~/Emoji/Emojicrypt/data/embedding/embedding_test.xlsx'
 
-API_KEY = "8838a1da61f047dab3916e1fd9d2023d"
+#API_KEY = "8838a1da61f047dab3916e1fd9d2023d" #key 1
+API_KEY = "95787a606b6b4d41800ec9ff2b6ddcb8" #key 2
 ENDPOINT = "https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev/"
 embed_model = "text-embedding-3-large"
 azure_client = AzureOpenAI(
@@ -37,9 +38,9 @@ def get_answer(text,model="gpt-4o-2024-05-13", temp = 0.0):
 )
     return answer.choices[0].message.content
 
-def get_answer_with_histroy(messages, model="gpt-4o-2024-05-13", temp = 0.0, max_tokens = 400):
+def get_answer_with_histroy(messages, model="gpt-4o-2024-05-13", temp = 0.0, max_tokens = 200):
     answer = azure_client.chat.completions.create(
-    model=model, messages=messages, temperature=temp
+    model=model, messages=messages, temperature=temp, max_tokens=200
 )
     return answer.choices[0].message.content
 
@@ -65,7 +66,7 @@ class AzureHelper:
 
     def send_query(self, text):
         self.update_chat_history('user', text)
-        llm_response = self._client.chat.completions.create(model=self._model, messages=self._chat_history,temperature = self._tempurature, max_tokens=400)
+        #llm_response = self._client.chat.completions.create(model=self._model, messages=self._chat_history,temperature = self._tempurature, max_tokens=200)
         llm_response = get_answer_with_histroy(self._chat_history, self._model, self._tempurature)
         self.update_chat_history('assistant', llm_response)
         return llm_response

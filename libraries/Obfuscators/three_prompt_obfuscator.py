@@ -85,5 +85,5 @@ class ThreePromptsObfuscator(Obfuscator):
 
 def replace_words(text, replacements):
     for key in replacements.keys():
-        text = text.replace(key, value)
+        text = text.replace(key, replacements[key])
     return text
