@@ -44,7 +44,7 @@ def plot_statistics(df):
             annotation.text = f'{obfuscator_name}'
 
 
-    # fig.show()
+    fig.show()
     return fig
 
 def plot_individual_metrics(df_unfiltered, sample_count, from_first_n):
@@ -78,7 +78,7 @@ def plot_individual_metrics(df_unfiltered, sample_count, from_first_n):
         yaxis_title='Value'
     )
 
-    # fig.show()
+    fig.show()
     return fig 
 
 def plot_metrics_json(metrics):
@@ -114,13 +114,7 @@ def plot_metrics_json(metrics):
     return plot_statistics(df), plot_individual_metrics(df, 4, qindex)
     
 
-
-
-def main():
-
-    data_path = "C:\\Users\\orendi\\Documents\\EmojiCrypt-main\\Emojicrypt\\Presentation"
-    
-    # Get all JSON files in the data_path directory
+def save_folder_plots(data_path):
     json_files = glob.glob(os.path.join(data_path, "*.json"))
     
     for json_file in json_files:
@@ -134,14 +128,21 @@ def main():
         fig_statistic.write_html(output_file)
         output_file = os.path.splitext(json_file)[0] + "_example.html"
         fig_examples.write_html(output_file)
-    
+
+def main():
+
+    data_path = "C:\\Users\\orendi\\Documents\\EmojiCrypt-main\\Emojicrypt\\Presentation"
+    data_path = os.path.join("C:\\Users", "orendi", "Documents", "EmojiCrypt-main", "Emojicrypt", "testers", "metrics", "30-7-Test-Result", "azure_metric")
     
     # data_to_use = "2024-07-30_11_54_18.347697-metrics-llama.json"
-    # inputfile_path = os.path.join(os.path.dirname(__file__), "metrics", data_to_use)
-    # with open(inputfile_path, 'r') as file:
-    #     data = json.load(file)
+    #inputfile_path = os.path.join(os.path.dirname(__file__), "metrics", data_to_use)
+    inputfile_path = os.path.join(data_path, "gpt-metric-0.json")
+    with open(inputfile_path, 'r') as file:
+        data = json.load(file)
     
-    # plot_metrics_json(data)
+    plot_metrics_json(data)
+        
+
 
 if __name__ == "__main__":
     main()

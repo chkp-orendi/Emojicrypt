@@ -23,10 +23,10 @@ def extract_number(text):
     else:
         return None
 if __name__ == "__main__":
-    # client = OllamaHelper("llama3:8b", "../", "llama3:8b",  0.0)  
+    client = OllamaHelper("llama3:8b", "../", "llama3:8b",  0.0)  
     # print(client.send_query("hi"))
 
-    client = AzureApi.AzureHelper("azure_client",  "../", "gpt-4o-2024-05-13", 0.0)
+    #client = AzureApi.AzureHelper("azure_client",  "../", "gpt-4o-2024-05-13", 0.0)
     prefix = "give a number between 0-100 where 0 is not similar at all and 100 is the exact same text for the similarity for these 2 texts:"
     texts = []
     texts.append("\n Text1: May I pet your dog?")
@@ -39,7 +39,8 @@ if __name__ == "__main__":
     for text in texts:
         row = []
         for text2 in texts:
-            answer = AzureApi.get_answer(prefix + text + text2)
+            answer = client.send_query(prefix + text + text2)
+            client._chat_history = []
             print(answer)
             answer = extract_number(answer)
             print("extracted number: ", answer)
