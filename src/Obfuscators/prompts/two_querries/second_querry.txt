@@ -1,0 +1,13 @@
+For each value in the list you provided think of an obfuscator for the value using emojis that will be hard to understand by a human but will be understood by llm
+Return in the format $Dict [value1:obfuscator1, value2: obfuscator2,....]
+
+Example:
+Text: "We are in the process of migrating our on-premises infrastructure to a cloud-based environment. Can you provide insights on the key steps involved in a successful cloud migration, including data transfer, application reconfiguration, and security considerations? Additionally, what are some common challenges we might face during the migration process and how can we address them to ensure minimal downtime and data integrity?"
+List: [symmetric encryption, asymmetric encryption, secure data, data in transit, data at rest]
+Output: $Dict: [symmetric encryption: 🔒🔄, asymmetric encryption: 🔑🔒, secure data: 🔐📄, data in transit: 📡📄, data at rest: 🗄️📄]
+
+Text: "What are the advantages and disadvantages of using a NoSQL database compared to a traditional relational database for handling large-scale, unstructured data?"
+Out put: $LIST: [NoSQL database, relational database, large-scale data, unstructured data]
+Output: $Dict: [NoSQL database:📚🚫🗃️, relational database:📚🔗🗃️, large-scale data:📊🌐📈, unstructured data:📂❓📄]
+
+Now return $Dict on the list you provided

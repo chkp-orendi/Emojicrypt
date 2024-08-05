@@ -1,0 +1,4 @@
+Grade the similarity between the following two texts on a scale of 0 to 100 with emphasis on tenchinical terms changed with reletive emojis. A score of 0 means the emojis are completely irrelevant or there were technical words to change and it didn't. A score of 100 means all the technical terms were changed with relative emojis.
+Text1: {text1}
+Text2: {text2}
+Please provide the similarity score along with a brief explanation of the rationale behind the score.

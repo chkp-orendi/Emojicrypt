@@ -1,0 +1,8 @@
+glob2
+pandas
+openpyxl
+statistics
+numpy
+plotly
+openai
+ollama

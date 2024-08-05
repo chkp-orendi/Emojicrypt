@@ -1,0 +1,7 @@
+Compare the following two texts and provide a similarity score between 0 and 100. A score of 0 means the texts are completely dissimilar and discuss entirely different topics. A score of 100 means the texts are identical. A score of 50 indicates that some of the technical terms overlap, but the texts are not completely similar in meaning. Emphasize the presence of shared technical terms and the overall meaning when determining the score.
+
+Text 1: {text1}
+
+Text 2: {text2}
+
+Please provide the similarity score along with a brief explanation of the rationale behind the score.
