@@ -71,11 +71,11 @@ def extract_dict(LLM_answer):
 
 def extract_number(text):
     # Use regular expression to find all numbers in the text
-    pattern = r'\$ANSWER: (\d+)'
+    pattern = r'\$ANSWER: (-?\d+\.\d+|-?\d+)'
 
     match = re.search(pattern, text)
     if match:
-        return int(match.group(-1))
+        return float(match.group(1))
     else:
         return None
     

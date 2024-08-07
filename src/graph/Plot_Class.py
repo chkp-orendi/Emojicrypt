@@ -135,7 +135,7 @@ class Plot:
         self.generate_individual_figure(prompt_metric,answer_metric, sample_size).write_html(save_path + "_individual_graph.html")
 
 if __name__ == "__main__":
-    file_name = "RESULTS_2024-08-05_12_15_47.034942WrongFakeObf-gpt-evaluator.json"
+    file_name = "RESULTS_2024-08-07_10_46_47.771852gpt_metric_new_test.json"
     
     inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data", file_name)
     metrics = ["prompt_metric","answer_metric"]
@@ -143,8 +143,8 @@ if __name__ == "__main__":
     graph = Plot(inputfile_path, metrics)
 
     outputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data", file_name.strip(".json"))
-    graph.save_individual_graph(["prompt_metric"],["answer_metric"],5 , outputfile_path)
-    graph.save_statistic_graph(["prompt_metric"],["answer_metric"], outputfile_path)
+    graph.show_individual_graph(["prompt_metric"],["answer_metric"],5)
+    graph.show_statistic_graph(["prompt_metric"],["answer_metric"])
     # for filename in os.listdir(inputfile_path):
     #     if not filename.endswith(".json"):
     #         continue

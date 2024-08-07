@@ -16,7 +16,7 @@ class SingleCaseEvaluator:
 
     def evaluate(self, case_data):
         time = datetime.now()
-        obfuscated_prompt = self._obf.obfuscate(case_data["scenario"])
+        obfuscated_prompt = self._obf.obfuscate(case_data["original_question"])
         obfuscated_answer = get_answer(obfuscated_prompt)
         # if self._obf._prompt_prefix != "":
         #     obfuscated_prompt = obfuscated_prompt[len(self._obf._prompt_prefix):]  #remove prefix to compare evaluation
@@ -42,7 +42,7 @@ obfuscated_dictonary: {obfuscated_dictonary}
 # obfuscated_dictonary: {obfuscated_dictonary}
 # evaluation time: {eval_time}""")
         return  {
-            "original_answer": case_data["original_answer"], "original_prompt": case_data["scenario"],
+            "original_answer": case_data["original_answer"], "original_prompt": case_data["original_question"],
             "obfuscated_prompt": obfuscated_prompt, "obfuscated_answer":obfuscated_answer,
             "deobfuscated_answer": deobfuscated_answer,
             "prompt_metric": prompt_metric, "answer_metric": answer_metric,

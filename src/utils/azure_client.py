@@ -30,15 +30,15 @@ def cosine_similarity(vec1, vec2):
     return np.dot(vec1, vec2) / (norm(vec1) * norm(vec2))
 
 
-def get_answer(text,model="gpt-4o-2024-05-13", temp = 0.0):
+def get_answer(text,model="gpt-4o-2024-05-13", temp = 0.0, max_tokens = 500):
     answer = azure_client.chat.completions.create(
-    model=model, messages=[{"role": "user", "content": text}], temperature=temp, max_tokens = 200
+    model=model, messages=[{"role": "user", "content": text}], temperature=temp, max_tokens = max_tokens
 )
     return answer.choices[0].message.content
 
-def get_answer_with_histroy(messages, model="gpt-4o-2024-05-13", temp = 0.0, max_tokens = 200):
+def get_answer_with_histroy(messages, model="gpt-4o-2024-05-13", temp = 0.0, max_tokens = 500):
     answer = azure_client.chat.completions.create(
-    model=model, messages=messages, temperature=temp, max_tokens=200
+    model=model, messages=messages, temperature=temp, max_tokens=max_tokens
 )
     return answer.choices[0].message.content
 
@@ -71,4 +71,3 @@ class AzureClient:
 
     def get_history(self):
         return self._chat_history
-
