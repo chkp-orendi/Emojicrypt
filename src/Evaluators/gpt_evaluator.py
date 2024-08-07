@@ -41,9 +41,9 @@ Please provide the similarity score along with a brief explanation of the ration
         return extract_number(answer)
     
 
-# evaluator = GPTEvaluator("prompt_path")
+evaluator = GPTEvaluator("prompt_path")
 
-# text1 = "a quick brown fox jumps over the lazy dog"
-# text2 = "a quick red fox jumps over the lazy dog"
+text1 = "a quick brown fox jumps over the lazy dog"
+text2 = "a quick red fox jumps over the lazy dog"
 
-# evaluator.evaluate_prompt(text1, {"scenario": text2})
+evaluator.evaluate_prompt(text1, {"original_question": text2})

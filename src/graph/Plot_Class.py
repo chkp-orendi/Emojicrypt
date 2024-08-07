@@ -142,9 +142,9 @@ if __name__ == "__main__":
     
     graph = Plot(inputfile_path, metrics)
 
-    outputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data", file_name.strip(".json"))
-    graph.show_individual_graph(["prompt_metric"],["answer_metric"],5)
-    graph.show_statistic_graph(["prompt_metric"],["answer_metric"])
+    outputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","7-8-2024", file_name.strip(".json"))
+    graph.save_individual_graph(["prompt_metric"],["answer_metric"],5,outputfile_path)
+    graph.save_statistic_graph(["prompt_metric"],["answer_metric"],outputfile_path)
     # for filename in os.listdir(inputfile_path):
     #     if not filename.endswith(".json"):
     #         continue

@@ -44,8 +44,8 @@ def evaluate_answer( obfuscated_prompt, case_data):
 
 import json
 text1= "\"How does the use of machine learning algorithms in predictive analytics enhance decision-making processes in businesses, and what are some common challenges faced during implementation?"
-#text2 = "\"How does the use of 🍀🚀🎨 in 🎉✨🌍 enhance 🌟🍀 in 🌍📚, and what are some common challenges faced during implementation?" 
-text2 = "How does the use of 🤖📊 in 🔮📈 enhance 🧠📊 in businesses, and what are some common challenges faced during 🚀?"
+text2 = "\"How does the use of 🍀🚀🎨 in 🎉✨🌍 enhance 🌟🍀 in 🌍📚, and what are some common challenges faced during implementation?" 
+#text2 = "How does the use of 🤖📊 in 🔮📈 enhance 🧠📊 in businesses, and what are some common challenges faced during 🚀?"
 
 
 # print("text2: ", text2_json)
@@ -54,31 +54,31 @@ text2 = "How does the use of 🤖📊 in 🔮📈 enhance 🧠📊 in businesses
 # text4 = "Machine learning algorithms in predictive analytics can significantly enhance decision-making processes in businesses in several ways:\n\n1. Improved Accuracy: Machine learning algorithms can analyze vast amounts of data and identify patterns and trends that humans might miss, leading to more accurate predictions.\n\n2. Efficiency: These algorithms can process data much faster than humans, enabling businesses to make quick decisions.\n\n3. Personalization: Machine learning can help businesses understand their customers better and provide personalized services or products, thereby improving customer satisfaction and loyalty.\n\n4. Risk Management: Predictive analytics can help businesses identify potential risks and take preventive measures.\n\n5. Cost Reduction: By automating data analysis, businesses can reduce the costs associated with manual data analysis.\n\nDespite these benefits, businesses often face several challenges during the implementation of machine learning algorithms in predictive analytics:\n\n1. Data Quality: The accuracy of predictions depends on the quality of data. If the data is incomplete, outdated, or biased, the predictions will be inaccurate.\n\n2. Lack of Expertise: Implementing machine learning algorithms requires a high level of expertise in data science and machine learning, which many businesses lack.\n\n3. Integration: Integrating machine learning algorithms with existing systems can be complex and time-consuming.\n\n4. Privacy and Security: Businesses need to ensure that they comply with data privacy regulations and protect the data from breaches.\n\n5. Interpretability: Machine learning models, especially complex ones like deep learning, can be difficult to interpret. This lack of transparency can make it hard for businesses to trust the predictions"
 
 
-#print(evaluate_prompt(text1, text2))
+print(evaluate_prompt(text1, text2))
 
 # # text1 = "a kid walked in the park"
 # # text2 = "a kid walked in the park"
 
-arr_prompt = []
-# arr_answer = []
-for i in range(5):
-    arr_prompt.append(evaluate_prompt(text1, text2))
-#     arr_answer.append(evaluate_answer(text3, text4))
+# arr_prompt = []
+# # arr_answer = []
+# for i in range(5):
+#     arr_prompt.append(evaluate_prompt(text1, text2))
+# #     arr_answer.append(evaluate_answer(text3, text4))
 
 
-#arr =  [70, 20, 20, 70, 70, 70, 85, 20, 85, 20]
-print("________________________________________________________________________________________________________________________________________________________________________________________________________________________")
-average = statistics.mean(arr_prompt)
-variance = statistics.pstdev(arr_prompt)
-top_decile = np.percentile(arr_prompt, 90)
-bottom_decile = np.percentile(arr_prompt, 10)
-print("arr_prompt")
-print("Similarity values: ", arr_prompt)
-print("Avrage: ", average)
-print("Variance Root: ", variance)
-print("Top Decile: ", top_decile)
-print("Bottom Decile: ", bottom_decile)
+# #arr =  [70, 20, 20, 70, 70, 70, 85, 20, 85, 20]
 # print("________________________________________________________________________________________________________________________________________________________________________________________________________________________")
+# average = statistics.mean(arr_prompt)
+# variance = statistics.pstdev(arr_prompt)
+# top_decile = np.percentile(arr_prompt, 90)
+# bottom_decile = np.percentile(arr_prompt, 10)
+# print("arr_prompt")
+# print("Similarity values: ", arr_prompt)
+# print("Avrage: ", average)
+# print("Variance Root: ", variance)
+# print("Top Decile: ", top_decile)
+# print("Bottom Decile: ", bottom_decile)
+# # print("________________________________________________________________________________________________________________________________________________________________________________________________________________________")
 # average = statistics.mean(arr_answer)
 # variance = statistics.pstdev(arr_answer)
 # top_decile = np.percentile(arr_answer, 90)
@@ -89,4 +89,3 @@ print("Bottom Decile: ", bottom_decile)
 # print("Variance Root: ", variance)
 # print("Top Decile: ", top_decile)
 # print("Bottom Decile: ", bottom_decile)
-
