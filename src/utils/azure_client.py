@@ -9,6 +9,8 @@ import sys
 load_dotenv()
 
 embed_model = "text-embedding-3-large"
+   
+
 azure_client = AzureOpenAI(
     azure_endpoint=os.getenv("AZURE_ENDPOINT"),
     api_key= os.getenv("AZURE_KEY"),
@@ -71,3 +73,5 @@ class AzureClient:
 
     def get_history(self):
         return self._chat_history
+    
+

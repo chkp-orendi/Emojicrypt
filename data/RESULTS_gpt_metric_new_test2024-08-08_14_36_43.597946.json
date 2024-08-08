@@ -1,0 +1,98 @@
+[
+    [
+        "RandomText",
+        [
+            {
+                "original_answer": "Implementing a CI/CD pipeline improves the software development lifecycle by automating the integration and deployment processes, leading to faster and more reliable software releases. It enhances code quality, reduces manual errors, and allows for quick feedback and iteration.\n\n**Key Benefits:**\n1. **Faster Releases:** Automates build, test, and deployment processes, speeding up the release cycle.\n2. **Improved Quality:** Continuous testing and integration catch bugs early.\n3. **Consistency:** Ensures consistent environments across development, testing, and production.\n4. **Reduced Manual Effort:** Minimizes human error and frees up developer time for more critical tasks.\n5. **Quick Feedback:** Provides immediate feedback on code changes, facilitating rapid iteration.\n\n**Tools for CI/CD Automation:**\n1. **Jenkins:** Open-source automation server for building, testing, and deploying.\n2. **GitLab CI/CD:** Integrated with GitLab for seamless CI/CD processes.\n3. **CircleCI:** Cloud-based CI/CD tool that supports fast and scalable builds.\n4. **Travis CI:** Continuous integration service used to build and test projects hosted on GitHub.\n5. **Azure DevOps:** Comprehensive suite for CI/CD, including pipelines, repositories, and more.\n6. **GitHub Actions:** Automates workflows directly from GitHub repositories.\n7. **Bamboo:** CI/CD server from Atlassian that integrates well with Jira and Bitbucket.\n\nBy leveraging these tools, teams can streamline their development workflows, ensuring that code changes are automatically tested and deployed, leading to more robust and reliable software.",
+                "original_prompt": "How does implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline improve our software development lifecycle, and what tools can we use to automate this process? BE CONCISE",
+                "obfuscated_prompt": "Sure, here's a random text with exactly 192 characters:\n\nThe quick brown fox jumps over the lazy dog near the riverbank. Suddenly, a bright light appeared in the sky, illuminating the entire forest. Everyone watched in awe and wonder.",
+                "obfuscated_answer": "Thank you for sharing the text! If you need any specific analysis or further assistance with it, feel free to let me know.",
+                "deobfuscated_answer": "Thank you for sharing the text! If you need any specific analysis or further assistance with it, feel free to let me know.",
+                "prompt_metric": {
+                    "similarity": 0.0,
+                    "replaced terms": 1.0
+                },
+                "answer_metric": 0.1,
+                "prompt_metric reasoning": "$ANSWER: 0.0\n\nThe rationale behind the score is that Text2 does not contain any technical terms or relevant emojis that correspond to the technical terms in Text1. Text1 discusses the implementation of a CI/CD pipeline and mentions software development lifecycle and automation tools, which are specific technical concepts. Text2, on the other hand, is a random text about a fox and a light in the sky, with no technical terms or emojis related to the context of Text1. Therefore, the similarity score is 0.0.",
+                "answer_metric reasoning": "$ANSWER: 0.1\n\nThe two texts are highly dissimilar in content and context. Text1 is a general statement offering assistance with text analysis, while Text2 is a detailed explanation about the benefits and tools for implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline in software development. They do not discuss the same topic, share the same opinion, or cover the same key details. The only slight similarity is that both texts are written in a professional tone, but this is not enough to significantly increase the similarity score.",
+                "obfuscated_dictonary": {},
+                "evaluation time": "0:00:06.159983"
+            }
+        ]
+    ],
+    [
+        "FakeObfuscator",
+        [
+            {
+                "original_answer": "Implementing a CI/CD pipeline improves the software development lifecycle by automating the integration and deployment processes, leading to faster and more reliable software releases. It enhances code quality, reduces manual errors, and allows for quick feedback and iteration.\n\n**Key Benefits:**\n1. **Faster Releases:** Automates build, test, and deployment processes, speeding up the release cycle.\n2. **Improved Quality:** Continuous testing and integration catch bugs early.\n3. **Consistency:** Ensures consistent environments across development, testing, and production.\n4. **Reduced Manual Effort:** Minimizes human error and frees up developer time for more critical tasks.\n5. **Quick Feedback:** Provides immediate feedback on code changes, facilitating rapid iteration.\n\n**Tools for CI/CD Automation:**\n1. **Jenkins:** Open-source automation server for building, testing, and deploying.\n2. **GitLab CI/CD:** Integrated with GitLab for seamless CI/CD processes.\n3. **CircleCI:** Cloud-based CI/CD tool that supports fast and scalable builds.\n4. **Travis CI:** Continuous integration service used to build and test projects hosted on GitHub.\n5. **Azure DevOps:** Comprehensive suite for CI/CD, including pipelines, repositories, and more.\n6. **GitHub Actions:** Automates workflows directly from GitHub repositories.\n7. **Bamboo:** CI/CD server from Atlassian that integrates well with Jira and Bitbucket.\n\nBy leveraging these tools, teams can streamline their development workflows, ensuring that code changes are automatically tested and deployed, leading to more robust and reliable software.",
+                "original_prompt": "How does implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline improve our software development lifecycle, and what tools can we use to automate this process? BE CONCISE",
+                "obfuscated_prompt": "How does implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline improve our software development lifecycle, and what tools can we use to automate this process? BE CONCISE",
+                "obfuscated_answer": "Implementing a CI/CD pipeline improves the software development lifecycle by automating the integration and deployment processes, leading to faster and more reliable releases. It enhances code quality through continuous testing, reduces manual errors, and allows for quicker feedback and iteration.\n\nKey tools for automating CI/CD include:\n- **Jenkins**: An open-source automation server for building, testing, and deploying code.\n- **GitLab CI/CD**: Integrated with GitLab, it provides a seamless pipeline for code integration and deployment.\n- **CircleCI**: A cloud-based CI/CD tool that automates the software development process.\n- **Travis CI**: A hosted CI/CD service for building and testing software projects hosted on GitHub.\n- **GitHub Actions**: Integrated with GitHub, it allows for automation of workflows directly in the repository.\n- **Azure DevOps**: A suite of development tools from Microsoft that includes CI/CD pipelines.\n- **Bitbucket Pipelines**: Integrated with Bitbucket, it provides CI/CD services for repositories.\n\nThese tools help streamline the development process, ensuring that code changes are automatically tested and deployed, leading to more efficient and reliable software delivery.",
+                "deobfuscated_answer": "Implementing a CI/CD pipeline improves the software development lifecycle by automating the integration and deployment processes, leading to faster and more reliable releases. It enhances code quality through continuous testing, reduces manual errors, and allows for quicker feedback and iteration.\n\nKey tools for automating CI/CD include:\n- **Jenkins**: An open-source automation server for building, testing, and deploying code.\n- **GitLab CI/CD**: Integrated with GitLab, it provides a seamless pipeline for code integration and deployment.\n- **CircleCI**: A cloud-based CI/CD tool that automates the software development process.\n- **Travis CI**: A hosted CI/CD service for building and testing software projects hosted on GitHub.\n- **GitHub Actions**: Integrated with GitHub, it allows for automation of workflows directly in the repository.\n- **Azure DevOps**: A suite of development tools from Microsoft that includes CI/CD pipelines.\n- **Bitbucket Pipelines**: Integrated with Bitbucket, it provides CI/CD services for repositories.\n\nThese tools help streamline the development process, ensuring that code changes are automatically tested and deployed, leading to more efficient and reliable software delivery.",
+                "prompt_metric": {
+                    "similarity": 1.0,
+                    "replaced terms": 0.0
+                },
+                "answer_metric": 0.9,
+                "prompt_metric reasoning": "$ANSWER: 1.0\n\nExplanation: Both texts are identical, and there are no technical terms replaced with emojis. Since the task was to evaluate the similarity with an emphasis on technical terms being changed to emojis, and no such changes were made, the texts are perfectly similar in their original form. Therefore, the similarity score is 1.0.",
+                "answer_metric reasoning": "$ANSWER: 0.9\n\nBoth texts discuss the benefits of implementing a CI/CD pipeline in the software development lifecycle, emphasizing automation, faster and more reliable releases, improved code quality, reduced manual errors, and quicker feedback and iteration. They also list similar key tools for automating CI/CD, such as Jenkins, GitLab CI/CD, CircleCI, Travis CI, GitHub Actions, and Azure DevOps. The main difference is that Text2 provides a more structured format with bullet points for key benefits and includes an additional tool (Bamboo) not mentioned in Text1. Despite these minor differences, the core content, opinions, and key details are highly similar, justifying a high similarity score.",
+                "obfuscated_dictonary": {},
+                "evaluation time": "0:00:06.948836"
+            }
+        ]
+    ],
+    [
+        "ThreePrompt - GPT - Prefixed",
+        [
+            {
+                "original_answer": "Implementing a CI/CD pipeline improves the software development lifecycle by automating the integration and deployment processes, leading to faster and more reliable software releases. It enhances code quality, reduces manual errors, and allows for quick feedback and iteration.\n\n**Key Benefits:**\n1. **Faster Releases:** Automates build, test, and deployment processes, speeding up the release cycle.\n2. **Improved Quality:** Continuous testing and integration catch bugs early.\n3. **Consistency:** Ensures consistent environments across development, testing, and production.\n4. **Reduced Manual Effort:** Minimizes human error and frees up developer time for more critical tasks.\n5. **Quick Feedback:** Provides immediate feedback on code changes, facilitating rapid iteration.\n\n**Tools for CI/CD Automation:**\n1. **Jenkins:** Open-source automation server for building, testing, and deploying.\n2. **GitLab CI/CD:** Integrated with GitLab for seamless CI/CD processes.\n3. **CircleCI:** Cloud-based CI/CD tool that supports fast and scalable builds.\n4. **Travis CI:** Continuous integration service used to build and test projects hosted on GitHub.\n5. **Azure DevOps:** Comprehensive suite for CI/CD, including pipelines, repositories, and more.\n6. **GitHub Actions:** Automates workflows directly from GitHub repositories.\n7. **Bamboo:** CI/CD server from Atlassian that integrates well with Jira and Bitbucket.\n\nBy leveraging these tools, teams can streamline their development workflows, ensuring that code changes are automatically tested and deployed, leading to more robust and reliable software.",
+                "original_prompt": "How does implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline improve our software development lifecycle, and what tools can we use to automate this process? BE CONCISE",
+                "obfuscated_prompt": "Do not explain the emojis in your answer.\nHow does implementing a \ud83d\udd04/\ud83d\ude80 (\ud83d\udd04\ud83d\ude80) \ud83d\udd27 improve our \ud83d\udcbb\ud83d\udcc8, and what tools can we use to \ud83e\udd16 this process? BE CONCISE",
+                "obfuscated_answer": "Implementing a \ud83d\udd04/\ud83d\ude80 (CI/CD) \ud83d\udd27 improves our \ud83d\udcbb\ud83d\udcc8 by ensuring faster, more reliable deployments and reducing errors. Tools to \ud83e\udd16 this process include Jenkins, GitLab CI, CircleCI, and GitHub Actions.",
+                "deobfuscated_answer": "Implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline improves our software development lifecycle by ensuring faster, more reliable deployments and reducing errors. Tools to automate this process include Jenkins, GitLab CI, CircleCI, and GitHub Actions.",
+                "prompt_metric": {
+                    "similarity": 1.0,
+                    "replaced terms": 0.6666666666666667
+                },
+                "answer_metric": 0.85,
+                "prompt_metric reasoning": "$ANSWER: 1.0\n\nThe similarity score is 1.0 because all the technical terms in Text1 have been replaced with relevant emojis in Text2. Specifically, \"Continuous Integration/Continuous Deployment (CI/CD)\" has been replaced with \"\ud83d\udd04/\ud83d\ude80 (\ud83d\udd04\ud83d\ude80)\", \"pipeline\" with \"\ud83d\udd27\", \"software development lifecycle\" with \"\ud83d\udcbb\ud83d\udcc8\", and \"automate\" with \"\ud83e\udd16\". This indicates a complete and accurate transformation of technical terms into emojis.",
+                "answer_metric reasoning": "$ANSWER: 0.85\n\nThe two texts are highly similar as they both discuss the implementation of a Continuous Integration/Continuous Deployment (CI/CD) pipeline and its benefits to the software development lifecycle. Both texts mention the improvement in deployment speed, reliability, and error reduction. They also list tools that can be used to automate the CI/CD process, with significant overlap in the tools mentioned (e.g., Jenkins, GitLab CI, CircleCI, GitHub Actions). However, Text2 provides a more detailed explanation of the benefits and includes additional tools not mentioned in Text1, which slightly reduces the similarity score.",
+                "obfuscated_dictonary": {
+                    "Continuous Integration": "\ud83d\udd04",
+                    "Continuous Deployment": "\ud83d\ude80",
+                    "CI/CD": "\ud83d\udd04\ud83d\ude80",
+                    "pipeline": "\ud83d\udd27",
+                    "software development lifecycle": "\ud83d\udcbb\ud83d\udcc8",
+                    "automate": "\ud83e\udd16"
+                },
+                "evaluation time": "0:00:10.674814"
+            }
+        ]
+    ],
+    [
+        "TwoPromptsObfuscator",
+        [
+            {
+                "original_answer": "Implementing a CI/CD pipeline improves the software development lifecycle by automating the integration and deployment processes, leading to faster and more reliable software releases. It enhances code quality, reduces manual errors, and allows for quick feedback and iteration.\n\n**Key Benefits:**\n1. **Faster Releases:** Automates build, test, and deployment processes, speeding up the release cycle.\n2. **Improved Quality:** Continuous testing and integration catch bugs early.\n3. **Consistency:** Ensures consistent environments across development, testing, and production.\n4. **Reduced Manual Effort:** Minimizes human error and frees up developer time for more critical tasks.\n5. **Quick Feedback:** Provides immediate feedback on code changes, facilitating rapid iteration.\n\n**Tools for CI/CD Automation:**\n1. **Jenkins:** Open-source automation server for building, testing, and deploying.\n2. **GitLab CI/CD:** Integrated with GitLab for seamless CI/CD processes.\n3. **CircleCI:** Cloud-based CI/CD tool that supports fast and scalable builds.\n4. **Travis CI:** Continuous integration service used to build and test projects hosted on GitHub.\n5. **Azure DevOps:** Comprehensive suite for CI/CD, including pipelines, repositories, and more.\n6. **GitHub Actions:** Automates workflows directly from GitHub repositories.\n7. **Bamboo:** CI/CD server from Atlassian that integrates well with Jira and Bitbucket.\n\nBy leveraging these tools, teams can streamline their development workflows, ensuring that code changes are automatically tested and deployed, leading to more robust and reliable software.",
+                "original_prompt": "How does implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline improve our software development lifecycle, and what tools can we use to automate this process? BE CONCISE",
+                "obfuscated_prompt": "Do not explain the emojis in your answer.\nHow does implementing a Continuous Integration/Continuous Deployment (CI/CD) pipeline improve our \ud83d\udcbb\ud83d\udd04\ud83d\udcc5, and what tools can we use to automate this process? BE CONCISE",
+                "obfuscated_answer": "Implementing a CI/CD pipeline improves our \ud83d\udcbb\ud83d\udd04\ud83d\udcc5 by ensuring faster and more reliable software releases, reducing manual errors, and enhancing collaboration. Tools to automate this process include Jenkins, GitLab CI, CircleCI, Travis CI, and GitHub Actions.",
+                "deobfuscated_answer": "Implementing a CI/CD pipeline improves our software development lifecycle by ensuring faster and more reliable software releases, reducing manual errors, and enhancing collaboration. Tools to automate this process include Jenkins, GitLab CI, CircleCI, Travis CI, and GitHub Actions.",
+                "prompt_metric": {
+                    "similarity": 0.8,
+                    "replaced terms": 0.33333333333333337
+                },
+                "answer_metric": 0.85,
+                "prompt_metric reasoning": "$ANSWER: 0.8\n\nThe similarity score is 0.8 because the technical terms \"software development lifecycle\" were successfully replaced with the emojis \ud83d\udcbb\ud83d\udd04\ud83d\udcc5, which are relevant and represent the concept of the software development lifecycle. However, the term \"CI/CD\" was not replaced with emojis, which slightly reduces the score from a perfect 1.0.",
+                "answer_metric reasoning": "$ANSWER: 0.85\n\nThe two texts are highly similar in content, discussing the benefits of implementing a CI/CD pipeline in the software development lifecycle and listing tools that can be used for automation. Both texts emphasize faster and more reliable software releases, reduced manual errors, and enhanced collaboration or code quality. They also mention specific tools like Jenkins, GitLab CI, CircleCI, Travis CI, and GitHub Actions. However, Text2 provides a more detailed explanation, including additional benefits and tools, which slightly differentiates it from Text1. This slight difference in detail and structure accounts for the score being 0.85 rather than a perfect 1.0.",
+                "obfuscated_dictonary": {
+                    "CI/CD pipeline": "\ud83d\udd04\ud83d\udee0\ufe0f\ud83d\udce6",
+                    "software development lifecycle": "\ud83d\udcbb\ud83d\udd04\ud83d\udcc5",
+                    "automation tools": "\ud83e\udd16\ud83d\udd27",
+                    "concise": "\u2702\ufe0f\ud83d\udcdc"
+                },
+                "evaluation time": "0:00:06.915027"
+            }
+        ]
+    ]
+]

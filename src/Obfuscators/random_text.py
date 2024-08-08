@@ -11,7 +11,7 @@ class RandomText(Obfuscator):
 
 
     def obfuscate(self, user_prompt):
-        return get_answer(f"generate a random text with {len(user_prompt)} characters")
+        return get_answer(f"generate a random text with {len(user_prompt["original_question"])} characters")
 
     def deobfuscate(self, obfuscated_answer):
         return obfuscated_answer

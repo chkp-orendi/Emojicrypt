@@ -12,7 +12,7 @@ class WrongObfuscator(Obfuscator):
         pass
 
     def obfuscate(self, user_prompt):
-        return  "A quick brown fox jumps over a lazy cpdog" + user_prompt[int(len(user_prompt)/2):]
+        return  "A quick brown fox jumps over a lazy cpdog" + user_prompt["original_question"][int(len(user_prompt)/2):]
 
     def deobfuscate(self, obfuscated_answer):
         return obfuscated_answer

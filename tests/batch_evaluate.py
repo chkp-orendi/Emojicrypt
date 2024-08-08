@@ -16,13 +16,13 @@ class SingleCaseEvaluator:
 
     def evaluate(self, case_data):
         time = datetime.now()
-        obfuscated_prompt = self._obf.obfuscate(case_data["original_question"])
+        obfuscated_prompt = self._obf.obfuscate(case_data)
         obfuscated_answer = get_answer(obfuscated_prompt)
         # if self._obf._prompt_prefix != "":
         #     obfuscated_prompt = obfuscated_prompt[len(self._obf._prompt_prefix):]  #remove prefix to compare evaluation
         deobfuscated_answer = self._obf.deobfuscate(obfuscated_answer)
-        prompt_metric = self._evaluator.evaluate_prompt(obfuscated_prompt, case_data=case_data)
-        answer_metric = self._evaluator.evaluate_answer(deobfuscated_answer, case_data=case_data)
+        prompt_metric_reasoning, prompt_metric = self._evaluator.evaluate_prompt(obfuscated_prompt, case_data)
+        answer_metric_reasoning, answer_metric = self._evaluator.evaluate_answer(deobfuscated_answer, case_data)
         obfuscated_dictonary = self._obf.get_dictionary()
         eval_time = datetime.now() - time
         self.logger.info(f"""
@@ -30,9 +30,11 @@ obfuscated prompt: {obfuscated_prompt}
 obfuscated answer: {obfuscated_answer}
 deobfuscated_answer: {deobfuscated_answer}
 prompt_metric: {prompt_metric}
+prompt_metric reasoning: {prompt_metric_reasoning}
 answer_metric: {answer_metric}
+answer_metric reasoning: {answer_metric_reasoning}
 obfuscated_dictonary: {obfuscated_dictonary}
-"evaluation time": {eval_time}""")
+evaluation time: {eval_time}""")
 #         print(f"""
 # obfuscated prompt: {obfuscated_prompt}
 # obfuscated answer: {obfuscated_answer}
@@ -46,6 +48,7 @@ obfuscated_dictonary: {obfuscated_dictonary}
             "obfuscated_prompt": obfuscated_prompt, "obfuscated_answer":obfuscated_answer,
             "deobfuscated_answer": deobfuscated_answer,
             "prompt_metric": prompt_metric, "answer_metric": answer_metric,
+            "prompt_metric reasoning": prompt_metric_reasoning, "answer_metric reasoning": answer_metric_reasoning,
             "obfuscated_dictonary": obfuscated_dictonary,
             "evaluation time": str(eval_time)
         }

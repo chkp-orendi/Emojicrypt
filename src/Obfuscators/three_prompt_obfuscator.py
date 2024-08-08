@@ -67,16 +67,16 @@ class ThreePromptsObfuscator(Obfuscator):
 
     def obfuscate(self, user_prompt):
         self._llm_wrapper = self._llm_wrapper_factory()
-        self._extracted_terms = self._extract_terms(user_prompt)
-        self._extracted_crucial = self._find_crucial(user_prompt)
+        self._extracted_terms = self._extract_terms(user_prompt["original_question"])
+        self._extracted_crucial = self._find_crucial(user_prompt["original_question"])
         self._extracted_terms = [item for item in self._extracted_terms if item not in self._extracted_crucial]
-        self._dictionary_used = self._find_replacements(text=user_prompt, from_list=self._extracted_terms)
+        self._dictionary_used = self._find_replacements(text=user_prompt["original_question"], from_list=self._extracted_terms)
         if len(self._dictionary_used) == 0:
             self._logger.info("Empty dictionary_used")
         else:
             self._logger.info("dictionary_used:" + str(self._dictionary_used))
 
-        response_text = user_prompt
+        response_text = user_prompt["original_question"]
         for key, value in self._dictionary_used.items():
             response_text = response_text.replace(key, value)
             #response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)

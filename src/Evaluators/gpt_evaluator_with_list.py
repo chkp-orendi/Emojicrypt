@@ -11,9 +11,9 @@ from src.utils.azure_client import get_answer
 from src.utils.answer_extraction import extract_number
 
 
-class GPTEvaluator(EvaluatorTemplate):
+class GPTWithListEvaluator(EvaluatorTemplate):
 
-    query_prompt = """Grade the similarity between the following two texts on a scale of 0.0 to 1.0 with emphasis on technical terms changed with relative emojis. A score of 0.0 means the emojis are not relevant or there were technical words to change and it didn't. A score of 1.0 means all the technical terms were changed with relative emojis.
+    query_prompt = """Grade the similarity between the following two texts on a scale of 0.0 to 1.0 with emphasis on technical terms changed with relative emojis. A score of 0.0 means the emojis are not relevant or there were technical words to change and it didn't (two exact same text with technical terms not changed would score 0.0). A score of 1.0 means all the technical terms were changed with relative emojis.
 Text1: {text1}
 Text2: {text2}
 Please provide the similarity score along with a brief explanation of the rationale behind the score. Print $ANSWER: <number>
@@ -26,14 +26,23 @@ Please provide the similarity score along with a brief explanation of the ration
     def __init__(self, logger ,prompt_path):
         self.logger = logger
 
-    def evaluate_prompt(self, obfuscated_prompt, original_prompt):
-        query = self.query_prompt.format(text1=original_prompt, text2=obfuscated_prompt) 
+
+    def _find_leftovers(obfuscated_prompt, terms):
+            count = 0
+            for term in terms:
+                if term in obfuscated_prompt:
+                    count += 1
+            return 1-count/len(terms)
+    
+    def evaluate_prompt(self, obfuscated_prompt, case_data):    #add return llm answer reasoning
+        query = self.query_prompt.format(text1=case_data["original_question"], text2=obfuscated_prompt) 
         answer = get_answer(query)
+        missed_precentage = GPTWithListEvaluator._find_leftovers(obfuscated_prompt, case_data["list"])
         self.logger.info(f"""evaluate_prompt
 Prompt: {query}
 Answer: {answer}
 Extracted Answer: {extract_number(answer)}""")
-        return extract_number(answer)
+        return answer, {"similarity": extract_number(answer), "replaced terms": missed_precentage}
 
     def evaluate_answer(self, obfuscated_answer, original_answer):
         query = self.answer_prompt.format(text1=obfuscated_answer, text2=original_answer)
@@ -42,5 +51,5 @@ Extracted Answer: {extract_number(answer)}""")
 Prompt: {query}
 Answer: {answer}
 Extracted Answer: {extract_number(answer)}""")
-        return extract_number(answer)
+        return answer, extract_number(answer)
     

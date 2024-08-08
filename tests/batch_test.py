@@ -18,8 +18,12 @@ from src.Obfuscators.few_prompt_obfuscator import FewPromptsObfuscator
 from src.Obfuscators.three_prompt_obfuscator import ThreePromptsObfuscator
 from src.Obfuscators.fake_obfuscator import FakeObfuscator
 from src.Obfuscators.wrong_obfuscator import WrongObfuscator
+from src.Obfuscators.random_text import RandomText
 
-from src.Evaluators.gpt_evaluator import GPTEvaluator
+
+
+
+from src.Evaluators.gpt_evaluator_with_list import GPTWithListEvaluator
 from src.Evaluators.list_embedding_evaluator import ListEmbeddingEvaluator
 
 
@@ -83,31 +87,33 @@ def main():
     two_obfuscator_factory = lambda : FewPromptsObfuscator([two_prompt_1,two_prompt_2], azure_llm_wrapper_factory, logger, cpprefix)
     # three_prompts_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, ollama_llm_wrapper_factory,logger)
     # three_prompts_gpt_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, azure_llm_wrapper_factory,logger)
-    # three_prompts__gpt_prefix_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, azure_llm_wrapper_factory,logger, cpprefix)
+    three_prompts__gpt_prefix_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, azure_llm_wrapper_factory,logger, cpprefix)
     # three_prompts__llama_prefix_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, ollama_llm_wrapper_factory,logger, cpprefix)
-    # wrong_obfuscator_factory = lambda : WrongObfuscator()
-    # fake_obfuscator_factory = lambda : FakeObfuscator()
+    wrong_obfuscator_factory = lambda : WrongObfuscator()
+    fake_obfuscator_factory = lambda : FakeObfuscator()
     # single_prompt_no_prefix_gpt4o_factory = lambda : SinglePromptObfuscator(single_prompt, azure_llm_wrapper_factory, logger)
     # two_obfuscator_no_prefix_gpt4o_factory = lambda : FewPromptsObfuscator([two_prompt_1,two_prompt_2], azure_llm_wrapper_factory, logger)
     # three_prompts_no_prefix_gpt4o_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, azure_llm_wrapper_factory,logger)
     # single_prompt_no_prefix_llama_factory = lambda : SinglePromptObfuscator(single_prompt, ollama_llm_wrapper_factory, logger)
-    two_obfuscator_prefix_llama_factory = lambda : FewPromptsObfuscator([two_prompt_1,two_prompt_2], ollama_llm_wrapper_factory, logger, cpprefix)
+    # two_obfuscator_prefix_llama_factory = lambda : FewPromptsObfuscator([two_prompt_1,two_prompt_2], ollama_llm_wrapper_factory, logger, cpprefix)
     # three_prompts_no_prefix_llama_factory = lambda : ThreePromptsObfuscator(find_sensitive_prompt, find_crucial_prompt, dictionary_prompt, ollama_llm_wrapper_factory,logger)
 
+    random_text_obfuscator_factory = lambda : RandomText()
 
 
 
 
     obfuscators = []
-    # obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
-    # obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
-    # obfuscators.append(("ThreePrompt - GPT - Prefixed", three_prompts__gpt_prefix_factory))
+    #obfuscators.append(("WrongObfuscator", wrong_obfuscator_factory))
+    obfuscators.append(("RandomText", random_text_obfuscator_factory))
+    obfuscators.append(("FakeObfuscator", fake_obfuscator_factory))
+    obfuscators.append(("ThreePrompt - GPT - Prefixed", three_prompts__gpt_prefix_factory))
     # obfuscators.append(("ThreePrompt - Llama - Prefixed", three_prompts__llama_prefix_factory))
     #obfuscators.append(("SinglePromptObfuscator", single_prompt_factory))
     obfuscators.append(("TwoPromptsObfuscator", two_obfuscator_factory))
     #obfuscators.append(("ThreePromptsObfuscatorLlama", three_prompts_factory))
     # obfuscators.append(("SinglePromptObfuscator - Llama3:8b", single_prompt_prefix_llama_factory))
-    obfuscators.append(("TwoPromptsObfuscator - Llama3:8b", two_obfuscator_prefix_llama_factory))
+    # obfuscators.append(("TwoPromptsObfuscator - Llama3:8b", two_obfuscator_prefix_llama_factory))
     # obfuscators.append(("ThreePromptsObfuscator Prefixed - GPT -4o", three_prompts_prefix_factory))
 
     # obfuscators.append(("SinglePrompt No Prefix Obfuscator - GPT-4o", single_prompt_no_prefix_gpt4o_factory))
@@ -119,18 +125,18 @@ def main():
 
 
 
-    data_to_use = "new_gpt_generated_data.json"
+    data_to_use = "08-08_gpt_4o_QNA_with_list.json"
 
     inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data",data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
     prompt_path = os.path.join(os.path.dirname(__file__), "prompts", "", "gpt_evaluator", "gpt_evaluator_promt.txt")
-    evaluator = lambda : GPTEvaluator(prompt_path)
+    evaluator = lambda : GPTWithListEvaluator(logger, prompt_path)
 
-    metrics = evaluate_with_obfuscators(data[:50], obfuscators, logger, evaluator)
+    metrics = evaluate_with_obfuscators(data[:1], obfuscators, logger, evaluator)
 
-    metrics_filename = "RESULTS_" + str(datetime.now()).replace(' ', '_').replace(':', '_') + "gpt_metric_new_test.json"
+    metrics_filename = "RESULTS_" + "gpt_metric_new_test" + str(datetime.now()).replace(' ', '_').replace(':', '_') + ".json"
     output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data")
     os.makedirs(output_folder_path,exist_ok=True)
     json.dump(metrics, open(os.path.join(output_folder_path,metrics_filename), "w") , indent=4)

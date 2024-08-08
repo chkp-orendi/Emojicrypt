@@ -56,7 +56,7 @@ class FewPromptsObfuscator(Obfuscator):
         first_iteration = True
         for prompt in self._prompt_list:
             if first_iteration:
-                llm_answer = self._llm_wrapper.send_query(prompt.format(text=user_prompt))
+                llm_answer = self._llm_wrapper.send_query(prompt.format(text=user_prompt["original_question"]))
                 self._logger.info("First answer:" )
                 first_iteration = False
             else:
@@ -73,7 +73,7 @@ class FewPromptsObfuscator(Obfuscator):
             self._logger.info("dictionary_used:" + str(self._dictionary_used))
             print("dictionary_used:" + str(self._dictionary_used))
 
-        response_text = user_prompt
+        response_text = user_prompt["original_question"]
         for key, value in self._dictionary_used.items():
             response_text = response_text.replace(key, value)
             #response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)

@@ -2,3 +2,6 @@
 metrics/*
 log/*
 .env
+
+
+#AZURE_KEY = "95787a606b6b4d41800ec9ff2b6ddcb8" #key 2

@@ -11,7 +11,7 @@ class FakeObfuscator(Obfuscator):
 
 
     def obfuscate(self, user_prompt):
-        return user_prompt
+        return user_prompt["original_question"]
 
     def deobfuscate(self, obfuscated_answer):
         return obfuscated_answer

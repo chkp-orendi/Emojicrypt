@@ -91,5 +91,50 @@ def init_logs(log_path,test_case):
     logger = logging.getLogger(test_case)
     return logger
 
-
+def smart_replace(text, replacements):
+    replaced_text = text
+    break_word_characters = [
+    ' ',  # Space
+    '\t',  # Tab
+    '\n',  # Newline
+    '\r',  # Carriage return
+    '.',  # Period
+    ',',  # Comma
+    ';',  # Semicolon
+    ':',  # Colon
+    '!',  # Exclamation mark
+    '?',  # Question mark
+    '-',  # Hyphen
+    '_',  # Underscore
+    '(',  # Open parenthesis
+    ')',  # Close parenthesis
+    '[',  # Open bracket
+    ']',  # Close bracket
+    '{',  # Open brace
+    '}',  # Close brace
+    '"',  # Double quote
+    "'",  # Single quote
+    '/',  # Forward slash
+    '\\',  # Backslash
+    '|',  # Vertical bar
+    '@',  # At symbol
+    '#',  # Hash
+    '$',  # Dollar sign
+    '%',  # Percent
+    '^',  # Caret
+    '&',  # Ampersand
+    '*',  # Asterisk
+    '+',  # Plus
+    '=',  # Equals
+    '<',  # Less than
+    '>',  # Greater than
+    '`',  # Backtick
+    '~'   # Tilde
+]
+    break_word_pattern = '[' + re.escape(''.join(break_word_characters)) + ']'
+    
+    for key, value in replacements.items():
+        pattern = r'((?<=' + break_word_pattern + r')|^)' + key + r'((?=' + break_word_pattern + r')|$)'
+        replaced_text = re.sub(pattern, value, replaced_text, 0)
+    return replaced_text
 

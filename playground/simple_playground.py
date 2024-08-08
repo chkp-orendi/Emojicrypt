@@ -54,7 +54,7 @@ text2 = "\"How does the use of 🍀🚀🎨 in 🎉✨🌍 enhance 🌟🍀 in �
 # text4 = "Machine learning algorithms in predictive analytics can significantly enhance decision-making processes in businesses in several ways:\n\n1. Improved Accuracy: Machine learning algorithms can analyze vast amounts of data and identify patterns and trends that humans might miss, leading to more accurate predictions.\n\n2. Efficiency: These algorithms can process data much faster than humans, enabling businesses to make quick decisions.\n\n3. Personalization: Machine learning can help businesses understand their customers better and provide personalized services or products, thereby improving customer satisfaction and loyalty.\n\n4. Risk Management: Predictive analytics can help businesses identify potential risks and take preventive measures.\n\n5. Cost Reduction: By automating data analysis, businesses can reduce the costs associated with manual data analysis.\n\nDespite these benefits, businesses often face several challenges during the implementation of machine learning algorithms in predictive analytics:\n\n1. Data Quality: The accuracy of predictions depends on the quality of data. If the data is incomplete, outdated, or biased, the predictions will be inaccurate.\n\n2. Lack of Expertise: Implementing machine learning algorithms requires a high level of expertise in data science and machine learning, which many businesses lack.\n\n3. Integration: Integrating machine learning algorithms with existing systems can be complex and time-consuming.\n\n4. Privacy and Security: Businesses need to ensure that they comply with data privacy regulations and protect the data from breaches.\n\n5. Interpretability: Machine learning models, especially complex ones like deep learning, can be difficult to interpret. This lack of transparency can make it hard for businesses to trust the predictions"
 
 
-print(evaluate_prompt(text1, text2))
+# print(evaluate_prompt(text1, text2))
 
 # # text1 = "a kid walked in the park"
 # # text2 = "a kid walked in the park"
@@ -89,3 +89,21 @@ print(evaluate_prompt(text1, text2))
 # print("Variance Root: ", variance)
 # print("Top Decile: ", top_decile)
 # print("Bottom Decile: ", bottom_decile)
+
+
+print("ORIGINAL____________________________________________")
+
+print("""
+"To leverage machine learning models for predictive maintenance in manufacturing, follow these steps:\n\n1. **Data Collection**: Gather relevant data, including:\n   - **Sensor Data**: Temperature, vibration, pressure, and other operational metrics.\n   - **Operational Data**: Machine usage patterns, load levels, and production rates.\n   - **Maintenance Records**: Historical maintenance logs, failure reports, and repair details.\n   - **Environmental Data**: Ambient conditions like humidity and temperature.\n\n2. **Data Preprocessing**: Clean and preprocess the data to handle missing values, outliers, and noise. Normalize and standardize the data as needed.\n\n3. **Feature Engineering**: Extract meaningful features from raw data, such as statistical measures (mean, variance), frequency domain features, and domain-specific indicators.\n\n4. **Model Selection**: Choose appropriate machine learning models, such as:\n   - **Supervised Learning**: For predicting time-to-failure or classifying machine states (e.g., healthy vs. faulty).\n   - **Unsupervised Learning**: For anomaly detection in sensor data.\n\n5. **Model Training and Validation**: Split the data into training and validation sets. Train the model on the training set and validate its performance on the validation set using metrics like accuracy, precision, recall, and F1-score.\n\n6. **Deployment and Monitoring**: Deploy the model in the production environment. Continuously monitor its performance and retrain it periodically with new data to maintain accuracy.\n\nBy collecting comprehensive and high-quality data, preprocessing it effectively, and selecting the right models, you can build robust predictive maintenance systems that minimize downtime and optimize maintenance schedules.",
+""")
+
+print("GPT____________________________________________")
+print("""
+"Leverage machine learning models for predictive maintenance by:\n\n1. **Data Collection**: Gather sensor data, operational logs, maintenance records, and environmental conditions.\n2. **Feature Engineering**: Extract relevant features like vibration, temperature, pressure, and usage patterns.\n3. **Model Selection**: Choose appropriate models (e.g., regression, classification, time-series analysis).\n4. **Training**: Train models on historical data to identify failure patterns.\n5. **Deployment**: Implement models to monitor real-time data and predict failures.\n\nEnsure accuracy by collecting high-quality, diverse, and labeled data, and continuously updating the model with new data.",
+""")
+
+print("LLAMA____________________________________________")
+
+print("""
+"We can leverage machine learning models for predictive maintenance in manufacturing by implementing predictive maintenance, optimizing production processes, and improving quality control. To ensure their accuracy, we need to collect data on machine performance, sensor readings, production rates, defect rates, and maintenance logs.",
+""")

@@ -1,0 +1,4 @@
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4o-2024-05-13/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 401 Access Denied"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4o-2024-05-13/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 401 Access Denied"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4o-2024-05-13/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 401 Access Denied"
+INFO:httpx:HTTP Request: POST https://staging-dev-openai.azure-api.net/openai-gw-proxy-dev//openai/deployments/gpt-4o-2024-05-13/chat/completions?api-version=2023-07-01-preview "HTTP/1.1 401 Access Denied"
