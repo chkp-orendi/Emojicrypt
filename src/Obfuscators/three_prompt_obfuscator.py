@@ -9,10 +9,10 @@ from src.Obfuscators.obfuscator_template import Obfuscator
 
 
 class ThreePromptsObfuscator(Obfuscator):
-    def __init__(self, extract_terms_prompt, find_crucial_prompt, dictionary_prompt, llm_wrapper_factory, logger, prompt_prefix=""):
-        self._extract_terms_prompt = extract_terms_prompt
-        self._find_crucial_prompt = find_crucial_prompt
-        self._dictionary_prompt = dictionary_prompt
+    def __init__(self, prompt_list: list, llm_wrapper_factory, logger, prompt_prefix=""):
+        self._extract_terms_prompt = prompt_list[0]
+        self._find_crucial_prompt = prompt_list[1]
+        self._dictionary_prompt = prompt_list[2]
         self._llm_wrapper_factory = llm_wrapper_factory
         self._extracted_terms = []
         self._extracted_crucial = {}
@@ -93,3 +93,6 @@ def replace_words(text, replacements):
     for key in replacements.keys():
         text = text.replace(key, replacements[key])
     return text
+
+if __name__ =="main":
+    replace_words("hio", {"hio":"hello"})

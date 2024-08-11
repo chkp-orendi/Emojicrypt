@@ -6,11 +6,11 @@ sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
 
 class FakeObfuscator(Obfuscator):
-    def __init__(self):
+    def __init__(self: Obfuscator, logger) -> None:
         pass
 
 
-    def obfuscate(self, user_prompt):
+    def obfuscate(self: Obfuscator, user_prompt):
         return user_prompt["original_question"]
 
     def deobfuscate(self, obfuscated_answer):

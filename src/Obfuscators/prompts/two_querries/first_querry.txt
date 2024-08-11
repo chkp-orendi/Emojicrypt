@@ -1,8 +1,4 @@
-Convert the following text to a list of the format $LIST: [ex1, ex2, ...]  based on these rules:
-1. Replace names with random, unrelated names that do not appear anywhere else in the text. Maintain GENDER and ethnic of the name.
-2. Convert dates and times into emojis that reflect the general period or characteristic of the original text. Use a combination of emojis to represent more abstract concepts like months or years. (e.g 8:00;🕗,last year;🔙🔙📅,July;🔥📅).
-3. Replace names of places with emojis that represent the primary attribute or the essence of the location. Select emojis that closely relate to the activities, climate, or notable features of these places. For example, [Central Park;🌳🌳,"beach;🏖️ ,library;📚]
-
+Convert the following text to a list of technical terms in the format $LIST: [ex1, ex2, ...]
 Here are examples how to use all the rules to make a list to the text with the format $LIST: [ex1, ex2, ...].
 
 Text: "We are in the process of migrating our on-premises infrastructure to a cloud-based environment. Can you provide insights on the key steps involved in a successful cloud migration, including data transfer, application reconfiguration, and security considerations? Additionally, what are some common challenges we might face during the migration process and how can we address them to ensure minimal downtime and data integrity?"

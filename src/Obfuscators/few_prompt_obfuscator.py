@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
+from src.utils.answer_extraction import smart_replace
 
 
 #Convention that last prompt would return $Dict [key1:value1,key2:value2,...]
@@ -16,38 +17,6 @@ class FewPromptsObfuscator(Obfuscator):
         self._logger = logger
         self._dictionary_used = {}
         self._prompt_prefix = prompt_prefix
-
-    @staticmethod
-    def extract_list(LLM_answer):
-        ANSWER_PATTERN = r'\[([^\]]+)\]'
-        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
-        if len(answer_list) >= 1:
-            answer_list = answer_list[-1]  # return last occurrence of pattern.
-        else:
-            return []
-
-        return [token.strip("' \t") for token in answer_list.split(',')]
-
-    @staticmethod
-    def extract_dict(LLM_answer):
-        ANSWER_PATTERN = r'\$Dict:\s*\[(?:\s*[^:\[\],]+:[^:\[\],]+\s*,)*\s*[^:\[\],]+:[^:\[\],]+\s*\]'
-        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
-        if len(answer_list) >= 1:
-            answer_list = answer_list[-1]  # return last occurrence of pattern.
-        else:
-            return {}
-        words_replacements = {}
-        answer_list = answer_list.replace("$Dict:", "").strip("[] \"")
-        print(answer_list)
-        for item in answer_list.split(","):
-            splited_item = item.split(":")
-            if len(splited_item) !=2:
-                print("INVALID ITEM")
-                print(item)
-                print(LLM_answer)
-                continue
-            words_replacements[item.split(":")[0].strip("' \t")] = item.split(":")[1].strip("' \t")
-        return words_replacements
 
     
     def obfuscate(self, user_prompt):
@@ -74,14 +43,10 @@ class FewPromptsObfuscator(Obfuscator):
             print("dictionary_used:" + str(self._dictionary_used))
 
         response_text = user_prompt["original_question"]
-        for key, value in self._dictionary_used.items():
-            response_text = response_text.replace(key, value)
-            #response_text = re.sub(r'\b' + re.escape(key) + r'\b', value, response_text)
+        response_text = smart_replace(response_text,self._dictionary_used)
         return self._prompt_prefix + response_text
 
     def deobfuscate(self, obfuscated_answer):
         deobfuscated_answer = obfuscated_answer
-        for key, value in self._dictionary_used.items():
-            deobfuscated_answer = deobfuscated_answer.replace(value, key)
-            #deobfuscated_answer = re.sub(re.escape(value), key, deobfuscated_answer)
+        deobfuscated_answer = smart_replace(deobfuscated_answer,{value:key for key,value in self._dictionary_used.items()})
         return deobfuscated_answer

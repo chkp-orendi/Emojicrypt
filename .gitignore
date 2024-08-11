@@ -1,7 +1,7 @@
 *__pycache__*
-metrics/*
+data/*
 log/*
 .env
-
+*monkeytypes*
 
 #AZURE_KEY = "95787a606b6b4d41800ec9ff2b6ddcb8" #key 2

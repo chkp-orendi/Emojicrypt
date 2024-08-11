@@ -9,8 +9,8 @@ from src.Obfuscators.obfuscator_template import Obfuscator
 
 
 class SinglePromptObfuscator(Obfuscator):
-    def __init__(self, prompt, llm_wrapper_factory, logger, prompt_prefix = ""):
-        self._prompt = prompt
+    def __init__(self, prompt_list, llm_wrapper_factory, logger, prompt_prefix = ""):
+        self._prompt = prompt_list[0]
         self._llm_wrapper = llm_wrapper_factory
         self._dictionary_used = {}
         self._logger = logger

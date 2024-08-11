@@ -14,62 +14,49 @@ def normalize(s: str) -> str:
     s = " ".join(s.split())
     return s
 
-#s1 should be llm answer
-def check_match(s1,s2, endings=None) -> bool:
-    s1 = normalize(s1)
-    s2 = normalize(s2)
-
-    if s1 == "" or s2 == "":
-        return s1 == s2
-    # I added this if the LLM does not respond with number. Need to update tests to see if it works.
-    elif not s1.isnumeric() and endings!=None:
-        return s1 in endings[s2] or endings[s2] in s1
-    
-    return s1 in s2 or s2 in s1
-
-
 
 # extract_answer if in the prompt it was requested for format $Answer: answer
-def extract_answer(LLM_answer):
+def extract_answer(LLM_answer: str) -> str:
     ANSWER_PATTERN = r"(?i)Answer\s*:\s*([^\n]+)"
     match = re.search(ANSWER_PATTERN, LLM_answer)
     if match:
         return match.group(1)
     return None
 
-
-    return words_to_encrypt_list
-
 # List is in the foramt for: $LIST: [word1,words2,...]
-def extract_list(LLM_answer):
-    ANSWER_PATTERN = r'\$LIST:*\s*\[([^\]]+)\]'
-    print(LLM_answer)
-    answer_list = re.findall(ANSWER_PATTERN,LLM_answer)
-    if len(answer_list)>=1:
-         answer_list=answer_list[-1] #return last occurrence of pattern.
-    else:
-        return []
-    #print(answer_list)
-    words_to_encrypt_list =[]
-    for item in answer_list.split(","):
-        words_to_encrypt_list.append(item)
-    return words_to_encrypt_list
+def extract_list(LLM_answer: str) -> list:
+        ANSWER_PATTERN = r'\$LIST:\s*\[(.*?)\]'
+        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
+        if len(answer_list) >= 1:
+            answer_list = answer_list[-1]  # return last occurrence of pattern.
+        else:
+            return []
 
-# dict is in the foramt for: {word1:key1,words2:key2,...}
+        return [token.strip("' \t") for token in answer_list.split(',')]
+
+
+# dict is in the foramt for: $Dict:  {word1:key1,words2:key2,...}
 def extract_dict(LLM_answer):
-    ANSWER_PATTERN = r'\[([^\]]+)\]'
-    answer_list = re.findall(ANSWER_PATTERN,LLM_answer)
-    if len(answer_list)>=1:
-         answer_list=answer_list[-1] #return last occurrence of pattern.
-    else:
-        return []
-    #print(answer_list)
-    words_to_encrypt_list =[]
-    for item in answer_list.split(","):
-        words_to_encrypt_list.append(item)
-    return []
+        ANSWER_PATTERN = r'\$Dict:\s*\[(?:\s*[^:\[\],]+:[^:\[\],]+\s*,)*\s*[^:\[\],]+:[^:\[\],]+\s*\]'
+        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
+        if len(answer_list) >= 1:
+            answer_list = answer_list[-1]  # return last occurrence of pattern.
+        else:
+            return {}
+        words_replacements = {}
+        answer_list = answer_list.replace("$Dict:", "").strip("[] \"")
+        print(answer_list)
+        for item in answer_list.split(","):
+            splited_item = item.split(":")
+            if len(splited_item) !=2:
+                print("INVALID ITEM")
+                print(item)
+                print(LLM_answer)
+                continue
+            words_replacements[item.split(":")[0].strip("' \t")] = item.split(":")[1].strip("' \t")
+        return words_replacements
 
-def extract_number(text):
+def extract_number(text: str) -> float:
     # Use regular expression to find all numbers in the text
     pattern = r'\$ANSWER: (-?\d+\.\d+|-?\d+)'
 
@@ -80,18 +67,14 @@ def extract_number(text):
         return None
     
     
-def init_logs(log_path,test_case):
-    # Expand the tilde to the full home directory path
+def init_logs(log_path: str,test_case: str) -> logging.Logger:
     log_file_path = os.path.expanduser(log_path)
-
-    # Ensure the directory exists
-    #os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
 
     logging.basicConfig(filename=log_file_path, level=logging.INFO)
     logger = logging.getLogger(test_case)
     return logger
 
-def smart_replace(text, replacements):
+def smart_replace(text: str, replacements: dict[str,str]) -> str:
     replaced_text = text
     break_word_characters = [
     ' ',  # Space
@@ -137,4 +120,3 @@ def smart_replace(text, replacements):
         pattern = r'((?<=' + break_word_pattern + r')|^)' + key + r'((?=' + break_word_pattern + r')|$)'
         replaced_text = re.sub(pattern, value, replaced_text, 0)
     return replaced_text
-

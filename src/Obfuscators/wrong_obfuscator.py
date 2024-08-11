@@ -8,7 +8,7 @@ from src.Obfuscators.obfuscator_template import Obfuscator
 
 # Replace the second part of the prompt with a completely irrelevant text
 class WrongObfuscator(Obfuscator):
-    def __init__(self):
+    def __init__(self, logger):
         pass
 
     def obfuscate(self, user_prompt):
