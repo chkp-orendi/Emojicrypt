@@ -5,7 +5,7 @@ from datetime import datetime
 
 from dotenv import load_dotenv 
 load_dotenv()
-sys.path.append(os.getenv("PROJECT_PATH"))
+sys.path.append(os.getenv("PROJECT_PATH")) # type: ignore[arg-type]
 from src.utils.azure_client import get_answer
 
 class SingleCaseEvaluator:

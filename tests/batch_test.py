@@ -13,13 +13,14 @@ from tests.batch_evaluate import evaluate_batch
 from src.Evaluators.evaluator_template import EvaluatorTemplate
 from src.utils.azure_client import AzureClient
 from src.utils.ollama_client import OllamaClient
-from src.Obfuscators.single_prompt_obfuscator import SinglePromptObfuscator
-from src.Obfuscators.few_prompt_obfuscator import FewPromptsObfuscator
-from src.Obfuscators.three_prompt_obfuscator import ThreePromptsObfuscator
-from src.Obfuscators.fake_obfuscator import FakeObfuscator
-from src.Obfuscators.wrong_obfuscator import WrongObfuscator
-from src.Obfuscators.random_text import RandomText
-from src.Obfuscators.smart_random_emoji import SmartRandom
+
+from src.Obfuscators.single_prompt_obfuscator import SinglePromptObfuscator, make_single_prompt_obfuscator
+from src.Obfuscators.few_prompt_obfuscator import FewPromptsObfuscator, make_few_prompts_obfuscator
+from src.Obfuscators.three_prompt_obfuscator import ThreePromptsObfuscator, make_three_prompts_obfuscator
+from src.Obfuscators.fake_obfuscator import FakeObfuscator, make_fake_obfuscator
+from src.Obfuscators.wrong_obfuscator import WrongObfuscator, make_wrong_obfuscator
+from src.Obfuscators.random_text import RandomText, make_random_text
+from src.Obfuscators.smart_random_emoji import SmartRandom, make_smart_random
 from src.Obfuscators.obfuscator_template import Obfuscator
 
 from src.Evaluators.gpt_evaluator_with_list import GPTWithListEvaluator
@@ -50,28 +51,16 @@ def evaluate_with_obfuscators(data: list[dict], obfuscators: list[Obfuscator] ,l
     logger.info(f"Starting evaluation {datetime.now()}")
     for i, (name, obfuscator) in enumerate(obfuscators):
         logger.info(f"Starting evaluation of {name}")
+        print("evaluate_with_obfuscators: ",obfuscator().__class__.__name__)
+        print(f"Starting evaluation of {name}")
         time = datetime.now()
         metrics.append([name, evaluate_batch(data, obfuscator, logger, evaluator_factory)])
 
         output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data","7-8-2024")
-        json.dump(metrics, open(os.path.join(output_folder_path,name +".json"), "w") , indent=4)
+        json.dump(metrics, open(os.path.join(output_folder_path,name.replace(" ", "_") +".json"), "w") , indent=4)
 
         logger.info(f"time: {datetime.now()} finished evaluation of {name} in {datetime.now()-time}")
     return metrics
-
-#Input should containg list of tuples with first value the Obfuscator class and second value its inputs: llm_wrapper_factory: Callable[[],AzureClient | OllamaClient], prompt_list: list[str], prefix: str
-def load_obfuscators(obfuscators: List[Tuple[Obfuscator, Dict[str, Union[Callable[[],AzureClient | OllamaClient], List[str], str]]]],
-                            logger: logging.Logger) -> list[(str,Obfuscator)]:
-    obfuscators_list = []
-    for Obfuscator_class, obfuscator in obfuscators:
-        if "llm_wrapper_factory" in obfuscator.keys():            
-            obfuscator_name = Obfuscator_class.__name__ +" " + obfuscator["llm_wrapper_factory"]().__class__.__name__.strip("Client")
-        else:
-            obfuscator_name = Obfuscator_class.__name__
-
-        obfuscators_list.append((obfuscator_name,lambda: Obfuscator_class(**obfuscator, logger=logger)))
-
-    return obfuscators_list
 
 
 def main():
@@ -88,35 +77,40 @@ def main():
     single_prompt_list = [prompt_loader(single_prompt_path)]
     two_prompt_list = [prompt_loader(two_prompt_1_path),prompt_loader(two_prompt_2_path)]
     three_prompt_list = [prompt_loader(sensitive_file_path),prompt_loader(crucial_file_path),prompt_loader(dictionary_file_path)]   
-    smart_random_list = [prompt_loader(two_query_random_emojis_path)]
+    smart_random_list = [prompt_loader(two_prompt_1_path)]
 
     cpprefix = "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\n"
 
+    llm_wrapper_factories = {
+        "ollama": ollama_llm_wrapper_factory,
+        "azure": azure_llm_wrapper_factory
+    }
 
-    obfuscators = [
-    (SinglePromptObfuscator,{ 
-        "llm_wrapper_factory": ollama_llm_wrapper_factory, "prompt_list": single_prompt_list, "prompt_prefix": cpprefix
-    }),
-    (FewPromptsObfuscator,{
-        "llm_wrapper_factory": azure_llm_wrapper_factory, "prompt_list": two_prompt_list, "prompt_prefix": cpprefix
-    }),
-    (ThreePromptsObfuscator,{
-        "llm_wrapper_factory": azure_llm_wrapper_factory, "prompt_list": three_prompt_list, "prompt_prefix": cpprefix
-    }),
-    (SmartRandom,{
-        "llm_wrapper_factory": azure_llm_wrapper_factory, "prompt": smart_random_list, "prompt_prefix": cpprefix
-    }),
-    (RandomText,{
-        "llm_wrapper_factory": azure_llm_wrapper_factory
-    }),
-    (WrongObfuscator,{
-    }),
-    (FakeObfuscator,{
-    })
+    obfuscator_factories = {
+        "FakeObfuscator": make_fake_obfuscator,
+        "WrongObfuscator": make_wrong_obfuscator,
+        "SmartRandom": make_smart_random,
+        "RandomText": make_random_text,
+        #"SinglePromptObfuscator": make_single_prompt_obfuscator,
+        "FewPromptsObfuscator": make_few_prompts_obfuscator,
+        "ThreePromptsObfuscator": make_three_prompts_obfuscator
+    }
+
+    obfuscators_details = [
+        # ("FakeObfuscator", {"name": "FakeObfuscator"}),
+        # ("WrongObfuscator", {"name": "WrongObfuscator"}),
+        # ("SmartRandom", {"name": "SmartRandom", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": smart_random_list, "prompt_prefix": cpprefix}),
+        # ("RandomText", {"name": "RandomText", "llm_wrapper_factory": llm_wrapper_factories["azure"]}),
+        # ("FewPromptsObfuscator", {"name": "TwoPromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_list, "prompt_prefix": cpprefix}),
+        ("ThreePromptsObfuscator", {"name": "ThreePromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": three_prompt_list, "prompt_prefix": cpprefix})
     ]
 
-    obfuscators = load_obfuscators(obfuscators, logger)
+    loaded_obfuscators = []
 
+    for obfuscator_name, args in obfuscators_details:
+        loaded_obfuscators.append((obfuscator_name, obfuscator_factories[obfuscator_name](args)) )
+
+    
     data_to_use = "08-08_gpt_4o_QNA_with_list.json"
 
     inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data",data_to_use)
@@ -127,7 +121,7 @@ def main():
     evaluator = lambda : GPTWithListEvaluator(logger, prompt_path)
 
 
-    metrics = evaluate_with_obfuscators(data[:1], obfuscators, logger, evaluator)
+    metrics = evaluate_with_obfuscators(data[:50], loaded_obfuscators, logger, evaluator)
 
     metrics_filename = "RESULTS_" + "smart_random_test_" + str(datetime.now()).replace(' ', '_').replace(':', '_') + ".json"
     output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data")
@@ -135,8 +129,6 @@ def main():
     json.dump(metrics, open(os.path.join(output_folder_path,metrics_filename), "w") , indent=4)
 
     print("results saved to ", metrics_filename)
-
-
 
 
 if __name__ == "__main__":

@@ -3,6 +3,9 @@ import sys
 
 
 from dotenv import load_dotenv 
+from logging import Logger
+from typing import Dict, List, Tuple, Union, Self
+
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 
@@ -23,18 +26,18 @@ Text1: {text1}
 Text2: {text2}
 Please provide the similarity score along with a brief explanation of the rationale behind the score. Print $ANSWER: <number>"""
     
-    def __init__(self, logger ,prompt_path):
+    def __init__(self, logger: Logger ,prompt_path: str) -> Self:
         self.logger = logger
 
 
-    def _find_leftovers(obfuscated_prompt, terms):
+    def _find_leftovers(obfuscated_prompt, terms: List[str]) -> float:
             count = 0
             for term in terms:
                 if term in obfuscated_prompt:
                     count += 1
             return 1-count/len(terms)
     
-    def evaluate_prompt(self, obfuscated_prompt, case_data):    #add return llm answer reasoning
+    def evaluate_prompt(self, obfuscated_prompt: str, case_data: Dict[str, Union[str, List[str]]]) -> Tuple[str, Dict[str, float]]:    #add return llm answer reasoning
         query = self.query_prompt.format(text1=case_data["original_question"], text2=obfuscated_prompt) 
         answer = get_answer(query)
         missed_precentage = GPTWithListEvaluator._find_leftovers(obfuscated_prompt, case_data["list"])
@@ -44,7 +47,7 @@ Answer: {answer}
 Extracted Answer: {extract_number(answer)}""")
         return answer, {"similarity": extract_number(answer), "replaced terms": missed_precentage}
 
-    def evaluate_answer(self, obfuscated_answer, original_answer):
+    def evaluate_answer(self, obfuscated_answer: str, original_answer: Dict[str, Union[str, List[str]]]) -> Tuple[str, float]:
         query = self.answer_prompt.format(text1=obfuscated_answer, text2=original_answer)
         answer = get_answer(query)
         self.logger.info(f"""evaluate_answer

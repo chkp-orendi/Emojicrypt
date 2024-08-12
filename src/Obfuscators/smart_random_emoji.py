@@ -1,37 +1,46 @@
-from typing import Callable, Self
+from typing import Callable, Self, Dict
 import sys
 import os
-from logging import Logger
+from logging import Logger, getLogger
 from dotenv import load_dotenv 
 from random import randrange
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
 from src.utils.answer_extraction import extract_list, smart_replace
+
+
+def make_smart_random(args: Dict) -> Callable:
+    return lambda: SmartRandom(name = args["name"],
+                                llm_wrapper_factory=args["llm_wrapper_factory"],
+                                prompt_list=args["prompt_list"],
+                                prompt_prefix=args["prompt_prefix"])
+
 class SmartRandom(Obfuscator):
     random_emojis = """
 🐋🐍🎺🐊🎨🦀🐩🦉🎬🦏🐦🐗🐼🎸🐃🐌🐱🦅🐡🐑🐰🎭🦉🎷🎲🐝🎸🦀🎥🐜🦄🎮🎃🐢🐻🎮🎲🎮🐰🐺🎮🐹🎧🎺🎮🦄🎨🐭🎸🐠🐨🐛🦐🐟🐦🎤🎲🐼🦀🐭🐬🐾🐒🎥🐰🦀🐭🐡🐢🐿🐋🐿🐨🐻🐱🎈🦊🐣🎃🦁🐂🎧🎃🎥🐶🐍🎲🐮🎤🐘🎨🎸🐰🎭🎤🐧🎸🦄🦇🦎🐺🎥🐭🎷🦁🐦🎃🎶🐢🎹🦋🎮🦀🎤🐸🎷🐠🎶🎲🐦🎨
 """
 
-    def __init__(self: Self, prompt : str, llm_wrapper_factory: Callable[[],Obfuscator], logger: Logger, prompt_prefix: str ="" ) -> None:
-        self._prompt = prompt
+    def __init__(self, name: str, llm_wrapper_factory, prompt_list : str, prompt_prefix: str ="" ) -> Self:
+        self._prompt = prompt_list[0]
         self._llm_wrapper_factory = llm_wrapper_factory
-        self._logger = logger
+        self._logger = getLogger("__main__")
         self._dictionary_used = {}
         self._prompt_prefix = prompt_prefix
         self._list_of_technical_terms = []
+        super().__init__(name)
 
-    def get_list(self: Self, user_prompt: str) -> list[str]:
+    def get_list(self, user_prompt: str) -> list[str]:
         answer = self._llm_wrapper.send_query(self._prompt + user_prompt)
         self._list_of_technical_terms = extract_list(answer)
         return self._list_of_technical_terms
 
-    def init_for_prompt(self: Self) -> None:
+    def init_for_prompt(self) -> None:
         self._llm_wrapper = self._llm_wrapper_factory()
         self._dictionary_used = {}
         self._list_of_technical_terms = []
 
-    def obfuscate(self: Self, user_prompt: dict[str,str | int | float | dict]) -> str:
+    def obfuscate(self, user_prompt: dict[str,str | int | float | dict]) -> str:
         self.init_for_prompt()
         list_of_words = self.get_list(user_prompt["original_question"])
         for word in list_of_words:

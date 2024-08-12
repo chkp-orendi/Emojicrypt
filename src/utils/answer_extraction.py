@@ -3,7 +3,7 @@ import string
 import re
 import os
 import logging
-
+from typing import Optional
 
 def normalize(s: str) -> str:
     """Lower text and remove punctuation, articles and extra whitespace."""
@@ -16,7 +16,7 @@ def normalize(s: str) -> str:
 
 
 # extract_answer if in the prompt it was requested for format $Answer: answer
-def extract_answer(LLM_answer: str) -> str:
+def extract_answer(LLM_answer: str) -> Optional[str]:
     ANSWER_PATTERN = r"(?i)Answer\s*:\s*([^\n]+)"
     match = re.search(ANSWER_PATTERN, LLM_answer)
     if match:
@@ -28,11 +28,11 @@ def extract_list(LLM_answer: str) -> list:
         ANSWER_PATTERN = r'\$LIST:\s*\[(.*?)\]'
         answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
         if len(answer_list) >= 1:
-            answer_list = answer_list[-1]  # return last occurrence of pattern.
+            last_occurrence = answer_list[-1]  # return last occurrence of pattern.
         else:
             return []
 
-        return [token.strip("' \t") for token in answer_list.split(',')]
+        return [token.strip("' \t") for token in last_occurrence.split(',')]
 
 
 # dict is in the foramt for: $Dict:  {word1:key1,words2:key2,...}

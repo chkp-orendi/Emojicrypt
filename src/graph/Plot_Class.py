@@ -135,16 +135,19 @@ class Plot:
         self.generate_individual_figure(prompt_metric,answer_metric, sample_size).write_html(save_path + "_individual_graph.html")
 
 if __name__ == "__main__":
-    file_name = "RESULTS_smart_random_test_2024-08-11_11_12_22.707841.json"
+    file_name = "12_8_results_copy.json"
     
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data", file_name)
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","12-8-2024", file_name)
     metrics = ["prompt_metric","answer_metric"]
     
     graph = Plot(inputfile_path, metrics)
 
-    outputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","7-8-2024", file_name.strip(".json"))
-    graph.show_individual_graph(["prompt_metric_similarity","prompt_metric_replaced terms"],["answer_metric"],5)
-    graph.show_statistic_graph(["prompt_metric_similarity","prompt_metric_replaced terms"],["answer_metric"])
+
+    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","12-8-2024")
+    os.makedirs(outputfile_folder, exist_ok=True)
+    outputfile_path = os.path.join(outputfile_folder, file_name.strip(".json"))
+    graph.show_individual_graph(["prompt_metric_llm similarity","prompt_metric_replaced terms", "prompt_metric_MiniLM similarity"],["answer_metric_llm similarity","answer_metric_MiniLM similarity"],5)
+    graph.show_statistic_graph(["prompt_metric_llm similarity","prompt_metric_replaced terms", "prompt_metric_MiniLM similarity"],["answer_metric_llm similarity","answer_metric_MiniLM similarity"])
     # for filename in os.listdir(inputfile_path):
     #     if not filename.endswith(".json"):
     #         continue

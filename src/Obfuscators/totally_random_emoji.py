@@ -3,6 +3,7 @@ import os
 import re
 from random import random, randrange
 from dotenv import load_dotenv 
+from logging import Logger, getLogger
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
@@ -13,8 +14,10 @@ random_emojis = """
 🐋🐍🎺🐊🎨🦀🐩🦉🎬🦏🐦🐗🐼🎸🐃🐌🐱🦅🐡🐑🐰🎭🦉🎷🎲🐝🎸🦀🎥🐜🦄🎮🎃🐢🐻🎮🎲🎮🐰🐺🎮🐹🎧🎺🎮🦄🎨🐭🎸🐠🐨🐛🦐🐟🐦🎤🎲🐼🦀🐭🐬🐾🐒🎥🐰🦀🐭🐡🐢🐿🐋🐿🐨🐻🐱🎈🦊🐣🎃🦁🐂🎧🎃🎥🐶🐍🎲🐮🎤🐘🎨🎸🐰🎭🎤🐧🎸🦄🦇🦎🐺🎥🐭🎷🦁🐦🎃🎶🐢🎹🦋🎮🦀🎤🐸🎷🐠🎶🎲🐦🎨
 """
 class TotallyRandomEmoji(Obfuscator):
-    def __init__(self):
+    def __init__(self, name: str):
         self.dict = {}
+        self._logger = getLogger("__main__")
+        super().__init__(name)
 
 
     def obfuscate(self, user_prompt):
@@ -40,3 +43,6 @@ class TotallyRandomEmoji(Obfuscator):
             deobfuscated_answer = deobfuscated_answer.replace(emoji, word)
         return deobfuscated_answer
     
+
+def make_totally_random_emoji(args):
+        return lambda: TotallyRandomEmoji(name = args["TotallyRandomEmoji"])

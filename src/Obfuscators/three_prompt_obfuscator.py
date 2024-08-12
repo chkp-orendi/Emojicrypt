@@ -1,15 +1,22 @@
 import re
+from typing import Dict
 
 import sys
 import os
 from dotenv import load_dotenv 
+from logging import Logger, getLogger
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
 
+def make_three_prompts_obfuscator(args: Dict):
+    return lambda: ThreePromptsObfuscator(name = args["name"],
+                                        llm_wrapper_factory=args["llm_wrapper_factory"],
+                                        prompt_list=args["prompt_list"],
+                                        prompt_prefix=args["prompt_prefix"])
 
 class ThreePromptsObfuscator(Obfuscator):
-    def __init__(self, prompt_list: list, llm_wrapper_factory, logger, prompt_prefix=""):
+    def __init__(self, name: str, llm_wrapper_factory, prompt_list: list, prompt_prefix=""):
         self._extract_terms_prompt = prompt_list[0]
         self._find_crucial_prompt = prompt_list[1]
         self._dictionary_prompt = prompt_list[2]
@@ -18,7 +25,8 @@ class ThreePromptsObfuscator(Obfuscator):
         self._extracted_crucial = {}
         self._dictionary_used = {}
         self._prompt_prefix = prompt_prefix
-        self._logger = logger
+        self._logger = getLogger("__main__")
+        super().__init__(name)
 
     @staticmethod
     def extract_list(LLM_answer):

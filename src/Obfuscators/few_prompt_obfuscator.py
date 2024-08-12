@@ -2,21 +2,29 @@ import re
 import sys
 import os
 from dotenv import load_dotenv 
+from logging import Logger, getLogger
+from typing import Dict, List, Union
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
-from src.utils.answer_extraction import smart_replace
+from src.utils.answer_extraction import smart_replace, extract_dict
 
+
+def make_few_prompts_obfuscator(args: Dict):
+    return lambda: FewPromptsObfuscator(name = args["name"],
+                                        llm_wrapper_factory=args["llm_wrapper_factory"],
+                                        prompt_list=args["prompt_list"],
+                                        prompt_prefix=args["prompt_prefix"])
 
 #Convention that last prompt would return $Dict [key1:value1,key2:value2,...]
-
 class FewPromptsObfuscator(Obfuscator):
-    def __init__(self, prompt_list, llm_wrapper_factory, logger, prompt_prefix=""):
+    def __init__(self, name:str,  llm_wrapper_factory, prompt_list: List[str], prompt_prefix: str =""):
         self._prompt_list = prompt_list
         self._llm_wrapper_factory = llm_wrapper_factory
-        self._logger = logger
+        self._logger = getLogger("__main__")
         self._dictionary_used = {}
         self._prompt_prefix = prompt_prefix
+        super().__init__(name)
 
     
     def obfuscate(self, user_prompt):
@@ -34,7 +42,7 @@ class FewPromptsObfuscator(Obfuscator):
             
             self._logger.info(llm_answer)
                 
-        self._dictionary_used = FewPromptsObfuscator.extract_dict(llm_answer)
+        self._dictionary_used = extract_dict(llm_answer)
         if len(self._dictionary_used) == 0:
             self._logger.info("Empty dictionary_used")
             print("Empty dictionary_used")

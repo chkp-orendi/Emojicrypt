@@ -2,20 +2,28 @@ import re
 
 import sys
 import os
+from typing import Self, List
 from dotenv import load_dotenv 
+from logging import Logger, getLogger
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
 
+def make_single_prompt_obfuscator(args):
+    return lambda: SinglePromptObfuscator(name = args["name"],
+                                        llm_wrapper_factory=args["llm_wrapper_factory"],
+                                        prompt_list=args["prompt_list"],
+                                        prompt_prefix=args["prompt_prefix"])
+
 
 class SinglePromptObfuscator(Obfuscator):
-    def __init__(self, prompt_list, llm_wrapper_factory, logger, prompt_prefix = ""):
+    def __init__(self, name:str, llm_wrapper_factory, prompt_list: List[str], prompt_prefix = "") -> Self:
         self._prompt = prompt_list[0]
         self._llm_wrapper = llm_wrapper_factory
         self._dictionary_used = {}
-        self._logger = logger
+        self._logger = getLogger("__main__")
         self._prompt_prefix = prompt_prefix
-
+        super().__init__(name)
 
     def _get_encryption_dict(self, llm_query):
         encryption_dict = {}
