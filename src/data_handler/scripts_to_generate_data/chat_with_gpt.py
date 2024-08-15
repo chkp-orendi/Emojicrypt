@@ -69,7 +69,7 @@ class chat_gpt:
             print(i)
             self.delete_last_entry_chat_history(2*loop_size) #need to delete user messages and assistant messages
             for user_input in self.messages_for_loop[-loop_size:]:
-                user_input = user_input["content"]
+                # user_input = user_input["content"]
                 self.update_chat_history("user", user_input)
                 azure_answer = get_answer_with_histroy(self.chat_history, self.model, temp =1.2)
                 print(azure_answer)
@@ -90,12 +90,12 @@ def main():
     chat_generate_query = chat_gpt(model, temperature)
     file_path = os.path.join(os.getenv("PROJECT_PATH"),"src","data_handler", "scripts_to_generate_data" ,"chat_history_yoni.json")
 
-    chat_generate_query.load_chat_history(file_path)
-    # loop_size = chat_generate_query.start_chat()
-    chat_generate_query.generate_data(80, int(1))
+    # chat_generate_query.load_chat_history(file_path)
+    loop_size = chat_generate_query.start_chat()
+    chat_generate_query.generate_data(3, int(1))
 
     
-    output_file_path = os.path.join(os.getenv("PROJECT_PATH"),"data","14-08-2024" ,"new_generated_data.json")
+    output_file_path = os.path.join(os.getenv("PROJECT_PATH"),"data","15-08-2024" ,"new_generated_data.json")
     chat_generate_query.save_data(output_file_path, chat_generate_query.generated_data)
     print("Data saved at: ", output_file_path)
 
