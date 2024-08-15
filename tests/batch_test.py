@@ -21,15 +21,19 @@ from src.Obfuscators.fake_obfuscator import FakeObfuscator, make_fake_obfuscator
 from src.Obfuscators.wrong_obfuscator import WrongObfuscator, make_wrong_obfuscator
 from src.Obfuscators.random_text import RandomText, make_random_text
 from src.Obfuscators.smart_random_emoji import SmartRandom, make_smart_random
+from src.Obfuscators.context_reletive_obfuscator import ContextReletiveObfuscator, make_context_reletive_obfuscator
+from src.Obfuscators.context_only_obfuscator import ContextOnlyObfuscator, make_context_only_obfuscator
 from src.Obfuscators.obfuscator_template import Obfuscator
 
 from src.Evaluators.gpt_evaluator_with_list import GPTWithListEvaluator
 from src.Evaluators.list_embedding_evaluator import ListEmbeddingEvaluator
+from src.Evaluators.gpt_and_embedding_evaluator import GPTAndEmbeddingEvaluator
 
 
 single_query_file = "single_query_for_dict_v2.txt"
 two_query_file_1 = "first_querry.txt"
 two_query_file_2 = "second_querry.txt"
+two_query_file_2_with_list = "second_querry_with_list.txt"
 two_query_random_emojis = "second_querry_random_emoji.txt"
 
 prompt_folder = os.path.join(os.getenv("PROJECT_PATH"),"src","Obfuscators","prompts")
@@ -39,6 +43,7 @@ dictionary_file_path =os.path.join(prompt_folder,"naive","dictionary_prompt.txt"
 single_prompt_path = os.path.join(prompt_folder,"single_querry", single_query_file)
 two_prompt_1_path = os.path.join(prompt_folder,"two_querries", two_query_file_1)
 two_prompt_2_path = os.path.join(prompt_folder,"two_querries", two_query_file_2)
+two_prompt_2_with_list_path = os.path.join(prompt_folder,"two_querries", two_query_file_2_with_list)
 two_query_random_emojis_path = os.path.join(prompt_folder,"two_querries", two_query_random_emojis)
 log_path =os.path.join(os.path.dirname(__file__),"..","log","batch_test.log")
 
@@ -78,6 +83,7 @@ def main():
     two_prompt_list = [prompt_loader(two_prompt_1_path),prompt_loader(two_prompt_2_path)]
     three_prompt_list = [prompt_loader(sensitive_file_path),prompt_loader(crucial_file_path),prompt_loader(dictionary_file_path)]   
     smart_random_list = [prompt_loader(two_prompt_1_path)]
+    context_reletive = [prompt_loader(two_prompt_1_path),prompt_loader(two_prompt_2_with_list_path)]
 
     cpprefix = "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\n"
 
@@ -89,20 +95,24 @@ def main():
     obfuscator_factories = {
         "FakeObfuscator": make_fake_obfuscator,
         "WrongObfuscator": make_wrong_obfuscator,
-        "SmartRandom": make_smart_random,
+        # "SmartRandom": make_smart_random,
         "RandomText": make_random_text,
-        #"SinglePromptObfuscator": make_single_prompt_obfuscator,
-        "FewPromptsObfuscator": make_few_prompts_obfuscator,
-        "ThreePromptsObfuscator": make_three_prompts_obfuscator
+        # #"SinglePromptObfuscator": make_single_prompt_obfuscator,
+        # "FewPromptsObfuscator": make_few_prompts_obfuscator,
+        # "ThreePromptsObfuscator": make_three_prompts_obfuscator
+        "ContextReletiveObfuscator": make_context_reletive_obfuscator,
+        "ContextOnlyObfuscator": make_context_only_obfuscator
     }
 
     obfuscators_details = [
-        # ("FakeObfuscator", {"name": "FakeObfuscator"}),
+        ("FakeObfuscator", {"name": "FakeObfuscator"}),
         # ("WrongObfuscator", {"name": "WrongObfuscator"}),
         # ("SmartRandom", {"name": "SmartRandom", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": smart_random_list, "prompt_prefix": cpprefix}),
-        # ("RandomText", {"name": "RandomText", "llm_wrapper_factory": llm_wrapper_factories["azure"]}),
+        ("RandomText", {"name": "RandomText", "llm_wrapper_factory": llm_wrapper_factories["azure"]}),
         # ("FewPromptsObfuscator", {"name": "TwoPromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_list, "prompt_prefix": cpprefix}),
-        ("ThreePromptsObfuscator", {"name": "ThreePromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": three_prompt_list, "prompt_prefix": cpprefix})
+        # ("ThreePromptsObfuscator", {"name": "ThreePromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": three_prompt_list, "prompt_prefix": cpprefix})
+        ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive, "prompt_prefix": cpprefix}),
+        ("ContextOnlyObfuscator", {"name": "ContextOnlyObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive, "prompt_prefix": cpprefix})
     ]
 
     loaded_obfuscators = []
@@ -111,22 +121,22 @@ def main():
         loaded_obfuscators.append((obfuscator_name, obfuscator_factories[obfuscator_name](args)) )
 
     
-    data_to_use = "08-08_gpt_4o_QNA_with_list.json"
+    data_to_use = "context_and_question_data_80.json"
 
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data",data_to_use)
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","14-08-2024",data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
     prompt_path = os.path.join(os.path.dirname(__file__), "prompts", "", "gpt_evaluator", "gpt_evaluator_promt.txt")
-    evaluator = lambda : GPTWithListEvaluator(logger, prompt_path)
+    evaluator = lambda : GPTAndEmbeddingEvaluator()
 
 
-    metrics = evaluate_with_obfuscators(data[:50], loaded_obfuscators, logger, evaluator)
+    metrics = evaluate_with_obfuscators(data[10:60], loaded_obfuscators, logger, evaluator)
 
     metrics_filename = "RESULTS_" + "smart_random_test_" + str(datetime.now()).replace(' ', '_').replace(':', '_') + ".json"
     output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data")
     os.makedirs(output_folder_path,exist_ok=True)
-    json.dump(metrics, open(os.path.join(output_folder_path,metrics_filename), "w") , indent=4)
+    json.dump(metrics, open(os.path.join(output_folder_path,metrics_filename), "w", encoding = 'utf-8'), ensure_ascii= False , indent=4)
 
     print("results saved to ", metrics_filename)
 

@@ -18,8 +18,6 @@ class SingleCaseEvaluator:
         time = datetime.now()
         obfuscated_prompt = self._obf.obfuscate(case_data)
         obfuscated_answer = get_answer(obfuscated_prompt)
-        # if self._obf._prompt_prefix != "":
-        #     obfuscated_prompt = obfuscated_prompt[len(self._obf._prompt_prefix):]  #remove prefix to compare evaluation
         deobfuscated_answer = self._obf.deobfuscate(obfuscated_answer)
         prompt_metric_reasoning, prompt_metric = self._evaluator.evaluate_prompt(obfuscated_prompt, case_data)
         answer_metric_reasoning, answer_metric = self._evaluator.evaluate_answer(deobfuscated_answer, case_data)

@@ -1,5 +1,5 @@
 from openai import AzureOpenAI
-from typing import Self
+from typing import Self, List
 import numpy as np
 from numpy.linalg import norm
 from dotenv import load_dotenv
@@ -15,17 +15,16 @@ embed_model = "text-embedding-3-large"
 
 azure_client = AzureOpenAI(
     azure_endpoint=os.getenv("AZURE_ENDPOINT"),   # type: ignore[arg-type]
-    api_key= os.getenv("AZURE_KEY_1"),
+    api_key= os.getenv("AZURE_KEY_2"),
     api_version="2023-07-01-preview"
     )
 
 def get_embedding(text: str, model: str="text-embedding-3-small") -> list[float]:
-   text = text.replace("\n", " ")
    return azure_client.embeddings.create(input = [text], model=model).data[0].embedding
 
-def cosine_similarity(vec1: str, vec2: str) -> float:
-    vec1_embedded = np.array(get_embedding(vec1))
-    vec2_embedded = np.array(get_embedding(vec2))
+def cosine_similarity(vec1: str | List, vec2: str | List) -> float:
+    vec1_embedded = vec1 if isinstance(vec1, list) else np.array(get_embedding(vec1))
+    vec2_embedded = vec2 if isinstance(vec2, list) else np.array(get_embedding(vec2))
     return np.dot(vec1_embedded, vec2_embedded) / (norm(vec1_embedded) * norm(vec2_embedded))
 
 

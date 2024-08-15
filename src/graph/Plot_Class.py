@@ -31,7 +31,7 @@ class Plot:
         return data
     
     def __init__ (self, inputfile_path, metrics):
-        with open(inputfile_path, 'r') as file:
+        with open(inputfile_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
         data = self._handle_dict_metric(data,metrics)
         
@@ -135,9 +135,9 @@ class Plot:
         self.generate_individual_figure(prompt_metric,answer_metric, sample_size).write_html(save_path + "_individual_graph.html")
 
 if __name__ == "__main__":
-    file_name = "12_8_results_copy.json"
+    file_name = "filltered_data_result.json"
     
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","12-8-2024", file_name)
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","15-08-2024", file_name)
     metrics = ["prompt_metric","answer_metric"]
     
     graph = Plot(inputfile_path, metrics)
@@ -146,8 +146,8 @@ if __name__ == "__main__":
     outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","12-8-2024")
     os.makedirs(outputfile_folder, exist_ok=True)
     outputfile_path = os.path.join(outputfile_folder, file_name.strip(".json"))
-    graph.show_individual_graph(["prompt_metric_llm similarity","prompt_metric_replaced terms", "prompt_metric_MiniLM similarity"],["answer_metric_llm similarity","answer_metric_MiniLM similarity"],5)
-    graph.show_statistic_graph(["prompt_metric_llm similarity","prompt_metric_replaced terms", "prompt_metric_MiniLM similarity"],["answer_metric_llm similarity","answer_metric_MiniLM similarity"])
+    graph.show_individual_graph(["prompt_metric_llm_similarity", "prompt_metric_ada_similarity"],["answer_metric_llm_similarity","answer_metric_ada_similarity"],5)
+    graph.show_statistic_graph(["prompt_metric_llm_similarity","prompt_metric_ada_similarity"],["answer_metric_llm_similarity","answer_metric_ada_similarity"])
     # for filename in os.listdir(inputfile_path):
     #     if not filename.endswith(".json"):
     #         continue

@@ -8,6 +8,7 @@ from logging import Logger, getLogger
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
+from src.utils.answer_extraction import extract_dict, extract_list
 
 def make_three_prompts_obfuscator(args: Dict):
     return lambda: ThreePromptsObfuscator(name = args["name"],
@@ -28,50 +29,20 @@ class ThreePromptsObfuscator(Obfuscator):
         self._logger = getLogger("__main__")
         super().__init__(name)
 
-    @staticmethod
-    def extract_list(LLM_answer):
-        ANSWER_PATTERN = r'\[([^\]]+)\]'
-        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
-        if len(answer_list) >= 1:
-            answer_list = answer_list[-1]  # return last occurrence of pattern.
-        else:
-            return []
-
-        return [token.strip("' \t") for token in answer_list.split(',')]
-
-    @staticmethod
-    def extract_dict(LLM_answer):
-        ANSWER_PATTERN = r'\[([^\]]+)\]'
-        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
-        if len(answer_list) >= 1:
-            answer_list = answer_list[-1]  # return last occurrence of pattern.
-        else:
-            return {}
-        words_replacements = {}
-        for item in answer_list.split(","):
-            splited_item = item.split(":")
-            if len(splited_item) !=2:
-                print("INVALID ITEM")
-                print(item)
-                print(LLM_answer)
-                continue
-            words_replacements[item.split(":")[0].strip("' \t")] = item.split(":")[1].strip("' \t")
-        return words_replacements
-        #return {item.split(":")[0]: item.split(":")[1] for item in answer_list}
 
     def _extract_terms(self, user_prompt):       
         response_text = self._llm_wrapper.send_query(self._extract_terms_prompt.format(text=user_prompt))
-        return ThreePromptsObfuscator.extract_list(response_text)
+        return extract_list(response_text)
 
     def _find_crucial(self, user_prompt):
         response_text = self._llm_wrapper.send_query(self._find_crucial_prompt.format(text=user_prompt))
         self._logger.info("Crucial:" )
         self._logger.info(response_text)
-        return set(ThreePromptsObfuscator.extract_list(response_text))
+        return set(extract_list(response_text))
 
     def _find_replacements(self, text, from_list):
         response_text = self._llm_wrapper.send_query(self._dictionary_prompt.format(text=text, words_list=from_list))
-        return ThreePromptsObfuscator.extract_dict(response_text)
+        return extract_dict(response_text)
 
     def obfuscate(self, user_prompt):
         self._llm_wrapper = self._llm_wrapper_factory()

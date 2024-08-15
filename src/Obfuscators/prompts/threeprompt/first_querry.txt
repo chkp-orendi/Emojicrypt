@@ -1,15 +1,9 @@
-Convert the following text to a list of technical terms in the format $LIST: [ex1, ex2, ...]
-Make sure the terms are in the text exactly.
-Here are examples how to use all the rules to make a list to the text with the format $LIST: [ex1, ex2, ...].
-
+Identify all the words in the context that can be defined as: technical terms, acronyms, corporate lingo. List these words in the following format: $LIST [word1, word2, ..., wordN].
+Here is an example:
 Context: The Python programming language, created by Guido van Rossum and first released in 1991, is a high-level, interpreted programming language that emphasizes code readability. Python's design philosophy prioritizes the use of white space and less cluttered syntax, making it easier for programmers to write clear, logical code for small and large-scale projects. Python supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python interpreters are available for many operating systems, allowing Python code execution on a wide variety of systems.
 Question: What are some of the key features of the Python programming language that contribute to its popularity among programmers?
 
 Out put: $LIST: [Python programming language, interpreted programming language, code readability, cluttered syntax, procedural, object-oriented, functional programming, Python interpreters, operating systems, Python code, systems]
-
-Text: "What are the advantages and disadvantages of using a NoSQL database compared to a traditional relational database for handling large-scale, unstructured data?"
-Out put: $LIST: [NoSQL database, relational database, large-scale data, unstructured data]
-
 
 Now convert the following text:
 {text}

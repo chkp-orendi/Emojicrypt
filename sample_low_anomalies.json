@@ -1,0 +1,57 @@
+[
+     {
+          "obfuscator_name": "FewPromptsObfuscator",
+          "original_prompt": "What are the primary differences between data warehouses and data lakes, and how do these differences influence our big data analytics strategy? BE CONCISE",
+          "obfuscated_prompt": "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\nWhat are the primary differences between 🏢📦 and 🌊📂, and how do these differences influence our 📊🔍📈? BE CONCISE",
+          "original_answer": "Data warehouses and data lakes serve different purposes in big data analytics:\n\n1. **Structure**:\n   - **Data Warehouse**: Stores structured data in a highly organized, schema-on-write format.\n   - **Data Lake**: Stores raw, unstructured, and semi-structured data in a schema-on-read format.\n\n2. **Data Processing**:\n   - **Data Warehouse**: Optimized for complex queries and reporting, often using SQL.\n   - **Data Lake**: Supports a variety of data processing frameworks, including Hadoop and Spark, for diverse analytics tasks.\n\n3. **Use Cases**:\n   - **Data Warehouse**: Ideal for business intelligence, operational reporting, and structured data analysis.\n   - **Data Lake**: Suitable for data exploration, machine learning, and handling large volumes of diverse data types.\n\n4. **Cost**:\n   - **Data Warehouse**: Generally more expensive due to the need for structured data storage and processing.\n   - **Data Lake**: More cost-effective for storing large volumes of raw data.\n\n**Influence on Big Data Analytics Strategy**:\n- **Data Warehouses**: Best for scenarios requiring high performance on structured data and predefined analytics.\n- **Data Lakes**: Enable flexibility and scalability for exploratory analytics, machine learning, and handling diverse data sources.\n\nChoosing between them depends on the specific needs of the analytics strategy, such as the type of data, required processing capabilities, and cost considerations.",
+          "deobfuscated_answer": "data warehouses typically represents physical storage or traditional office environments, while data lakes symbolizes cloud storage or digital environments. These differences influence our big data analytics strategy by shifting focus from physical space management to data accessibility, scalability, and remote access.",
+          "answer_metric": {
+               "llm similarity": 0.4,
+               "MiniLM similarity": 0.8119089007377625,
+               "azure similarity": 0.7899678486453056
+          },
+          "obfuscated_dictonary": {
+               "data warehouses": "🏢📦",
+               "data lakes": "🌊📂",
+               "big data analytics strategy": "📊🔍📈"
+          }
+     },
+     {
+          "obfuscator_name": "ThreePromptsObfuscator",
+          "original_prompt": "What are the differences between convolutional neural networks (CNNs) and recurrent neural networks (RNNs), and in which types of tasks is each most effective? BE CONCISE",
+          "obfuscated_prompt": "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\nWhat are the differences between 🧠🔄📊 (🧠🔄📊) and 🔄🧠📈 (🔄🧠📈), and in which types of tasks is each most effective? BE CONCISE",
+          "original_answer": "Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) are both types of artificial neural networks, but they are designed for different types of tasks and data structures.\n\n**Convolutional Neural Networks (CNNs):**\n- **Architecture:** CNNs use convolutional layers to automatically and adaptively learn spatial hierarchies of features from input images.\n- **Data Type:** Primarily used for grid-like data such as images.\n- **Key Features:** Local connectivity, weight sharing, and pooling layers.\n- **Effective For:** Image classification, object detection, image segmentation, and other computer vision tasks.\n\n**Recurrent Neural Networks (RNNs):**\n- **Architecture:** RNNs have loops that allow information to persist, making them capable of handling sequential data.\n- **Data Type:** Designed for sequential data such as time series, text, and speech.\n- **Key Features:** Temporal dynamic behavior, ability to maintain a memory of previous inputs.\n- **Effective For:** Language modeling, machine translation, speech recognition, and time series prediction.\n\nIn summary, CNNs excel in tasks involving spatial data like images, while RNNs are best suited for tasks involving sequential data like text and time series.",
+          "deobfuscated_answer": "convolutional neural networks emphasizes cognitive processing followed by data analysis, effective for research and strategic planning. recurrent neural networks emphasizes iterative thinking leading to growth, effective for continuous improvement and adaptive learning.",
+          "answer_metric": {
+               "llm similarity": 0.4,
+               "MiniLM similarity": 0.6099371314048767,
+               "azure similarity": 0.683025067736203
+          },
+          "obfuscated_dictonary": {
+               "convolutional neural networks": "🧠🔄📊",
+               "CNNs": "🧠🔄📊",
+               "recurrent neural networks": "🔄🧠📈",
+               "RNNs": "🔄🧠📈"
+          }
+     },
+     {
+          "obfuscator_name": "FewPromptsObfuscator",
+          "original_prompt": "What are the differences between convolutional neural networks (CNNs) and recurrent neural networks (RNNs), and in which types of tasks is each most effective? BE CONCISE",
+          "obfuscated_prompt": "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\nWhat are the differences between 🧠🔄📊 (🧠🔄) and 🔄🧠📊 (🔄🧠), and in which types of 📋🛠️ is each most ✅💪? BE CONCISE",
+          "original_answer": "Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) are both types of artificial neural networks, but they are designed for different types of tasks and data structures.\n\n**Convolutional Neural Networks (CNNs):**\n- **Architecture:** CNNs use convolutional layers to automatically and adaptively learn spatial hierarchies of features from input images.\n- **Data Type:** Primarily used for grid-like data such as images.\n- **Key Features:** Local connectivity, weight sharing, and pooling layers.\n- **Effective For:** Image classification, object detection, image segmentation, and other computer vision tasks.\n\n**Recurrent Neural Networks (RNNs):**\n- **Architecture:** RNNs have loops that allow information to persist, making them capable of handling sequential data.\n- **Data Type:** Designed for sequential data such as time series, text, and speech.\n- **Key Features:** Temporal dynamic behavior, ability to maintain a memory of previous inputs.\n- **Effective For:** Language modeling, machine translation, speech recognition, and time series prediction.\n\nIn summary, CNNs excel in tasks involving spatial data like images, while RNNs are best suited for tasks involving sequential data like text and time series.",
+          "deobfuscated_answer": "convolutional neural networks (CNNs) emphasizes cognitive processes before data analysis, suitable for research and hypothesis-driven tasks. recurrent neural networks (RNNs) focuses on iterative data processing with cognitive input, ideal for machine learning and adaptive systems.",
+          "answer_metric": {
+               "llm similarity": 0.4,
+               "MiniLM similarity": 0.7625905871391296,
+               "azure similarity": 0.795811628396984
+          },
+          "obfuscated_dictonary": {
+               "convolutional neural networks": "🧠🔄📊",
+               "CNNs": "🧠🔄",
+               "recurrent neural networks": "🔄🧠📊",
+               "RNNs": "🔄🧠",
+               "tasks": "📋🛠️",
+               "effective": "✅💪"
+          }
+     }
+]

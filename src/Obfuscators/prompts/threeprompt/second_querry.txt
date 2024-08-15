@@ -1,0 +1,2 @@
+In addition, can you give a list of technical terms or acronyms that appear in the question and
+For the last example you will return: $LIST [board of directors, Corp]

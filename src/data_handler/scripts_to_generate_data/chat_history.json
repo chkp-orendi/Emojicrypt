@@ -1,0 +1,34 @@
+[
+    {
+        "role": "user",
+        "content": "Generate a prompt example. the prompts should include a context text and a question on the text. the text subject should be organizational information or technical information. Use subjects from the real world. your answer should have:  Context: .... Question: ...."
+    },
+    {
+        "role": "assistant",
+        "content": "Context: The International Organization for Standardization (ISO) is an independent, non-governmental international organization with a membership of 165 national standards bodies. ISO develops and publishes international standards to ensure the quality, safety, efficiency, and interoperability of products and services across various industries. One of the most widely recognized standards is ISO 9001, which sets out the criteria for a quality management system and is based on several quality management principles including a strong customer focus, the motivation and implication of top management, the process approach, and continual improvement.\n\nQuestion: What are some of the key principles that ISO 9001 is based on?"
+    },
+    {
+        "role": "user",
+        "content": "generate another unique and different example"
+    },
+    {
+        "role": "assistant",
+        "content": "Context: Kubernetes is an open-source container orchestration platform designed to automate the deployment, scaling, and management of containerized applications. Originally developed by Google, Kubernetes is now maintained by the Cloud Native Computing Foundation (CNCF). It provides a framework to run distributed systems resiliently, taking care of scaling and failover for applications, providing deployment patterns, and more. Kubernetes clusters consist of a set of worker machines, called nodes, that run containerized applications. The control plane manages the nodes and the workloads running on them.\n\nQuestion: What are the primary functions of the control plane in a Kubernetes cluster?"
+    },
+    {
+        "role": "user",
+        "content": "generate another unique and different example"
+    },
+    {
+        "role": "assistant",
+        "content": "Context: The General Data Protection Regulation (GDPR) is a comprehensive data protection law enacted by the European Union (EU) that came into effect on May 25, 2018. It aims to protect the privacy and personal data of EU citizens and residents by regulating how organizations collect, store, and process such data. GDPR applies to all organizations operating within the EU, as well as those outside the EU that offer goods or services to, or monitor the behavior of, EU data subjects. Key provisions of the GDPR include the requirement for explicit consent from individuals before processing their data, the right to access and rectify personal data, the right to data portability, and the right to be forgotten.\n\nQuestion: What are some of the key rights granted to individuals under the GDPR?"
+    },
+    {
+        "role": "user",
+        "content": "generate another unique and different example"
+    },
+    {
+        "role": "assistant",
+        "content": "Context: The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates more readily memorized domain names to the numerical IP addresses needed for locating and identifying computer services and devices with the underlying network protocols. DNS is an essential component of the functionality of the Internet, as it provides a way to match domain names (like www.example.com) to their corresponding IP addresses (like 192.0.2.1). The DNS system is maintained by a distributed database and relies on a network of DNS servers to resolve queries.\n\nQuestion: What is the primary function of the Domain Name System (DNS) in the context of the Internet?"
+    }
+]

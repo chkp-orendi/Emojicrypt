@@ -1,0 +1,12 @@
+Make a list of technical terms and acronyms from the following text in the format $LIST: [ex1, ex2, ...]
+Here are:
+
+Text: "We are in the process of migrating our on-premises infrastructure to a cloud-based environment. Can you provide insights on the key steps involved in a successful cloud migration, including data transfer, application reconfiguration, and security considerations? Additionally, what are some common challenges we might face during the migration process and how can we address them to ensure minimal downtime and data integrity?"
+Out put: $LIST: [infrastructure, cloud-based environment, data transfer, application reconfiguration, application reconfiguration, security considerations, downtime, data integrity]
+
+Text: "What are the advantages and disadvantages of using a NoSQL database compared to a traditional relational database for handling large-scale, unstructured data?"
+Out put: $LIST: [NoSQL database, relational database, unstructured data]
+
+
+Now convert the following text:
+{text}
