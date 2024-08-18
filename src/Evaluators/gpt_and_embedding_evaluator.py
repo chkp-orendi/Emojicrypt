@@ -9,7 +9,7 @@ sys.path.append(os.getenv("PROJECT_PATH"))
 
 from src.Evaluators.evaluator_template import EvaluatorTemplate
 from src.utils.azure_client import get_answer, get_embedding, cosine_similarity
-from src.utils.answer_extraction import extract_number
+from src.utils.string_utils import extract_number
 
 
 class GPTAndEmbeddingEvaluator(EvaluatorTemplate):

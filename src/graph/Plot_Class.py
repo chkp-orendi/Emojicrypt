@@ -1,19 +1,27 @@
 import pandas as pd
 import numpy as np
 from plotly import express as px
+import matplotlib.pyplot as plt
+
 import os
 import sys
 import json
 import datetime
+from typing import List, Callable, Tuple
+
 
 from dotenv import load_dotenv 
 load_dotenv()
 
 ## handles json format: [[obfuscator_name, [prompt_dict, prompt_dict, ...]], [obfuscator_name, [prompt_dict, prompt_dict, ...]], ...]
 
-class Plot:
-    
-    def _handle_dict_metric(self,data,metric):
+class PlotClass:
+    """
+    Args:
+        inputfile_path (`str`): path to the json file containing the data
+        metrics (`list`): list of metrics to be plotted
+    """
+    def _handle_dict_metric(self, data, metrics):
         for metric in metrics:
             need_handling = False
             if isinstance(data[0][1][0][metric],dict):
@@ -45,18 +53,14 @@ class Plot:
 
         self._df = pd.concat(df_list, ignore_index=True)
     
-    #input a list of prompt_metric and answer_metric
-    def generate_statistic_figure(self,prompt_metric,answer_metric):
+    def generate_statistic_figure(self,prompt_metrics: List[str],answer_metrics: List[str], list_messurements: List[Tuple[str,Callable[[pd.Series], float]]]):
         agg_dict = {}
-        for metric in prompt_metric:
-            agg_dict[f"average {metric}"] = (metric, 'mean')
-            agg_dict[f"top decile {metric}"] =  (metric, lambda x: x.quantile(0.9))
-            agg_dict[f"bottom decile {metric}"] =  (metric, lambda x: x.quantile(0.1))
-        for metric in answer_metric:
-            agg_dict[f"average {metric}"] = (metric, 'mean')
-            agg_dict[f"top decile {metric}"] =  (metric, lambda x: x.quantile(0.9))
-            agg_dict[f"bottom decile {metric}"] =  (metric, lambda x: x.quantile(0.1))
+        for prompt_metric,answer_metric in zip(prompt_metrics,answer_metrics):
+            for messurement_name, messurement_function in list_messurements:
+                agg_dict[f"{messurement_name} {prompt_metric}"] = (prompt_metric, messurement_function)
+                agg_dict[f"{messurement_name} {answer_metric}"] = (answer_metric, messurement_function)
 
+                
         value_vars = list(agg_dict.keys())
         stats_df = self._df.groupby(['ObfuscatorName']).agg(**agg_dict).reset_index()
 
@@ -88,8 +92,8 @@ class Plot:
         return fig
     
 
-    def show_statistic_graph(self,prompt_metric,answer_metric):
-        self.generate_statistic_figure(prompt_metric,answer_metric).show()
+    def show_statistic_graph(self,prompt_metric: List[str],answer_metric: List[str], list_messurements: List[Tuple[str,Callable[[pd.Series], float]]]):
+        self.generate_statistic_figure(prompt_metric,answer_metric, list_messurements).show()
     def save_statistic_graph(self,prompt_metric,answer_metric,save_path):
         self.generate_statistic_figure(prompt_metric,answer_metric).write_html(save_path + "_statistic_graph.html")
 
@@ -127,12 +131,38 @@ class Plot:
 
         
         return fig 
-    
-    
+     
     def show_individual_graph(self,prompt_metric,answer_metric, sample_size):
         self.generate_individual_figure(prompt_metric,answer_metric, sample_size).show()
     def save_individual_graph(self,prompt_metric,answer_metric, sample_size, save_path):
         self.generate_individual_figure(prompt_metric,answer_metric, sample_size).write_html(save_path + "_individual_graph.html")
+
+    def save_statistic_scatter_graph(self, metricA: str, metricB: str, save_path: str):
+        correlation = self._df[metricA].corr(self._df[metricB])
+        px.scatter(self._df, x=metricA, y=metricB, color='ObfuscatorName',
+            title=f"Correlation between {metricA} and {metricB}: {correlation}"
+            ).write_html(save_path + "scatter_graph.html")
+
+    
+    def show_statistic_scatter_graph(self, metricA: str, metricB: str):
+        
+        correlation_df = self._df.groupby('ObfuscatorName')[[metricA, metricB]].apply(lambda group: group[metricA].corr(group[metricB])).reset_index(level=0, drop=True)
+        obfuscators = self._df.groupby('ObfuscatorName')
+        correlation_dict = {}
+        correlation_df[ObfuscatorName] = correlation_df
+        
+        print(correlation_df)
+        fig = px.scatter(self._df, x=metricA, y=metricB, color='ObfuscatorName', hover_data=['correlation'])
+
+        # Show the plot
+        fig.show()
+
+        # correlation = self._df[metricA].corr(self._df[metricB])
+        # px.scatter(
+        #     self._df, x=metricA, y=metricB, color='ObfuscatorName',
+        #     title=f"Correlation between {metricA} and {metricB}: {correlation}"
+        #     #size='prompt_metric_llm_similarity'
+        #     ).show()
 
 if __name__ == "__main__":
     file_name = "filltered_data_result.json"
@@ -140,18 +170,19 @@ if __name__ == "__main__":
     inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","15-08-2024", file_name)
     metrics = ["prompt_metric","answer_metric"]
     
-    graph = Plot(inputfile_path, metrics)
+    graph = PlotClass(inputfile_path, metrics)
 
 
-    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","12-8-2024")
+    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","18-08-2024")
     os.makedirs(outputfile_folder, exist_ok=True)
     outputfile_path = os.path.join(outputfile_folder, file_name.strip(".json"))
-    graph.show_individual_graph(["prompt_metric_llm_similarity", "prompt_metric_ada_similarity"],["answer_metric_llm_similarity","answer_metric_ada_similarity"],5)
-    graph.show_statistic_graph(["prompt_metric_llm_similarity","prompt_metric_ada_similarity"],["answer_metric_llm_similarity","answer_metric_ada_similarity"])
-    # for filename in os.listdir(inputfile_path):
-    #     if not filename.endswith(".json"):
-    #         continue
-    #     full_path = os.path.join(inputfile_path,filename)
-    #     graph = Plot(full_path, metrics)
-    #     graph.save_statistic_graph(["prompt_metric_similarity"],["answer_metric"], full_path)
+
+    list_messurements = [
+        ("average", 'mean'),
+        ("top decile", lambda x: x.quantile(0.9)),
+        ("bottom decile", lambda x: x.quantile(0.1))
+    ]
+
+
+    graph.show_statistic_scatter_graph("answer_metric_llm_similarity", "answer_metric_ada_similarity")
 

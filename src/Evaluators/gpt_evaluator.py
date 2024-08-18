@@ -8,7 +8,7 @@ sys.path.append(os.getenv("PROJECT_PATH"))
 
 from src.Evaluators.evaluator_template import EvaluatorTemplate
 from src.utils.azure_client import get_answer
-from src.utils.answer_extraction import extract_number
+from src.utils.string_utils import extract_number
 
 
 class GPTEvaluator(EvaluatorTemplate):
@@ -38,9 +38,10 @@ Extracted Answer: {extract_number(answer)}""")
     def evaluate_answer(self, obfuscated_answer, original_answer):
         query = self.answer_prompt.format(text1=obfuscated_answer, text2=original_answer)
         answer = get_answer(query)
-        self.logger.info(f"""evaluate_answer
-Prompt: {query}
-Answer: {answer}
-Extracted Answer: {extract_number(answer)}""")
+        print(answer)
+#         self.logger.info(f"""evaluate_answer
+# Prompt: {query}
+# Answer: {answer}
+# Extracted Answer: {extract_number(answer)}""")
         return extract_number(answer)
-    
+

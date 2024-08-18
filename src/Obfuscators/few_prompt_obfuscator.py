@@ -7,7 +7,7 @@ from typing import Dict, List, Union
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
-from src.utils.answer_extraction import smart_replace, extract_dict
+from src.utils.string_utils import smart_replace, extract_dict
 
 
 def make_few_prompts_obfuscator(args: Dict):

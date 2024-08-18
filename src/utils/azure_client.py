@@ -9,53 +9,156 @@ from typing import Dict, List, Union, Iterable, Any
 
 
 load_dotenv()
-
-embed_model = "text-embedding-3-large"
    
+class dynamic_azure_client:
+    """class to use multiple azure clients. This would prevent crushes if one key is overused
+    
+    For list of models: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models
+    
+    Attributes:
+        client_list (`List[AzureOpenAI]`): list of azure clients to use.
+    
+    """
 
-azure_client = AzureOpenAI(
-    azure_endpoint=os.getenv("AZURE_ENDPOINT"),   # type: ignore[arg-type]
-    api_key= os.getenv("AZURE_KEY_2"),
+    def __init__(self,client_list: List[AzureOpenAI]):
+        self.client_list = client_list
+
+    def get_embeddings(self,text: str, model: str="text-embedding-3-small") -> List[float]:
+        for client in self.client_list:
+            try:
+                return client.embeddings.create(input = [text], model=model).data[0].embedding
+            except:
+                continue
+    
+    def get_answer(self,text: str,model: str="gpt-4o-2024-05-13", temp: float = 0.0,top_p: float = 1.0, max_tokens: int = 500) -> str | None:
+        for client in self.client_list:
+            try:
+                return client.chat.completions.create(
+                model=model, messages=[{"role": "user", "content": text}], temperature=temp, top_p = top_p, max_tokens = max_tokens
+                ).choices[0].message.content
+            
+            except:
+                continue
+    
+    def get_answer_with_histroy(messages: Iterable[Any], model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_p: float = 1.0, max_tokens: int = 500) -> str | None:
+        for client in self.client_list:
+            try:
+                return client.chat.completions.create(
+                model=model, messages=messages, temperature=temp, top_p = 1.0,max_tokens=max_tokens
+                ).choices[0].message.content
+            except:
+                continue
+        
+
+        
+
+
+azure_client_1 = AzureOpenAI(
+    azure_endpoint=os.getenv("AZURE_ENDPOINT"),
+    api_key= os.getenv("AZURE_KEY_1"),
     api_version="2023-07-01-preview"
     )
 
-def get_embedding(text: str, model: str="text-embedding-3-small") -> list[float]:
-   return azure_client.embeddings.create(input = [text], model=model).data[0].embedding
+azure_client_2 = AzureOpenAI(
+    azure_endpoint=os.getenv("AZURE_ENDPOINT"),
+    api_key= os.getenv("AZURE_KEY_2"),
+    api_version="2023-07-01-preview"
+    )
+azure_client = dynamic_azure_client([azure_client_1,azure_client_2])
 
-def cosine_similarity(vec1: str | List, vec2: str | List) -> float:
+def get_embedding(text: str, model: str="text-embedding-3-small") -> list[float]:
+   """Args:
+    - `param1 (str | List)`: text to convert.
+    - `param1 str`: model to use for embedding.
+
+    For list of embedding models see: https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#embeddings-models
+    
+    Output:
+    - cosine similarity between the two vectors    
+    """
+   return azure_client.get_embeddings(text = text, model=model)
+
+
+def cosine_similarity(vec1: str | List[float], vec2: str | List[float]) -> float:
+    """Inputs:
+    - `param1 (str | List)`: text or vevctor i.e `list[float]`.
+    - `param2 (str | List)`: text or vevctor i.e `list[float]`.
+    
+    Output:
+    - cosine similarity between the two vectors
+    """
     vec1_embedded = vec1 if isinstance(vec1, list) else np.array(get_embedding(vec1))
     vec2_embedded = vec2 if isinstance(vec2, list) else np.array(get_embedding(vec2))
     return np.dot(vec1_embedded, vec2_embedded) / (norm(vec1_embedded) * norm(vec2_embedded))
 
 
-def get_answer(text: str,model: str="gpt-4o-2024-05-13", temp: float = 0.0, max_tokens: int = 500) -> str | None:
-    answer = azure_client.chat.completions.create(
-    model=model, messages=[{"role": "user", "content": text}], temperature=temp, max_tokens = max_tokens
-)
-    return answer.choices[0].message.content
+def get_answer(text: str,model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_p: float = 1.0 ,max_tokens: int = 500) -> str | None:
+
+    """
+    Get an answer **without histroy** from `model` on `text` with temperature `temp`, `top_p` and `max_tokens`.
+
+    Args:
+        text (`str`): text to be sent to model.
+        model (`str`): model to use by LLM.
+        temp (`float`): temperature to use by LLM.
+        top_p (`float`): top_p to use by LLM.
+        max_tokens (`int`): maximum tokens to use by LLM.
+
+    Returns:
+        answer: `string` from LLM
+
+    """
+    return azure_client.get_answer(
+    model=model, messages=[{"role": "user", "content": text}], temperature=temp, top_p = 1.0,max_tokens = max_tokens
+    )
+
 
 def get_answer_with_histroy(messages: Iterable[Any], model: str="gpt-4o-2024-05-13", temp: float = 0.0, max_tokens: int = 500) -> str | None:
-    answer = azure_client.chat.completions.create(
+    """
+    Get an answer **with histroy** from `model` on `text` with temperature `temp`, `top_p` and `max_tokens`.
+
+    Args:
+        text (`str`): text to be sent to model.
+        model (`str`): model to use by LLM.
+        temp (`float`): temperature to use by LLM.
+        top_p (`float`): top_p to use by LLM.
+        max_tokens (`int`): maximum tokens to use by LLM.
+
+    Returns:
+        answer: `string` from LLM
+
+    """
+    return azure_client.get_answer_with_histroy(
     model=model, messages=messages, temperature=temp, max_tokens=max_tokens
 )
-    return answer.choices[0].message.content
+
+
+
 
 class AzureClient:
+    """
+Class to handle azure client when chat histroy is needed.
+    """
+
+    azure_client_1 = AzureOpenAI(
+    azure_endpoint=os.getenv("AZURE_ENDPOINT"),
+    api_key= os.getenv("AZURE_KEY_1"),
+    api_version="2023-07-01-preview"
+    )
+
+    azure_client_2 = AzureOpenAI(
+    azure_endpoint=os.getenv("AZURE_ENDPOINT"),
+    api_key= os.getenv("AZURE_KEY_2"),
+    api_version="2023-07-01-preview"
+    )
+
     def __init__ (self: Self, name: str, log_path: str, model: str, tempurature: float):
         self._name: str = name
         self._model: str = model
         self._log_path: str = log_path
         self._tempurature: float = tempurature
-        self._client = AzureOpenAI(
-            azure_endpoint=os.getenv("AZURE_ENDPOINT"),    # type: ignore[arg-type]
-            api_key=os.getenv("AZURE_KEY_1"),
-            api_version="2023-07-01-preview"
-        )
-        # self._client_2 = AzureOpenAI(
-        #     azure_endpoint=os.getenv("AZURE_ENDPOINT"),    # type: ignore[arg-type]
-        #     api_key=os.getenv("AZURE_KEY_2"),
-        #     api_version="2023-07-01-preview"
-        # )
+        self._clients = dynamic_azure_client([azure_client_1,azure_client_2])
+
         self._prompt_list: List[str] =[]
         self._chat_history: List[Dict[str,str]] =[]
 

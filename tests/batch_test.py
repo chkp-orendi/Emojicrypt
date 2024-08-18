@@ -6,9 +6,13 @@ import logging
 from typing import Callable, List, Dict, Union, Tuple
 
 from dotenv import load_dotenv 
+
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
+
+
 from tests.batch_evaluate import evaluate_batch
+
 
 from src.Evaluators.evaluator_template import EvaluatorTemplate
 from src.utils.azure_client import AzureClient
@@ -121,7 +125,7 @@ def main():
         loaded_obfuscators.append((obfuscator_name, obfuscator_factories[obfuscator_name](args)) )
 
     
-    data_to_use = "context_and_question_data_80.json"
+    data_to_use = "clustered_context_and_question_data_80_with_embedding.json"
 
     inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","14-08-2024",data_to_use)
     with open(inputfile_path, 'r') as file:
@@ -131,10 +135,10 @@ def main():
     evaluator = lambda : GPTAndEmbeddingEvaluator()
 
 
-    metrics = evaluate_with_obfuscators(data[10:60], loaded_obfuscators, logger, evaluator)
+    metrics = evaluate_with_obfuscators(data[10:11], loaded_obfuscators, logger, evaluator)
 
     metrics_filename = "RESULTS_" + "smart_random_test_" + str(datetime.now()).replace(' ', '_').replace(':', '_') + ".json"
-    output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data")
+    output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data","18-08-2024")
     os.makedirs(output_folder_path,exist_ok=True)
     json.dump(metrics, open(os.path.join(output_folder_path,metrics_filename), "w", encoding = 'utf-8'), ensure_ascii= False , indent=4)
 

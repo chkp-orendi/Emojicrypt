@@ -8,7 +8,7 @@ from logging import Logger, getLogger
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
-from src.utils.answer_extraction import extract_dict, extract_list
+from src.utils.string_utils import extract_dict, extract_list
 
 def make_three_prompts_obfuscator(args: Dict):
     return lambda: ThreePromptsObfuscator(name = args["name"],
