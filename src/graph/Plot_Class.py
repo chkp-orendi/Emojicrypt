@@ -149,12 +149,14 @@ class PlotClass:
         correlation_df = self._df.groupby('ObfuscatorName')[[metricA, metricB]].apply(lambda group: group[metricA].corr(group[metricB])).reset_index(level=0, drop=True)
         obfuscators = self._df.groupby('ObfuscatorName')
         correlation_dict = {}
-        correlation_df[ObfuscatorName] = correlation_df
-        
+        for name, corr in zip(obfuscators, correlation_df):
+            correlation_dict[name] = corr
+
+        self._df['correlation'] = self._df['ObfuscatorName'].map(correlation_dict)
+                
         print(correlation_df)
         fig = px.scatter(self._df, x=metricA, y=metricB, color='ObfuscatorName', hover_data=['correlation'])
 
-        # Show the plot
         fig.show()
 
         # correlation = self._df[metricA].corr(self._df[metricB])
@@ -165,15 +167,15 @@ class PlotClass:
         #     ).show()
 
 if __name__ == "__main__":
-    file_name = "filltered_data_result.json"
+    file_name = "wiki_W&Q_fake_RESULTS.json"
     
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","15-08-2024", file_name)
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","22-08-2024", file_name)
     metrics = ["prompt_metric","answer_metric"]
     
     graph = PlotClass(inputfile_path, metrics)
 
 
-    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","18-08-2024")
+    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","phase-1-results")
     os.makedirs(outputfile_folder, exist_ok=True)
     outputfile_path = os.path.join(outputfile_folder, file_name.strip(".json"))
 
@@ -183,6 +185,5 @@ if __name__ == "__main__":
         ("bottom decile", lambda x: x.quantile(0.1))
     ]
 
-
-    graph.show_statistic_scatter_graph("answer_metric_llm_similarity", "answer_metric_ada_similarity")
-
+    # graph.show_statistic_graph(["prompt_metric_llm_similarity"],["answer_metric_llm_similarity"],list_messurements)
+    graph.show_statistic_graph(["prompt_metric_llm_similarity"],["answer_metric_llm_similarity"],list_messurements)

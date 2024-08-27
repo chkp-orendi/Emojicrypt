@@ -7,7 +7,7 @@ from random import randrange
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
-from src.utils.answer_extraction import extract_list, smart_replace
+from src.utils.string_utils import extract_list, smart_replace
 
 
 def make_smart_random(args: Dict) -> Callable:

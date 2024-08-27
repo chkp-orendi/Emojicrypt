@@ -42,9 +42,9 @@ evaluation time: {eval_time}""")
 # obfuscated_dictonary: {obfuscated_dictonary}
 # evaluation time: {eval_time}""")
         return  {
-            "original_answer": case_data["original_answer"], "original_prompt": case_data["original_question"],
+            "original_prompt": case_data["original_prompt"],
             "obfuscated_prompt": obfuscated_prompt, "obfuscated_answer":obfuscated_answer,
-            "deobfuscated_answer": deobfuscated_answer,
+            "deobfuscated_answer": deobfuscated_answer, "original_answer": case_data["original_answer"],
             "prompt_metric": prompt_metric, "answer_metric": answer_metric,
             "prompt_metric reasoning": prompt_metric_reasoning, "answer_metric reasoning": answer_metric_reasoning,
             "obfuscated_dictonary": obfuscated_dictonary,

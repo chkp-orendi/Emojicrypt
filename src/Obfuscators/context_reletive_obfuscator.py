@@ -8,7 +8,7 @@ from logging import Logger, getLogger
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
-from src.utils.answer_extraction import normalize, extract_context, extract_question, extract_list, extract_dict, smart_replace, break_word_characters_without_bracket
+from src.utils.string_utils import normalize, extract_context, extract_question, extract_list, extract_dict, smart_replace, break_word_characters_without_bracket
 
 def make_context_reletive_obfuscator(args: Dict):
     return lambda: ContextReletiveObfuscator(name = args["name"],
@@ -45,8 +45,8 @@ class ContextReletiveObfuscator(Obfuscator):
                 word = match.group(1)
                 new_key = re.sub(r'\s*\(.*?\)', '', key).strip()  # Remove "(word)" and any surrounding spaces
                 new_dict[new_key] = value
-                new_dict[word] = value
-                new_dict[key] = value
+                # new_dict[word] = value
+                # new_dict[key] = value
             else:
                 new_dict[key] = value
         return new_dict
@@ -55,14 +55,16 @@ class ContextReletiveObfuscator(Obfuscator):
 
     def _extract_dict(self):
         response_text = self._llm_wrapper.send_query(self._prompt_dict.format(lst=self._term_list))       
-        self._dictionary_used = self._fix_dict(extract_dict(response_text))
+        extracted_dict = extract_dict(response_text)
+        fixed_dict = self._fix_dict(extracted_dict)
+        self._dictionary_used = fixed_dict
 
     def obfuscate(self, user_prompt):
         self._llm_wrapper = self._llm_wrapper_factory()
-        self.context = extract_context(user_prompt["original_question"])
-        self.question = extract_question(user_prompt["original_question"])
-        self._extract_terms(user_prompt["original_question"])
-        self._fix_list(self._term_list)
+        # self.context = extract_context(user_prompt["original_prompt"])
+        # self.question = extract_question(user_prompt["original_prompt"])
+        self._extract_terms(user_prompt["original_prompt"])
+        # self._fix_list(self._term_list)
         self._extract_dict()
 
         if len(self._dictionary_used) == 0:
@@ -70,13 +72,14 @@ class ContextReletiveObfuscator(Obfuscator):
         else:
             self._logger.info("dictionary_used:" + str(self._dictionary_used))
 
-        response_text = user_prompt["original_question"]
+        response_text = user_prompt["original_prompt"]
         response_text = smart_replace(response_text, self._dictionary_used)
         return self._prompt_prefix + response_text
 
     def deobfuscate(self, obfuscated_answer):
         deobfuscated_answer = obfuscated_answer
         deobfuscated_answer = smart_replace(deobfuscated_answer, {v:k for k,v in self._dictionary_used.items()})
+        print(self._llm_wrapper.get_history())
         return deobfuscated_answer
 
 

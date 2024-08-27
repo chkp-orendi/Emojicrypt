@@ -19,7 +19,7 @@ class RandomText(Obfuscator):
 
     def obfuscate(self, user_prompt):
         self._llm_wrapper = self._llm_wrapper_factory()
-        return self._llm_wrapper.send_query(f"generate a random text with {len(user_prompt["original_question"])} characters")
+        return self._llm_wrapper.send_query(f"generate a random text with {len(user_prompt["original_prompt"])} characters")
 
     def deobfuscate(self, obfuscated_answer):
         return obfuscated_answer

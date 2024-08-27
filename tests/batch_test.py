@@ -4,15 +4,14 @@ import sys
 import json
 import logging
 from typing import Callable, List, Dict, Union, Tuple
+from itertools import chain
 
 from dotenv import load_dotenv 
 
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 
-
-from tests.batch_evaluate import evaluate_batch
-
+from batch_evaluate import evaluate_batch
 
 from src.Evaluators.evaluator_template import EvaluatorTemplate
 from src.utils.azure_client import AzureClient
@@ -98,25 +97,25 @@ def main():
 
     obfuscator_factories = {
         "FakeObfuscator": make_fake_obfuscator,
-        "WrongObfuscator": make_wrong_obfuscator,
+        # "WrongObfuscator": make_wrong_obfuscator,
         # "SmartRandom": make_smart_random,
         "RandomText": make_random_text,
         # #"SinglePromptObfuscator": make_single_prompt_obfuscator,
         # "FewPromptsObfuscator": make_few_prompts_obfuscator,
         # "ThreePromptsObfuscator": make_three_prompts_obfuscator
         "ContextReletiveObfuscator": make_context_reletive_obfuscator,
-        "ContextOnlyObfuscator": make_context_only_obfuscator
+        # "ContextOnlyObfuscator": make_context_only_obfuscator
     }
 
     obfuscators_details = [
-        ("FakeObfuscator", {"name": "FakeObfuscator"}),
+        # ("FakeObfuscator", {"name": "FakeObfuscator"}),
         # ("WrongObfuscator", {"name": "WrongObfuscator"}),
         # ("SmartRandom", {"name": "SmartRandom", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": smart_random_list, "prompt_prefix": cpprefix}),
-        ("RandomText", {"name": "RandomText", "llm_wrapper_factory": llm_wrapper_factories["azure"]}),
+        # ("RandomText", {"name": "RandomText", "llm_wrapper_factory": llm_wrapper_factories["azure"]}),
         # ("FewPromptsObfuscator", {"name": "TwoPromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_list, "prompt_prefix": cpprefix}),
         # ("ThreePromptsObfuscator", {"name": "ThreePromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": three_prompt_list, "prompt_prefix": cpprefix})
-        ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive, "prompt_prefix": cpprefix}),
-        ("ContextOnlyObfuscator", {"name": "ContextOnlyObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive, "prompt_prefix": cpprefix})
+        ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": context_reletive, "prompt_prefix": cpprefix}),
+        # ("ContextOnlyObfuscator", {"name": "ContextOnlyObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive, "prompt_prefix": cpprefix})
     ]
 
     loaded_obfuscators = []
@@ -125,9 +124,9 @@ def main():
         loaded_obfuscators.append((obfuscator_name, obfuscator_factories[obfuscator_name](args)) )
 
     
-    data_to_use = "clustered_context_and_question_data_80_with_embedding.json"
+    data_to_use = "wiki_data_W&S_set.json"
 
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","14-08-2024",data_to_use)
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","21-08-2024",data_to_use)
     with open(inputfile_path, 'r') as file:
         data = json.load(file)
 
@@ -135,10 +134,10 @@ def main():
     evaluator = lambda : GPTAndEmbeddingEvaluator()
 
 
-    metrics = evaluate_with_obfuscators(data[10:11], loaded_obfuscators, logger, evaluator)
+    metrics = evaluate_with_obfuscators([data[14]], loaded_obfuscators, logger, evaluator)
 
-    metrics_filename = "RESULTS_" + "smart_random_test_" + str(datetime.now()).replace(' ', '_').replace(':', '_') + ".json"
-    output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data","18-08-2024")
+    metrics_filename = "RESULTS_" + str(datetime.now()).replace(' ', '_').replace(':', '_') + ".json"
+    output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data","22-08-2024")
     os.makedirs(output_folder_path,exist_ok=True)
     json.dump(metrics, open(os.path.join(output_folder_path,metrics_filename), "w", encoding = 'utf-8'), ensure_ascii= False , indent=4)
 
@@ -149,3 +148,10 @@ if __name__ == "__main__":
     main()
 
 
+"""
+for sunday: run wiki_data_W&S_set with azure - done
+then with ollama - doing now
+then wiki_data_W&Q_set with ollama
+
+go over data, make nice presentation with intresting points
+"""

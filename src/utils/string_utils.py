@@ -103,30 +103,43 @@ def extract_list(LLM_answer: str) -> list:
 
         return [token.strip("' \t") for token in last_occurrence.split(',')]
 
+def fix_dict_ending(dictonary_str: str) -> str:
+    """
+If dictonary string is too long and was cut off for some reason (i.e max tokens)
+Correct the ending, remove sequence after ',' and add ] at the end
+"""
+    return dictonary_str[:dictonary_str.rfind(",")] + "]"
 
-# dict is in the foramt for: $Dict:  {word1:key1,words2:key2,...}
+
+# dict is in the foramt for: $Dict:  [word1:key1,words2:key2,...]
 def extract_dict(LLM_answer):
-        ANSWER_PATTERN = r'\$Dict:\s*\[(?:\s*[^:\[\],]+:[^:\[\],]+\s*,)*\s*[^:\[\],]+:[^:\[\],]+\s*\]'
-        answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
+        ANSWER_PATTERN = r'\$Dict:\s*\[\s*((?:.|\n)+)\s*\]'
+        LLM_answer_fixed = fix_dict_ending(LLM_answer)
+        # ANSWER_PATTERN = r'\$Dict:\s*\[(?:\s*[^:\[\],]+:[^:\[\],]+\s*,)*\s*[^:\[\],]+:[^:\[\],]+\s*\]'
+        answer_list = re.findall(ANSWER_PATTERN, LLM_answer_fixed)
         if len(answer_list) >= 1:
             answer_list = answer_list[-1]  # return last occurrence of pattern.
         else:
             return {}
+        
         words_replacements = {}
         answer_list = answer_list.replace("$Dict:", "").strip("[] \"")
         for item in answer_list.split(","):
             splited_item = item.split(":")
             if len(splited_item) !=2:
                 print("INVALID ITEM")
-                print(item)
-                print(LLM_answer)
+                print(splited_item)
+                print(LLM_answer_fixed)
                 continue
-            words_replacements[item.split(":")[0].strip(''.join(break_word_characters_without_bracket))] = item.split(":")[1].strip(''.join(break_word_characters_without_bracket))
+            key = item.split(":")[0].strip(''.join(break_word_characters_without_bracket))
+            value = item.split(":")[1].strip(''.join(break_word_characters_without_bracket))
+            if key not in words_replacements.keys() and value not in words_replacements.values():
+                words_replacements[key] = value
         return words_replacements
 
 def extract_number(text: str) -> float:
     # Use regular expression to find all numbers in the text
-    pattern = r'\$ANSWER: (-?\d+\.\d+|-?\d+)'
+    pattern = r'\$ANSWER: (-?\d+\.\d+)' #|-?\d+
 
     match = re.search(pattern, text)
     if match:
@@ -146,7 +159,7 @@ def smart_replace(text: str, replacements: dict[str,str]) -> str:
     replaced_text = text
     break_word_pattern = '[' + re.escape(''.join(break_word_characters_without_bracket)) + ']'
     
-    for key, value in replacements.items():
+    for key, value in sorted(replacements.items(),key=lambda x: len(x[0]), reverse=True):
         pattern = r'((?<=' + break_word_pattern + r')|^)' + re.escape(key) + r'((?=' + break_word_pattern + r')|$)'
         replaced_text = re.sub(pattern, value, replaced_text, 0)
     return replaced_text

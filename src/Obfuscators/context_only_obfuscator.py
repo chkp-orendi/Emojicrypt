@@ -8,7 +8,7 @@ from logging import Logger, getLogger
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator
-from src.utils.answer_extraction import normalize, extract_context, extract_question, extract_list, extract_dict, smart_replace, break_word_characters_without_bracket
+from src.utils.string_utils import normalize, extract_context, extract_question, extract_list, extract_dict, smart_replace, break_word_characters_without_bracket
 
 def make_context_only_obfuscator(args: Dict):
     return lambda: ContextOnlyObfuscator(name = args["name"],

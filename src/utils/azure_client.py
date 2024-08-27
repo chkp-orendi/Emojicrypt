@@ -33,14 +33,16 @@ class dynamic_azure_client:
     def get_answer(self,text: str,model: str="gpt-4o-2024-05-13", temp: float = 0.0,top_p: float = 1.0, max_tokens: int = 500) -> str | None:
         for client in self.client_list:
             try:
-                return client.chat.completions.create(
+                answer = client.chat.completions.create(
                 model=model, messages=[{"role": "user", "content": text}], temperature=temp, top_p = top_p, max_tokens = max_tokens
-                ).choices[0].message.content
+                )
+                return answer.choices[0].message.content
             
-            except:
+            except Exception as e:
                 continue
+        return "OVER USED ALL KEYS"
     
-    def get_answer_with_histroy(messages: Iterable[Any], model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_p: float = 1.0, max_tokens: int = 500) -> str | None:
+    def get_answer_with_histroy(self, messages: Iterable[Any], model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_p: float = 1.0, max_tokens: int = 500) -> str | None:
         for client in self.client_list:
             try:
                 return client.chat.completions.create(
@@ -64,7 +66,13 @@ azure_client_2 = AzureOpenAI(
     api_key= os.getenv("AZURE_KEY_2"),
     api_version="2023-07-01-preview"
     )
-azure_client = dynamic_azure_client([azure_client_1,azure_client_2])
+
+azure_client_3 = AzureOpenAI(
+    azure_endpoint=os.getenv("AZURE_ENDPOINT"),
+    api_key= os.getenv("AZURE_KEY_3"),
+    api_version="2023-07-01-preview"
+    )
+azure_client = dynamic_azure_client([azure_client_1,azure_client_2, azure_client_3])
 
 def get_embedding(text: str, model: str="text-embedding-3-small") -> list[float]:
    """Args:
@@ -92,10 +100,10 @@ def cosine_similarity(vec1: str | List[float], vec2: str | List[float]) -> float
     return np.dot(vec1_embedded, vec2_embedded) / (norm(vec1_embedded) * norm(vec2_embedded))
 
 
-def get_answer(text: str,model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_p: float = 1.0 ,max_tokens: int = 500) -> str | None:
+def get_answer(text: str,model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_p: float = 1.0 ,max_tokens: int = 1000) -> str | None:
 
     """
-    Get an answer **without histroy** from `model` on `text` with temperature `temp`, `top_p` and `max_tokens`.
+    Get an answer **without history** from `model` on `text` with temperature `temp`, `top_p` and `max_tokens`.
 
     Args:
         text (`str`): text to be sent to model.
@@ -109,16 +117,16 @@ def get_answer(text: str,model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_
 
     """
     return azure_client.get_answer(
-    model=model, messages=[{"role": "user", "content": text}], temperature=temp, top_p = 1.0,max_tokens = max_tokens
+    model=model, text= text, temp=temp, top_p = top_p,max_tokens = max_tokens
     )
 
 
 def get_answer_with_histroy(messages: Iterable[Any], model: str="gpt-4o-2024-05-13", temp: float = 0.0, max_tokens: int = 500) -> str | None:
     """
-    Get an answer **with histroy** from `model` on `text` with temperature `temp`, `top_p` and `max_tokens`.
+    Get an answer **with history** from `model` on `messages` with temperature `temp`, `top_p` and `max_tokens`.
 
     Args:
-        text (`str`): text to be sent to model.
+        messages (`Iterable[Any]`): messages should be list of {'role': role, 'content': content}
         model (`str`): model to use by LLM.
         temp (`float`): temperature to use by LLM.
         top_p (`float`): top_p to use by LLM.
@@ -129,7 +137,7 @@ def get_answer_with_histroy(messages: Iterable[Any], model: str="gpt-4o-2024-05-
 
     """
     return azure_client.get_answer_with_histroy(
-    model=model, messages=messages, temperature=temp, max_tokens=max_tokens
+    model=model, messages=messages, temp=temp, max_tokens=max_tokens
 )
 
 
@@ -181,3 +189,6 @@ Class to handle azure client when chat histroy is needed.
     
     def get_name(self: Self) -> str:
         return self._name
+
+
+

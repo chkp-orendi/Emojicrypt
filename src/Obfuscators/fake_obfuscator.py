@@ -21,7 +21,7 @@ class FakeObfuscator(Obfuscator):
 
 
     def obfuscate(self, user_prompt: Dict[str, Union[str, List[str]]]) -> str:
-        return user_prompt["original_question"]
+        return user_prompt["original_prompt"]
 
     def deobfuscate(self, obfuscated_answer: str) -> str:
         return obfuscated_answer

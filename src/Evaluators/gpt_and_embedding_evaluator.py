@@ -4,6 +4,9 @@ from typing import Dict
 
 from dotenv import load_dotenv 
 from logging import Logger, getLogger
+
+import statistics
+
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 
@@ -28,29 +31,40 @@ Please provide the similarity score along with a brief explanation of the ration
         self.logger = getLogger("__main__")
 
     def evaluate_prompt(self, obfuscated_prompt: str, original_prompt: Dict):
-        query = self.query_prompt.format(text1=original_prompt["original_question"] ,text2=obfuscated_prompt) 
-        answer = get_answer(query)
-        llm_similarity = extract_number(answer)
-        ada_similarity = cosine_similarity(original_prompt["original_question"], obfuscated_prompt)
+        cpprefix = "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\n"
+
+        obfuscated_prompt_without_prefix = obfuscated_prompt.replace(cpprefix, "")
+
+        query = self.query_prompt.format(text1=original_prompt["original_prompt"] ,text2=obfuscated_prompt_without_prefix) 
+        query_reverse_order = self.query_prompt.format(text1= obfuscated_prompt_without_prefix,text2=original_prompt["original_prompt"]) 
+        answers = [get_answer(query), get_answer(query_reverse_order)]
+        extracted_answers = [float(extract_number(answer)) for answer in answers]
+        llm_similarity = statistics.mean(extracted_answers)
+        ada_similarity = cosine_similarity(original_prompt["original_prompt"], obfuscated_prompt_without_prefix)
 
         self.logger.info(f"""evaluate_prompt
 Prompt: {query}
-Answer: {answer}
+Answer: {answers}
 llm_similarity: {llm_similarity}
 ada_similarity: {ada_similarity}""")
-        return answer, {"llm_similarity": llm_similarity, "ada_similarity": ada_similarity}
+        return answers, {"llm_similarity": llm_similarity, "ada_similarity": ada_similarity}
 
     def evaluate_answer(self, obfuscated_answer, original_answer):
         query = self.answer_prompt.format(text1=obfuscated_answer, text2=original_answer)        
-        answer = get_answer(query)
-        llm_similarity = extract_number(answer)
+        query_reverse_order = self.answer_prompt.format(text1=original_answer, text2=obfuscated_answer)     
+        answers = [get_answer(query), get_answer(query_reverse_order)]  
+        print(answers) 
+        extracted_answers = [float(extract_number(answer)) for answer in answers]
+        print(extracted_answers) 
+        llm_similarity = statistics.mean(extracted_answers)
+        print(llm_similarity) 
         ada_similarity = cosine_similarity(original_answer["original_answer"], obfuscated_answer)
 
 
         self.logger.info(f"""evaluate_answer
 Prompt: {query}
-Answer: {answer}
+Answer: {answers}
 llm_similarity: {llm_similarity}
 ada_similarity: {ada_similarity}""")
-        return answer, {"llm_similarity": llm_similarity, "ada_similarity": ada_similarity}
+        return answers, {"llm_similarity": llm_similarity, "ada_similarity": ada_similarity}
     
