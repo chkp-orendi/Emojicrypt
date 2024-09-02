@@ -1,0 +1,80 @@
+[
+    [
+        "FakeObfuscator",
+        [
+            {
+                "original_prompt": "Context: Tennis is a globally beloved sport involving two or four players who use rackets to hit a ball over a net and into the opponent's court. The game is played on various surfaces, including grass, clay, and hard courts, each offering a unique challenge. Tennis emphasizes agility, precision, and strategic thinking. Prominent tournaments like Wimbledon, the US Open, and the French Open attract worldwide attention and feature top-ranked players. Beyond professional circuits, tennis is accessible to amateurs and provides an excellent cardiovascular workout, helping to improve hand-eye coordination and overall fitness.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_prompt": "Context: Tennis is a globally beloved sport involving two or four players who use rackets to hit a ball over a net and into the opponent's court. The game is played on various surfaces, including grass, clay, and hard courts, each offering a unique challenge. Tennis emphasizes agility, precision, and strategic thinking. Prominent tournaments like Wimbledon, the US Open, and the French Open attract worldwide attention and feature top-ranked players. Beyond professional circuits, tennis is accessible to amateurs and provides an excellent cardiovascular workout, helping to improve hand-eye coordination and overall fitness.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "deobfuscated_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "original_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "prompt_metric": {
+                    "llm_similarity": 0,
+                    "ada_similarity": 1.0
+                },
+                "answer_metric": {
+                    "llm_similarity": 0.9,
+                    "ada_similarity": 0.9999999999999999
+                },
+                "prompt_metric reasoning": [
+                    "$ANSWER: 0.0\n\nThe two texts provided are identical, and no technical terms have been replaced with emojis. Therefore, the similarity score is 0.0, as the task was to evaluate the extent to which technical terms were changed with relative emojis, and in this case, no such changes were made.",
+                    "$ANSWER: 0.0\n\nExplanation: Both texts are identical, and no technical terms have been replaced with emojis. Therefore, the similarity score is 0.0, as the requirement was to change technical terms with relative emojis, which was not done in either text.",
+                    "$ANSWER: 0.0\n\nExplanation: Both texts are identical, and no technical terms have been replaced with emojis. Therefore, the similarity score is 0.0, as the requirement was to change technical terms with relative emojis, which was not done in either text.",
+                    "$ANSWER: 0.0\n\nThe two texts provided are identical, and no technical terms have been replaced with emojis. Therefore, the similarity score is 0.0 because the task was to evaluate the replacement of technical terms with emojis, and no such replacements were made."
+                ],
+                "answer_metric reasoning": "$ANSWER: 0.9\n\nThe two texts are highly similar as they both discuss the key benefits of playing tennis, specifically highlighting cardiovascular workout, improved hand-eye coordination, and overall fitness. Text2 provides additional context about tennis as a sport, including its global popularity, the surfaces it is played on, and major tournaments. However, the core details about the benefits of playing tennis are identical in both texts. The slight difference in additional context and format accounts for the score not being a perfect 1.0.",
+                "obfuscated_dictonary": {},
+                "evaluation time": "0:00:08.237706"
+            }
+        ]
+    ],
+    [
+        "ContextReletiveObfuscator",
+        [
+            {
+                "original_prompt": "Context: Tennis is a globally beloved sport involving two or four players who use rackets to hit a ball over a net and into the opponent's court. The game is played on various surfaces, including grass, clay, and hard courts, each offering a unique challenge. Tennis emphasizes agility, precision, and strategic thinking. Prominent tournaments like Wimbledon, the US Open, and the French Open attract worldwide attention and feature top-ranked players. Beyond professional circuits, tennis is accessible to amateurs and provides an excellent cardiovascular workout, helping to improve hand-eye coordination and overall fitness.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_prompt": "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\nContext: 🎾🌍 is a globally beloved sport involving two or four players who use 🏸 to hit a ball over a 🕸️ and into the 🏟️. The game is played on various surfaces, including 🌱, 🧱, and 🏋️, each offering a unique challenge. 🎾🌍 emphasizes 🐆, 🎯, and 🧠📊. Prominent tournaments like 🏆🇬🇧, the 🏆🇺🇸, and the 🏆🇫🇷 attract worldwide attention and feature 🏅👟. Beyond 💼🎾, tennis is accessible to 👟🎾 and provides an excellent ❤️🏋️, helping to improve 👁️🤚 and 💪🌟.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_answer": "Some of the key benefits of playing tennis mentioned in the paragraph include providing an excellent ❤️🏋️, improving 👁️🤚, and enhancing 💪🌟.",
+                "deobfuscated_answer": "Some of the key benefits of playing tennis mentioned in the paragraph include providing an excellent cardiovascular workout, improving hand-eye coordination, and enhancing overall fitness.",
+                "original_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "prompt_metric": {
+                    "llm_similarity": 0.25,
+                    "ada_similarity": 0.8657879274276709
+                },
+                "answer_metric": {
+                    "llm_similarity": 0.9,
+                    "ada_similarity": 0.9516171680835493
+                },
+                "prompt_metric reasoning": [
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis in Text2. Here is a breakdown of the changes:\n\n- \"Tennis\" -> \"🎾🌍\"\n- \"rackets\" -> \"🏸\"\n- \"net\" -> \"🕸️\"\n- \"opponent's court\" -> \"🏟️\"\n- \"grass\" -> \"🌱\"\n- \"clay\" -> \"🧱\"\n- \"hard courts\" -> \"🏋️\"\n- \"agility\" -> \"🐆\"\n- \"precision\" -> \"🎯\"\n- \"strategic thinking\" -> \"🧠📊\"\n- \"Wimbledon\" -> \"🏆🇬🇧\"\n- \"US Open\" -> \"🏆🇺🇸\"\n- \"French Open\" -> \"🏆🇫🇷\"\n- \"top-ranked players\" -> \"🏅👟\"\n- \"professional circuits\" -> \"💼🎾\"\n- \"amateurs\" -> \"👟🎾\"\n- \"cardiovascular workout\" -> \"❤️🏋️\"\n- \"hand-eye coordination\" -> \"👁️🤚\"\n- \"overall fitness\" -> \"💪🌟\"\n\nThe only reason the score is not a perfect 1.0 is that there are a few terms that could potentially be represented by emojis but were not changed, such as \"ball\" and \"players.\" However, the majority of the technical terms were effectively replaced with relevant emojis, justifying a high similarity score.",
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis in Text2. Here is a breakdown of the changes:\n\n- \"Tennis\" -> \"🎾🌍\"\n- \"rackets\" -> \"🏸\"\n- \"net\" -> \"🕸️\"\n- \"opponent's court\" -> \"🏟️\"\n- \"grass\" -> \"🌱\"\n- \"clay\" -> \"🧱\"\n- \"hard courts\" -> \"🏋️\"\n- \"agility\" -> \"🐆\"\n- \"precision\" -> \"🎯\"\n- \"strategic thinking\" -> \"🧠📊\"\n- \"Wimbledon\" -> \"🏆🇬🇧\"\n- \"US Open\" -> \"🏆🇺🇸\"\n- \"French Open\" -> \"🏆🇫🇷\"\n- \"top-ranked players\" -> \"🏅👟\"\n- \"professional circuits\" -> \"💼🎾\"\n- \"amateurs\" -> \"👟🎾\"\n- \"cardiovascular workout\" -> \"❤️🏋️\"\n- \"hand-eye coordination\" -> \"👁️🤚\"\n- \"overall fitness\" -> \"💪🌟\"\n\nThe only reason the score is not a perfect 1.0 is that there are a few terms that could potentially be represented by emojis but were not changed, such as \"ball\" and \"players.\" However, the majority of the technical terms were effectively replaced with relevant emojis, justifying a high similarity score.",
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis in comparison to Text2. Here is the breakdown:\n\n1. \"Tennis\" -> 🎾🌍\n2. \"rackets\" -> 🏸\n3. \"net\" -> 🕸️\n4. \"court\" -> 🏟️\n5. \"grass\" -> 🌱\n6. \"clay\" -> 🧱\n7. \"hard courts\" -> 🏋️\n8. \"agility\" -> 🐆\n9. \"precision\" -> 🎯\n10. \"strategic thinking\" -> 🧠📊\n11. \"Wimbledon\" -> 🏆🇬🇧\n12. \"US Open\" -> 🏆🇺🇸\n13. \"French Open\" -> 🏆🇫🇷\n14. \"top-ranked players\" -> 🏅👟\n15. \"professional circuits\" -> 💼🎾\n16. \"amateurs\" -> 👟🎾\n17. \"cardiovascular workout\" -> ❤️🏋️\n18. \"hand-eye coordination\" -> 👁️🤚\n19. \"overall fitness\" -> 💪🌟\n\nThe only reason it is not a perfect 1.0 is that the structure and some non-technical words remain unchanged, but the technical terms have been effectively replaced with emojis.",
+                    "$ANSWER: 1.0\n\nThe similarity score is 1.0 because all the technical terms in Text2 have been replaced with relative emojis in Text1. For example:\n- \"Tennis\" is replaced with 🎾🌍\n- \"rackets\" is replaced with 🏸\n- \"net\" is replaced with 🕸️\n- \"court\" is replaced with 🏟️\n- \"grass\" is replaced with 🌱\n- \"clay\" is replaced with 🧱\n- \"hard courts\" is replaced with 🏋️\n- \"agility\" is replaced with 🐆\n- \"precision\" is replaced with 🎯\n- \"strategic thinking\" is replaced with 🧠📊\n- \"Wimbledon\" is replaced with 🏆🇬🇧\n- \"US Open\" is replaced with 🏆🇺🇸\n- \"French Open\" is replaced with 🏆🇫🇷\n- \"top-ranked players\" is replaced with 🏅👟\n- \"professional circuits\" is replaced with 💼🎾\n- \"amateurs\" is replaced with 👟🎾\n- \"cardiovascular workout\" is replaced with ❤️🏋️\n- \"hand-eye coordination\" is replaced with 👁️🤚\n- \"overall fitness\" is replaced with 💪🌟\n\nThis comprehensive replacement of technical terms with emojis justifies the perfect similarity score."
+                ],
+                "answer_metric reasoning": "$ANSWER: 0.9\n\nThe two texts are highly similar as they both discuss the key benefits of playing tennis, specifically mentioning cardiovascular workout, improved hand-eye coordination, and overall fitness. Text1 succinctly lists these benefits, while Text2 provides a more detailed context and reiterates the same benefits in a structured format. The slight difference in presentation and additional context in Text2 accounts for the small deduction from a perfect score.",
+                "obfuscated_dictonary": {
+                    "Tennis": "🎾🌍",
+                    "rackets": "🏸",
+                    "net": "🕸️",
+                    "opponent's court": "🏟️",
+                    "grass": "🌱",
+                    "clay": "🧱",
+                    "hard courts": "🏋️",
+                    "agility": "🐆",
+                    "precision": "🎯",
+                    "strategic thinking": "🧠📊",
+                    "Wimbledon": "🏆🇬🇧",
+                    "US Open": "🏆🇺🇸",
+                    "French Open": "🏆🇫🇷",
+                    "top-ranked players": "🏅👟",
+                    "professional circuits": "💼🎾",
+                    "amateurs": "👟🎾",
+                    "cardiovascular workout": "❤️🏋️",
+                    "hand-eye coordination": "👁️🤚",
+                    "overall fitness": "💪🌟"
+                },
+                "evaluation time": "0:00:22.457976"
+            }
+        ]
+    ]
+]

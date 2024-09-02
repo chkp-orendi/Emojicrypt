@@ -1,0 +1,56 @@
+[
+    [
+        "ContextReletiveObfuscator",
+        [
+            {
+                "original_prompt": "summerize the following text in two sentences:\nCheryl S. McWatters is professor and Father Edgar Thivierge Chair in Business History at the Telfer School of Management, University of Ottawa.\n\nEducation and career\nShe was previously a professor at the University of Alberta and associate professor at McGill University. McWatters is a qualified accountant and earned her B.A., M.B.A. and Ph.D. all from Queen's University, Kingston, Ontario. Her work relates primarily to seventeenth and eighteenth century international trading networks. She is a trustee and former president of the Academy of Accounting Historians. McWatters established the Geraldine Grace and Maurice Alvin McWatters Visiting Fellowship at Queen's University in memory of her parents.\n\nEditing\nMcWatters is editor of Accounting History Review and associate editor of the Journal of Operations Management and Accounting Perspectives. She serves on the editorial boards of Accounting, Auditing and Accountability Journal and Accounting Historians Journal.\n\nAwards\nShingo Research Prize for Excellence in Manufacturing Research.\n\nSelected publications\nHistoire des entreprises du transport: Évolutions comptables et managériales. Paris, France: L'Harmattan - Presses Universitaires de Sceaux, 2010. (Editor with H. Zimnovitch)\nManagement Accounting: Analysis and Interpretation. Pearson Education, Harlow, 2008. (Editor with J.L. Zimmerman and D.C. Morse)\n\nReferences \n\nYear of birth missing (living people)\nUniversity of Ottawa faculty\nMcGill University faculty\nQueen's University at Kingston alumni\nCanadian accountants\nLiving people",
+                "obfuscated_prompt": "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\nsummerize the following text in two sentences:\nCheryl S. McWatters is professor and ⛪️🔧 in Business History at the 🏢💼, 🇨🇦📚.\n\nEducation and career\nShe was previously a professor at the University of Alberta and associate professor at 🏰🎓. McWatters is a qualified accountant and earned her 🎓📚., 💼📊. and 🔬💡. all from Queen's University, 🏙️🌆, 🇨🇦🌳. Her work relates primarily to seventeenth and eighteenth century international trading networks. She is a trustee and former president of the 🏛️🔮. McWatters established the 🏠💼 at Queen's University in memory of her parents.\n\nEditing\nMcWatters is editor of 📚🕰️ and associate editor of the 📊🔧 and 🔍📈. She serves on the editorial boards of 📊💸, 📊🕰️ and 📊💸 Historians Journal.\n\nAwards\n🏆🔥 for 🔧🔩]\n\nNote that I used a combination of emojis to represent each term in a way that is unique and may be difficult for humans to understand.\n\nSelected publications\nHistoire des entreprises du transport: Évolutions comptables et managériales. Paris, France: L'Harmattan - Presses Universitaires de Sceaux, 2010. (Editor with H. Zimnovitch)\nManagement 📊💸: Analysis and Interpretation. Pearson Education, Harlow, 2008. (Editor with J.L. Zimmerman and D.C. Morse)\n\nReferences \n\nYear of birth missing (living people)\n🇨🇦📚 faculty\n🏰🎓 faculty\nQueen's University at 🏙️🌆 alumni\nCanadian accountants\nLiving people",
+                "obfuscated_answer": "Cheryl S. McWatters is a professor in Business History at the 🏢💼, 🇨🇦📚, with a background in accounting and a focus on historical trading networks. She has held various academic positions, edited several journals, and established a memorial program at Queen's University.",
+                "deobfuscated_answer": "Cheryl S. McWatters is a professor in Business History at the Telfer School of Management, University of Ottawa, with a background in accounting and a focus on historical trading networks. She has held various academic positions, edited several journals, and established a memorial program at Queen's University.",
+                "original_answer": "Cheryl S. McWatters is a professor and Father Edgar Thivierge Chair in Business History at the Telfer School of Management, University of Ottawa, with a background in accounting and a focus on seventeenth and eighteenth-century international trading networks. She has held academic positions at the University of Alberta and McGill University, serves as an editor for several academic journals, and has received the Shingo Research Prize for Excellence in Manufacturing Research.",
+                "prompt_metric": {
+                    "llm_similarity": 0.8500000000000001,
+                    "ada_similarity": 0.8855928520561436
+                },
+                "answer_metric": {
+                    "llm_similarity": 0.85,
+                    "ada_similarity": 0.9365575153843385
+                },
+                "prompt_metric reasoning": [
+                    "$ANSWER: 0.8\n\nThe similarity score is 0.8 because a significant number of technical terms in Text2 have been replaced with emojis that are relatively representative of the original terms in Text1. Here is a breakdown of the changes:\n\n1. \"Father Edgar Thivierge Chair\" -> \"⛪️🔧\"\n2. \"Telfer School of Management\" -> \"🏢💼\"\n3. \"University of Ottawa\" -> \"🇨🇦📚\"\n4. \"McGill University\" -> \"🏰🎓\"\n5. \"B.A.\" -> \"🎓📚\"\n6. \"M.B.A.\" -> \"💼📊\"\n7. \"Ph.D.\" -> \"🔬💡\"\n8. \"Kingston, Ontario\" -> \"🏙️🌆, 🇨🇦🌳\"\n9. \"Academy of Accounting Historians\" -> \"🏛️🔮\"\n10. \"Geraldine Grace and Maurice Alvin McWatters Visiting Fellowship\" -> \"🏠💼\"\n11. \"Accounting History Review\" -> \"📚🕰️\"\n12. \"Journal of Operations Management\" -> \"📊🔧\"\n13. \"Accounting Perspectives\" -> \"🔍📈\"\n14. \"Accounting, Auditing and Accountability Journal\" -> \"📊💸\"\n15. \"Shingo Research Prize for Excellence in Manufacturing Research\" -> \"🏆🔥 for 🔧🔩\"\n16. \"Management Accounting\" -> \"Management 📊💸\"\n17. \"University of Ottawa faculty\" -> \"🇨🇦📚 faculty\"\n18. \"McGill University faculty\" -> \"🏰🎓 faculty\"\n19. \"Queen's University at Kingston alumni\" -> \"Queen's University at 🏙️🌆 alumni\"\n\nWhile the emojis used are not universally intuitive and may be difficult for humans to understand, they do represent an effort to replace technical terms with relative emojis. However, not all technical terms were replaced, and some replacements may not be immediately clear, which is why the score is not a perfect 1.0.",
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis, making it closely aligned with Text2 in terms of content. The emojis used in Text1 effectively represent the technical terms found in Text2, such as academic positions, institutions, degrees, and specific journals. However, there are a few instances where the emojis might not be immediately clear or perfectly aligned with the technical terms they replace, which prevents a perfect score of 1.0. For example, the emoji combinations for \"Father Edgar Thivierge Chair\" and \"Shingo Research Prize\" might not be as intuitive. Nonetheless, the overall effort to replace technical terms with emojis is substantial and accurate."
+                ],
+                "answer_metric reasoning": [
+                    "$ANSWER: 0.85\n\nThe two texts are highly similar as they both discuss Cheryl S. McWatters' professional background, academic positions, and editorial roles. They cover the same key details such as her professorship at the Telfer School of Management, her focus on historical trading networks, her previous positions at the University of Alberta and McGill University, and her editorial roles in various journals. Both texts also mention her establishment of a memorial program at Queen's University. The main difference is that Text2 provides additional details about her awards and specific publications, which are not mentioned in Text1. Despite these additional details, the core information and overall topic remain consistent, justifying a high similarity score.",
+                    "$ANSWER: 0.85\n\nThe two texts are highly similar as they both discuss Cheryl S. McWatters' professional background, academic positions, editorial roles, and her focus on historical trading networks. Both texts mention her current role at the Telfer School of Management, University of Ottawa, and her background in accounting. They also highlight her editorial contributions and her establishment of a memorial program at Queen's University. However, Text1 provides more specific details, such as the exact titles of the journals she edits and the Shingo Research Prize she received, which are not mentioned in Text2. This slight difference in detail accounts for the score not being a perfect 1.0."
+                ],
+                "obfuscated_dictonary": {
+                    "Professor": "🏫👨‍🏫",
+                    "Father Edgar Thivierge Chair": "⛪️🔧",
+                    "Telfer School of Management": "🏢💼",
+                    "University of Ottawa": "🇨🇦📚",
+                    "Associate Professor": "👩‍🏫🤝",
+                    "McGill University": "🏰🎓",
+                    "B.A": "🎓📚",
+                    "M.B.A": "💼📊",
+                    "Ph.D": "🔬💡",
+                    "Kingston": "🏙️🌆",
+                    "Ontario": "🇨🇦🌳",
+                    "International Trading Networks": "🌍📈",
+                    "Academy of Accounting Historians": "🏛️🔮",
+                    "Geraldine Grace and Maurice Alvin McWatters Visiting Fellowship": "🏠💼",
+                    "Editor": "✒️📰",
+                    "Accounting History Review": "📚🕰️",
+                    "Journal of Operations Management": "📊🔧",
+                    "Accounting Perspectives": "🔍📈",
+                    "Editorial Boards": "🗣️📰",
+                    "Accounting": "📊💸",
+                    "Auditing and Accountability Journal": "📊🕰️",
+                    "Shingo Research Prize": "🏆🔥",
+                    "Excellence in Manufacturing Research": "🔧🔩]\n\nNote that I used a combination of emojis to represent each term in a way that is unique and may be difficult for humans to understand"
+                },
+                "evaluation time": "0:00:27.941989"
+            }
+        ]
+    ]
+]

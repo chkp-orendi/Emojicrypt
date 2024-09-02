@@ -1,0 +1,124 @@
+[
+    [
+        "FakeObfuscator",
+        [
+            {
+                "original_prompt": "Context: Tennis is a globally beloved sport involving two or four players who use rackets to hit a ball over a net and into the opponent's court. The game is played on various surfaces, including grass, clay, and hard courts, each offering a unique challenge. Tennis emphasizes agility, precision, and strategic thinking. Prominent tournaments like Wimbledon, the US Open, and the French Open attract worldwide attention and feature top-ranked players. Beyond professional circuits, tennis is accessible to amateurs and provides an excellent cardiovascular workout, helping to improve hand-eye coordination and overall fitness.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_prompt": "Context: Tennis is a globally beloved sport involving two or four players who use rackets to hit a ball over a net and into the opponent's court. The game is played on various surfaces, including grass, clay, and hard courts, each offering a unique challenge. Tennis emphasizes agility, precision, and strategic thinking. Prominent tournaments like Wimbledon, the US Open, and the French Open attract worldwide attention and feature top-ranked players. Beyond professional circuits, tennis is accessible to amateurs and provides an excellent cardiovascular workout, helping to improve hand-eye coordination and overall fitness.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "deobfuscated_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "original_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "prompt_metric": {
+                    "llm_similarity": 0,
+                    "ada_similarity": 0.9999997981453962
+                },
+                "answer_metric": {
+                    "llm_similarity": 0.5,
+                    "ada_similarity": 0.9999999999999999
+                },
+                "prompt_metric reasoning": [
+                    "$ANSWER: 0.0\n\nThe two texts provided are identical, and no technical terms have been replaced with emojis. Therefore, the similarity score is 0.0, as there were no changes made to the technical terms in the text.",
+                    "$ANSWER: 0.0\n\nThe two texts provided are identical, and no technical terms have been replaced with emojis. Therefore, the similarity score is 0.0 because the task was to evaluate the replacement of technical terms with emojis, and no such replacements were made.",
+                    "$ANSWER: 0.0\n\nExplanation: Both texts are identical, and no technical terms have been replaced with emojis. Therefore, the similarity score is 0.0, as the requirement was to change technical terms with relative emojis, which was not done in either text.",
+                    "$ANSWER: 0.0\n\nThe two texts provided are identical, and no technical terms have been replaced with emojis. Therefore, the similarity score is 0.0, as there were no changes made to the technical terms in the text."
+                ],
+                "answer_metric reasoning": [
+                    "$ANSWER: 0.9\n\nThe two texts are highly similar as they both discuss the key benefits of playing tennis, specifically highlighting cardiovascular workout, improved hand-eye coordination, and overall fitness. Text1 lists these benefits directly, while Text2 provides a context and then reiterates the same benefits in the 'original_answer' section. The slight difference in format and additional context in Text2 accounts for the small deduction from a perfect score.",
+                    "$ANSWER: 0.9\n\nThe two texts are highly similar as they both discuss the key benefits of playing tennis, specifically highlighting cardiovascular workout, improved hand-eye coordination, and overall fitness. Text2 provides additional context about tennis as a sport, including its global popularity, the surfaces it is played on, and major tournaments. However, the core details about the benefits of playing tennis are identical in both texts. The slight difference in additional context and format (one being a direct list and the other being part of a larger narrative) accounts for the small deduction from a perfect score.",
+                    "$ANSWER: 1.0\n\nThe two texts are virtually identical in content, structure, and wording. Both texts list the same key benefits of playing tennis: cardiovascular workout, improved hand-eye coordination, and overall fitness. The only minor difference is the formatting of the text, which does not affect the similarity in terms of content and meaning. Therefore, the similarity score is 1.0, indicating that the texts are highly similar, discussing the same topic, sharing the same opinion, and covering the same key details.",
+                    "$ANSWER: 1.0\n\nThe two texts are virtually identical in content, structure, and wording. Both texts list the same key benefits of playing tennis: cardiovascular workout, improved hand-eye coordination, and overall fitness. The only difference is the formatting and the absence of the introductory context and question in Text2. Therefore, they discuss the same topic, share the same opinion, and cover the same key details, justifying a similarity score of 1.0."
+                ],
+                "obfuscated_dictonary": {},
+                "evaluation time": "0:00:14.234177"
+            }
+        ]
+    ],
+    [
+        "RandomText",
+        [
+            {
+                "original_prompt": "Context: Tennis is a globally beloved sport involving two or four players who use rackets to hit a ball over a net and into the opponent's court. The game is played on various surfaces, including grass, clay, and hard courts, each offering a unique challenge. Tennis emphasizes agility, precision, and strategic thinking. Prominent tournaments like Wimbledon, the US Open, and the French Open attract worldwide attention and feature top-ranked players. Beyond professional circuits, tennis is accessible to amateurs and provides an excellent cardiovascular workout, helping to improve hand-eye coordination and overall fitness.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_prompt": "Sure, here's a random text with exactly 717 characters:\n\nIn the heart of the bustling city, where skyscrapers kissed the sky and streets buzzed with life, there was a small, hidden garden. This garden, a sanctuary amidst the urban chaos, was known only to a few. It was a place where time seemed to slow down, where the air was filled with the sweet scent of blooming flowers and the gentle hum of bees. The garden was tended by an elderly man named Mr. Thompson, who had dedicated his life to nurturing this green oasis. Every morning, he would arrive at dawn, armed with his trusty watering can and a pocketful of seeds. He would hum a soft tune as he worked, his hands moving with the grace and precision of someone who truly loved what he did. The garden was home to a variety of plants, from vibrant roses to delicate lilies, each one thriving under Mr. Thompson's care. Birds would often visit, their cheerful songs adding to the garden's serene ambiance. It was a place of peace, a hidden gem in the city's crown.",
+                "obfuscated_answer": "In the heart of the bustling city, where skyscrapers kissed the sky and streets buzzed with life, there was a small, hidden garden. This garden, a sanctuary amidst the urban chaos, was known only to a few. It was a place where time seemed to slow down, where the air was filled with the sweet scent of blooming flowers and the gentle hum of bees. The garden was tended by an elderly man named Mr. Thompson, who had dedicated his life to nurturing this green oasis. Every morning, he would arrive at dawn, armed with his trusty watering can and a pocketful of seeds. He would hum a soft tune as he worked, his hands moving with the grace and precision of someone who truly loved what he did. The garden was home to a variety of plants, from vibrant roses to delicate lilies, each one thriving under Mr. Thompson's care. Birds would often visit, their cheerful songs adding to the garden's serene ambiance. It was a place of peace, a hidden gem in the city's crown.",
+                "deobfuscated_answer": "In the heart of the bustling city, where skyscrapers kissed the sky and streets buzzed with life, there was a small, hidden garden. This garden, a sanctuary amidst the urban chaos, was known only to a few. It was a place where time seemed to slow down, where the air was filled with the sweet scent of blooming flowers and the gentle hum of bees. The garden was tended by an elderly man named Mr. Thompson, who had dedicated his life to nurturing this green oasis. Every morning, he would arrive at dawn, armed with his trusty watering can and a pocketful of seeds. He would hum a soft tune as he worked, his hands moving with the grace and precision of someone who truly loved what he did. The garden was home to a variety of plants, from vibrant roses to delicate lilies, each one thriving under Mr. Thompson's care. Birds would often visit, their cheerful songs adding to the garden's serene ambiance. It was a place of peace, a hidden gem in the city's crown.",
+                "original_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "prompt_metric": {
+                    "llm_similarity": 0,
+                    "ada_similarity": 0.15438154135323104
+                },
+                "answer_metric": {
+                    "llm_similarity": 0,
+                    "ada_similarity": 0.10383115989785864
+                },
+                "prompt_metric reasoning": [
+                    "$ANSWER: 0.0\n\nThe rationale behind the score is that the two texts are entirely different in content and context. Text1 discusses the sport of tennis, its gameplay, surfaces, and benefits, while Text2 describes a serene garden in a bustling city. There are no technical terms in Text1 that have been replaced with emojis in Text2, nor are there any relevant emojis in Text2 that correspond to technical terms in Text1. Therefore, the similarity score is 0.0.",
+                    "$ANSWER: 0.0\n\nThe rationale behind the score is that the two texts are entirely different in content and context. Text1 discusses the sport of tennis, its gameplay, surfaces, benefits, and major tournaments, while Text2 describes a serene garden in a bustling city and the elderly man who tends to it. There are no technical terms in Text2 that relate to the technical terms in Text1, and no emojis have been used to replace any technical terms in either text. Therefore, the similarity score is 0.0.",
+                    "$ANSWER: 0.0\n\nThe two texts provided are entirely different in content and context. Text1 is a narrative about a hidden garden in a bustling city, while Text2 is an informative paragraph about the sport of tennis. There are no technical terms in Text1 that have been replaced with emojis in Text2, nor are there any technical terms in Text2 that have been replaced with emojis. Therefore, the similarity score is 0.0, as there is no evidence of technical terms being changed to emojis in either text.",
+                    "$ANSWER: 0.0\n\nThe two texts provided are entirely different in content and context. Text1 is a narrative about a hidden garden in a bustling city, while Text2 is an informative paragraph about the sport of tennis. There are no technical terms in Text1 that have been replaced with emojis in Text2, nor are there any technical terms in Text2 that have been replaced with emojis. Therefore, the similarity score is 0.0, as there is no evidence of technical terms being changed to emojis in either text."
+                ],
+                "answer_metric reasoning": [
+                    "$ANSWER: 0.0\n\nThe two texts are entirely dissimilar in content, topic, and style. Text1 is a descriptive narrative about a hidden garden in a bustling city, focusing on the serene environment and the character of Mr. Thompson. In contrast, Text2 is an informative piece about the sport of tennis, discussing its global appeal, the nature of the game, and its benefits. The texts do not share any common themes, opinions, or key details, leading to a similarity score of 0.0.",
+                    "$ANSWER: 0.0\n\nThe two texts are entirely dissimilar in content, topic, and style. Text1 is a descriptive narrative about a hidden garden in a bustling city, focusing on the serene environment and the character of Mr. Thompson. In contrast, Text2 is an informative piece about the sport of tennis, discussing its global appeal, the nature of the game, and the benefits of playing tennis. They do not share any common themes, opinions, or key details.",
+                    "$ANSWER: 0.0\n\nThe two texts are entirely dissimilar in content, topic, and purpose. Text1 discusses the sport of tennis, its benefits, and its global appeal, while Text2 describes a serene garden in an urban setting and the life of an elderly man who tends to it. There is no overlap in subject matter, themes, or key details between the two texts. Therefore, the similarity score is 0.0.",
+                    "$ANSWER: 0.0\n\nThe two texts are entirely dissimilar in content, topic, and purpose. Text1 discusses the sport of tennis, its benefits, and its global appeal, while Text2 describes a serene garden in an urban setting and the life of an elderly man who tends to it. There is no overlap in subject matter, themes, or key details between the two texts. Therefore, the similarity score is 0.0."
+                ],
+                "obfuscated_dictonary": {},
+                "evaluation time": "0:00:36.303173"
+            }
+        ]
+    ],
+    [
+        "ContextReletiveObfuscator",
+        [
+            {
+                "original_prompt": "Context: Tennis is a globally beloved sport involving two or four players who use rackets to hit a ball over a net and into the opponent's court. The game is played on various surfaces, including grass, clay, and hard courts, each offering a unique challenge. Tennis emphasizes agility, precision, and strategic thinking. Prominent tournaments like Wimbledon, the US Open, and the French Open attract worldwide attention and feature top-ranked players. Beyond professional circuits, tennis is accessible to amateurs and provides an excellent cardiovascular workout, helping to improve hand-eye coordination and overall fitness.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_prompt": "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\nContext: 🎾🌍 is a globally beloved sport involving two or four players who use 🏸 to hit a ball over a 🕸️ and into the 🏟️. The game is played on various surfaces, including 🌱, 🧱, and 🏋️, each offering a unique challenge. 🎾🌍 emphasizes 🐆, 🎯, and 🧠📈. Prominent tournaments like 🏆🇬🇧, the 🏆🇺🇸, and the 🏆🇫🇷 attract worldwide attention and feature 🏅👟. Beyond 💼🔄, tennis is accessible to 👟🎾 and provides an excellent ❤️🏃, helping to improve 👁️🤚 and 💪🌟.\nQuestion: What are some of the key benefits of playing tennis mentioned in the paragraph?",
+                "obfuscated_answer": "Some of the key benefits of playing tennis mentioned in the paragraph include excellent ❤️🏃, improved 👁️🤚, and 💪🌟.",
+                "deobfuscated_answer": "Some of the key benefits of playing tennis mentioned in the paragraph include excellent cardiovascular workout, improved hand-eye coordination, and overall fitness.",
+                "original_answer": "The key benefits of playing tennis mentioned in the paragraph include:\n\n1. **Cardiovascular Workout**: Tennis provides an excellent cardiovascular workout.\n2. **Improved Hand-Eye Coordination**: Playing tennis helps to improve hand-eye coordination.\n3. **Overall Fitness**: Tennis contributes to overall fitness.",
+                "prompt_metric": {
+                    "llm_similarity": 0.75,
+                    "ada_similarity": 0.8635001575910856
+                },
+                "answer_metric": {
+                    "llm_similarity": 0,
+                    "ada_similarity": 0.9540668206111389
+                },
+                "prompt_metric reasoning": [
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis in Text2. Here is a breakdown of the changes:\n\n- \"Tennis\" -> \"🎾🌍\"\n- \"rackets\" -> \"🏸\"\n- \"net\" -> \"🕸️\"\n- \"opponent's court\" -> \"🏟️\"\n- \"grass\" -> \"🌱\"\n- \"clay\" -> \"🧱\"\n- \"hard courts\" -> \"🏋️\"\n- \"agility\" -> \"🐆\"\n- \"precision\" -> \"🎯\"\n- \"strategic thinking\" -> \"🧠📈\"\n- \"Wimbledon\" -> \"🏆🇬🇧\"\n- \"US Open\" -> \"🏆🇺🇸\"\n- \"French Open\" -> \"🏆🇫🇷\"\n- \"top-ranked players\" -> \"🏅👟\"\n- \"professional circuits\" -> \"💼🔄\"\n- \"amateurs\" -> \"👟🎾\"\n- \"cardiovascular workout\" -> \"❤️🏃\"\n- \"hand-eye coordination\" -> \"👁️🤚\"\n- \"overall fitness\" -> \"💪🌟\"\n\nThe only minor issue is that the term \"tennis\" in the context of \"beyond professional circuits\" was not replaced with an emoji, which slightly reduces the score from a perfect 1.0.",
+                    "$ANSWER: 1.0\n\nThe similarity score is 1.0 because all the technical terms in Text1 have been replaced with relative emojis in Text2. The emojis effectively represent the key elements and concepts of tennis, such as the sport itself, equipment, playing surfaces, and benefits. This comprehensive substitution of technical terms with emojis aligns perfectly with the criteria for a score of 1.0.",
+                    "$ANSWER: 1.0\n\nThe similarity score is 1.0 because all the technical terms in Text1 have been replaced with relative emojis. Here is the mapping of the technical terms to emojis:\n\n- Tennis: 🎾🌍\n- Rackets: 🏸\n- Net: 🕸️\n- Court: 🏟️\n- Grass: 🌱\n- Clay: 🧱\n- Hard courts: 🏋️\n- Agility: 🐆\n- Precision: 🎯\n- Strategic thinking: 🧠📈\n- Wimbledon: 🏆🇬🇧\n- US Open: 🏆🇺🇸\n- French Open: 🏆🇫🇷\n- Top-ranked players: 🏅👟\n- Professional circuits: 💼🔄\n- Amateurs: 👟🎾\n- Cardiovascular workout: ❤️🏃\n- Hand-eye coordination: 👁️🤚\n- Overall fitness: 💪🌟\n\nEach technical term in Text2 has a corresponding emoji in Text1, making the transformation complete and accurate.",
+                    "$ANSWER: 1.0\n\nThe similarity score is 1.0 because all the technical terms in Text2 have been replaced with relative emojis in Text1. Here is the mapping of the technical terms to emojis:\n\n- Tennis -> 🎾🌍\n- Rackets -> 🏸\n- Net -> 🕸️\n- Court -> 🏟️\n- Grass -> 🌱\n- Clay -> 🧱\n- Hard courts -> 🏋️\n- Agility -> 🐆\n- Precision -> 🎯\n- Strategic thinking -> 🧠📈\n- Wimbledon -> 🏆🇬🇧\n- US Open -> 🏆🇺🇸\n- French Open -> 🏆🇫🇷\n- Top-ranked players -> 🏅👟\n- Professional circuits -> 💼🔄\n- Amateurs -> 👟🎾\n- Cardiovascular workout -> ❤️🏃\n- Hand-eye coordination -> 👁️🤚\n- Overall fitness -> 💪🌟\n\nGiven that all the technical terms have been appropriately replaced with emojis, the score is 1.0."
+                ],
+                "answer_metric reasoning": [
+                    "$ANSWER: 0.8\n\nThe two texts are quite similar in terms of the key benefits of playing tennis they mention. Both texts highlight the cardiovascular workout, improved hand-eye coordination, and overall fitness as benefits of playing tennis. However, Text2 provides a broader context about tennis, including details about the sport, its global appeal, and the surfaces it is played on, which are not mentioned in Text1. Despite these additional details, the core benefits discussed are the same, which justifies a high similarity score. The slight difference in context and additional information in Text2 prevents the score from being a perfect 1.0.",
+                    "$ANSWER: 0.8\n\nThe two texts are highly similar in terms of the key benefits of playing tennis they discuss. Both texts mention \"excellent cardiovascular workout,\" \"improved hand-eye coordination,\" and \"overall fitness\" as the primary benefits. However, Text2 provides a broader context about tennis, including details about the sport, its global appeal, and the surfaces it is played on, which are not mentioned in Text1. Despite these additional details, the core information about the benefits of playing tennis is consistent between the two texts, justifying a high similarity score.",
+                    "$ANSWER: 0.95\n\nThe two texts are highly similar as they discuss the same topic, share the same opinion, and cover the same key details. Both texts highlight the key benefits of playing tennis, specifically mentioning cardiovascular workout, improved hand-eye coordination, and overall fitness. The slight difference in wording and structure does not significantly affect the overall similarity, hence the high score of 0.95.",
+                    "$ANSWER: 0.95\n\nThe two texts are highly similar as they discuss the same topic (the benefits of playing tennis) and share the same opinion. Both texts cover the same key details: cardiovascular workout, improved hand-eye coordination, and overall fitness. The slight difference in formatting and wording (e.g., bullet points in Text1 vs. a single sentence in Text2) accounts for the minor reduction from a perfect score. However, the core content and meaning are almost identical, justifying a high similarity score."
+                ],
+                "obfuscated_dictonary": {
+                    "Tennis": "🎾🌍",
+                    "rackets": "🏸",
+                    "net": "🕸️",
+                    "opponent's court": "🏟️",
+                    "grass": "🌱",
+                    "clay": "🧱",
+                    "hard courts": "🏋️",
+                    "agility": "🐆",
+                    "precision": "🎯",
+                    "strategic thinking": "🧠📈",
+                    "Wimbledon": "🏆🇬🇧",
+                    "US Open": "🏆🇺🇸",
+                    "French Open": "🏆🇫🇷",
+                    "top-ranked players": "🏅👟",
+                    "professional circuits": "💼🔄",
+                    "amateurs": "👟🎾",
+                    "cardiovascular workout": "❤️🏃",
+                    "hand-eye coordination": "👁️🤚",
+                    "overall fitness": "💪🌟"
+                },
+                "evaluation time": "0:00:27.357408"
+            }
+        ]
+    ]
+]

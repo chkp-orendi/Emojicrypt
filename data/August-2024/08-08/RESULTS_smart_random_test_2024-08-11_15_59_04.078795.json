@@ -1,0 +1,30 @@
+[
+    [
+        "SinglePromptObfuscator Ollama",
+        []
+    ],
+    [
+        "FewPromptsObfuscator Azur",
+        []
+    ],
+    [
+        "ThreePromptsObfuscator Azur",
+        []
+    ],
+    [
+        "SmartRandom Azur",
+        []
+    ],
+    [
+        "RandomText Azur",
+        []
+    ],
+    [
+        "WrongObfuscator",
+        []
+    ],
+    [
+        "FakeObfuscator",
+        []
+    ]
+]

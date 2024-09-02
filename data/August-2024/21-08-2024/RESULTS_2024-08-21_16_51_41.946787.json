@@ -1,0 +1,69 @@
+[
+    [
+        "ContextReletiveObfuscator",
+        [
+            {
+                "original_prompt": "summerize the following text in two sentences:\nCheryl S. McWatters is professor and Father Edgar Thivierge Chair in Business History at the Telfer School of Management, University of Ottawa.\n\nEducation and career\nShe was previously a professor at the University of Alberta and associate professor at McGill University. McWatters is a qualified accountant and earned her B.A., M.B.A. and Ph.D. all from Queen's University, Kingston, Ontario. Her work relates primarily to seventeenth and eighteenth century international trading networks. She is a trustee and former president of the Academy of Accounting Historians. McWatters established the Geraldine Grace and Maurice Alvin McWatters Visiting Fellowship at Queen's University in memory of her parents.\n\nEditing\nMcWatters is editor of Accounting History Review and associate editor of the Journal of Operations Management and Accounting Perspectives. She serves on the editorial boards of Accounting, Auditing and Accountability Journal and Accounting Historians Journal.\n\nAwards\nShingo Research Prize for Excellence in Manufacturing Research.\n\nSelected publications\nHistoire des entreprises du transport: Évolutions comptables et managériales. Paris, France: L'Harmattan - Presses Universitaires de Sceaux, 2010. (Editor with H. Zimnovitch)\nManagement Accounting: Analysis and Interpretation. Pearson Education, Harlow, 2008. (Editor with J.L. Zimmerman and D.C. Morse)\n\nReferences \n\nYear of birth missing (living people)\nUniversity of Ottawa faculty\nMcGill University faculty\nQueen's University at Kingston alumni\nCanadian accountants\nLiving people",
+                "obfuscated_prompt": "Do not explain the emojis in your answer and do not add new emojis that were not in the original question.\nsummerize the following text in two sentences:\n👩‍🏫📚 is 👩‍🏫 and 🪑📜📚 at the 🏫📈, 🎓🇨🇦.\n\nEducation and career\nShe was previously a 👩‍🏫 at the 🎓🏔️ and associate 👩‍🏫 at 🎓🍁. McWatters is a 📊✅ and earned her 🎓📜., M.🎓📜. and 🎓🔬. all from 🎓👑, 🏙️🇨🇦, 🗺️🇨🇦. Her work relates primarily to 🌍📜📦. She is a 🏛️🔑 and former 👔🏛️ of the 🏛️📚📊. McWatters established the 🏛️👩‍🏫🎓 at 🎓👑 in memory of her parents.\n\nEditing\nMcWatters is editor of 📚📊🔍 and 📝🔗 of the 📓📈 and 📓📊. She serves on the 📝🏛️ of 📊, 📓🔍✅ and 📊 Historians Journal.\n\nAwards\n🏆🏭🔬.\n\nSelected publications\nHistoire des entreprises du transport: Évolutions comptables et managériales. Paris, France: 🏢📚🇫🇷, 2010. (Editor with H. Zimnovitch)\nManagement 📊: Analysis and Interpretation. 🏢📚, 🏙️🇬🇧, 2008. (Editor with J.L. Zimmerman and D.C. Morse)\n\nReferences \n\nYear of birth missing (living people)\n🎓🇨🇦 faculty\n🎓🍁 faculty\n🎓👑 at 🏙️🇨🇦 alumni\nCanadian accountants\nLiving people",
+                "obfuscated_answer": "👩‍🏫📚 is a professor and chair at the 🏫📈, 🎓🇨🇦. She has held various academic positions, is an accomplished editor, and has published several works in her field.",
+                "deobfuscated_answer": "Cheryl S. McWatters is a professor and chair at the Telfer School of Management, University of Ottawa. She has held various academic positions, is an accomplished editor, and has published several works in her field.",
+                "original_answer": "Cheryl S. McWatters is a professor and Father Edgar Thivierge Chair in Business History at the Telfer School of Management, University of Ottawa, with a background in accounting and a focus on seventeenth and eighteenth-century international trading networks. She has held academic positions at the University of Alberta and McGill University, serves as an editor for several academic journals, and has received the Shingo Research Prize for Excellence in Manufacturing Research.",
+                "prompt_metric": {
+                    "llm_similarity": 0.9,
+                    "ada_similarity": 0.7846760874240772
+                },
+                "answer_metric": {
+                    "llm_similarity": 0.75,
+                    "ada_similarity": 0.8995142982953259
+                },
+                "prompt_metric reasoning": [
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis in Text2. For example, \"professor\" is replaced with \"👩‍🏫\", \"Father Edgar Thivierge Chair in Business History\" with \"🪑📜📚\", \"Telfer School of Management, University of Ottawa\" with \"🏫📈, 🎓🇨🇦\", and \"qualified accountant\" with \"📊✅\". The emojis used are contextually appropriate and represent the technical terms effectively. However, there are a few instances where the replacement could be more precise or consistent, such as \"Shingo Research Prize for Excellence in Manufacturing Research\" being replaced with \"🏆🏭🔬\", which is somewhat ambiguous. Overall, the majority of technical terms have been successfully replaced with relevant emojis, justifying a high similarity score.",
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis in Text2. For example, \"professor\" is replaced with \"👩‍🏫\", \"Father Edgar Thivierge Chair in Business History\" with \"🪑📜📚\", \"Telfer School of Management, University of Ottawa\" with \"🏫📈, 🎓🇨🇦\", and so on. The emojis used are contextually appropriate and represent the original terms effectively. However, there are a few instances where the technical terms were not replaced with emojis, such as \"McWatters\" and \"Histoire des entreprises du transport: Évolutions comptables et managériales.\" This slight inconsistency prevents the score from being a perfect 1.0.",
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis, which correspond closely to the terms in Text2. For example, \"professor\" is replaced with \"👩‍🏫\", \"University of Ottawa\" with \"🎓🇨🇦\", \"accountant\" with \"📊✅\", and \"Queen's University\" with \"🎓👑\". The emojis used are contextually appropriate and represent the technical terms accurately. However, there are a few instances where the emojis might not perfectly capture the technical term's full meaning, such as \"🏛️🔑\" for \"trustee\" and \"🏛️📚📊\" for \"Academy of Accounting Historians\". These minor discrepancies prevent a perfect score of 1.0.",
+                    "$ANSWER: 0.9\n\nThe similarity score is 0.9 because almost all the technical terms in Text1 have been replaced with relevant emojis, which correspond closely to the terms in Text2. For example, \"professor\" is replaced with \"👩‍🏫\", \"University of Ottawa\" with \"🎓🇨🇦\", \"accountant\" with \"📊✅\", and so on. The structure and content of both texts are nearly identical, with the primary difference being the substitution of technical terms with emojis in Text1. However, there are a few instances where the emojis might not perfectly capture the technical term's full meaning, which prevents a perfect score of 1.0."
+                ],
+                "answer_metric reasoning": [
+                    "$ANSWER: 0.7\n\nThe two texts share a significant amount of information about Cheryl S. McWatters, including her current position at the Telfer School of Management, her editorial roles, and her academic background. However, Text2 provides a more detailed account of her career, including specific past positions, her educational background, and additional achievements and publications. While both texts discuss the same person and cover overlapping details, Text2 is more comprehensive and includes additional information not found in Text1. Therefore, the similarity score is high but not perfect.",
+                    "$ANSWER: 0.7\n\nThe two texts share a significant amount of information about Cheryl S. McWatters, including her position at the Telfer School of Management, her editorial roles, and her academic background. However, Text2 provides a more detailed and comprehensive overview of her career, including specific past positions, her educational background, her research focus, and awards. Text1 is more concise and lacks some of the specific details found in Text2. While both texts discuss the same person and cover overlapping topics, the level of detail and the breadth of information differ, leading to a high but not perfect similarity score.",
+                    "$ANSWER: 0.8\n\nThe two texts are quite similar in content, discussing Cheryl S. McWatters' academic positions, her role at the Telfer School of Management, and her editorial work. Both texts mention her professorship and chair position at the University of Ottawa, her previous academic roles, and her editorial contributions. However, Text1 provides more detailed information about her educational background, specific journals she edits, and the Shingo Research Prize she received, while Text2 is more concise and lacks these specific details. The similarity score of 0.8 reflects that while the texts cover the same main points and share a similar opinion, Text1 includes additional key details that are not present in Text2.",
+                    "$ANSWER: 0.8\n\nThe two texts are highly similar as they both discuss Cheryl S. McWatters' professional background, her current position at the Telfer School of Management, and her roles as an editor and academic. Both texts mention her previous academic positions and her editorial work. However, Text1 provides more detailed information about her specific academic focus, her qualifications, and the awards she has received, while Text2 offers a more general summary. The slight differences in detail and specificity account for the score not being a perfect 1.0."
+                ],
+                "obfuscated_dictonary": {
+                    "Cheryl S. McWatters": "👩‍🏫📚",
+                    "professor": "👩‍🏫",
+                    "Father Edgar Thivierge Chair in Business History": "🪑📜📚",
+                    "Telfer School of Management": "🏫📈",
+                    "University of Ottawa": "🎓🇨🇦",
+                    "University of Alberta": "🎓🏔️",
+                    "associate professor": "👩‍🏫🔗",
+                    "McGill University": "🎓🍁",
+                    "qualified accountant": "📊✅",
+                    "B.A": "🎓📜",
+                    "M.B.A": "🎓📈",
+                    "Ph.D": "🎓🔬",
+                    "Queen's University": "🎓👑",
+                    "Kingston": "🏙️🇨🇦",
+                    "Ontario": "🗺️🇨🇦",
+                    "seventeenth and eighteenth century international trading networks": "🌍📜📦",
+                    "trustee": "🏛️🔑",
+                    "president": "👔🏛️",
+                    "Academy of Accounting Historians": "🏛️📚📊",
+                    "Geraldine Grace and Maurice Alvin McWatters Visiting Fellowship": "🏛️👩‍🏫🎓",
+                    "Accounting History Review": "📚📊🔍",
+                    "associate editor": "📝🔗",
+                    "Journal of Operations Management": "📓📈",
+                    "Accounting Perspectives": "📓📊",
+                    "editorial boards": "📝🏛️",
+                    "Accounting": "📊",
+                    "Auditing and Accountability Journal": "📓🔍✅",
+                    "Accounting Historians Journal": "📓📚📊",
+                    "Shingo Research Prize for Excellence in Manufacturing Research": "🏆🏭🔬",
+                    "L'Harmattan - Presses Universitaires de Sceaux": "🏢📚🇫🇷",
+                    "Pearson Education": "🏢📚",
+                    "Harlow": "🏙️🇬🇧"
+                },
+                "evaluation time": "0:00:48.260590"
+            }
+        ]
+    ]
+]
