@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 
-from src.utils.azure_client import get_answer_with_histroy
+from src.utils.azure_client import get_answer_with_histroy, get_json_with_histroy
 
 
 class chat_gpt:
@@ -23,7 +23,7 @@ class chat_gpt:
         self.messages_for_loop = []
         self.generated_data = []
 
-    def update_chat_history(self, role, content):
+    def update_chat_history(self, role: str, content: str):
             self.chat_history.append({
             'role': role,
             'content': content,
@@ -73,7 +73,7 @@ class chat_gpt:
         self.messages_for_loop = [messages_for_loop[i] for i in range(1, len(messages_for_loop), 2)]
 
         #save history for loading later
-        file_path = os.path.join(os.getenv("PROJECT_PATH"),"src","data_handler", "scripts_to_generate_data" ,"chat_history_yoni.json")
+        file_path = os.path.join(os.getenv("PROJECT_PATH"),"src","data_handler", "scripts_to_generate_data" ,"28-08-2024.json")
         with open(file_path, 'w') as file:
                 json.dump(self.chat_history, file, indent=4)
 
@@ -110,7 +110,7 @@ class chat_gpt:
         self.random_history_pool = user_and_assistant_prompts_list
 
     def get_random_history(self):
-        random_sublist = random.sample(self.random_history_pool, 4)
+        random_sublist = random.sample(self.random_history_pool, 5)
         random_sublist = [item for sublist in random_sublist for item in sublist] # return list to original format
         self.load_chat_history_from_list(random_sublist)
 
@@ -121,6 +121,14 @@ class chat_gpt:
             self.update_chat_history("assistant", azure_answer)
         return self.chat_history[-2*len(self.messages_for_loop)+1::2]
     
+    def json_generate_answer(self):
+        for user_input in self.messages_for_loop:
+            self.update_chat_history("user", user_input)
+            azure_answer = get_json_with_histroy(self.chat_history, self.model, temp =1.2)
+            self.update_chat_history("assistant", azure_answer)
+        return self.chat_history[-2*len(self.messages_for_loop)+1::2]
+    
+
     def save_data(self, file_path, data):
         with open(file_path, 'w') as file:
             json.dump(data, file, indent=4)
@@ -130,24 +138,30 @@ def main():
     model = "gpt-4o-2024-05-13"
     temperature = 0.0
     chat_generate_query = chat_gpt(model, temperature)
-    file_path = os.path.join(os.getenv("PROJECT_PATH"),"data","20-08-2024", "Context_Answer_different_topics_examples.json")
+    # file_path = os.path.join(os.getenv("PROJECT_PATH"),"src","data_handler", "scripts_to_generate_data", "movie_prompts.json")
+    # chat_generate_query.start_chat()
+    # chat_generate_query.set_random_history_pool(file_path)
+    chat_generate_query.update_chat_history("user", """
+I am trying to generate prompt for LLM test I am going to run.
+I need to generate unique paragraphs on topics related to company finance and a question about them. 
+But the prompts list I generate have many duplicates. Here they are:
+"Write a paragraph on the impact of cash flow management on the long-term sustainability of a business. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
+"Write a paragraph on the role of financial forecasting in strategic decision-making for companies. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
+"Write a paragraph on the importance of maintaining a balanced capital structure for minimizing financial risk. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
+"Write a paragraph on the effects of interest rate fluctuations on corporate debt management strategies. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
+"Write a paragraph on the significance of corporate governance in ensuring financial transparency and accountability. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it."
+                                                                                              
+                                            
+can you help me generate new unique prompts of the format:
+Write a paragraph on <some unique topic>. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.
+Make 300 new examples and return a json to me.""")
     
-    chat_generate_query.set_random_history_pool(file_path)
-    chat_generate_query.load_messages_for_loop(["give me another example"])
+    new_data = get_json_with_histroy(chat_generate_query.chat_history, model, 1.0, max_tokens=4096)
 
-    data = []
-    for i in range(100):
-        print(i)
-        chat_generate_query.get_random_history()
-        data.append(chat_generate_query.generate_answer())
-    
-    # loop_size = 1
-    # loop_size = chat_generate_query.start_chat()
-    # chat_generate_query.generate_data(20, loop_size)
+    print(new_data)
 
-    
-    output_file_path = os.path.join(os.getenv("PROJECT_PATH"),"data","20-08-2024" ,"Context_Answer_different_topics" + datetime.now().strftime("_%H_%M") +".json")
-    chat_generate_query.save_data(output_file_path, data)
+    output_file_path = os.path.join(os.getenv("PROJECT_PATH"),"data", "September-2024", "01" ,"finance_data_set" + datetime.now().strftime("_%H_%M") +".json")
+    json.dump(new_data, open(output_file_path, "w", encoding = 'utf-8'), ensure_ascii= False , indent=4)
     print("Data saved at: ", output_file_path)
 
 if __name__ == "__main__":

@@ -26,11 +26,13 @@ from src.Obfuscators.random_text import RandomText, make_random_text
 from src.Obfuscators.smart_random_emoji import SmartRandom, make_smart_random
 from src.Obfuscators.context_reletive_obfuscator import ContextReletiveObfuscator, make_context_reletive_obfuscator
 from src.Obfuscators.context_only_obfuscator import ContextOnlyObfuscator, make_context_only_obfuscator
+from src.Obfuscators.dictonary_obfuscator import DictonaryObfuscator, make_dict_obfuscator
 from src.Obfuscators.obfuscator_template import Obfuscator
 
 from src.Evaluators.gpt_evaluator_with_list import GPTWithListEvaluator
 from src.Evaluators.list_embedding_evaluator import ListEmbeddingEvaluator
 from src.Evaluators.gpt_and_embedding_evaluator import GPTAndEmbeddingEvaluator
+from src.Evaluators.llm_embedding_and_precentage_of_change_evaluator import GPTEmbeddingAndPChangedEvaluator
 
 
 single_query_file = "single_query_for_dict_v2.txt"
@@ -62,10 +64,10 @@ def evaluate_with_obfuscators(data: list[dict], obfuscators: list[Obfuscator] ,l
         print("evaluate_with_obfuscators: ",obfuscator().__class__.__name__)
         print(f"Starting evaluation of {name}")
         time = datetime.now()
-        metrics.append([name, evaluate_batch(data, obfuscator, logger, evaluator_factory)])
+        metrics.append([name, evaluate_batch(data[:50], obfuscator, logger, evaluator_factory)])
 
-        output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data","7-8-2024")
-        json.dump(metrics, open(os.path.join(output_folder_path,name.replace(" ", "_") +".json"), "w") , indent=4)
+        output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", os.getenv("DATE"))
+        json.dump(metrics, open(os.path.join(output_folder_path,"_checkpoint_" + name.replace(" ", "_") +".json"), "w") , indent=4)
 
         logger.info(f"time: {datetime.now()} finished evaluation of {name} in {datetime.now()-time}")
     return metrics
@@ -99,22 +101,24 @@ def main():
         "FakeObfuscator": make_fake_obfuscator,
         # "WrongObfuscator": make_wrong_obfuscator,
         # "SmartRandom": make_smart_random,
-        "RandomText": make_random_text,
+        # "RandomText": make_random_text,
         # #"SinglePromptObfuscator": make_single_prompt_obfuscator,
         # "FewPromptsObfuscator": make_few_prompts_obfuscator,
         # "ThreePromptsObfuscator": make_three_prompts_obfuscator
         "ContextReletiveObfuscator": make_context_reletive_obfuscator,
         # "ContextOnlyObfuscator": make_context_only_obfuscator
+        "DictionaryObfuscator": make_dict_obfuscator
     }
 
     obfuscators_details = [
-        # ("FakeObfuscator", {"name": "FakeObfuscator"}),
+        ("FakeObfuscator", {"name": "FakeObfuscator"}),
         # ("WrongObfuscator", {"name": "WrongObfuscator"}),
         # ("SmartRandom", {"name": "SmartRandom", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": smart_random_list, "prompt_prefix": cpprefix}),
         # ("RandomText", {"name": "RandomText", "llm_wrapper_factory": llm_wrapper_factories["azure"]}),
         # ("FewPromptsObfuscator", {"name": "TwoPromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_list, "prompt_prefix": cpprefix}),
         # ("ThreePromptsObfuscator", {"name": "ThreePromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": three_prompt_list, "prompt_prefix": cpprefix})
-        ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": context_reletive, "prompt_prefix": cpprefix}),
+        ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive, "prompt_prefix": cpprefix}),
+        ("DictionaryObfuscator", {"name": "DictionaryObfuscator", "path": os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", os.getenv("DATE"),"finance_combined_dictonary.json")})
         # ("ContextOnlyObfuscator", {"name": "ContextOnlyObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive, "prompt_prefix": cpprefix})
     ]
 
@@ -124,20 +128,20 @@ def main():
         loaded_obfuscators.append((obfuscator_name, obfuscator_factories[obfuscator_name](args)) )
 
     
-    data_to_use = "wiki_data_W&S_set.json"
+    data_to_use = "finance_data_set.json"
 
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","21-08-2024",data_to_use)
-    with open(inputfile_path, 'r') as file:
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data", "September-2024", os.getenv("DATE") ,data_to_use)
+    with open(inputfile_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     prompt_path = os.path.join(os.path.dirname(__file__), "prompts", "", "gpt_evaluator", "gpt_evaluator_promt.txt")
-    evaluator = lambda : GPTAndEmbeddingEvaluator()
+    evaluator = lambda : GPTEmbeddingAndPChangedEvaluator()
 
 
-    metrics = evaluate_with_obfuscators([data[14]], loaded_obfuscators, logger, evaluator)
+    metrics = evaluate_with_obfuscators(data[45:], loaded_obfuscators, logger, evaluator)
 
-    metrics_filename = "RESULTS_" + str(datetime.now()).replace(' ', '_').replace(':', '_') + ".json"
-    output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data","22-08-2024")
+    metrics_filename = "FINANCE_RESULTS_" + str(datetime.now()).replace(' ', '_').replace(':', '_') + ".json"
+    output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data", "September-2024", os.getenv("DATE"))
     os.makedirs(output_folder_path,exist_ok=True)
     json.dump(metrics, open(os.path.join(output_folder_path,metrics_filename), "w", encoding = 'utf-8'), ensure_ascii= False , indent=4)
 
@@ -148,10 +152,3 @@ if __name__ == "__main__":
     main()
 
 
-"""
-for sunday: run wiki_data_W&S_set with azure - done
-then with ollama - doing now
-then wiki_data_W&Q_set with ollama
-
-go over data, make nice presentation with intresting points
-"""

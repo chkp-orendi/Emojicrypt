@@ -55,13 +55,17 @@ class PlotClass:
     
     def generate_statistic_figure(self,prompt_metrics: List[str],answer_metrics: List[str], list_messurements: List[Tuple[str,Callable[[pd.Series], float]]]):
         agg_dict = {}
-        for prompt_metric,answer_metric in zip(prompt_metrics,answer_metrics):
+
+        for prompt_metric in prompt_metrics:
             for messurement_name, messurement_function in list_messurements:
                 agg_dict[f"{messurement_name} {prompt_metric}"] = (prompt_metric, messurement_function)
+        for answer_metric in answer_metrics:
+            for messurement_name, messurement_function in list_messurements:
                 agg_dict[f"{messurement_name} {answer_metric}"] = (answer_metric, messurement_function)
 
                 
         value_vars = list(agg_dict.keys())
+        agg_dict = {k:v for k,v in sorted(agg_dict.items(), key=lambda x: x[0])}
         stats_df = self._df.groupby(['ObfuscatorName']).agg(**agg_dict).reset_index()
 
         # Melt the DataFrame to have a long-form DataFrame suitable for Plotly
@@ -89,13 +93,27 @@ class PlotClass:
                 obfuscator_name = annotation.text.split('=')[1]
                 annotation.text = f'{obfuscator_name}'
     
+
+        # fig.update_layout(xaxis={'categoryorder':'category descending'})
+        fig.update_xaxes(categoryorder='array', categoryarray= ['average prompt_metric_llm_similarity',
+                                                                'average answer_metric_llm_similarity',
+                                                                'top decile prompt_metric_llm_similarity',
+                                                                'top decile answer_metric_llm_similarity',
+                                                                'bottom decile prompt_metric_llm_similarity',
+                                                                'bottom decile answer_metric_llm_similarity',
+                                                                'average prompt_metric_precentage_of_changed_word',
+                                                                'average answer_metric_precentage_of_changed_word',
+                                                                'top decile prompt_metric_precentage_of_changed_word',
+                                                                'top decile answer_metric_precentage_of_changed_word',
+                                                                'bottom decile prompt_metric_precentage_of_changed_word',
+                                                                'bottom decile answer_metric_precentage_of_changed_word'])
         return fig
     
 
     def show_statistic_graph(self,prompt_metric: List[str],answer_metric: List[str], list_messurements: List[Tuple[str,Callable[[pd.Series], float]]]):
         self.generate_statistic_figure(prompt_metric,answer_metric, list_messurements).show()
-    def save_statistic_graph(self,prompt_metric,answer_metric,save_path):
-        self.generate_statistic_figure(prompt_metric,answer_metric).write_html(save_path + "_statistic_graph.html")
+    def save_statistic_graph(self,prompt_metric,answer_metric, list_messurements, save_path):
+        self.generate_statistic_figure(prompt_metric,answer_metric, list_messurements).write_html(save_path + "_statistic_graph.html")
 
     def generate_individual_figure(self,prompt_metric,answer_metric,sample_size):
         np.random.seed(0)
@@ -167,17 +185,17 @@ class PlotClass:
         #     ).show()
 
 if __name__ == "__main__":
-    file_name = "wiki_W&Q_fake_RESULTS.json"
+    file_name = "FINANCE_RESULT.json"
     
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","22-08-2024", file_name)
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", os.getenv("DATE"), file_name)
     metrics = ["prompt_metric","answer_metric"]
     
     graph = PlotClass(inputfile_path, metrics)
 
 
-    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","phase-1-results")
+    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024")
     os.makedirs(outputfile_folder, exist_ok=True)
-    outputfile_path = os.path.join(outputfile_folder, file_name.strip(".json"))
+    outputfile_path = os.path.join(outputfile_folder, "unwanted emoji")
 
     list_messurements = [
         ("average", 'mean'),
@@ -186,4 +204,7 @@ if __name__ == "__main__":
     ]
 
     # graph.show_statistic_graph(["prompt_metric_llm_similarity"],["answer_metric_llm_similarity"],list_messurements)
-    graph.show_statistic_graph(["prompt_metric_llm_similarity"],["answer_metric_llm_similarity"],list_messurements)
+    # graph.save_statistic_graph(["prompt_metric_llm_similarity", "prompt_metric_precentage_of_changed_word"],["answer_metric_llm_similarity", "answer_metric_precentage_of_changed_word"],list_messurements,outputfile_folder)
+    graph.show_statistic_graph(["prompt_metric_llm_similarity", "prompt_metric_precentage_of_changed_word"],["answer_metric_llm_similarity", "answer_metric_precentage_of_changed_word"],list_messurements)
+    # graph.save_statistic_graph([],["answer_metric_unwanted_emoji"],[( "average", 'mean'),("count", lambda x: (x > 0).sum())], outputfile_path)
+    # graph.show_statistic_graph([],["answer_metric_unwanted_emoji"],[( "average", 'mean'),("count", lambda x: (x > 0).sum())])

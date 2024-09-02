@@ -1,11 +1,11 @@
 import sys
 import os
 from typing import Self
-from dotenv import load_dotenv 
+
 from logging import Logger, getLogger
 from src.Obfuscators.obfuscator_template import Obfuscator
 from typing import Dict, List, Union
-
+from dotenv import load_dotenv 
 load_dotenv()
 sys.path.append(os.getenv("PROJECT_PATH"))
 from src.Obfuscators.obfuscator_template import Obfuscator

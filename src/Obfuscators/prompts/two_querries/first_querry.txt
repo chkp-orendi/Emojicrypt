@@ -1,14 +1,12 @@
 Convert the following text to a list of technical terms in the format $LIST: [ex1, ex2, ...]
-Make sure the terms are in the text exactly.
+Make sure the terms are in the text exactly and try to list many words.
 Here are examples how to use all the rules to make a list to the text with the format $LIST: [ex1, ex2, ...].
 
-Context: The Python programming language, created by Guido van Rossum and first released in 1991, is a high-level, interpreted programming language that emphasizes code readability. Python's design philosophy prioritizes the use of white space and less cluttered syntax, making it easier for programmers to write clear, logical code for small and large-scale projects. Python supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python interpreters are available for many operating systems, allowing Python code execution on a wide variety of systems.
-Question: What are some of the key features of the Python programming language that contribute to its popularity among programmers?
+Example:
+Alligators are powerful reptiles commonly found in freshwater habitats such as swamps, rivers, and lakes in the southeastern United States. These ancient creatures have been around for millions of years, surviving through various environmental changes. Alligators are apex predators, meaning they sit at the top of the food chain, feeding on a variety of animals, including fish, birds, and small mammals. Despite their fearsome reputation, alligators are generally shy and avoid human contact unless provoked or threatened.
+What is the role of alligators in their ecosystem, and how do they typically interact with humans?
 
-Out put: $LIST: [Python programming language, interpreted programming language, code readability, cluttered syntax, procedural, object-oriented, functional programming, Python interpreters, operating systems, Python code, systems]
-
-Text: "What are the advantages and disadvantages of using a NoSQL database compared to a traditional relational database for handling large-scale, unstructured data?"
-Out put: $LIST: [NoSQL database, relational database, large-scale data, unstructured data]
+Out put: $LIST: [Alligators ,powerful reptiles, freshwater, swamps, rivers, Lakes, Apex predators, Food chain, Environmental changes, Ecosystem, feeding, animals, fish, birds, mammals, fearsome, human contact, provoked, threatened]
 
 
 Now convert the following text:

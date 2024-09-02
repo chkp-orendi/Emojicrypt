@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 from datetime import datetime
 
 
@@ -19,6 +20,8 @@ class SingleCaseEvaluator:
         obfuscated_prompt = self._obf.obfuscate(case_data)
         obfuscated_answer = get_answer(obfuscated_prompt)
         deobfuscated_answer = self._obf.deobfuscate(obfuscated_answer)
+        case_data["used_dictionary"] = self._obf.get_dictionary()
+        case_data["obfuscated_answer"] = obfuscated_answer
         prompt_metric_reasoning, prompt_metric = self._evaluator.evaluate_prompt(obfuscated_prompt, case_data)
         answer_metric_reasoning, answer_metric = self._evaluator.evaluate_answer(deobfuscated_answer, case_data)
         obfuscated_dictonary = self._obf.get_dictionary()
@@ -61,4 +64,7 @@ def evaluate_batch(data_set, obfuscator,logger, evaluator_factory):
         logger.info(f"case {i}")
         i += 1
         metrics.append(evaluator.evaluate(case))
+
+        output_folder_path = os.path.join(os.getenv("PROJECT_PATH"),"data", "September-2024", os.getenv("DATE"))
+        json.dump(metrics, open(os.path.join(output_folder_path,"checkpoint.json"), "w", encoding = 'utf-8'), ensure_ascii= False , indent=4)
     return metrics

@@ -1,11 +1,9 @@
 Given the following list {lst}
-Provided an obfuscator for the words in relation to the context using emojis that will be hard to understand by a human but will be understood by llm. The keys and values shuld be UNIQUE.
+Provided an obfuscator for the words in relation to the context using complex emojis sequence that will be hard to understand by a human but will be understood by llm. The keys and values shuld be UNIQUE.
 Return in the format $Dict [value1:obfuscator1, value2: obfuscator2,....]
 
 Example:
-
-Text: "What are the advantages and disadvantages of using a NoSQL database compared to a traditional relational database for handling large-scale, unstructured data?"
-Out put: $LIST: [NoSQL database, relational database, large-scale data, unstructured data]
-Output: $Dict: [NoSQL database:📚🚫🗃️, relational database:📚🔗🗃️, large-scale data:📊🌐📈, unstructured data:📂❓📄]
+List: [Alligators ,powerful reptiles, freshwater, swamps, rivers, Lakes, Apex predators, Food chain, Environmental changes, Ecosystem]
+Output: $Dict: [Alligators: 🐊🌿🌊🦷 ,powerful reptiles: 💪🦎🛡️🔥, freshwater: 💧🚰🏞️🌀🐟, swamps: 🌾🐸🪵, rivers: 🏞️⛵🐠🌊, Lakes: 🌊🐢, Apex predators: 🔝🦁💥, Food chain: 🍽️🔗🍗, Environmental changes: 🌍🔄🌀, Ecosystem: 🏞️🔄🦋, feeding:🍴🍖🍲 , animals: 🦓🦔🐾, fish:🎣🐟 , birds: 🦅🕊️, mammals:🦣🦇🧬, fearsome :🧛‍♂️👹😱, human contact: 👤👀🚫, provoked:🚨🆘⚠️, threatend: ⚔️🛡️]
 
 Now return $Dict on the list you provided

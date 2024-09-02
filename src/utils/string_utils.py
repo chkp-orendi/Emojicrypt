@@ -4,7 +4,7 @@ import re
 import os
 import logging
 from typing import Optional
-
+import emoji
 
 break_word_characters = [
     ' ',  # Space
@@ -156,10 +156,30 @@ def init_logs(log_path: str,test_case: str) -> logging.Logger:
     return logger
 
 def smart_replace(text: str, replacements: dict[str,str]) -> str:
-    replaced_text = text
+    replaced_text = text.lower()
     break_word_pattern = '[' + re.escape(''.join(break_word_characters_without_bracket)) + ']'
     
     for key, value in sorted(replacements.items(),key=lambda x: len(x[0]), reverse=True):
-        pattern = r'((?<=' + break_word_pattern + r')|^)' + re.escape(key) + r'((?=' + break_word_pattern + r')|$)'
+        pattern = r'((?<=' + break_word_pattern + r')|^)' + re.escape(key.lower()) + r'((?=' + break_word_pattern + r')|$)'
         replaced_text = re.sub(pattern, value, replaced_text, 0)
     return replaced_text
+
+
+
+def contains_emoji(word):
+    return any(char in emoji.EMOJI_DATA for char in word)
+
+def unwanted_emoji_counter(text: str, dict_s_t_e: dict):
+    """
+    count number of emoji not in the dictionary.
+    expected to get dictionary string to emoji
+    """
+    text_copy = text
+    for value in dict_s_t_e.values():
+        text_copy = text_copy.replace(value, '') # remove emoji from text 
+    
+    count = 0
+    for word in text_copy.split():
+        if contains_emoji(word):
+            count += 1
+    return count

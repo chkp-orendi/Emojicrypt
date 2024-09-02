@@ -30,3 +30,5 @@ class OllamaClient:
 
     def get_history(self: Self):
         return self._chat_history
+    
+

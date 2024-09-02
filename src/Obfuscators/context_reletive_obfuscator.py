@@ -18,8 +18,8 @@ def make_context_reletive_obfuscator(args: Dict):
 
 class ContextReletiveObfuscator(Obfuscator):
     def __init__(self, name: str, llm_wrapper_factory, prompt_list: list, prompt_prefix=""):
-        self._prompt_dict = prompt_list[1]
         self._prompt_list = prompt_list[0]
+        self._prompt_dict = prompt_list[1]
         self._llm_wrapper_factory = llm_wrapper_factory
         self._term_list = []
         self._dictionary_used = {}
@@ -79,7 +79,6 @@ class ContextReletiveObfuscator(Obfuscator):
     def deobfuscate(self, obfuscated_answer):
         deobfuscated_answer = obfuscated_answer
         deobfuscated_answer = smart_replace(deobfuscated_answer, {v:k for k,v in self._dictionary_used.items()})
-        print(self._llm_wrapper.get_history())
         return deobfuscated_answer
 
 
