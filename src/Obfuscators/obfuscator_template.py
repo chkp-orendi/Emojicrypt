@@ -16,5 +16,6 @@ class Obfuscator:
             return self._dictionary_used
         return {}
     
+    
     def get_name(self) -> str:
         return self._name

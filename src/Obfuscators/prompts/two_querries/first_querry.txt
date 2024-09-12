@@ -1,5 +1,9 @@
-Convert the following text to a list of technical terms in the format $LIST: [ex1, ex2, ...]
-Make sure the terms are in the text exactly and try to list many words.
+Convert the following text to a list of technical terms, nouns, verbs and adjective from the text in the format $LIST: [ex1, ex2, ...]
+1. The technical terms must appear in the text exactly as they are.
+2. Do not include linking words in the list.
+3. If both the singular and plural forms of a term appear in the text, add both.
+4. It is crucial that the output contains at least 60% of the words from the original text, so please calculate this percentage accurately.
+
 Here are examples how to use all the rules to make a list to the text with the format $LIST: [ex1, ex2, ...].
 
 Example:
@@ -9,5 +13,5 @@ What is the role of alligators in their ecosystem, and how do they typically int
 Out put: $LIST: [Alligators ,powerful reptiles, freshwater, swamps, rivers, Lakes, Apex predators, Food chain, Environmental changes, Ecosystem, feeding, animals, fish, birds, mammals, fearsome, human contact, provoked, threatened]
 
 
-Now convert the following text:
+Think carefully and explain how is the list you provided at least 60% of the words in the text:
 {text}

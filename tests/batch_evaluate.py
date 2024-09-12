@@ -2,7 +2,7 @@ import os
 import sys
 import json
 from datetime import datetime
-
+import logging
 
 from dotenv import load_dotenv 
 load_dotenv()
@@ -22,29 +22,12 @@ class SingleCaseEvaluator:
         deobfuscated_answer = self._obf.deobfuscate(obfuscated_answer)
         case_data["used_dictionary"] = self._obf.get_dictionary()
         case_data["obfuscated_answer"] = obfuscated_answer
-        prompt_metric_reasoning, prompt_metric = self._evaluator.evaluate_prompt(obfuscated_prompt, case_data)
+
+        prompt_metric_reasoning, prompt_metric, guess_results = self._evaluator.evaluate_prompt(obfuscated_prompt, case_data)
         answer_metric_reasoning, answer_metric = self._evaluator.evaluate_answer(deobfuscated_answer, case_data)
         obfuscated_dictonary = self._obf.get_dictionary()
         eval_time = datetime.now() - time
-        self.logger.info(f"""
-obfuscated prompt: {obfuscated_prompt}
-obfuscated answer: {obfuscated_answer}
-deobfuscated_answer: {deobfuscated_answer}
-prompt_metric: {prompt_metric}
-prompt_metric reasoning: {prompt_metric_reasoning}
-answer_metric: {answer_metric}
-answer_metric reasoning: {answer_metric_reasoning}
-obfuscated_dictonary: {obfuscated_dictonary}
-evaluation time: {eval_time}""")
-#         print(f"""
-# obfuscated prompt: {obfuscated_prompt}
-# obfuscated answer: {obfuscated_answer}
-# deobfuscated_answer: {deobfuscated_answer}
-# prompt_metric: {prompt_metric}
-# answer_metric: {answer_metric}
-# obfuscated_dictonary: {obfuscated_dictonary}
-# evaluation time: {eval_time}""")
-        return  {
+        eval_results = {
             "original_prompt": case_data["original_prompt"],
             "obfuscated_prompt": obfuscated_prompt, "obfuscated_answer":obfuscated_answer,
             "deobfuscated_answer": deobfuscated_answer, "original_answer": case_data["original_answer"],
@@ -53,15 +36,22 @@ evaluation time: {eval_time}""")
             "obfuscated_dictonary": obfuscated_dictonary,
             "evaluation time": str(eval_time)
         }
+        if guess_results["number_of_emoji_in_prompt"]!=0:
+            eval_results["prompt_metric"]["guessed_correct"] = guess_results["guessed_correct"]/guess_results["number_of_emoji_in_prompt"]
+        eval_results.update(guess_results)
+        self.logger.info(eval_results)
 
-def evaluate_batch(data_set, obfuscator,logger, evaluator_factory):
+        return  eval_results
+
+def evaluate_batch(data_set, obfuscator, evaluator_factory):
     #use pandas frame?
     metrics = []
+    logger = logging.getLogger("__main__")
     evaluator = SingleCaseEvaluator(obfuscator,logger, evaluator_factory)
     i =0
     for case in data_set:
         print(i)
-        logger.info(f"case {i}")
+        # logger.info(f"case {i}")
         i += 1
         metrics.append(evaluator.evaluate(case))
 

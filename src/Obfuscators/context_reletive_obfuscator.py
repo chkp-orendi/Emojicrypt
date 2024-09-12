@@ -14,22 +14,26 @@ def make_context_reletive_obfuscator(args: Dict):
     return lambda: ContextReletiveObfuscator(name = args["name"],
                                         llm_wrapper_factory=args["llm_wrapper_factory"],
                                         prompt_list=args["prompt_list"],
-                                        prompt_prefix=args["prompt_prefix"])
+                                        prompt_prefix=args["prompt_prefix"],
+                                        percentage = args["percentage"])
 
 class ContextReletiveObfuscator(Obfuscator):
-    def __init__(self, name: str, llm_wrapper_factory, prompt_list: list, prompt_prefix=""):
+    def __init__(self, name: str, llm_wrapper_factory, prompt_list: list, prompt_prefix="", percentage = 0):
         self._prompt_list = prompt_list[0]
         self._prompt_dict = prompt_list[1]
         self._llm_wrapper_factory = llm_wrapper_factory
         self._term_list = []
         self._dictionary_used = {}
         self._prompt_prefix = prompt_prefix
+        self._percentage = percentage
         self._logger = getLogger("__main__")
         super().__init__(name)
 
 
     def _extract_terms(self, user_prompt):       
-        response_text = self._llm_wrapper.send_query(self._prompt_list.format(text=user_prompt))
+        response_text = self._llm_wrapper.send_query(self._prompt_list.format(text=user_prompt, percentage=self._percentage), max_tokens= 4000)
+        print("_______________________")
+        print(response_text.split('\n')[-3:])
         self._term_list = extract_list(response_text)
 
     def _fix_list(self, terms_list: list):
@@ -54,10 +58,11 @@ class ContextReletiveObfuscator(Obfuscator):
             
 
     def _extract_dict(self):
-        response_text = self._llm_wrapper.send_query(self._prompt_dict.format(lst=self._term_list))       
+        response_text = self._llm_wrapper.send_query(self._prompt_dict.format(lst=self._term_list), max_tokens= 4000)  
+        print(response_text.split('\n')[-3:])
         extracted_dict = extract_dict(response_text)
-        fixed_dict = self._fix_dict(extracted_dict)
-        self._dictionary_used = fixed_dict
+        # fixed_dict = self._fix_dict(extracted_dict)
+        self._dictionary_used = extracted_dict
 
     def obfuscate(self, user_prompt):
         self._llm_wrapper = self._llm_wrapper_factory()

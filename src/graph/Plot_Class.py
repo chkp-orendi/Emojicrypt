@@ -46,6 +46,8 @@ class PlotClass:
         df_list = []
         for obfuscator in data:
             df_structure = pd.DataFrame(obfuscator[1])
+            if obfuscator[0] == "ContextReletiveObfuscator":
+                df_structure['ObfuscatorName'] = "ContextRelativeObfuscator"
             df_structure['ObfuscatorName'] = obfuscator[0]
             df_structure['question_index'] = df_structure.index 
 
@@ -66,6 +68,7 @@ class PlotClass:
                 
         value_vars = list(agg_dict.keys())
         agg_dict = {k:v for k,v in sorted(agg_dict.items(), key=lambda x: x[0])}
+        # dict(sorted(agg_dict.items()))
         stats_df = self._df.groupby(['ObfuscatorName']).agg(**agg_dict).reset_index()
 
         # Melt the DataFrame to have a long-form DataFrame suitable for Plotly
@@ -88,25 +91,33 @@ class PlotClass:
         fig.update_traces(width=0.5)
 
         # Rename the title of each subplot
+    
         for annotation in fig.layout.annotations:
             if 'ObfuscatorName=' in annotation.text:
                 obfuscator_name = annotation.text.split('=')[1]
                 annotation.text = f'{obfuscator_name}'
     
+        # sorted_annotations = sorted(fig.layout.annotations, key=lambda x: int(x.text.split('-')[1]))
+        sorted_annotations = fig.layout.annotations
+        print(sorted_annotations)
+        fig.layout.annotations = sorted_annotations
+
 
         # fig.update_layout(xaxis={'categoryorder':'category descending'})
-        fig.update_xaxes(categoryorder='array', categoryarray= ['average prompt_metric_llm_similarity',
+        fig.update_xaxes(categoryorder='array', categoryarray= ['average prompt_metric_llm_score',
                                                                 'average answer_metric_llm_similarity',
-                                                                'top decile prompt_metric_llm_similarity',
-                                                                'top decile answer_metric_llm_similarity',
-                                                                'bottom decile prompt_metric_llm_similarity',
-                                                                'bottom decile answer_metric_llm_similarity',
                                                                 'average prompt_metric_precentage_of_changed_word',
-                                                                'average answer_metric_precentage_of_changed_word',
-                                                                'top decile prompt_metric_precentage_of_changed_word',
-                                                                'top decile answer_metric_precentage_of_changed_word',
-                                                                'bottom decile prompt_metric_precentage_of_changed_word',
-                                                                'bottom decile answer_metric_precentage_of_changed_word'])
+                                                                'average prompt_metric_guessed_correct',
+                                                                # 'average score for decryption attemp'
+                                                                # 'top decile prompt_metric_llm_similarity',
+                                                                # 'top decile answer_metric_llm_similarity',
+                                                                # 'bottom decile prompt_metric_llm_similarity',
+                                                                # 'bottom decile answer_metric_llm_similarity',
+                                                                # 'top decile prompt_metric_precentage_of_changed_word',
+                                                                # 'top decile answer_metric_precentage_of_changed_word',
+                                                                # 'bottom decile prompt_metric_precentage_of_changed_word',
+                                                                # 'bottom decile answer_metric_precentage_of_changed_word'
+                                                                ])
         return fig
     
 
@@ -185,26 +196,26 @@ class PlotClass:
         #     ).show()
 
 if __name__ == "__main__":
-    file_name = "FINANCE_RESULT.json"
+    file_name = "Smart random and context checkpoint.json"
     
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", os.getenv("DATE"), file_name)
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", "2024-09-11", file_name)
     metrics = ["prompt_metric","answer_metric"]
     
     graph = PlotClass(inputfile_path, metrics)
 
 
-    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024")
+    outputfile_folder = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", os.getenv("DATE"))
     os.makedirs(outputfile_folder, exist_ok=True)
-    outputfile_path = os.path.join(outputfile_folder, "unwanted emoji")
+    outputfile_path = os.path.join(outputfile_folder, "software development results fixed")
 
     list_messurements = [
-        ("average", 'mean'),
-        ("top decile", lambda x: x.quantile(0.9)),
-        ("bottom decile", lambda x: x.quantile(0.1))
+        ("average", 'mean')
+        # ("top decile", lambda x: x.quantile(0.9)),
+        # ("bottom decile", lambda x: x.quantile(0.1))
     ]
 
     # graph.show_statistic_graph(["prompt_metric_llm_similarity"],["answer_metric_llm_similarity"],list_messurements)
     # graph.save_statistic_graph(["prompt_metric_llm_similarity", "prompt_metric_precentage_of_changed_word"],["answer_metric_llm_similarity", "answer_metric_precentage_of_changed_word"],list_messurements,outputfile_folder)
-    graph.show_statistic_graph(["prompt_metric_llm_similarity", "prompt_metric_precentage_of_changed_word"],["answer_metric_llm_similarity", "answer_metric_precentage_of_changed_word"],list_messurements)
+    graph.show_statistic_graph(["prompt_metric_llm_score", "prompt_metric_precentage_of_changed_word", "prompt_metric_guessed_correct"],["answer_metric_llm_similarity"],list_messurements)
     # graph.save_statistic_graph([],["answer_metric_unwanted_emoji"],[( "average", 'mean'),("count", lambda x: (x > 0).sum())], outputfile_path)
     # graph.show_statistic_graph([],["answer_metric_unwanted_emoji"],[( "average", 'mean'),("count", lambda x: (x > 0).sum())])

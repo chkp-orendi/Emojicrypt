@@ -22,9 +22,9 @@ class OllamaClient:
         'content': content,
     })
 
-    def send_query(self: Self, text: str):
+    def send_query(self: Self, text: str, max_tokens= os.getenv("MAX_TOKENS")) -> str :
         self.update_chat_history('user', text)
-        llm_response = self._client.chat(model=self._model, messages=self._chat_history,options={"temperature": self._temperature, "max_tokens": 200})
+        llm_response = self._client.chat(model=self._model, messages=self._chat_history,options={"temperature": self._temperature, "max_tokens": max_tokens})
         self.update_chat_history('assistant', llm_response["message"]["content"])
         return llm_response["message"]["content"]
 
@@ -32,3 +32,5 @@ class OllamaClient:
         return self._chat_history
     
 
+# client = OllamaClient("llama3:8b", "../", "llama3:8b", 0.0)
+# print(client.send_query("hello"))

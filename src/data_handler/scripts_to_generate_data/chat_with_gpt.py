@@ -143,24 +143,27 @@ def main():
     # chat_generate_query.set_random_history_pool(file_path)
     chat_generate_query.update_chat_history("user", """
 I am trying to generate prompt for LLM test I am going to run.
-I need to generate unique paragraphs on topics related to company finance and a question about them. 
+I need to generate unique paragraphs on topics related to process of software development and a question about them. 
 But the prompts list I generate have many duplicates. Here they are:
-"Write a paragraph on the impact of cash flow management on the long-term sustainability of a business. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
-"Write a paragraph on the role of financial forecasting in strategic decision-making for companies. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
-"Write a paragraph on the importance of maintaining a balanced capital structure for minimizing financial risk. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
-"Write a paragraph on the effects of interest rate fluctuations on corporate debt management strategies. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
-"Write a paragraph on the significance of corporate governance in ensuring financial transparency and accountability. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it."
+"Write a paragraph on the process of software development, specify the tools, technologies and methodologies used. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
+"Write a paragraph on the role of Agile Development Methodologies and how it helps in the development process. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
+"Write a paragraph on the importance of QA and running test through out the whole software development process. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
+"Write a paragraph on when should a company refactor its code and optimized it. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.",
                                                                                               
                                             
 can you help me generate new unique prompts of the format:
 Write a paragraph on <some unique topic>. Write a question that is based on the paragraph directly, and incorporates some of the main terms from it.
-Make 300 new examples and return a json to me.""")
+Make 100 new examples and return a json to me.""")
     
     new_data = get_json_with_histroy(chat_generate_query.chat_history, model, 1.0, max_tokens=4096)
-
+    print(new_data)
+    if new_data[-1] not in ["}", "]"]:
+        chat_generate_query.update_chat_history("assistant", new_data)
+        chat_generate_query.update_chat_history("user", "your answer was cut off, can you continue the json?")
+        new_data += get_json_with_histroy(chat_generate_query.chat_history, model, 1.0, max_tokens=4096)
     print(new_data)
 
-    output_file_path = os.path.join(os.getenv("PROJECT_PATH"),"data", "September-2024", "01" ,"finance_data_set" + datetime.now().strftime("_%H_%M") +".json")
+    output_file_path = os.path.join(os.getenv("PROJECT_PATH"),"data", "September-2024", os.getenv("DATE") ,"software development data set"+".json")
     json.dump(new_data, open(output_file_path, "w", encoding = 'utf-8'), ensure_ascii= False , indent=4)
     print("Data saved at: ", output_file_path)
 

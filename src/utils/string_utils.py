@@ -94,14 +94,15 @@ def extract_question(LLM_answer: str) -> Optional[str]:
 
 # List is in the foramt for: $LIST: [word1,words2,...]
 def extract_list(LLM_answer: str) -> list:
-        ANSWER_PATTERN = r'\$LIST:\s*\[(.*?)\]'
+        ANSWER_PATTERN = r'''\[(\s*(?:["'](([^"\\]|\\.)*)["'](?:,\s*)?)*\s*)\]'''
         answer_list = re.findall(ANSWER_PATTERN, LLM_answer)
         if len(answer_list) >= 1:
-            last_occurrence = answer_list[-1]  # return last occurrence of pattern.
+            last_occurrence = answer_list[-1]  # return last occurrence of pattern. 
+            last_occurrence = last_occurrence[0]  # return longest occurrence of pattern. 
         else:
             return []
+        return [token.strip("\"' \t\n") for token in last_occurrence.split(',')]
 
-        return [token.strip("' \t") for token in last_occurrence.split(',')]
 
 def fix_dict_ending(dictonary_str: str) -> str:
     """
@@ -111,31 +112,24 @@ Correct the ending, remove sequence after ',' and add ] at the end
     return dictonary_str[:dictonary_str.rfind(",")] + "]"
 
 
-# dict is in the foramt for: $Dict:  [word1:key1,words2:key2,...]
 def extract_dict(LLM_answer):
-        ANSWER_PATTERN = r'\$Dict:\s*\[\s*((?:.|\n)+)\s*\]'
-        LLM_answer_fixed = fix_dict_ending(LLM_answer)
-        # ANSWER_PATTERN = r'\$Dict:\s*\[(?:\s*[^:\[\],]+:[^:\[\],]+\s*,)*\s*[^:\[\],]+:[^:\[\],]+\s*\]'
-        answer_list = re.findall(ANSWER_PATTERN, LLM_answer_fixed)
-        if len(answer_list) >= 1:
-            answer_list = answer_list[-1]  # return last occurrence of pattern.
-        else:
-            return {}
-        
+        json_begin = False
         words_replacements = {}
-        answer_list = answer_list.replace("$Dict:", "").strip("[] \"")
-        for item in answer_list.split(","):
-            splited_item = item.split(":")
-            if len(splited_item) !=2:
-                print("INVALID ITEM")
-                print(splited_item)
-                print(LLM_answer_fixed)
+        for line in LLM_answer.split("\n"):
+            if not json_begin:
+                json_begin = True if "{" in line else False
                 continue
-            key = item.split(":")[0].strip(''.join(break_word_characters_without_bracket))
-            value = item.split(":")[1].strip(''.join(break_word_characters_without_bracket))
+            items = line.split(":")
+            if len(items) != 2 or items[0] == '' or items[1] == '':
+                print("INVALID ITEM")
+                print(items)
+                continue
+            key = items[0].strip(''.join(break_word_characters_without_bracket))
+            value = items[1].strip(''.join(break_word_characters_without_bracket))
             if key not in words_replacements.keys() and value not in words_replacements.values():
                 words_replacements[key] = value
         return words_replacements
+        
 
 def extract_number(text: str) -> float:
     # Use regular expression to find all numbers in the text
@@ -146,8 +140,31 @@ def extract_number(text: str) -> float:
         return float(match.group(1))
     else:
         return None
-    
-    
+
+
+def extract_json_list(text: str) -> list:
+    extracted_list =[]
+    try:
+        for line in text.split("\n")[2:-2]:
+            extracted_list.append(line.strip('". / \n \t,'))
+    except Exception as e:
+        print(f"Error in extracting list {e}")
+    return extracted_list
+
+def extract_json_dict(text: str) -> dict:
+    extracted_dict = {}
+    for line in text.split("\n")[1:-1]:
+        splited_item = line.split(":")
+        if len(splited_item) !=2:
+            print("INVALID ITEM")
+            print(splited_item)
+            continue
+        key = splited_item[0].strip(''.join(break_word_characters_without_bracket))
+        value = splited_item[1].strip(''.join(break_word_characters_without_bracket))
+        if key not in extracted_dict.keys() and value not in extracted_dict.values():
+            extracted_dict[key] = value
+    return extracted_dict
+
 def init_logs(log_path: str,test_case: str) -> logging.Logger:
     log_file_path = os.path.expanduser(log_path)
 
@@ -156,6 +173,10 @@ def init_logs(log_path: str,test_case: str) -> logging.Logger:
     return logger
 
 def smart_replace(text: str, replacements: dict[str,str]) -> str:
+    """
+    Dictionary should be string -> emoji
+    """
+
     replaced_text = text.lower()
     break_word_pattern = '[' + re.escape(''.join(break_word_characters_without_bracket)) + ']'
     
@@ -166,10 +187,10 @@ def smart_replace(text: str, replacements: dict[str,str]) -> str:
 
 
 
-def contains_emoji(word):
+def contains_emoji(word:str) -> bool:
     return any(char in emoji.EMOJI_DATA for char in word)
 
-def unwanted_emoji_counter(text: str, dict_s_t_e: dict):
+def unwanted_emoji_counter(text: str, dict_s_t_e: dict) -> int:
     """
     count number of emoji not in the dictionary.
     expected to get dictionary string to emoji

@@ -1,6 +1,7 @@
 import os
 import sys
 from typing import Dict
+import re
 
 from dotenv import load_dotenv 
 from logging import Logger, getLogger
@@ -12,27 +13,41 @@ sys.path.append(os.getenv("PROJECT_PATH"))
 
 from src.Evaluators.evaluator_template import EvaluatorTemplate
 from src.utils.azure_client import get_answer, get_embedding, cosine_similarity
-from src.utils.string_utils import extract_number
+from src.utils.string_utils import extract_number, break_word_characters
+from src.Evaluators.guess_obfuscators import guess_obfuscators
 
 def precentage_of_changed_word_obfuscating(original_text: str, dictionary_used: Dict):
-        """
-        Get precentage of changed words in the text.
-        """
-        count = 0
-        for key in dictionary_used.keys():              
-            if key in original_text:                                       
-                count += original_text.count(key)
-        return count/len(original_text.split())
-    
-def precentage_of_changed_word_deobfuscating(original_text: str, dictionary_used: Dict):
     """
     Get precentage of changed words in the text.
     """
+    copy_text = original_text
+    number_of_words = len(original_text.split())
     count = 0
-    for value in dictionary_used.values():              
-        if value in original_text:
-            count += original_text.count(value)
-    return count/len(original_text.split())
+    for key in sorted(dictionary_used.keys()):              
+        matches = re.findall(rf'\b{re.escape(key)}\b', copy_text)
+        if matches:
+            copy_text = copy_text.replace(key, "")
+            count += len(matches) * len(key.split())
+    return count/number_of_words
+
+
+def precentage_of_changed_word_deobfuscating(original_text: str, dictionary_used: Dict):
+    """
+    Does not work for now, also not intresting since we dont focus right now on number of emojis returned.
+    """
+    # number_of_words = len(original_text.split())
+    # word_boundary_pattern = f"[{''.join(re.escape(char) for char in break_word_characters)}]"
+    # count =0
+    # for key in dictionary_used.keys():
+    #     # Use regular expression to find all occurrences of the key followed by a custom word boundary
+    #     matches = re.findall(rf'{word_boundary_pattern}{re.escape(key)}{word_boundary_pattern}', original_text)
+    #     if matches:
+    #         print(f"key: {key}")
+    #         print(f"key length: {len(key.split())}")
+    #         print(f"count: {len(matches)}")
+    #         count += len(matches) * len(key.split())
+    # return count / number_of_words
+    return 0
     
 
 
@@ -67,6 +82,15 @@ Please provide the similarity score along with a brief explanation of the ration
         obfuscated_prompt_embedding = get_embedding(obfuscated_prompt_without_prefix)
         ada_similarity = cosine_similarity(case["original_prompt_embedding"], obfuscated_prompt_embedding)
 
+        llm_gussed_answer, guessed_correct, number_of_emoji_in_prompt, correct_guesses_list = guess_obfuscators(case["used_dictionary"],obfuscated_prompt_without_prefix, case["obfuscated_answer"])
+
+        guess_results = {
+            "llm_gussed_answer": llm_gussed_answer,
+            "guessed_correct": guessed_correct,
+            "number_of_emoji_in_prompt": number_of_emoji_in_prompt,
+            "correct_guesses_list": correct_guesses_list
+        }
+
         self.logger.info(f"""evaluate_prompt
 Prompt: {query}
 Answer: {answers}
@@ -74,7 +98,7 @@ llm_similarity: {llm_similarity}
 ada_similarity: {ada_similarity}""")
         
 
-        return answers, {"llm_similarity": llm_similarity, "ada_similarity": ada_similarity, "precentage_of_changed_word": precentage_of_changed_word_obfuscating(case["original_prompt"], case["used_dictionary"])}
+        return answers, {"llm_score": llm_similarity, "ada_similarity": ada_similarity, "precentage_of_changed_word": precentage_of_changed_word_obfuscating(case["original_prompt"], case["used_dictionary"])}, guess_results
 
     def evaluate_answer(self, deobfuscated_answer: str, case: dict):
         query = self.answer_prompt.format(text1=deobfuscated_answer, text2=case["original_answer"])        
