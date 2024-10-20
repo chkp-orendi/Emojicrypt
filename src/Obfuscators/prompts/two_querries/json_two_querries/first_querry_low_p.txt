@@ -1,0 +1,9 @@
+Return a low number of words from the text in a JSON list format. Ensure the list contains at most 10% of the total words from the text.
+
+1. The technical terms must appear in the text exactly as they are.
+2. If both the singular and plural forms of a term appear in the text, add both.
+3. It is crucial that the output contains at most 10% of the words from the original text, so please calculate this percentage accurately.
+
+
+Think carefully how to list at most 10% of the words in the text:
+{text}

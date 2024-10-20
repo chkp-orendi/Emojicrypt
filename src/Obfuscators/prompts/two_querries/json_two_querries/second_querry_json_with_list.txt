@@ -1,0 +1,13 @@
+Given the following list {lst}
+Provide an obfuscator dictionary for the words in relation to the context using very complex emojis sequence that are not straightforward and that will be very hard to understand. The keys and values shuld be UNIQUE.
+For plural and singular nouns, the plural should be the singular obfuscation twice.
+Return in json format: 
+[
+    value1:obfuscator1,
+    value2: obfuscator2,
+    value2s: obfuscator2obfuscator2,
+    value3: obfuscator3,
+    ....
+]
+
+Now return dictionary with unique keys and values on the list provided

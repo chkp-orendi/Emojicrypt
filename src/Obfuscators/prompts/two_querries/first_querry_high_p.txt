@@ -1,0 +1,10 @@
+Return a high number of technical terms, nouns, verbs and adjective from the text in a JSON list format. Ensure the list contains at least 70% of the total words from the text.
+
+1. The technical terms must appear in the text exactly as they are.
+2. Do not include linking words in the list.
+3. If both the singular and plural forms of a term appear in the text, add both.
+4. It is crucial that the output contains at least 70% of the words from the original text, so please calculate this percentage accurately.
+
+
+Think carefully and explain how is the list you provided at least 70% of the words in the text:
+{text}

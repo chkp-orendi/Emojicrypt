@@ -34,3 +34,6 @@ class OllamaClient:
 
 # client = OllamaClient("llama3:8b", "../", "llama3:8b", 0.0)
 # print(client.send_query("hello"))
+
+
+

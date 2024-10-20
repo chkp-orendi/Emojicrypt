@@ -1,0 +1,17 @@
+Convert the following text to a list of technical terms, nouns, verbs and adjective from the text in the format $LIST: [ex1, ex2, ...]
+1. The technical terms must appear in the text exactly as they are.
+2. Do not include linking words in the list.
+3. If both the singular and plural forms of a term appear in the text, add both.
+4. It is crucial that the output contains around {percentage}% of the words from the original text, so please calculate this percentage accurately.
+
+Here are examples how to use all the rules to make a list to the text with the format $LIST: [ex1, ex2, ...].
+
+Example:
+Alligators are powerful reptiles commonly found in freshwater habitats such as swamps, rivers, and lakes in the southeastern United States. These ancient creatures have been around for millions of years, surviving through various environmental changes. Alligators are apex predators, meaning they sit at the top of the food chain, feeding on a variety of animals, including fish, birds, and small mammals. Despite their fearsome reputation, alligators are generally shy and avoid human contact unless provoked or threatened.
+What is the role of alligators in their ecosystem, and how do they typically interact with humans?
+
+Out put: $LIST: [Alligators ,powerful reptiles, freshwater, swamps, rivers, Lakes, Apex predators, Food chain, Environmental changes, Ecosystem, feeding, animals, fish, birds, mammals, fearsome, human contact, provoked, threatened]
+
+
+Think carefully and explain how is the list you provided is around {percentage}% of the words in the text:
+{text}

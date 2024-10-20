@@ -196,9 +196,9 @@ class PlotClass:
         #     ).show()
 
 if __name__ == "__main__":
-    file_name = "Smart random and context checkpoint.json"
+    file_name = "software development - big test.json"
     
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", "2024-09-11", file_name)
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", "2024-09-15", file_name)
     metrics = ["prompt_metric","answer_metric"]
     
     graph = PlotClass(inputfile_path, metrics)

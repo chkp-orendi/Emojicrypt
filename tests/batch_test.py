@@ -28,12 +28,14 @@ from src.Obfuscators.context_reletive_obfuscator import ContextReletiveObfuscato
 from src.Obfuscators.context_only_obfuscator import ContextOnlyObfuscator, make_context_only_obfuscator
 from src.Obfuscators.dictonary_obfuscator import DictonaryObfuscator, make_dict_obfuscator
 from src.Obfuscators.json_obfuscator import JsonObfuscator, make_json_obfuscator
+from src.Obfuscators.phase_1_obfuscator import PhaseOneObfuscator, make_phase_one_obfuscator
 from src.Obfuscators.obfuscator_template import Obfuscator
 
 from src.Evaluators.gpt_evaluator_with_list import GPTWithListEvaluator
 from src.Evaluators.list_embedding_evaluator import ListEmbeddingEvaluator
 from src.Evaluators.gpt_and_embedding_evaluator import GPTAndEmbeddingEvaluator
 from src.Evaluators.llm_embedding_and_precentage_of_change_evaluator import GPTEmbeddingAndPChangedEvaluator
+from src.Evaluators.phase_1_eval import Phase_1_Evaluator
 
 
 
@@ -53,8 +55,8 @@ def init_log():
 
 
 def load_data() -> json:
-    data_to_use = "movie_P&Q_test_data_prepared.json"
-    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data", "September-2024", "2024-09-05" ,data_to_use)
+    data_to_use = "software development data set.json"
+    inputfile_path = os.path.join(os.getenv("PROJECT_PATH"),"data", "September-2024", "2024-09-09" ,data_to_use)
     with open(inputfile_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
     return data
@@ -78,7 +80,7 @@ def run_test(data: json, obfuscators: list[Callable[[],Obfuscator]], evaluator_f
     
 
 def get_evalutor() -> Callable[[], EvaluatorTemplate]:
-    return lambda: GPTEmbeddingAndPChangedEvaluator()
+    return lambda: Phase_1_Evaluator()
 
 def load_obfuscators_data():
     global cpprefix
@@ -165,7 +167,8 @@ def get_obfuscators() -> list[Obfuscator]:
     "ContextReletiveObfuscator": make_context_reletive_obfuscator,
     # "ContextOnlyObfuscator": make_context_only_obfuscator
     "DictionaryObfuscator": make_dict_obfuscator,
-    "JsonObfuscator": make_json_obfuscator
+    "JsonObfuscator": make_json_obfuscator,
+    "PhaseOneObfuscator": make_phase_one_obfuscator
     }
 
     obfuscators_details = [
@@ -173,26 +176,25 @@ def get_obfuscators() -> list[Obfuscator]:
         # ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator - 20", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": context_reletive_around_p, "prompt_prefix": cpprefix, "percentage": 20}),
         # ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator - 40", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": context_reletive_around_p, "prompt_prefix": cpprefix, "percentage": 40}),
         # ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator - 80", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": context_reletive_around_p, "prompt_prefix": cpprefix, "percentage": 80}),
-        # # # ("FakeObfuscator", {"name": "FakeObfuscator"}),
+        # ("FakeObfuscator", {"name": "FakeObfuscator"}),
+        # ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - ollama - 80", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_prefix": cpprefix, "lower_bound_percentage": 75, "upper_bound_percentage": 85}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 95", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 90, "upper_bound_percentage": 100}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 90", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 85, "upper_bound_percentage": 95}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 80", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 75, "upper_bound_percentage": 85}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 70", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 65, "upper_bound_percentage": 75}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 60", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 55, "upper_bound_percentage": 65}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 50", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 45, "upper_bound_percentage": 55}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 40", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 35, "upper_bound_percentage": 45}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 30", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 25, "upper_bound_percentage": 35}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 20", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 15, "upper_bound_percentage": 25}),
+        ("PhaseOneObfuscator", {"name": "PhaseOneObfuscator - azure - 10", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_prefix": cpprefix, "lower_bound_percentage": 5, "upper_bound_percentage": 15}),
         # # # ("WrongObfuscator", {"name": "WrongObfuscator"}),
         # ("SmartRandom", {"name": "SmartRandom - 5", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": smart_random_p_list, "prompt_prefix": cpprefix, "percentage": 5}),
         # ("SmartRandom", {"name": "SmartRandom - 20", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": smart_random_p_list, "prompt_prefix": cpprefix, "percentage": 20}),
-        ("SmartRandom", {"name": "SmartRandom - 40", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": smart_random_p_list, "prompt_prefix": cpprefix, "percentage": 40}),
-        ("SmartRandom", {"name": "SmartRandom - 90", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": smart_random_p_list, "prompt_prefix": cpprefix, "percentage": 90}),
-        ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator - 80 azure", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive_around_p, "prompt_prefix": cpprefix, "percentage": 80}),
-        ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator - 95 azure", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive_around_p, "prompt_prefix": cpprefix, "percentage": 95})
-        # ("SmartRandom", {"name": "SmartRandom - high", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": smart_random_high_p_list, "prompt_prefix": cpprefix})
-        # ("RandomText", {"name": "RandomText", "llm_wrapper_factory": llm_wrapper_factories["azure"]}),
-        # ("FewPromptsObfuscator", {"name": "TwoPromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_list, "prompt_prefix": cpprefix}),
-        # ("ThreePromptsObfuscator", {"name": "ThreePromptObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": three_prompt_list, "prompt_prefix": cpprefix})
-        # ("DictionaryObfuscator", {"name": "DictionaryObfuscator", "path": os.path.join(os.getenv("PROJECT_PATH"),"data","September-2024", "2024-09-01", "finance_combined_dictonary.json")})
-        # ("ContextOnlyObfuscator", {"name": "ContextOnlyObfuscator", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive, "prompt_prefix": cpprefix})
-        # ("JsonObfuscator", {"name": "JsonObfuscator - 5", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_json_low_p_list, "prompt_prefix": cpprefix, "percentage": 5}),
-        # ("JsonObfuscator", {"name": "JsonObfuscator - 20", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_json_list, "prompt_prefix": cpprefix, "percentage": 20}),
-        # ("JsonObfuscator", {"name": "JsonObfuscator - 30", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_json_list, "prompt_prefix": cpprefix, "percentage": 30}),
-        # ("JsonObfuscator", {"name": "JsonObfuscator - 60", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_json_list, "prompt_prefix": cpprefix, "percentage": 60}),
-        # ("JsonObfuscator", {"name": "JsonObfuscator - 80", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_json_list, "prompt_prefix": cpprefix, "percentage": 80}),
-        # ("JsonObfuscator", {"name": "JsonObfuscator - 100", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": two_prompt_json_high_p_list, "prompt_prefix": cpprefix, "percentage": 100})
+        # ("SmartRandom", {"name": "SmartRandom - 40", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": smart_random_p_list, "prompt_prefix": cpprefix, "percentage": 40}),
+        # ("SmartRandom", {"name": "SmartRandom - 90", "llm_wrapper_factory": llm_wrapper_factories["ollama"], "prompt_list": smart_random_p_list, "prompt_prefix": cpprefix, "percentage": 90}),
+        # ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator - 80 azure", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive_around_p, "prompt_prefix": cpprefix, "percentage": 80}),
+        # ("ContextReletiveObfuscator", {"name": "ContextReletiveObfuscator - 95 azure", "llm_wrapper_factory": llm_wrapper_factories["azure"], "prompt_list": context_reletive_around_p, "prompt_prefix": cpprefix, "percentage": 95})
     ]
 
     loaded_obfuscators = []
@@ -227,7 +229,7 @@ def main():
     data = load_data()
     evaluator_factory = get_evalutor()
     results = run_test(data, obfuscators, evaluator_factory)
-    save_results(results, """movie data set ollama test""")
+    save_results(results, """testing""")
 
 
 

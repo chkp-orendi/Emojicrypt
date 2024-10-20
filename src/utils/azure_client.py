@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import os
 import sys
 from typing import Dict, List, Union, Iterable, Any
-
+import time
 
 load_dotenv()
    
@@ -35,41 +35,47 @@ class dynamic_azure_client:
                 continue
     
     def get_answer(self,text: str,model: str="gpt-4o-2024-05-13", temp: float = 0.0,top_p: float = 1.0, max_tokens: int = 1000) -> str | None:
-        for index, client in enumerate(self.client_list):
-            try:
-                answer = client.chat.completions.create(
-                model=model, messages=[{"role": "user", "content": text}], temperature=temp, top_p = top_p, max_tokens = max_tokens
-                )
-                return answer.choices[0].message.content
-            
-            except Exception as e:
-                print (f"key {index} failed: {e}")
-                continue
+        while True:
+            for index, client in enumerate(self.client_list):
+                try:
+                    answer = client.chat.completions.create(
+                    model=model, messages=[{"role": "user", "content": text}], temperature=temp, top_p = top_p, max_tokens = max_tokens
+                    )
+                    return answer.choices[0].message.content
+                
+                except Exception as e:
+                    print (f"key {index} failed: {e}")
+                    continue
+            time.sleep(10800)
         return "OVER USED ALL KEYS"
     
     def get_answer_with_histroy(self, messages: Iterable[Any], model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_p: float = 1.0, max_tokens: int = 1000) -> str | None:
-        for index, client in enumerate(self.client_list):
-            try:
-                return client.chat.completions.create(
-                model=model, messages=messages, temperature=temp, top_p = 1.0,max_tokens=max_tokens
-                ).choices[0].message.content
-            except Exception as e:
-                print (f"key {index} failed: {e}")
-                continue
+        while True:
+            for index, client in enumerate(self.client_list):
+                try:
+                    return client.chat.completions.create(
+                    model=model, messages=messages, temperature=temp, top_p = 1.0,max_tokens=max_tokens
+                    ).choices[0].message.content
+                except Exception as e:
+                    print (f"key {index} failed: {e}")
+                    continue
+            time.sleep(10800)
     
     def get_json_with_histroy(self, messages: Iterable[Any], model: str="gpt-4o-2024-05-13", temp: float = 0.0, top_p: float = 1.0, max_tokens: int = 500) -> str | None:
         messages_copy = messages.copy()
         messages_copy.insert(0,{"role": "system", "content": "You are a helpful assistant designed to output JSON."})
-        for index, client in enumerate(self.client_list):
-            try:
-                answer = client.chat.completions.create(
-                response_format={ "type": "json_object" },model=model, messages=messages, temperature=temp, top_p = 1.0, max_tokens=max_tokens
-                )
-                return answer.choices[0].message.content
-            except Exception as e:
-                print("error", e)
-                print (f"key {index} failed")
-                continue
+        while True:
+            for index, client in enumerate(self.client_list):
+                try:
+                    answer = client.chat.completions.create(
+                    response_format={ "type": "json_object" },model=model, messages=messages, temperature=temp, top_p = 1.0, max_tokens=max_tokens
+                    )
+                    return answer.choices[0].message.content
+                except Exception as e:
+                    print("error", e)
+                    print (f"key {index} failed")
+                    continue
+            time.sleep(10800)
 
         
 
@@ -93,7 +99,7 @@ azure_client_3 = AzureOpenAI(
     )
 
 
-azure_client = dynamic_azure_client([azure_client_2, azure_client_3,azure_client_1])
+azure_client = dynamic_azure_client([azure_client_3,azure_client_1, azure_client_2])
 
 def get_embedding(text: str, model: str="text-embedding-3-small") -> list[float]:
    """Args:

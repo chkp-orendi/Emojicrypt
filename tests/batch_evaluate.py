@@ -20,12 +20,15 @@ class SingleCaseEvaluator:
         obfuscated_prompt = self._obf.obfuscate(case_data)
         obfuscated_answer = get_answer(obfuscated_prompt)
         deobfuscated_answer = self._obf.deobfuscate(obfuscated_answer)
-        case_data["used_dictionary"] = self._obf.get_dictionary()
         case_data["obfuscated_answer"] = obfuscated_answer
+        case_data["used_dictionary"] = self._obf.get_dictionary()
+        case_data["used_list"] = self._obf.get_terms_list()
+        case_data["list_reasoning"] = self._obf.get_list_reasoning()
+        case_data["dict_reasoning"] = self._obf.get_dict_reasoning()
+        case_data["list and dict differences"] = self._obf.get_list_and_dictionary_difference()
 
         prompt_metric_reasoning, prompt_metric, guess_results = self._evaluator.evaluate_prompt(obfuscated_prompt, case_data)
         answer_metric_reasoning, answer_metric = self._evaluator.evaluate_answer(deobfuscated_answer, case_data)
-        obfuscated_dictonary = self._obf.get_dictionary()
         eval_time = datetime.now() - time
         eval_results = {
             "original_prompt": case_data["original_prompt"],
@@ -33,7 +36,11 @@ class SingleCaseEvaluator:
             "deobfuscated_answer": deobfuscated_answer, "original_answer": case_data["original_answer"],
             "prompt_metric": prompt_metric, "answer_metric": answer_metric,
             "prompt_metric reasoning": prompt_metric_reasoning, "answer_metric reasoning": answer_metric_reasoning,
-            "obfuscated_dictonary": obfuscated_dictonary,
+            "obfuscated_dictonary": case_data["used_dictionary"] ,
+            "used_list": case_data["used_list"],
+            "list and dict differences": case_data["list and dict differences"],
+            "list_reasoning": case_data["list_reasoning"], 
+            "dict_reasoning": case_data["dict_reasoning"],
             "evaluation time": str(eval_time)
         }
         if guess_results["number_of_emoji_in_prompt"]!=0:

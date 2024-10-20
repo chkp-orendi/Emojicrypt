@@ -1,0 +1,9 @@
+Convert a medium number, {percentage}% of the text of the following text to a list of words and return JSON list format. Ensure the list contains exactly {percentage}% of the total words from the text.
+
+1. The technical terms must appear in the text exactly as they are.
+2. If both the singular and plural forms of a term appear in the text, add both.
+3. It is crucial that the output contains precisely {percentage}% of the words from the original text, so please calculate this percentage accurately.
+
+
+Think carefully how to list only {percentage}% of the words in the text:
+{text}
